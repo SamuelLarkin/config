@@ -1,0 +1,183 @@
+[alias]
+   ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
+   ign     = ls-files --exclude-standard --ignored --others  # Show files ignorEd by git
+   lg      = log --all --color --decorate --graph --oneline  # Shows a compact colored graph of all branches with tags.
+   logf    = log --color --decorate --follow  # Make sure log follows history even if file as been renamed.
+   log-branch-hierarchy = log --all --graph --decorate --oneline --simplify-by-decoration
+   mf      = diff --name-only # Show which files were modified on the current branch.
+   mf2     = diff-tree --name-only -r  # with a branch name
+   tagdesc = tag --list -n1  # View tag's annotation.
+   unstage = reset HEAD --
+   wd      = diff --color-words # word diff
+   cp      = cherry-pick -x # Always add from which commit we cherry-picked
+
+   # grep in all version
+   #  git grep <regexp> $(git rev-list --all)
+   # grep in all version of a particular file
+   #  git grep <regexp> $(git rev-list --all -- lib/util)
+   # Search all revisions between rev1 and rev2 for text matching regular expression regexp:
+   #  git grep <regexp> $(git rev-list <rev1>..<rev2>)
+
+   # Rebase a tree $2 with all its children onto $1
+   # $1: commit-ish (branch) to rebase onto.
+   # $2: SHA1 of the first commit in the tree to be rebased.
+   # source: http://stackoverflow.com/questions/5600659/rebasing-a-branch-including-all-its-children
+   #
+   # e.g. rebase-tree master Z
+   # Before 'rebase-tree master Z':
+   # A-B-F (master)
+   #    \       D (feature-a)
+   #     \     /
+   #      Z-Y-C-G (feature)
+   #           \
+   #            E (feature-b)
+   #
+   # After 'rebase-tree master Z':
+   # A-B-F (master)
+   #      \       D (feature-a)
+   #       \     /
+   #        Z-Y-C-G (feature)
+   #             \
+   #              E (feature-b)
+   #
+   # git branch --contains Z | xargs -n 1 git rebase --committer-date-is-author-date --onto master Z^
+   #
+   # Note: --committer-date-is-author-date doesn't work with --preserve-merges,
+   # so we cannot use --preserve-merges. Thus rebase-tree works only on
+   # trees (acyclic graphs).
+   # This version of rebase-tree works even if you don't specify Z.  It works by specifying ANY commit within the subtree you want to rebase.
+   # git rev-list $2 => show all commit from $2 until the beginning of the repository.
+   # git merge-base $1 $2 => find the commit's SHA-1 from which $2 branches off $1, this would be B
+   # FIND_Z=`git rev-list $2 | grep -B1 $(git merge-base $1 $2) | head -1`; => find the first commit off the new subtree aka Z
+   # Then move all branches that have Z in them.
+   rebase-tree = "!f(){ FIND_Z=`git rev-list $2 | grep -B1 $(git merge-base $1 $2) | head -1`; echo "Moving tree starting at $FIND_Z"; git branch --contains $FIND_Z | sed -e s/^\\*// | xargs --interactive -t -n 1 git rebase --committer-date-is-author-date --onto $1 $FIND_Z^; };f"
+   rebase-tree-Orig = "!f(){ git branch --contains $2 | sed -e s/^\\*// | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $2^; };f"
+   # Darlene's version doesn't work if you specify feature-a for example, it will only rebase feature-a.
+   rebase-tree-ds = "!f(){ bp=$(git merge-base $1 $2); git branch --contains $2 | sed -e s/^\\*// | xargs -t -n 1 git rebase --committer-date-is-author-date --onto $1 $bp; };f"
+
+   # Creating the example tree in rebase-tree's documentation.
+   # echo A > file
+   # 
+   # git add file
+   # git commit -m "A" file
+   # 
+   # echo B >file
+   # git commit -m "B" file
+   # 
+   # git checkout -b feature
+   # 
+   # echo Z >file
+   # git commit -m "Z" file
+   # 
+   # echo Y >file
+   # git commit -m "Y" file
+   # 
+   # echo C >file
+   # git commit -m "C" file
+   # 
+   # git checkout -b feature-a
+   # git checkout -b feature-b
+   # 
+   # echo E >file
+   # git commit -m "E" file
+   # 
+   # git checkout feature-a
+   # 
+   # echo D >file
+   # git commit -m "D" file
+   # 
+   # git checkout feature
+   # 
+   # echo G >file
+   # git commit -m "G" file
+   # 
+   # git checkout master
+   # 
+   # echo F >file
+   # git commit -m "F" file
+
+
+
+
+   # Kinda useless
+   #graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+   #git graphviz HEAD~100..HEAD~60 | dotty /dev/stdin
+
+   # To see the changes in a branch since it was forked from another branch, or since the last merge with the origin branch.
+   forkdiff = !bash -c 'git diff $(git merge-base "$1" "$2") "$2" "${@: 3}" ' -
+   #git forkdiff <forked from branch> <forked branch> [git-diff-options]
+
+   # Undoing any change in the current branch.
+   #undo=reset --hard
+
+   # Do a fast-forward merge on the branch specified as argument, as long
+   # as it's safe: $1 is not checked out, and a fast-forward merge is possible.
+   ff   = !bash -c '\
+      if [[ `git symbolic-ref HEAD` = refs/heads/$1 ]] ";" then \
+         echo $1 is checked out, use pull or merge instead. ";" \
+      else \
+         git update-ref refs/heads/$1 origin/$1 `git merge-base origin/$1 $1` ";" \
+      fi' -
+   # Not safe - do a fast-forward merge on the branch specified as argument, even if it's not safe
+   ff-force = !sh -c 'git update-ref refs/heads/$1 origin/$1' -
+
+[apply]
+   whitespace = nowarn
+
+[branch "master"]
+   rebase = true
+
+[color]
+   branch = auto
+   diff   = auto
+   status = auto
+
+[color "diff"]
+   frag = white
+   meta = blue black bold
+
+[core]
+   abbrev = 9
+   excludesfile = /home/larkins/.gitignore_global
+   editor = vim
+   attributesfile = /home/larkins/.config/git/attributes
+
+[merge]
+   stat = true
+   diff = vimdiff
+   tool = vimdiff
+
+[log]
+   abbrevCommit = true
+   date         = short
+   decorate     = true
+
+[pretty]
+   ej = tformat:%C(red bold)%ad%Creset %C(yellow)%h %Cgreen%an%C(magenta)%d %Creset%s
+
+[push]
+   default = simple
+
+[tig]
+   commit-order   = topo         # Order commits topologically
+   line-graphics  = utf-8
+   show-rev-graph = true
+   show-rev-graph = yes        # Show revision graph?
+
+[tig "color"]
+   date = yellow black
+
+[user]
+   email = Samuel.Larkin@cnrc-nrc.gc.ca
+   name  = Samuel Larkin
+
+# NOTES
+# What is git mergetool's command: git config --global mergetool.vimdiff3.cmd 'vim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
+
+[filter "lfs"]
+   clean = git-lfs clean %f
+   smudge = git-lfs smudge %f
+   required = true
+[filter "clean_ipynb"]
+   clean = ipynb_drop_output.py
+   smudge = cat

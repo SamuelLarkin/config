@@ -1,0 +1,359 @@
+#.alias
+MATS="215 216 219 220 221 222 223 224"
+
+
+alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
+alias gpustat='gpustat --show-cmd --show-user --show-pid'
+
+#alias cvsL='cvs status | egrep "Locally Modified" | cut -f1 | sed "s/File: //" | tr "\n" " "; echo ""'
+#alias rf="readlink -f"
+#alias vimD='vim +":VCSVimDiff"'
+alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
+alias cvsL='cvs status | egrep -A3 -e "Locally Modified" -e "File had conflicts on merge" | egrep "Repository revision" | sed "s/,v$//" | cut -f 3 | sed "s+.*`basename $PWD`/++" | tr "\n" " "; echo ""'
+alias cvsR='cvs status * | grep Status | grep -v "Up-to-date" | grep -v Examining'
+alias cvsS='cvs status | cvs-status-summary.pl -new'
+alias cvslog='cvs log | cvs-log-sort.pl | less'
+alias cvslog='cvs log | cvs-log-sort.pl | less'
+alias df="df -h"
+alias disown='disown -h'
+alias du="du -h"
+alias egrep="LC_ALL=C egrep --colour"
+alias gitk='gitk --all'
+alias grep="grep --colour"
+alias htop='htop -u `whoami`'
+alias iconvuu="iconv -f utf-8 -t utf-8 --unicode-subst='[[[Ux%x]]]' --byte-subst='[[[%x]]]'"
+alias jobs='jobs -l'
+alias kwanalyze='kwcheck run -y -l -F detailed'
+alias lsclean='\ls -l --ignore=*.bz2 --ignore=*.gz --color=auto'
+alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff -y \1 \2 | less /"'
+alias qstatl='qstattree larkins | less'
+alias qstatw='qstatdir | egrep home | sort | uniq -c'  # By listing where my jobs are running, it's easier to figure out what projects I'm working on.
+alias rsync="rsync --progress"
+alias ssh="ssh -A -X"
+alias sshFix="source ~/.ssh/fixSSH"
+alias time="/usr/bin/time"
+alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
+alias viewdiff='vimdiff -R'
+alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
+alias vimpar='vim -O +":windo :set scrollbind nowrap"'
+alias wc="wc -l"
+alias xargs="xargs --no-run-if-empty"
+alias zcat='zcat -f'
+alias tiga='tig --all'
+alias parallel='parallel --progress  --eta'
+alias curljson="curl -H 'Content-type: application/json'"
+alias xquery1="~/mybin/xidel --output-format=xml --xquery"
+alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
+alias xquery='java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query'
+alias ls='ls --color'
+
+#alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
+
+export TIME="\ncmd: %C\nreal: %e\nuser: %U\nsys: %S\n"
+
+xquery2() {
+   # xquery2 query file
+   #java -cp ~/lib/saxon9/saxon9.jar net.sf.saxon.Query -qs:"$1" -s:"$2";
+   java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query -qs:"<results>{$1}</results>" -s:"$2";
+   echo
+}
+
+zhead() {
+   if [[ "$1" =~ "^-n" ]]; then
+      shift
+      hopt="-n $1"
+      shift
+   elif [[ "$1" =~ "^-" ]]; then
+      hopt=$1
+      shift
+   fi
+   for f in $@; do
+      echo $f >&2
+      zcat -f $f | head $hopt
+   done
+   unset hopt
+}
+
+ztail() {
+   if [[ "$1" =~ "^-n" ]]; then
+      shift
+      topt="-n $1"
+      shift
+   elif [[ "$1" =~ "^-" ]]; then
+      topt=$1
+      shift
+   fi
+   for f in $@; do
+      echo $f >&2
+      zcat -f $f | tail $topt
+   done
+   unset topt
+}
+
+bhead() {
+   if [[ "$1" =~ "^-n" ]]; then
+      shift
+      hopt="-n $1"
+      shift
+   elif [[ "$1" =~ "^-" ]]; then
+      hopt=$1
+      shift
+   fi
+   for f in $@; do
+      echo $f >&2
+      bzcat -f $f | head $hopt
+   done
+   unset hopt
+}
+
+btail() {
+   if [[ "$1" =~ "^-n" ]]; then
+      shift
+      topt="-n $1"
+      shift
+   elif [[ "$1" =~ "^-" ]]; then
+      topt=$1
+      shift
+   fi
+   for f in $@; do
+      echo $f >&2
+      bzcat -f $f | tail $topt
+   done
+   unset topt
+}
+
+rf() {
+   for f in $@;
+   do
+      readlink -f $f
+   done
+}
+
+#alias workbench="psub -N I.workbench.bk -4 -nodes blz5 -noscript -e /dev/null -o /dev/null 'sleep $(( 10 * 365 * 24 * 60 * 60 ))'"
+workbench() {
+   if [[ -n "$@" ]]; then 
+      jobs | grep -q . && echo "You may have some background process running" >&2
+      #\ssh -A -X -t blz$@ "cd $PWD; bash -l"
+      \ssh -X -t blz$@ "cd $PWD; bash -l"
+   else 
+      echo "Creating a workbench" >&2
+      psub -N I.workbench.bk -4 -nodes blz46 -noscript -e /dev/null -o /dev/null 'sleep $(( 10 * 365 * 24 * 60 * 60 ))'
+   fi
+}
+
+setup_fix_SSH_agent()
+{
+   #export | egrep -e "SSH_AUTH_SOCK" -e "SSH_CLIENT" -e "SSH_CONNECTION" > ~/.ssh/fixSSH
+   export | egrep -e "SSH_AUTH_SOCK" -e "DISPLAY" > ~/.ssh/fixSSH
+   #echo "type sshFix to fix the ssh-agent"
+}
+
+archive()
+{
+   tar zcvf $1.tgz $1 && rm -rf $1
+}
+
+fixAgent()
+{
+   echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK" >&2
+   export SSH_AUTH_SOCK=`find /tmp -name 'agent*' -user larkins 2> /dev/null | shuf | tail -1`
+}
+
+get_character_set() {
+   zcat -f $1 | grep --color=never -o . | get_voc -s
+}
+
+
+########################################
+# CVS
+cvsD() {
+   cvs diff -DNow -bB $@ | grep -v "^\?" | view -
+}
+
+cvsPSF () {
+   [[ -n "$1" ]] && cvs co -d $1 portage.simple.framework.2
+}
+
+
+########################################
+# MAKE
+alias make='MAKE'
+alias make0="clear && \make -j 5 CF+=\'-g -DNO_EDUMP -ggdb -O0\'"
+#alias make="clear && make -j 5 CF+=-ggdb"
+#alias makeProfiler="clear && make -j 5 CF+=-ggdb EXTRA_LIBS=-lprofiler MODULE_LF=-L$GOOGLE_PROFILER/lib"
+alias makeProfiler="clear && make -j 5 CF+=-ggdb EXTRA_LIBS=-lprofiler"
+alias pmake="psub -4 make -j 10 CF+=-g"
+# Not complete but show how we could use graphviz to visualize make's dependencies.
+alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+-]/_/g; s/([^ ]+):([^\|]*)(\|.*)?/{ \$2 } -> \$1;/' | egrep -v '%|{ *}'"
+
+function makevalidate()
+{
+   make "$@" -n SHELL=bash | less
+}
+
+alias makefast0='makefast CF+=-O0'
+function makefast() {
+   clear; ssh ${COMPILE_NODE_SSH:-blz108} ". /home/portage/SETUP.bash; . ~/.alias; export MAKE_CF_PARAMS=\"$MAKE_CF_PARAMS\"; make -C `pwd` $@"
+}
+
+# Evan's makeg function, with some tweaks.
+MAKEG_CPUS=$((`grep processor /proc/cpuinfo | wc -l` + 2))
+function MAKE() {
+   set -o pipefail
+   echo cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@
+   clear;
+   cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@ \
+   | tee >(perl -ne 'push @errors, $_ if /\*\*\*/; END{ print("Error summary:\n", @errors, "\x1b[00m") if (@errors) }')
+   local RC=$?
+   usleep 10000
+   return $RC
+}
+
+
+########################################
+# DIFF
+diffdir()
+{
+   diff -wPqr --exclude=\*.gz --exclude=\*.deps\* --exclude=\*.o $1 $2 | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
+}
+
+diffdircode() {
+   __DIFF='vimdiff'
+   if [[ $1 =~ "-(.*)" ]]; then
+      __DIFF="${BASH_REMATCH[1]}"
+      shift
+   fi
+   if [ -f ".diff.exclude" ]; then
+      __EXCLUDES="--exclude-from=.diff.exclude" 
+   fi
+   diff \
+      -qr \
+      $__EXCLUDES \
+      --ignore-blank-lines \
+      --ignore-matching-lines='$Id:' \
+      --ignore-matching-lines='printCopyright' \
+      --ignore-matching-lines='ogging' \
+      --ignore-matching-lines='LOG_' \
+      --ignore-matching-lines='NRC-CNRC' \
+      --ignore-matching-lines='Institute' \
+      --exclude=\*.{gz,depend,a,so,o} \
+      --exclude=\*CVS\* \
+      --exclude=\*.deps\* \
+      --exclude=\*tags \
+      --exclude=\*.cvsignore \
+      --exclude=.#\* \
+      $1 $2 \
+   | sed "s/Files \(.*\) and \(.*\) differ/$__DIFF \1 \2/" \
+   | sed "s/^\(Only in\)/\t\1/" \
+   | perl -nle '
+        if ( /^\tOnly in (\S+): (\S+)$/ ) {
+           $file = "$1/$2";
+        } elsif ( /(\S+)$/ ) {
+           $file = $1;
+        } else {
+           $file = "/dev/null";
+        }
+        if (`file -- $file` =~ /\bELF\b/) {
+           0&&print "ELF: $file";
+        } else {
+           0&&print "NOT ELF: $file";
+           print;
+        }'
+   unset __EXCLUDES
+   unset __VERBOSE
+}
+
+
+########################################
+# VIM
+viewdifftop() {
+   VIMDIFFTOP_SIZE=10000
+   expr $1 + 0 &> /dev/null && { VIMDIFFTOP_SIZE=$1; shift; }
+
+   VIMDIFFTOP_FIRST=$1
+   [[ $# -gt 0 ]] && VIMDIFFTOP_CMD="vimdiff -R"
+   for f in $@; do
+      [[ -d "$f" ]] && f="$f/`basename $VIMDIFFTOP_FIRST`"
+      VIMDIFFTOP_CMD="$VIMDIFFTOP_CMD <(zcat -f $f | head -$VIMDIFFTOP_SIZE)"
+   done
+   [[ -n "$VIMDIFFTOP_CMD" ]] && eval $VIMDIFFTOP_CMD
+   unset VIMDIFFTOP_SIZE
+   unset VIMDIFFTOP_FIRST
+   unset VIMDIFFTOP_CMD
+}
+
+viewdifftail() {
+   VIMDIFFTOP_SIZE=10000
+   expr $1 + 0 &> /dev/null && { VIMDIFFTOP_SIZE=$1; shift; }
+
+   VIMDIFFTOP_FIRST=$1
+   [[ $# -gt 0 ]] && VIMDIFFTOP_CMD="vimdiff -R"
+   for f in $@; do
+      [[ -d "$f" ]] && f="$f/`basename $VIMDIFFTOP_FIRST`"
+      VIMDIFFTOP_CMD="$VIMDIFFTOP_CMD <(zcat -f $f | tail -n $VIMDIFFTOP_SIZE)"
+   done
+   [[ -n "$VIMDIFFTOP_CMD" ]] && eval $VIMDIFFTOP_CMD
+   unset VIMDIFFTOP_SIZE
+   unset VIMDIFFTOP_FIRST
+   unset VIMDIFFTOP_CMD
+}
+
+vimpartop() {
+   VIMPARTOP_SIZE=10000
+   expr $1 + 0 &> /dev/null && { VIMPARTOP_SIZE=$1; shift; }
+
+   VIMPARTOP_FIRST=$1
+   [[ $# -gt 0 ]] && VIMPARTOP_CMD="vimpar"
+   for f in $@; do
+      [[ -d "$f" ]] && f="$f/`basename $VIMPARTOP_FIRST`"
+      VIMPARTOP_CMD="$VIMPARTOP_CMD <(zcat -f $f | head -$VIMPARTOP_SIZE)"
+   done
+   [[ -n "$VIMPARTOP_CMD" ]] && eval $VIMPARTOP_CMD
+   unset VIMPARTOP_SIZE
+   unset VIMPARTOP_FIRST
+   unset VIMPARTOP_CMD
+}
+
+# for .gc.ca compare french vs english and align the documents.
+alias vimdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
+
+# for .gc.ca compare to alignments.
+vimdiffal() {
+   AL_DIFF=${AL_DIFF:-"al-diff.py -v -m '<PORTAGE_DOCUMENT_END>'"} AL1=$3 AL2=$4 vimdiff -R +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
+}
+
+
+vimdiffpa2() {
+   vimdiff -R +"set diffexpr=DiffPa2()" +"set diffopt=filler,context:1" $@
+}
+
+
+vimD() {
+   vim +":VCSVimDiff $2" $1
+}
+
+viewWD() {
+   \wdiff $@ | view - +':syntax enable | :source /home/larkins/share/vim/vim72/syntax/wdiff.vim'
+}
+
+
+########################################
+# XML
+xmlview() {
+   tidy -xml -utf8 -wrap 140 < $1 | view -geom 140x40 -
+}
+
+xmldiff() {
+   for f in $@;
+   do
+      __xmldiff="$__xmldiff <(tidy -xml -utf8 < $f)"
+   done
+   eval "vimdiff -R $__xmldiff"
+   unset __xmldiff
+}
+
+
+
+wc_stats() {
+   ~/bin/wc_stats $@ | tac | expand-auto.pl -skip 3 |tac
+}
