@@ -1,3 +1,10 @@
+# gdb GUIs
+# http://ftp.gnu.org/gnu/gdb/
+# https://github.com/cs01/gdbgui
+# http://beej.us/guide/bggdb/#qref
+# https://reverseengineering.stackexchange.com/questions/1392/decent-gui-for-gdb
+# https://github.com/cyrus-and/gdb-dashboard
+
 # STL Support Tools
 # https://sourceware.org/gdb/wiki/STLSupport
 
