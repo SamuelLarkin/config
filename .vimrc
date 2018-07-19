@@ -332,6 +332,15 @@ endfunction
    " https://github.com/flazz/vim-colorschemes
    Plugin 'flazz/vim-colorschemes'
 
+   " This converts a file containing conflict markers into a two-way diff.
+   " https://github.com/whiteinge/diffconflicts
+   " git config --global merge.tool diffconflicts
+   " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
+   " git config --global mergetool.diffconflicts.trustExitCode true
+   " git config --global mergetool.keepBackup false
+   "
+   Bundle 'whiteinge/diffconflicts'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
