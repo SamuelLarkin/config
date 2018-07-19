@@ -1,5 +1,14 @@
+" commands {
+" dit: delete inner tag for html
+" d/<pattern>: delete from the cursor until the searched pattern
+" }
+
+
 " {
    "set formatoptions=tcoql
+   "t: Auto-wrap text using textwidth
+   "q: Allow formatting of comments with `gq`
+   "l: Long lines are not broken in insert mode
    set formatoptions=tql
 " }
 
