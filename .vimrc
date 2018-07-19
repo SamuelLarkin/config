@@ -19,6 +19,7 @@
 
 
 " Vim UI {
+   set relativenumber   " Helps to quickly calculate line jumps
    set ruler
    set incsearch
    set hlsearch
