@@ -1,9 +1,18 @@
 ln -s config/.alias ..
+ln -s config/.bashrc.custom .bashrc.$USER
 ln -s config/.gdbinit ..
 ln -s config/.gitconfig ..
 ln -s config/.gitignore_global ..
 ln -s config/.screenrc ..
 ln -s config/.toprc ..
 ln -s config/.vimrc ..
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.v    im
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +:PluginInstall
+
+cat >> ~/.bashrc <<EOL
+
+
+# User specific aliases and functions
+[[ -e ~/.alias ]] && . ~/.alias || true
+[[ -e ~/.bashrc.$USER ]] && . ~/.bashrc.$USER || true
+EOL
