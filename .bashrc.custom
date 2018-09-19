@@ -50,3 +50,6 @@ umask 002
 
 # javac **/*.java
 shopt -s globstar
+
+
+[[ $- == *i* ]] && bind '"\C-g": forward-search-history'
