@@ -112,12 +112,12 @@
 
    # Do a fast-forward merge on the branch specified as argument, as long
    # as it's safe: $1 is not checked out, and a fast-forward merge is possible.
-   ff   = !bash -c '\
-      if [[ `git symbolic-ref HEAD` = refs/heads/$1 ]] ";" then \
-         echo $1 is checked out, use pull or merge instead. ";" \
-      else \
-         git update-ref refs/heads/$1 origin/$1 `git merge-base origin/$1 $1` ";" \
-      fi' -
+   #ff   = !bash -c '\
+   #   if [[ `git symbolic-ref HEAD` = refs/heads/$1 ]] ";" then \
+   #      echo $1 is checked out, use pull or merge instead. ";" \
+   #   else \
+   #      git update-ref refs/heads/$1 origin/$1 `git merge-base origin/$1 $1` ";" \
+   #   fi' -
    # Not safe - do a fast-forward merge on the branch specified as argument, even if it's not safe
    ff-force = !sh -c 'git update-ref refs/heads/$1 origin/$1' -
 
