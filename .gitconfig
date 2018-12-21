@@ -138,9 +138,9 @@
 
 [core]
    abbrev = 9
-   excludesfile = $HOME/.gitignore_global
+   excludesfile = /home/larkins/.gitignore_global
    editor = vim
-   attributesfile = $HOME/config/config/git/attributes
+   attributesfile = /home/larkins/config/config/git/attributes
 
 [merge]
    stat = true
