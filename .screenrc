@@ -12,7 +12,7 @@ markkeys "^S=/:^R=?"
 
 screen -t 'htop'
 number 9
-stuff 'TERM=xterm-color htop --user=larkins'
+stuff 'TERM=xterm-color htop --user=`whoami`'
 
 screen
 
@@ -37,6 +37,7 @@ terminfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 autodetach on
 
 term screen-256color
+#term xterm-256color
 attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 defbce "on"

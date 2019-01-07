@@ -1,0 +1,13 @@
+[global]
+cxx=/usr/bin/g++
+device=cuda
+floatX=float32
+mode=FAST_RUN
+print_active_device=True
+
+[gpuarray]
+preallocate=0.95
+
+[dnn]
+enabled=True
+

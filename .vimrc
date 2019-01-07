@@ -79,6 +79,98 @@
    set statusline+=\ %P " Percentage through file of displayed window.  This is like the percentage described for 'ruler'.  Always 3 in length.
    set statusline+=%{&paste?'=':'\ '}
    set statusline+=%{&wrap?'<':'>'}
+
+"	" Colors {
+"		:highlight Comment ctermfg=6 ctermbg=black
+"		set t_Co=256
+"		"colorscheme asu1dark
+"                " Custom color on gpsc {
+"                	set background=dark
+"                	hi clear
+"                	if exists("syntax_on")
+"                	  syntax reset
+"                	endif
+"                	let g:colors_name = "YOUR COLOR NAME"
+"                
+"                	hi Comment guifg=green
+"                	hi Constant gui=bold guifg=cyan
+"                	hi Cursor guifg=green guibg=#60a060
+"                	hi CursorColumn guibg=gray40
+"                	hi CursorIM gui=None
+"                	hi CursorLine guibg=gray40
+"                	hi DiffAdd guibg=slateblue
+"                	hi DiffChange guibg=darkgreen
+"                	hi DiffDelete gui=bold guifg=blue guibg=coral
+"                	hi DiffText gui=bold guibg=olivedrab
+"                	hi Directory guifg=cyan
+"                	hi Error guifg=white guibg=red
+"                	hi ErrorMsg guifg=black guibg=red
+"                	hi FoldColumn guifg=white guibg=gray30
+"                	hi Folded guifg=cyan guibg=gray30
+"                	hi Identifier guifg=cyan
+"                	hi Ignore guifg=black
+"                	hi IncSearch guibg=steelblue
+"                	hi Label guifg=gold2
+"                	hi LineNr guifg=darkgray
+"                	hi MatchParen guibg=darkcyan
+"                	hi ModeMsg gui=bold
+"                	hi MoreMsg gui=bold guifg=seagreen
+"                	hi NonText gui=bold guifg=brown
+"                	hi Normal guifg=cyan guibg=black
+"                	hi Operator guifg=orange
+"                	hi Pmenu guibg=magenta
+"                	hi PmenuSbar guibg=grey
+"                	hi PmenuSel guibg=darkgray
+"                	hi PmenuThumb gui=reverse
+"                	hi PreProc guifg=pink2
+"                	hi Question gui=bold guifg=green
+"                	hi Search guifg=black guibg=lightslateblue
+"                	hi SignColumn guifg=cyan guibg=grey
+"                	hi Special guifg=yellow
+"                	hi SpecialKey guifg=cyan
+"                	hi SpellBad gui=undercurl
+"                	hi SpellCap gui=undercurl
+"                	hi SpellLocal gui=undercurl
+"                	hi SpellRare gui=undercurl
+"                	hi Statement guifg=lightblue
+"                	hi StatusLine gui=bold guifg=cyan guibg=blue
+"                	hi StatusLineNC guifg=lightblue guibg=darkblue
+"                	hi TabLine gui=underline guibg=darkgray
+"                	hi TabLineFill gui=reverse
+"                	hi TabLineSel gui=bold
+"                	hi Title gui=bold guifg=darkgray
+"                	hi Todo guifg=black guibg=orange
+"                	hi Type gui=bold guifg=seagreen
+"                	hi Underlined gui=underline guifg=#80a0ff
+"                	hi VertSplit gui=reverse
+"                	hi Visual gui=reverse
+"                	hi VisualNOS gui=bold,underline
+"                	hi WarningMsg guifg=black guibg=green
+"                	hi WildMenu guifg=black guibg=yellow
+"                	hi link Boolean Constant
+"                	hi link Character Constant
+"                	hi link Conditional Statement
+"                	hi link Debug Special
+"                	hi link Define PreProc
+"                	hi link Delimiter Special
+"                	hi link Exception Statement
+"                	hi link Float Constant
+"                	hi link Function Identifier
+"                	hi link Include PreProc
+"                	hi link Keyword Statement
+"                	hi link Macro PreProc
+"                	hi link Number Constant
+"                	hi link PreCondit PreProc
+"                	hi link Repeat Statement
+"                	hi link SpecialChar Special
+"                	hi link SpecialComment Special
+"                	hi link StorageClass Type
+"                	hi link String Constant
+"                	hi link Structure Type
+"                	hi link Tag Special
+"                	hi link Typedef Type
+"                " }
+"	" }
 " }
 
 
@@ -308,6 +400,7 @@ endfunction
 
    " plugin on GitHub repo
    Plugin 'tpope/vim-fugitive'
+
    " plugin from http://vim-scripts.org/vim/scripts.html
    Plugin 'L9'
 

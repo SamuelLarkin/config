@@ -1,3 +1,7 @@
+# How to create a backup
+# git init --bare ws:~/git_backups/cst.git
+# git remote add --mirror=push backup ws:~/git_backups/cst.git
+# git push bakcup
 [alias]
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignorEd by git
@@ -138,9 +142,10 @@
 
 [core]
    abbrev = 9
-   excludesfile = /home/larkins/.gitignore_global
+   attributesfile = ~/config/config/git/attributes
+   autocrlf     = input
    editor = vim
-   attributesfile = /home/larkins/config/config/git/attributes
+   excludesfile = ~/.gitignore_global
 
 [merge]
    stat = true
@@ -181,10 +186,9 @@
 # What is git mergetool's command: git config --global mergetool.vimdiff3.cmd 'vim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
 
 [filter "lfs"]
-   clean = git-lfs clean %f
-   smudge = git-lfs smudge %f
+   clean    = git-lfs clean %f
+   smudge   = git-lfs smudge %f
    required = true
 [filter "clean_ipynb"]
-   #clean = ipynb_drop_output.py
-   clean = $HOME/config/bin/ipynb_drop_output.py
+   clean = ~/config/bin/ipynb_drop_output.py
    smudge = cat
