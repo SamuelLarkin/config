@@ -91,7 +91,7 @@
 "                	  syntax reset
 "                	endif
 "                	let g:colors_name = "YOUR COLOR NAME"
-"                
+"
 "                	hi Comment guifg=green
 "                	hi Constant gui=bold guifg=cyan
 "                	hi Cursor guifg=green guibg=#60a060
@@ -450,6 +450,23 @@ endfunction
    " https://github.com/tpope/vim-surround
    "Bundle 'tpope/vim-surround'
 
+   """""""""""""""""""""""""""""""""""
+   " FANCY VIM PLUGINS
+   " https://danyspin97.org/blog/fancy-vim-plugins/
+
+   " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
+   " fast, powerful configuration.
+   " https://github.com/luochen1990/rainbow
+   Plugin 'luochen1990/rainbow'
+
+   " illuminate.vim - Vim plugin for selectively illuminating other uses of
+   " the current word under the cursor
+   " https://github.com/RRethy/vim-illuminate
+   Plugin 'RRethy/vim-illuminate'
+
+   " it pulses every time you scroll the search results by pressing n/N.
+   Plugin 'inside/vim-search-pulse'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
@@ -475,6 +492,14 @@ endfunction
       "colorscheme asu1dark
       colorscheme desertink
    " }
+" }
+
+
+" Vundle
+" {
+   let g:rainbow_active = 1
+   let g:Illuminate_delay = 250
+   let g:vim_search_pulse_duration = 200
 " }
 
 
