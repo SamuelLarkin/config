@@ -1,3 +1,5 @@
+#export THEANO_FLAGS="mode=FAST_RUN,device=cuda,floatX=float32,cxx=/usr/bin/g++,dnn.enabled=auto";
+
 [global]
 cxx=/usr/bin/g++
 device=cuda
@@ -10,4 +12,3 @@ preallocate=0.95
 
 [dnn]
 enabled=True
-
