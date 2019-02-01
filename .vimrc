@@ -467,6 +467,11 @@ endfunction
    " it pulses every time you scroll the search results by pressing n/N.
    Plugin 'inside/vim-search-pulse'
 
+   " Semantic Highlighting for Python in Neovim
+   " https://github.com/numirias/semshi
+   "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+   "Plugin 'numirias/semshi'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
