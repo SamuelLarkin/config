@@ -27,4 +27,4 @@ log.*
 .logs/
 
 # On the cluster, let's ignore job related files.
-*.[joe][0-9]*
+*.[joecg][0-9]*
