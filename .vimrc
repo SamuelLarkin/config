@@ -534,3 +534,6 @@ endfunction
 "    \ set fileformat=unix
 ""}
 
+" {
+   abbr _pudb_ from pudb import set_trace; set_trace()
+" }
