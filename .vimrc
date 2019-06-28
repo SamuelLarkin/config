@@ -467,6 +467,10 @@ endfunction
    " it pulses every time you scroll the search results by pressing n/N.
    Plugin 'inside/vim-search-pulse'
 
+   " The missing motion for Vim.
+   " https://github.com/justinmk/vim-sneak
+   Plugin 'justinmk/vim-sneak'
+
    " Semantic Highlighting for Python in Neovim
    " https://github.com/numirias/semshi
    "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -497,6 +501,14 @@ endfunction
       "colorscheme asu1dark
       colorscheme desertink
    " }
+" }
+
+
+" Sneak
+" {
+   let g:sneak#label = 1
+   nmap f <Plug>Sneak_s
+   nmap F <Plug>Sneak_S
 " }
 
 
