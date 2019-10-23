@@ -408,6 +408,8 @@ endfunction
    " plugin from http://vim-scripts.org/vim/scripts.html
    Plugin 'L9'
 
+   " A parser for a condensed HTML format
+   " https://github.com/rstacruz/sparkup
    " The sparkup vim script is in a subdirectory of this repo called vim.
    " Pass the path to set the runtimepath properly.
    Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -417,6 +419,7 @@ endfunction
    " https://github.com/majutsushi/tagbar
    Bundle 'majutsushi/tagbar'
 
+   " Vim script for text filtering and alignment
    " https://github.com/godlygeek/tabular
    Bundle 'godlygeek/tabular'
 
