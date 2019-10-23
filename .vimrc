@@ -1,3 +1,7 @@
+" NOTE
+" # Enable wdiff syntax highlighting.
+" set syntax=wdiff
+
 " commands {
 " dit: delete inner tag for html
 " d/<pattern>: delete from the cursor until the searched pattern
