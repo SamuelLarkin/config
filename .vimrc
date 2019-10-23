@@ -483,6 +483,10 @@ endfunction
    "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
    "Plugin 'numirias/semshi'
 
+   " Vim configuration for Rust
+   " https://github.com/rust-lang/rust.vim
+   Plugin 'rust-lang/rust.vim'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
