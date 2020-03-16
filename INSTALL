@@ -1,17 +1,17 @@
-ln -s config/.alias ..
-ln -s config/.bashrc.custom .bashrc.$USER
-ln -s config/.gdbinit ..
-ln -s config/.gitconfig ..
-ln -s config/.gitignore_global ..
-ln -s config/.screenrc ..
-ln -s config/.toprc ..
-ln -s config/.vimrc ..
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -s config/.alias $HOME
+ln -s config/.bashrc.custom $HOME/.bashrc.$USER
+ln -s config/.gdbinit $HOME
+ln -s config/.gitconfig $HOME
+ln -s config/.gitignore_global $HOME
+ln -s config/.screenrc $HOME
+ln -s config/.toprc $HOME
+ln -s config/.vimrc $HOME
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 vim +:PluginInstall
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
-cat >> ~/.bashrc <<EOL
+cat >> $HOME/.bashrc <<EOL
 
 
 # User specific aliases and functions
