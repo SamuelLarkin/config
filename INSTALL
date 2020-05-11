@@ -1,11 +1,13 @@
-ln -s config/.alias $HOME
-ln -s config/.bashrc.custom $HOME/.bashrc.$USER
-ln -s config/.gdbinit $HOME
-ln -s config/.gitconfig $HOME
-ln -s config/.gitignore_global $HOME
-ln -s config/.screenrc $HOME
-ln -s config/.toprc $HOME
-ln -s config/.vimrc $HOME
+ln -fs config/.alias $HOME
+ln -fs config/.bashrc.custom $HOME/.bashrc.$USER
+ln -fs config/.gdbinit $HOME
+ln -fs config/.gitconfig $HOME
+ln -fs config/.gitignore_global $HOME
+ln -fs config/.screenrc $HOME
+ln -fs config/.tmux.conf $HOME
+ln -fs config/.toprc $HOME
+ln -fs config/.vimrc $HOME
+
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 vim +:PluginInstall
 
