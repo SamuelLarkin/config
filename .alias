@@ -2,6 +2,14 @@
 MATS="215 216 219 220 221 222 223 224"
 
 
+# Trixie
+#alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
+alias squeue='squeue --format="%.8i %70j %.8u %.2t %.10M %.6D %16R   %V %k"'
+alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,FAIL'
+#scontrol update jobid=540913 dependency=after:540912
+#scontrol show job 2642   Find out where a job will run
+
+
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 
