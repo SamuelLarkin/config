@@ -59,86 +59,95 @@ alias ls='ls --color'
 
 export TIME="\ncmd: %C\nreal: %e\nuser: %U\nsys: %S\n"
 
-xquery2() {
+
+
+function xquery2 {
    # xquery2 query file
    #java -cp ~/lib/saxon9/saxon9.jar net.sf.saxon.Query -qs:"$1" -s:"$2";
    java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query -qs:"<results>{$1}</results>" -s:"$2";
    echo
 }
 
-zhead() {
-   if [[ "$1" =~ "^-n" ]]; then
+
+
+function zhead {
+   if [[ $1 =~ ^-n ]]; then
       shift
-      hopt="-n $1"
+      local -r hopt="-n $1"
       shift
-   elif [[ "$1" =~ "^-" ]]; then
-      hopt=$1
+   elif [[ $1 =~ ^- ]]; then
+      local -r hopt=$1
       shift
    fi
    for f in $@; do
       echo $f >&2
-      zcat -f $f | head $hopt
+      zcat --force $f | head $hopt
    done
-   unset hopt
 }
 
-ztail() {
-   if [[ "$1" =~ "^-n" ]]; then
+
+
+function ztail {
+   if [[ $1 =~ ^-n ]]; then
       shift
-      topt="-n $1"
+      local -r topt="-n $1"
       shift
-   elif [[ "$1" =~ "^-" ]]; then
-      topt=$1
+   elif [[ $1 =~ ^- ]]; then
+      local -r topt=$1
       shift
    fi
    for f in $@; do
       echo $f >&2
-      zcat -f $f | tail $topt
+      zcat --force $f | tail $topt
    done
-   unset topt
 }
 
-bhead() {
-   if [[ "$1" =~ "^-n" ]]; then
+
+
+function bhead {
+   if [[ $1 =~ ^-n ]]; then
       shift
-      hopt="-n $1"
+      local -r hopt="-n $1"
       shift
-   elif [[ "$1" =~ "^-" ]]; then
-      hopt=$1
+   elif [[ $1 =~ ^- ]]; then
+      local -r hopt=$1
       shift
    fi
    for f in $@; do
       echo $f >&2
-      bzcat -f $f | head $hopt
+      bzcat --force $f | head $hopt
    done
-   unset hopt
 }
 
-btail() {
+
+
+function btail {
    if [[ "$1" =~ "^-n" ]]; then
       shift
-      topt="-n $1"
+      local -r topt="-n $1"
       shift
    elif [[ "$1" =~ "^-" ]]; then
-      topt=$1
+      local -r topt=$1
       shift
    fi
    for f in $@; do
       echo $f >&2
-      bzcat -f $f | tail $topt
+      bzcat --force $f | tail $topt
    done
-   unset topt
 }
 
-rf() {
-   for f in $@;
-   do
+
+
+function rf {
+   for f in $@; do
       readlink -f $f
    done
 }
 
+
+
 #alias workbench="psub -N I.workbench.bk -4 -nodes blz5 -noscript -e /dev/null -o /dev/null 'sleep $(( 10 * 365 * 24 * 60 * 60 ))'"
-workbench() {
+function workbench {
    if [[ -n "$@" ]]; then 
       jobs | grep -q . && echo "You may have some background process running" >&2
       #\ssh -A -X -t blz$@ "cd $PWD; bash -l"
@@ -149,38 +158,46 @@ workbench() {
    fi
 }
 
-setup_fix_SSH_agent()
-{
+
+
+function setup_fix_SSH_agent {
    #export | egrep -e "SSH_AUTH_SOCK" -e "SSH_CLIENT" -e "SSH_CONNECTION" > ~/.ssh/fixSSH
    export | egrep -e "SSH_AUTH_SOCK" -e "DISPLAY" > ~/.ssh/fixSSH
    #echo "type sshFix to fix the ssh-agent"
 }
 
-archive()
-{
+
+
+function archive {
    tar zcvf $1.tgz $1 && rm -rf $1
 }
 
-fixAgent()
-{
+
+
+function fixAgent {
    echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK" >&2
    export SSH_AUTH_SOCK=`find /tmp -name 'agent*' -user larkins 2> /dev/null | shuf | tail -1`
 }
 
-get_character_set() {
+
+
+function get_character_set {
    zcat -f $1 | grep --color=never -o . | get_voc -s
 }
 
 
+
 ########################################
 # CVS
-cvsD() {
-   cvs diff -DNow -bB $@ | grep -v "^\?" | view -
-}
+#function cvsD {
+#   cvs diff -DNow -bB $@ | grep -v "^\?" | view -
+#}
 
-cvsPSF () {
-   [[ -n "$1" ]] && cvs co -d $1 portage.simple.framework.2
-}
+
+
+#function cvsPSF {
+#   [[ -n "$1" ]] && cvs co -d $1 portage.simple.framework.2
+#}
 
 
 ########################################
@@ -194,49 +211,56 @@ alias pmake="psub -4 make -j 10 CF+=-g"
 # Not complete but show how we could use graphviz to visualize make's dependencies.
 alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+-]/_/g; s/([^ ]+):([^\|]*)(\|.*)?/{ \$2 } -> \$1;/' | egrep -v '%|{ *}'"
 
-function makevalidate()
-{
-   make "$@" -n SHELL=bash | less
-}
 
-alias makefast0='makefast CF+=-O0'
-function makefast() {
-   clear; ssh ${COMPILE_NODE_SSH:-blz108} ". /home/portage/SETUP.bash; . ~/.alias; export MAKE_CF_PARAMS=\"$MAKE_CF_PARAMS\"; make -C `pwd` $@"
-}
+
+#function makevalidate {
+#   make "$@" -n SHELL=bash | less
+#}
+
+
+
+#alias makefast0='makefast CF+=-O0'
+#function makefast {
+#   clear; ssh ${COMPILE_NODE_SSH:-blz108} ". /home/portage/SETUP.bash; . ~/.alias; export MAKE_CF_PARAMS=\"$MAKE_CF_PARAMS\"; make -C `pwd` $@"
+#}
+
+
 
 # Evan's makeg function, with some tweaks.
 MAKEG_CPUS=$((`grep processor /proc/cpuinfo | wc -l` + 2))
-function MAKE() {
+function MAKE {
    set -o pipefail
    echo cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@
    clear;
    cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@ \
    | tee >(perl -ne 'push @errors, $_ if /\*\*\*/; END{ print("Error summary:\n", @errors, "\x1b[00m") if (@errors) }')
-   local RC=$?
+   local rc=$?
    usleep 10000
-   return $RC
+   return $rc
 }
+
 
 
 ########################################
 # DIFF
-diffdir()
-{
+function diffdir {
    diff -wPqr --exclude=\*.gz --exclude=\*.deps\* --exclude=\*.o $1 $2 | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
 }
 
-diffdircode() {
-   __DIFF='vimdiff'
+
+
+function diffdircode {
+   local __diff='vimdiff'
    if [[ $1 =~ "-(.*)" ]]; then
-      __DIFF="${BASH_REMATCH[1]}"
+      local __diff="${BASH_REMATCH[1]}"
       shift
    fi
    if [ -f ".diff.exclude" ]; then
-      __EXCLUDES="--exclude-from=.diff.exclude" 
+      local __excludes="--exclude-from=.diff.exclude" 
    fi
    diff \
       -qr \
-      $__EXCLUDES \
+      $__excludes \
       --ignore-blank-lines \
       --ignore-matching-lines='$Id:' \
       --ignore-matching-lines='printCopyright' \
@@ -251,7 +275,7 @@ diffdircode() {
       --exclude=\*.cvsignore \
       --exclude=.#\* \
       $1 $2 \
-   | sed "s/Files \(.*\) and \(.*\) differ/$__DIFF \1 \2/" \
+   | sed "s/Files \(.*\) and \(.*\) differ/$__diff \1 \2/" \
    | sed "s/^\(Only in\)/\t\1/" \
    | perl -nle '
         if ( /^\tOnly in (\S+): (\S+)$/ ) {
@@ -267,101 +291,103 @@ diffdircode() {
            0&&print "NOT ELF: $file";
            print;
         }'
-   unset __EXCLUDES
-   unset __VERBOSE
 }
+
 
 
 ########################################
 # VIM
-viewdifftop() {
-   VIMDIFFTOP_SIZE=10000
-   expr $1 + 0 &> /dev/null && { VIMDIFFTOP_SIZE=$1; shift; }
+function viewdiffhead {
+   local -r vimdifftop_size=10000
+   expr $1 + 0 &> /dev/null && { vimdifftop_size=$1; shift; }
 
-   VIMDIFFTOP_FIRST=$1
-   [[ $# -gt 0 ]] && VIMDIFFTOP_CMD="vimdiff -R"
+   local -r vimdifftop_first=$1
+   local vimdifftop_cmd=""
    for f in $@; do
-      [[ -d "$f" ]] && f="$f/`basename $VIMDIFFTOP_FIRST`"
-      VIMDIFFTOP_CMD="$VIMDIFFTOP_CMD <(zcat -f $f | head -$VIMDIFFTOP_SIZE)"
+      [[ -d "$f" ]] && f="$f/`basename $vimdifftop_first`"
+      vimdifftop_cmd+=" <(zcat --force $f | head -$vimdifftop_size)"
    done
-   [[ -n "$VIMDIFFTOP_CMD" ]] && eval $VIMDIFFTOP_CMD
-   unset VIMDIFFTOP_SIZE
-   unset VIMDIFFTOP_FIRST
-   unset VIMDIFFTOP_CMD
+   [[ -n "$vimdifftop_cmd" ]] && eval "vimdiff -R $vimdifftop_cmd"
 }
 
-viewdifftail() {
-   VIMDIFFTOP_SIZE=10000
-   expr $1 + 0 &> /dev/null && { VIMDIFFTOP_SIZE=$1; shift; }
 
-   VIMDIFFTOP_FIRST=$1
-   [[ $# -gt 0 ]] && VIMDIFFTOP_CMD="vimdiff -R"
+
+function viewdifftail {
+   local -r vimdifftop_size=10000
+   expr $1 + 0 &> /dev/null && { vimdifftop_size=$1; shift; }
+
+   local -r vimdifftop_first=$1
+   local vimdifftop_cmd=""
    for f in $@; do
-      [[ -d "$f" ]] && f="$f/`basename $VIMDIFFTOP_FIRST`"
-      VIMDIFFTOP_CMD="$VIMDIFFTOP_CMD <(zcat -f $f | tail -n $VIMDIFFTOP_SIZE)"
+      [[ -d "$f" ]] && f="$f/`basename $vimdifftop_first`"
+      vimdifftop_cmd+=" <(zcat --force $f | tail -n $vimdifftop_size)"
    done
-   [[ -n "$VIMDIFFTOP_CMD" ]] && eval $VIMDIFFTOP_CMD
-   unset VIMDIFFTOP_SIZE
-   unset VIMDIFFTOP_FIRST
-   unset VIMDIFFTOP_CMD
+   [[ -n "$vimdifftop_cmd" ]] && eval " vimdiff -R $vimdifftop_cmd"
 }
 
-vimpartop() {
-   VIMPARTOP_SIZE=10000
-   expr $1 + 0 &> /dev/null && { VIMPARTOP_SIZE=$1; shift; }
 
-   VIMPARTOP_FIRST=$1
-   [[ $# -gt 0 ]] && VIMPARTOP_CMD="vimpar"
+
+function vimparhead {
+   local -r vimpartop_size=10000
+   expr $1 + 0 &> /dev/null && { vimpartop_size=$1; shift; }
+
+   local -r vimpartop_first=$1
+   local vimpartop_cmd=""
    for f in $@; do
-      [[ -d "$f" ]] && f="$f/`basename $VIMPARTOP_FIRST`"
-      VIMPARTOP_CMD="$VIMPARTOP_CMD <(zcat -f $f | head -$VIMPARTOP_SIZE)"
+      [[ -d "$f" ]] && f="$f/`basename $vimpartop_first`"
+      vimpartop_cmd+=" <(zcat --force $f | head -$vimpartop_size)"
    done
-   [[ -n "$VIMPARTOP_CMD" ]] && eval $VIMPARTOP_CMD
-   unset VIMPARTOP_SIZE
-   unset VIMPARTOP_FIRST
-   unset VIMPARTOP_CMD
+   [[ -n "$vimpartop_cmd" ]] && eval "vimpar $vimpartop_cmd"
 }
+
+
 
 # for .gc.ca compare french vs english and align the documents.
 alias vimdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
 
 # for .gc.ca compare to alignments.
-vimdiffal() {
-   AL_DIFF=${AL_DIFF:-"al-diff.py -v -m '<PORTAGE_DOCUMENT_END>'"} AL1=$3 AL2=$4 vimdiff -R +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
-}
+#function vimdiffal {
+#   AL_DIFF=${AL_DIFF:-"al-diff.py -v -m '<PORTAGE_DOCUMENT_END>'"} AL1=$3 AL2=$4 vimdiff -R +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
+#}
 
 
-vimdiffpa2() {
+
+function vimdiffpa2 {
    vimdiff -R +"set diffexpr=DiffPa2()" +"set diffopt=filler,context:1" $@
 }
 
 
-vimD() {
+
+function vimD {
    vim +":VCSVimDiff $2" $1
 }
 
-viewWD() {
-   \wdiff $@ | view - +':syntax enable | :source /home/larkins/share/vim/vim72/syntax/wdiff.vim'
+
+
+function viewWD {
+   \wdiff $@ | view - +':syntax enable | :source $HOME/share/vim/vim72/syntax/wdiff.vim'
 }
+
 
 
 ########################################
 # XML
-xmlview() {
+function xmlview {
    tidy -xml -utf8 -wrap 140 < $1 | view -geom 140x40 -
 }
 
-xmldiff() {
-   for f in $@;
-   do
-      __xmldiff="$__xmldiff <(tidy -xml -utf8 < $f)"
+
+
+function xmldiff {
+   local __xmldiff=""
+   for f in $@; do
+      __xmldiff+=" <(tidy -xml -utf8 < $f)"
    done
-   eval "vimdiff -R $__xmldiff"
-   unset __xmldiff
+   [[ -n "$__xmldiff" ]] && eval "vimdiff -R $__xmldiff"
 }
 
 
 
-wc_stats() {
-   ~/bin/wc_stats $@ | tac | expand-auto.pl -skip 3 |tac
+function wc_stats {
+   ~/bin/wc_stats $@ | tac | expand-auto.pl -skip 3 | tac
 }
