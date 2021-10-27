@@ -326,7 +326,7 @@ endfunction
 "}
 
 
-" Function that allows diffying to buffer in order to diff two fucntions. {
+" Function that allows diffying to buffer in order to diff two functions. {
 "enew | call setline(1, split(@a, "\n")) | diffthis | vnew | call setline(1, split(@b, "\n")) | diffthis
    " source: http://stackoverflow.com/questions/3619146/vimdiff-two-subroutines-in-same-file
    let g:diffed_buffers=[]
@@ -552,6 +552,7 @@ endfunction
 "    \ set fileformat=unix
 ""}
 
+" Quick Code Snippets
 " {
    abbr _pudb_ from pudb import set_trace; set_trace()
 " }
