@@ -16,10 +16,16 @@ MATS="215 216 219 220 221 222 223 224"
 
 # Trixie
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
-alias squeue='squeue --format="%.8i %70j %.8u %.2t %.10M %.6D %16R   %V %k"'
+alias squeue='squeue --sort=ti --format="%.8i %60j %.8u %.2t %.10M %.6D %16R %18V %k"'
+alias squeue_dependencies='squeue --format="%.8i %80j %.8u %.2t %.10M %.6D %16R %18V %k %E"'
+alias squeue_where="squeue --format $'%i\t %.2t %Z'"
 alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,FAIL'
-#scontrol update jobid=540913 dependency=after:540912
-#scontrol show job 2642   Find out where a job will run
+#scontrol update jobid=540913 dependency=afterok:540912
+#scontrol update jobid=$(echo {15882..15893} | tr ' ' ',') dependency=afterok:15754:15756:15757:15758:15765:15766:15767:15740:15743
+#scontrol show job 2642   #Find out where a job will run
+#sreport user top start=2020-06-01 end=2020-06-30 -t percent
+alias sresources='sinfo -o "%20N %10C %10m %25f %10G"'
+alias sjobResources='scontrol show jobid -dd'
 
 
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
