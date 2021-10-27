@@ -51,5 +51,8 @@ umask 002
 # javac **/*.java
 shopt -s globstar
 
+# STOP FUCKING ESCAPING when tab
+shopt -s direxpand
+
 
 [[ $- == *i* ]] && bind '"\C-g": forward-search-history'
