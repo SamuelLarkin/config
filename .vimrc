@@ -421,6 +421,7 @@ endfunction
 
    " Vim script for text filtering and alignment
    " https://github.com/godlygeek/tabular
+   " howoto: `:'<,'>Tabularize /=`
    Bundle 'godlygeek/tabular'
 
    " Pythonsense
