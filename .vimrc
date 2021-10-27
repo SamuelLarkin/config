@@ -383,6 +383,12 @@ endfunction
    " The following are examples of different formats supported.
    " Keep Plugin commands between vundle#begin/end.
 
+   " l9 is a Vim-script library, which provides some utility functions and
+   " commands.
+   " for programming in Vim.
+   " plugin from http://vim-scripts.org/vim/scripts.html
+   Plugin 'L9'
+
    " BufExplorer
    "Plugin 'jlanzarotta/bufexplorer'
    Plugin 'bufexplorer.zip'
@@ -392,21 +398,27 @@ endfunction
    "Plugin 'http://repo.or.cz/r/vcscommand.git'
    Plugin 'vcscommand.vim'
 
+   " plugin on GitHub repo
+   Plugin 'tpope/vim-fugitive'
+
    " Display in the statusline class, function & method the cursor is in.
    " https://github.com/mgedmin/pythonhelper.vim
    Plugin 'mgedmin/pythonhelper.vim'
+
+   " Pythonsense
+   " Pythonsense is a Vim plugin that provides text objects and motions for
+   " Python classes, methods, functions, and doc strings.
+   " https://github.com/jeetsukumaran/vim-pythonsense/blob/master/README.md
+   Bundle 'jeetsukumaran/vim-pythonsense'
 
    " Autocompletion for Python
    " https://github.com/davidhalter/jedi-vim
    " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
    Plugin 'davidhalter/jedi-vim'
 
-
-   " plugin on GitHub repo
-   Plugin 'tpope/vim-fugitive'
-
-   " plugin from http://vim-scripts.org/vim/scripts.html
-   Plugin 'L9'
+   " vim-flake8
+   " https://github.com/nvie/vim-flake8.git
+   Plugin 'nvie/vim-flake8'
 
    " A parser for a condensed HTML format
    " https://github.com/rstacruz/sparkup
@@ -423,12 +435,6 @@ endfunction
    " https://github.com/godlygeek/tabular
    " howoto: `:'<,'>Tabularize /=`
    Bundle 'godlygeek/tabular'
-
-   " Pythonsense
-   " Pythonsense is a Vim plugin that provides text objects and motions for
-   " Python classes, methods, functions, and doc strings.
-   " https://github.com/jeetsukumaran/vim-pythonsense/blob/master/README.md
-   Bundle 'jeetsukumaran/vim-pythonsense'
 
    " XPath search plugin for Vim
    " https://github.com/actionshrimp/vim-xpath
