@@ -1,6 +1,18 @@
 #.alias
 MATS="215 216 219 220 221 222 223 224"
 
+# [rsync copy over only certain types of files using include option](https://stackoverflow.com/a/11111793)
+# rsync \
+#   -Parzu \
+#   -m \
+#   --include='*/' \
+#   --include='*/run_mlm.config' \
+#   --include='*/trainer.py' \
+#   --exclude='*' \
+#   xlm-roberta-large.2500.min_prob.emb xlm-roberta-large.2500.not_sorted.emb xlm-roberta-large.5000.min_prob.emb xlm-roberta-large.5000.not_sorted.emb \
+#   ../mt/ \
+#   -n
+
 
 # Trixie
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
