@@ -41,9 +41,9 @@ export PORTAGE_NO_ETAGS=1
 
 # Never lose a bash history because you are working with multiple windows.
 shopt -s histappend
-HISTCONTROL=ignoredups
-HISTFILESIZE=10000
-HISTSIZE=100000
+export HISTCONTROL=ignoredups
+export HISTFILESIZE=10000
+export HISTSIZE=100000
 
 umask 002
 
