@@ -26,6 +26,7 @@ alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,F
 #sreport user top start=2020-06-01 end=2020-06-30 -t percent
 alias sresources='sinfo -o "%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd'
+alias fixTerminal='stty rows 45 columns 190'
 
 
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
