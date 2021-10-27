@@ -59,7 +59,7 @@ alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
 alias time="/usr/bin/time"
-alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
+#alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
 alias viewdiff='vimdiff -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
