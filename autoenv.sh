@@ -1,6 +1,5 @@
-
-
-
+# Autoenv: Directory-based Environments
+# https://github.com/hyperupcall/autoenv
 # wget 'https://raw.githubusercontent.com/kennethreitz/autoenv/master/activate.sh' -O autoenv.sh
 # echo 'source ~/config/autoenv.sh' >> ~/.bashrc
 
