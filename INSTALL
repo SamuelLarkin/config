@@ -1,12 +1,19 @@
-ln -fs config/.alias $HOME
-ln -fs config/.bashrc.custom $HOME/.bashrc.common
-ln -fs config/.gdbinit $HOME
-ln -fs config/.gitconfig $HOME
-ln -fs config/.gitignore_global $HOME
-ln -fs config/.screenrc $HOME
-ln -fs config/.tmux.conf $HOME
-ln -fs config/.toprc $HOME
-ln -fs config/.vimrc $HOME
+declare -ar configs=(
+  alias
+  bashrc.common
+  gdbinit
+  gitconfig
+  gitignore_global
+  screenrc
+  tmux.conf
+  toprc
+  vimrc
+)
+
+for config in ${configs[@]}; do
+   ln -fs config/$config  $HOME/.$config
+done
+unset configs
 
 mkdir -p ~/.config/htop
 ln -s ~/config/htoprc ~/.config/htop/
