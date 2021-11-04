@@ -494,6 +494,22 @@ endfunction
    " https://github.com/rust-lang/rust.vim
    Plugin 'rust-lang/rust.vim'
 
+
+   """""""""""""""""""""""""""""""""""""
+   " Under testing, waiting for approval.
+
+   " fzf is a general-purpose command-line fuzzy finder
+   " https://github.com/junegunn/fzf
+   Plugin 'junegunn/fzf'
+
+   " Make your Vim/Neovim as smart as VSCode.
+   " https://github.com/neoclide/coc.nvim
+   Plugin 'neoclide/coc.nvim'
+
+   " Asynchronous Lint Engine
+   " https://github.com/dense-analysis/ale
+   Plugin 'dense-analysis/ale'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
