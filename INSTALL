@@ -88,7 +88,8 @@ function install_cli_tools_mandatory {
    #####################################
    # Go
 
-   # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose command-line fuzzy finder
+   # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose
+   # command-line fuzzy finder
    go install github.com/junegunn/fzf@latest
    ln -fns ~/go/bin/fzf ~/.local/bin/fzf
    mkdir -p ~/.bash_completion.d
@@ -97,11 +98,14 @@ function install_cli_tools_mandatory {
    mkdir -p ~/.config/fish/functions
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
 
-   # [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple terminal UI for git commands, written in Go with the gocui library
+   # [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple
+   # terminal UI for git commands, written in Go with the gocui library
    go install github.com/jesseduffield/lazygit@latest
    ln -fns ~/go/bin/lazygit ~/.local/bin/lazygit
 
-   # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A simple terminal UI for both docker and docker-compose, written in Go with the gocui library
+   # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A
+   # simple terminal UI for both docker and docker-compose, written in Go with
+   # the gocui library
    go install https://github.com/jesseduffield/lazydocker@latest
    ln -fns ~/go/bin/lazydocker ~/.local/bin/lazydocker
 
@@ -117,23 +121,30 @@ function install_cli_tools_mandatory {
    #####################################
    # Rust
 
-   # [LSD (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project is a rewrite of GNU ls with lot of added features like colors, icons, tree-view, more formatting options etc. The project is heavily inspired by the super colorls project.
+   # [LSD (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project
+   # is a rewrite of GNU ls with lot of added features like colors, icons,
+   # tree-view, more formatting options etc. The project is heavily inspired by
+   # the super colorls project.
    cargo install lsd
 
-   # [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax highlighting and Git integration
+   # [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
+   # highlighting and Git integration
    cargo install bat
 
-   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line
+   # benchmarking tool
    cargo install hyperfine
 
    # [exa - Documentation](https://the.exa.website/): modern replacement for ls
    # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls
    cargo install exa
 
-   # [Zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your *nix system written in Rust
+   # [Zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal
+   # graphical metrics for your *nix system written in Rust
    cargo install --git https://github.com/bvaisvil/zenith
 
-   # [Dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like du but more intuitive
+   # [Dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like
+   # du but more intuitive
    cargo install --git https://github.com/bootandy/dust
 
    # [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
@@ -147,7 +158,9 @@ function install_cli_tools_mandatory {
    # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
    cargo install fd-find
 
-   # [ripgrep(rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
+   # [ripgrep(rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
+   # a line-oriented search tool that recursively searches the current
+   # directory for a regex pattern
    cargo install ripgrep
 
 
@@ -172,7 +185,8 @@ function install_cli_tools_mandatory {
 
    # tmux
 
-   # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform interactive process viewer
+   # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform
+   # interactive process viewer
    which --skip-alias htop \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -200,7 +214,8 @@ function install_cli_tools_mandatory {
       rm -fr tig-tig-2.5.4
    )
 
-   # [GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool for executing jobs in parallel using one or more computers
+   # [GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
+   # for executing jobs in parallel using one or more computers
    which --skip-alias parallel \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -243,7 +258,9 @@ function install_cli_tools_mandatory {
       rm -fr ncdu-1.16
    )
 
-   # [FishShell](https://fishshell.com/): Finally, a command line shell for the 90s fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family
+   # [FishShell](https://fishshell.com/): Finally, a command line shell for the
+   # 90s fish is a smart and user-friendly command line shell for Linux, macOS,
+   # and the rest of the family
    # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
    which --skip-alias fish \
    || (
@@ -268,7 +285,8 @@ function install_cli_tools_mandatory {
       cd .. && rm -fr duf
    )
 
-   # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast
+   # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything
+   # in everything... ultra fast
    which --skip-alias ugrep \
    || (
       mkdir -p ~/tmp && cd ~/tmp
