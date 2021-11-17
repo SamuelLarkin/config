@@ -1,40 +1,315 @@
-declare -ar configs=(
-  alias
-  bashrc.common
-  gdbinit
-  gitconfig
-  gitignore_global
-  screenrc
-  tmux.conf
-  toprc
-  vimrc
-)
+function install_configs {
+   local -ar configs=(
+     alias
+     bashrc.common
+     gdbinit
+     gitconfig
+     gitignore_global
+     screenrc
+     tmux.conf
+     toprc
+     vimrc
+   )
 
-for config in ${configs[@]}; do
-   ln -fs config/$config  $HOME/.$config
-done
-unset configs
+   for config in ${configs[@]}; do
+      ln -fs config/$config  $HOME/.$config
+   done
 
-mkdir -p ~/.config/htop
-ln -s ~/config/htoprc ~/.config/htop/
-
-
-git \
-   clone \
-   https://github.com/VundleVim/Vundle.vim.git \
-   $HOME/.vim/bundle/Vundle.vim
-vim +:PluginInstall
-
-git \
-   clone \
-   https://github.com/tmux-plugins/tpm \
-   $HOME/.tmux/plugins/tpm
-
-cat >> $HOME/.bashrc <<EOL
+   mkdir -p ~/.config/htop
+   ln -s ~/config/htoprc ~/.config/htop/
+}
 
 
-# User specific aliases and functions
-[[ -e ~/.alias ]] && . ~/.alias || true
-[[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
-[[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
+
+function install_vim_plugins {
+   git \
+      clone \
+      https://github.com/VundleVim/Vundle.vim.git \
+      $HOME/.vim/bundle/Vundle.vim
+   vim +:PluginInstall
+
+   git \
+      clone \
+      https://github.com/tmux-plugins/tpm \
+      $HOME/.tmux/plugins/tpm
+}
+
+
+
+function extend_bashrc {
+   cat >> $HOME/.bashrc <<EOL
+
+
+   # User specific aliases and functions
+   [[ -e ~/.alias ]] && . ~/.alias || true
+   [[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
+   [[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
+   [[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
 EOL
+}
+
+
+
+function install_cli_tools_mandatory {
+   #####################################
+   # Fonts
+   # [Nerd Fonts](https://www.nerdfonts.com)
+
+   #####################################
+   # Python
+
+   # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
+   pip3 install bpytop --upgrade
+
+   # [Glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
+   # [Glances - WebSite](https://nicolargo.github.io/glances): An eye on your system
+   pip3 install --user glances
+
+   # [python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility
+   pip3 install --user tabulate
+
+   # [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar
+   pip3 install --user tqdm
+
+   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis
+   pip3 install --user data_hacks
+
+
+   #####################################
+   # Tools
+
+   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
+   # go: https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+
+   # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software
+   # rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+
+   #####################################
+   # Go
+
+   # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose command-line fuzzy finder
+   go install github.com/junegunn/fzf@latest
+   ln -fns ~/go/bin/fzf ~/.local/bin/fzf
+   mkdir -p ~/.bash_completion.d
+   wget -O ~/.bash_completion.d/fzf.completion.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash'
+   wget -O ~/.bash_completion.d/fzf.key-bindings.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash'
+   mkdir -p ~/.config/fish/functions
+   wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
+
+   # [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple terminal UI for git commands, written in Go with the gocui library
+   go install github.com/jesseduffield/lazygit@latest
+   ln -fns ~/go/bin/lazygit ~/.local/bin/lazygit
+
+   # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A simple terminal UI for both docker and docker-compose, written in Go with the gocui library
+   go install https://github.com/jesseduffield/lazydocker@latest
+   ln -fns ~/go/bin/lazydocker ~/.local/bin/lazydocker
+
+   # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu): Pretty fast disk usage analyzer written in Go
+   go install github.com/dundee/gdu/v5/cmd/gdu@latest
+   ln -fns ~/go/bin/gdu ~/.local/bin/gdu
+
+   # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
+   go install github.com/muesli/duf@latest
+   ln -fns ~/go/bin/duf ~/.local/bin/duf
+
+
+   #####################################
+   # Rust
+
+   # [LSD (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project is a rewrite of GNU ls with lot of added features like colors, icons, tree-view, more formatting options etc. The project is heavily inspired by the super colorls project.
+   cargo install lsd
+
+   # [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax highlighting and Git integration
+   cargo install bat
+
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
+   cargo install hyperfine
+
+   # [exa - Documentation](https://the.exa.website/): modern replacement for ls
+   # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls
+   cargo install exa
+
+   # [Zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your *nix system written in Rust
+   cargo install --git https://github.com/bvaisvil/zenith
+
+   # [Dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like du but more intuitive
+   cargo install --git https://github.com/bootandy/dust
+
+   # [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
+   # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom)
+   #cargo install --git https://github.com/cjbassi/ytop
+   cargo install ytop
+
+   # [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust
+   cargo install procs
+
+   # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
+   cargo install fd-find
+
+   # [ripgrep(rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
+   cargo install ripgrep
+
+
+   #####################################
+   # bash
+
+   # [z - GitHub](https://github.com/rupa/z): jump around
+   wget -O "$HOME/config/z.sh" 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
+   grep '$HOME/config/z.sh' $HOME/.bashrc \
+   || cat >> $HOME/.bashrc <<EOL
+
+   [[ -e $HOME/config/z.sh ]] && . $HOME/config/z.sh || true
+EOL
+
+   # [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
+   mkdir -p ~/.bash_completion.d
+   curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" \
+       -o ~/.bash_completion.d/"#1"
+   curl "https://raw.githubusercontent.com/changyuheng/fz/master/{fz.sh}" \
+       -o ~/.bash_completion.d/z"#1"
+
+
+
+   #####################################
+   # Tools
+
+   # tmux
+
+   # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform interactive process viewer
+   which --skip-alias htop \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget -O 'htop-3.1.1.tar.gz' 'https://github.com/htop-dev/htop/archive/refs/tags/3.1.1.tar.gz'
+      tar xf htop-3.1.1.tar.gz
+      cd htop-3.1.1
+      ./autogen.sh
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr htop-3.1.1
+   )
+
+   # [Tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
+   which --skip-alias tig \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget 'https://github.com/jonas/tig/archive/refs/tags/tig-2.5.4.tar.gz'
+      tar xf tig-2.5.4.tar.gz
+      cd tig-tig-2.5.4/
+      ./autogen.sh
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr tig-tig-2.5.4
+   )
+
+   # [GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool for executing jobs in parallel using one or more computers
+   which --skip-alias parallel \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget 'https://ftp.gnu.org/gnu/parallel/parallel-20211022.tar.bz2'
+      tar xf parallel-20211022.tar.bz2
+      cd parallel-20211022
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr parallel-20211022
+   )
+
+   # [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor
+   # [jq](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor
+   which --skip-alias jq \
+   || (
+      wget -O "$HOME/.local/bin/jq" 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64' \
+      && chmod u+x $HOME/.local/bin/jq
+   )
+   #which --skip-alias jq \
+   #|| (
+   #   mkdir -p ~/tmp && cd ~/tmp
+   #   wget 'https://github.com/stedolan/jq/archive/refs/tags/jq-1.6.tar.gz'
+   #   cd jq-jq-1.6
+   #   autoreconf -fi
+   #   ./configure --with-oniguruma=builtin --prefix $HOME/.local
+   #   make -j $(nproc) LDFLAGS=-all-static
+   #)
+
+   # [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage
+   which --skip-alias ncdu \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget --no-check-certificate 'https://dev.yorhel.nl/download/ncdu-1.16.tar.gz'
+      tar xf ncdu-1.16.tar.gz
+      cd ncdu-1.16
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr ncdu-1.16
+   )
+
+   # [FishShell](https://fishshell.com/): Finally, a command line shell for the 90s fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family
+   # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
+   which --skip-alias fish \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget 'https://github.com/fish-shell/fish-shell/releases/download/3.3.1/fish-3.3.1.tar.xz'
+      tar xf fish-3.3.1.tar.xz
+      cd fish-3.3.1
+      mkdir -p build && cd build
+      cmake -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
+      make -j $(nproc) insall
+      cd ../.. && rm -fr fish-3.3.1
+   )
+
+   # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
+   which --skip-alias duf \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      git clone https://github.com/muesli/duf.git
+      cd duf
+      go build
+      install --mode=u=rx duf $HOME/.local/bin
+      cd .. && rm -fr duf
+   )
+
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
+   which --skip-alias hyperfine \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin
+      # TODO what to do with the autocomplete files?
+      rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
+   )
+
+   # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast
+   which --skip-alias ugrep \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget -O 'ugrep-3.3.8.tar.gz' 'https://github.com/Genivia/ugrep/archive/refs/tags/v3.3.8.tar.gz'
+      tar xf ugrep-3.3.8.tar.gz
+      cd ugrep-3.3.8
+      ./configure --prefix $HOME/.local --without-zstd
+      \make -j $(nproc) install
+      cd .. && rm -fr ugrep-3.3.8
+   )
+}
+
+
+
+function install_cli_tools_optional {
+    # [The Platinum Searcher(pt) - GitHub](https://github.com/monochromegane/the_platinum_searcher): A code search tool similar to ack and the_silver_searcher(ag). It supports multi platforms and multi encodings.
+
+    # [The Silver Searcher(ag) - GitHub](https://github.com/ggreer/the_silver_searcher): A code searching tool similar to ack, with a focus on speed.
+
+    # Looks unmaintained.
+    # [ack 2 - GitHub](https://github.com/beyondgrep/ack2): ack is a code-searching tool, similar to grep but optimized for programmers searching large trees of source code. It runs in pure Perl, is highly portable, and runs on any platform that runs Perl.
+}
+
+
+
+install_configs
+install_vim_plugins
+extend_bashrc
+install_cli_tools_mandatory
