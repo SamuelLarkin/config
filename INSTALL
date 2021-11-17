@@ -12,11 +12,11 @@ function install_configs {
    )
 
    for config in ${configs[@]}; do
-      ln -fs config/$config  $HOME/.$config
+      ln -fns config/$config  $HOME/.$config
    done
 
    mkdir -p ~/.config/htop
-   ln -s ~/config/htoprc ~/.config/htop/
+   ln -fns ~/config/htoprc ~/.config/htop/
 }
 
 
