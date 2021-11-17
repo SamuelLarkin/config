@@ -272,17 +272,6 @@ EOL
       cd .. && rm -fr duf
    )
 
-   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
-   which --skip-alias hyperfine \
-   || (
-      mkdir -p ~/tmp && cd ~/tmp
-      wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
-      tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
-      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin
-      # TODO what to do with the autocomplete files?
-      rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
-   )
-
    # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast
    which --skip-alias ugrep \
    || (
@@ -293,6 +282,18 @@ EOL
       ./configure --prefix $HOME/.local --without-zstd
       \make -j $(nproc) install
       cd .. && rm -fr ugrep-3.3.8
+   )
+
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
+   # NOTE: probably already install by `cargo install hyperfine`
+   which --skip-alias hyperfine \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin
+      # TODO what to do with the autocomplete files?
+      rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
 }
 
