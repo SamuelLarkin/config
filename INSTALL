@@ -155,12 +155,8 @@ function install_cli_tools_mandatory {
    # bash
 
    # [z - GitHub](https://github.com/rupa/z): jump around
-   wget -O "$HOME/config/z.sh" 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
-   grep '$HOME/config/z.sh' $HOME/.bashrc \
-   || cat >> $HOME/.bashrc <<EOL
-
-   [[ -e $HOME/config/z.sh ]] && . $HOME/config/z.sh || true
-EOL
+   mkdir -p ~/.bash_completion.d
+   wget -O ~/.bash_completion.d/z.sh 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
 
    # [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
    mkdir -p ~/.bash_completion.d
