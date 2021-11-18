@@ -73,6 +73,7 @@ alias xquery1="~/mybin/xidel --output-format=xml --xquery"
 alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
 alias xquery='java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query'
 alias ls='ls --color'
+alias ll='ls -l'
 
 #alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
 
