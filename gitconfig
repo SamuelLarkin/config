@@ -172,8 +172,6 @@
 [tig]
    commit-order   = topo         # Order commits topologically
    line-graphics  = utf-8
-   show-rev-graph = true
-   show-rev-graph = yes        # Show revision graph?
 
 [tig "color"]
    date = yellow black
