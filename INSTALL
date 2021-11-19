@@ -314,6 +314,16 @@ function install_cli_tools_mandatory {
       # TODO what to do with the autocomplete files?
       rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
+
+   # [Vifm – Vim-like file manager](https://github.com/vifm/vifm)
+   which --skip-alias vifm \
+   || (
+      wget -O vifm.tar.gz 'https://github.com/vifm/vifm/archive/refs/tags/v0.12.tar.gz'
+      tar xf vifm.tar.gz
+      cd vifm-0.12/
+      ./configure --prefix=/home/sam037/opt/vifm-0.12
+      make -j $(nproc) install
+   )
 }
 
 

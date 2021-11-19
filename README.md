@@ -33,6 +33,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [gitui - GitHub](https://github.com/extrawurst/gitui): GitUI provides you with the comfort of a git GUI but right in your terminal.  Not as great as lazygit.
 * [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
+* [Vifm - GitHub](https://github.com/vifm/vifm): Vim-like file manager
 
 
 ### Vim Plugins
