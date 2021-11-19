@@ -212,6 +212,8 @@ function install_cli_tools_mandatory {
       make -j $(nproc) install
       mkdir -p ~/.bash_completion.d/
       cp contrib/tig-completion.bash ~/.bash_completion.d/
+      mkdir -p /.config/tig
+      cp contrib/chocolate.theme.tigrc ~/.config/tig
       cd ..
       rm -fr tig-tig-2.5.4
    )
