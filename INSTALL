@@ -216,6 +216,7 @@ function install_cli_tools_mandatory {
       cp contrib/chocolate.theme.tigrc ~/.config/tig
       cd ..
       rm -fr tig-tig-2.5.4
+      curl -o ~/.config/tig/"#1" "https://raw.githubusercontent.com/h3xx/tig-colors-neonwolf/main/{tig-colors-neonwolf-256.tigrc}"
    )
 
    # [GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
