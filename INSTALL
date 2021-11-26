@@ -398,6 +398,9 @@ function plot_tools {
 }
 
 
+# On trixie, do:
+# module load StdEnv/2020
+# module load rust/1.53.0
 
 install_configs
 install_vim_plugins
