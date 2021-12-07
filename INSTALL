@@ -17,6 +17,9 @@ function install_configs {
 
    mkdir -p ~/.config/htop
    ln -fns ~/config/htoprc ~/.config/htop/
+
+   mkdir -p ~/.cargo
+   ln -fns ~/config/cargo.config.toml ~/.cargo/config.toml
 }
 
 
