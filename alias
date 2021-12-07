@@ -32,15 +32,9 @@ alias fixTerminal='stty rows 45 columns 190'
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 
-#alias cvsL='cvs status | egrep "Locally Modified" | cut -f1 | sed "s/File: //" | tr "\n" " "; echo ""'
 #alias rf="readlink -f"
 #alias vimD='vim +":VCSVimDiff"'
 alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
-alias cvsL='cvs status | egrep -A3 -e "Locally Modified" -e "File had conflicts on merge" | egrep "Repository revision" | sed "s/,v$//" | cut -f 3 | sed "s+.*`basename $PWD`/++" | tr "\n" " "; echo ""'
-alias cvsR='cvs status * | grep Status | grep -v "Up-to-date" | grep -v Examining'
-alias cvsS='cvs status | cvs-status-summary.pl -new'
-alias cvslog='cvs log | cvs-log-sort.pl | less'
-alias cvslog='cvs log | cvs-log-sort.pl | less'
 alias df="df -h"
 alias disown='disown -h'
 alias du="du -h"
@@ -205,19 +199,6 @@ function get_character_set {
    zcat -f $1 | grep --color=never -o . | get_voc -s
 }
 
-
-
-########################################
-# CVS
-#function cvsD {
-#   cvs diff -DNow -bB $@ | grep -v "^\?" | view -
-#}
-
-
-
-#function cvsPSF {
-#   [[ -n "$1" ]] && cvs co -d $1 portage.simple.framework.2
-#}
 
 
 ########################################
