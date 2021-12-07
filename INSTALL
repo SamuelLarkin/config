@@ -306,12 +306,12 @@ function install_cli_tools_mandatory {
    which --skip-alias ugrep \
    || (
       mkdir -p ~/tmp && cd ~/tmp
-      wget -O 'ugrep-3.3.8.tar.gz' 'https://github.com/Genivia/ugrep/archive/refs/tags/v3.3.8.tar.gz'
-      tar xf ugrep-3.3.8.tar.gz
-      cd ugrep-3.3.8
+      wget -O ugrep-3.3.10.tar.gz https://github.com/Genivia/ugrep/archive/refs/tags/v3.3.10.tar.gz
+      tar xf ugrep-3.3.10.tar.gz
+      cd ugrep-3.3.10
       ./configure --prefix $HOME/.local --without-zstd
       \make -j $(nproc) install
-      cd .. && rm -fr ugrep-3.3.8
+      cd .. && rm -fr ugrep-3.3.10
    )
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
