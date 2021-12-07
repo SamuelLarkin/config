@@ -184,6 +184,14 @@ function install_cli_tools_mandatory {
 
 
    #####################################
+   # Perl
+
+   # [Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
+   cpan install File::Rename
+
+
+
+   #####################################
    # Tools
 
    # tmux
