@@ -109,7 +109,7 @@ function install_cli_tools_mandatory {
    # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A
    # simple terminal UI for both docker and docker-compose, written in Go with
    # the gocui library
-   go install https://github.com/jesseduffield/lazydocker@latest
+   go install github.com/jesseduffield/lazydocker@latest
    mv ~/go/bin/lazydocker ~/.local/bin/lazydocker
 
    # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu): Pretty fast disk usage analyzer written in Go
