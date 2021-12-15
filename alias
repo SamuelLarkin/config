@@ -32,6 +32,7 @@ alias fixTerminal='stty rows 45 columns 190'
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 
+[[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
 #alias rf="readlink -f"
 #alias vimD='vim +":VCSVimDiff"'
 alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
@@ -52,7 +53,6 @@ alias qstatw='qstatdir | egrep home | sort | uniq -c'  # By listing where my job
 alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
-alias time="/usr/bin/time"
 #alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
 alias viewdiff='vimdiff -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
