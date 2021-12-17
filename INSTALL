@@ -63,11 +63,11 @@ function install_python_tools {
    # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
    pip3 install --user bpytop
 
-   # [Glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
-   # [Glances - WebSite](https://nicolargo.github.io/glances): An eye on your system
+   # [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
+   # [glances - WebSite](https://nicolargo.github.io/glances): An eye on your system
    pip3 install --user --upgrade glances
 
-   # [python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility
+   # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility
    pip3 install --user --upgrade tabulate
 
    # [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar
@@ -118,7 +118,7 @@ function install_rust_tools {
    # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software
    # rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-   # [LSD (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project
+   # [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project
    # is a rewrite of GNU ls with lot of added features like colors, icons,
    # tree-view, more formatting options etc. The project is heavily inspired by
    # the super colorls project.
@@ -136,11 +136,11 @@ function install_rust_tools {
    # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls
    cargo install exa
 
-   # [Zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal
+   # [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal
    # graphical metrics for your *nix system written in Rust
    cargo install --git https://github.com/bvaisvil/zenith
 
-   # [Dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like
+   # [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like
    # du but more intuitive
    cargo install --git https://github.com/bootandy/dust
 
@@ -155,7 +155,7 @@ function install_rust_tools {
    # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
    cargo install fd-find
 
-   # [ripgrep(rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
+   # [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
    # a line-oriented search tool that recursively searches the current
    # directory for a regex pattern
    cargo install ripgrep
@@ -178,7 +178,7 @@ function install_bash_tools {
 
 
 function install_perl_tools {
-   # [Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
+   # [rename - Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
    cpan install File::Rename
 }
 
@@ -202,7 +202,7 @@ function install_compiled_tools {
       rm -fr htop-3.1.1
    )
 
-   # [Tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
+   # [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
    which --skip-alias tig \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -221,7 +221,7 @@ function install_compiled_tools {
       curl -o ~/.config/tig/"#1" "https://raw.githubusercontent.com/h3xx/tig-colors-neonwolf/main/{tig-colors-neonwolf-256.tigrc}"
    )
 
-   # [GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
+   # [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
    # for executing jobs in parallel using one or more computers
    which --skip-alias parallel \
    || (
@@ -317,7 +317,7 @@ function install_compiled_tools {
       rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
 
-   # [Vifm – Vim-like file manager](https://github.com/vifm/vifm)
+   # [vifm – Vim-like file manager](https://github.com/vifm/vifm)
    which --skip-alias vifm \
    || (
       wget -O vifm.tar.gz 'https://github.com/vifm/vifm/archive/refs/tags/v0.12.tar.gz'
