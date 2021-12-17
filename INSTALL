@@ -1,3 +1,23 @@
+#####################################
+# Fonts
+# [Nerd Fonts](https://www.nerdfonts.com)
+
+
+
+function extend_bashrc {
+   cat >> $HOME/.bashrc <<EOL
+
+
+# User specific aliases and functions
+[[ -e ~/.alias ]] && . ~/.alias || true
+[[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
+[[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
+[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
+EOL
+}
+
+
+
 function install_configs {
    local -ar configs=(
      alias
@@ -39,28 +59,7 @@ function install_vim_plugins {
 
 
 
-function extend_bashrc {
-   cat >> $HOME/.bashrc <<EOL
-
-
-# User specific aliases and functions
-[[ -e ~/.alias ]] && . ~/.alias || true
-[[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
-[[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
-[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
-EOL
-}
-
-
-
-function install_cli_tools_mandatory {
-   #####################################
-   # Fonts
-   # [Nerd Fonts](https://www.nerdfonts.com)
-
-   #####################################
-   # Python
-
+function install_python_tools {
    # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
    pip3 install --user bpytop
 
@@ -76,20 +75,13 @@ function install_cli_tools_mandatory {
 
    # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis
    pip3 install --user --upgrade data_hacks
+}
 
 
-   #####################################
-   # Tools
 
+function install_go_tools {
    # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
    # go: https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-
-   # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software
-   # rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-
-   #####################################
-   # Go
 
    # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose
    # command-line fuzzy finder
@@ -119,10 +111,12 @@ function install_cli_tools_mandatory {
    # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
    go install github.com/muesli/duf@latest \
    && mv ~/go/bin/duf ~/.local/bin/duf
+}
 
 
-   #####################################
-   # Rust
+function install_rust_tools {
+   # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software
+   # rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
    # [LSD (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project
    # is a rewrite of GNU ls with lot of added features like colors, icons,
@@ -165,11 +159,10 @@ function install_cli_tools_mandatory {
    # a line-oriented search tool that recursively searches the current
    # directory for a regex pattern
    cargo install ripgrep
+}
 
 
-   #####################################
-   # bash
-
+function install_bash_tools {
    # [z - GitHub](https://github.com/rupa/z): jump around
    mkdir -p ~/.bash_completion.d
    wget -O ~/.bash_completion.d/z.sh 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
@@ -180,20 +173,18 @@ function install_cli_tools_mandatory {
    mkdir -p ~/.bash_completion.d
    curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o ~/.bash_completion.d/"#1"
    curl "https://raw.githubusercontent.com/changyuheng/fz/master/{fz.sh}" -o ~/.bash_completion.d/z"#1"
+}
 
 
 
-   #####################################
-   # Perl
-
+function install_perl_tools {
    # [Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
    cpan install File::Rename
+}
 
 
 
-   #####################################
-   # Tools
-
+function install_compiled_tools {
    # tmux
 
    # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform
@@ -408,4 +399,9 @@ function plot_tools {
 install_configs
 install_vim_plugins
 extend_bashrc
-install_cli_tools_mandatory
+install_python_tools
+install_go_tools
+install_rust_tools
+install_bash_tools
+install_perl_tools
+install_compiled_tools
