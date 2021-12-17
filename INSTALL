@@ -93,8 +93,8 @@ function install_cli_tools_mandatory {
 
    # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose
    # command-line fuzzy finder
-   go install github.com/junegunn/fzf@latest
-   mv ~/go/bin/fzf ~/.local/bin/fzf
+   go install github.com/junegunn/fzf@latest \
+   && mv ~/go/bin/fzf ~/.local/bin/fzf
    mkdir -p ~/.bash_completion.d
    wget -O ~/.bash_completion.d/fzf.completion.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash'
    wget -O ~/.bash_completion.d/fzf.key-bindings.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash'
@@ -103,22 +103,22 @@ function install_cli_tools_mandatory {
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple
    # terminal UI for git commands, written in Go with the gocui library
-   go install github.com/jesseduffield/lazygit@latest
-   mv ~/go/bin/lazygit ~/.local/bin/lazygit
+   go install github.com/jesseduffield/lazygit@latest \
+   && mv ~/go/bin/lazygit ~/.local/bin/lazygit
 
    # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A
    # simple terminal UI for both docker and docker-compose, written in Go with
    # the gocui library
-   go install github.com/jesseduffield/lazydocker@latest
-   mv ~/go/bin/lazydocker ~/.local/bin/lazydocker
+   go install github.com/jesseduffield/lazydocker@latest \
+   && mv ~/go/bin/lazydocker ~/.local/bin/lazydocker
 
    # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu): Pretty fast disk usage analyzer written in Go
-   go install github.com/dundee/gdu/v5/cmd/gdu@latest
-   mv ~/go/bin/gdu ~/.local/bin/gdu
+   go install github.com/dundee/gdu/v5/cmd/gdu@latest \
+   && mv ~/go/bin/gdu ~/.local/bin/gdu
 
    # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
-   go install github.com/muesli/duf@latest
-   mv ~/go/bin/duf ~/.local/bin/duf
+   go install github.com/muesli/duf@latest \
+   && mv ~/go/bin/duf ~/.local/bin/duf
 
 
    #####################################
@@ -360,12 +360,12 @@ function plot_tools {
    pip3 install --user --upgrade termgraph
 
    # [termeter - GitHub](https://github.com/atsaki/termeter) Visualize data in the terminal.
-   go install github.com/atsaki/termeter/cmd/termeter@latest
-   mv ~/go/bin/termeter ~/.local/bin
+   go install github.com/atsaki/termeter/cmd/termeter@latest \
+   && mv ~/go/bin/termeter ~/.local/bin
 
    # [asciigraph - GitHub](https://github.com/guptarohit/asciigraph) Go package to make lightweight ASCII line graphs ╭┈╯.
-   go install github.com/guptarohit/asciigraph/cmd/asciigraph@latest
-   mv ~/go/bin/asciigraph ~/.local/bin
+   go install github.com/guptarohit/asciigraph/cmd/asciigraph@latest \
+   && mv ~/go/bin/asciigraph ~/.local/bin
 
    # [pysparkline - GitHub](https://github.com/RedKrieg/pysparklines) Takes series data via stdin, command line, or API and prints a sparkline representation.
    #pip3 install --user --upgrade pysparklines
