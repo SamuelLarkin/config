@@ -43,11 +43,11 @@ function extend_bashrc {
    cat >> $HOME/.bashrc <<EOL
 
 
-   # User specific aliases and functions
-   [[ -e ~/.alias ]] && . ~/.alias || true
-   [[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
-   [[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
-   [[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
+# User specific aliases and functions
+[[ -e ~/.alias ]] && . ~/.alias || true
+[[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
+[[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
+[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
 EOL
 }
 
