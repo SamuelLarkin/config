@@ -397,12 +397,14 @@ function plot_tools {
 # module load StdEnv/2020
 # module load rust/1.53.0
 
-install_configs
-install_vim_plugins
-extend_bashrc
-install_python_tools
-install_go_tools
-install_rust_tools
-install_bash_tools
-install_perl_tools
-install_compiled_tools
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+   install_configs
+   install_vim_plugins
+   extend_bashrc
+   install_python_tools
+   install_go_tools
+   install_rust_tools
+   install_bash_tools
+   install_perl_tools
+   install_compiled_tools
+fi
