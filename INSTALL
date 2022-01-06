@@ -12,7 +12,7 @@ function extend_bashrc {
 [[ -e ~/.alias ]] && . ~/.alias || true
 [[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
 [[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
-[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source $f; done || true
+[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source \$f; done || true
 EOL
 }
 
@@ -81,7 +81,8 @@ function install_python_tools {
 
 function install_go_tools {
    # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
-   # go: https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+   # wget 'https://golang.org/dl/go1.17.3.linux-amd64.tar.gz'
+   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
 
    # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose
    # command-line fuzzy finder
