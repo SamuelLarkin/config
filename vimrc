@@ -363,6 +363,7 @@ endfunction
 " http://manhnt.github.io/vim/2016/06/25/vundle-beginner.html
 " List of many vim plugins:
 "   https://github.com/vim-scripts?tab=repositories
+" [Awesome Vim plugins from across the Universe](https://vimawesome.com/)
 " INSTALLATION:
 "   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "   :PluginInstall
