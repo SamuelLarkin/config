@@ -1,3 +1,10 @@
+" [Vim Error: E474: Invalid argument: listchars=tab:»·,trail:·](https://stackoverflow.com/a/18321539)
+" {
+   scriptencoding utf-8
+   set encoding=utf-8
+" }
+
+
 " NOTE
 " # Enable wdiff syntax highlighting.
 " set syntax=wdiff
