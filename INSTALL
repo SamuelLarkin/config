@@ -116,6 +116,12 @@ function install_go_tools {
    # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
    go install github.com/muesli/duf@latest \
    && mv ~/go/bin/duf ~/.local/bin/duf
+
+   # [F2 - GitHub](https://github.com/ayoisaiah/f2): F2 is a cross-platform
+   # command-line tool for batch renaming files and directories quickly and
+   # safely. Written in Go!
+   go install github.com/ayoisaiah/f2/cmd/f2@latest \
+   && mv ~/go/bin/f2 ~/.local/bin/
 }
 
 
