@@ -14,7 +14,7 @@ MATS="215 216 219 220 221 222 223 224"
 #   -n
 
 
-# Trixie
+# Slurm
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
 alias squeue='squeue --sort=ti --format="%.8i %60j %.8u %.2t %.10M %.6D %16R %18V %k"'
 alias squeue_dependencies='squeue --format="%.8i %80j %.8u %.2t %.10M %.6D %16R %18V %k %E"'
