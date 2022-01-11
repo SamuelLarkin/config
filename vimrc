@@ -559,6 +559,12 @@ endfunction
    let g:rainbow_active = 1
    let g:Illuminate_delay = 250
    let g:vim_search_pulse_duration = 200
+ 
+   " ALE
+   " {
+      " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
+      let g:airline#extensions#ale#enabled = 1
+   " }
 " }
 
 
