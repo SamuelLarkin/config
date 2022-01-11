@@ -172,6 +172,11 @@ function install_rust_tools {
    # a line-oriented search tool that recursively searches the current
    # directory for a regex pattern
    cargo install ripgrep
+
+   # [RnR - GitHub](https://github.com/ismaelgv/rnr):
+   # RnR is a command-line tool to securely rename multiple files and
+   # directories that supports regular expressions.
+   cargo install rnr
 }
 
 
