@@ -546,14 +546,6 @@ endfunction
 " }
 
 
-" Sneak
-" {
-   let g:sneak#label = 1
-   nmap f <Plug>Sneak_s
-   nmap F <Plug>Sneak_S
-" }
-
-
 " Vundle
 " {
    let g:rainbow_active = 1
@@ -564,6 +556,13 @@ endfunction
    " {
       " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
       let g:airline#extensions#ale#enabled = 1
+   " }
+
+   " Sneak
+   " {
+      let g:sneak#label = 1
+      nmap f <Plug>Sneak_s
+      nmap F <Plug>Sneak_S
    " }
 " }
 
