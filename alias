@@ -299,7 +299,7 @@ function diffdircode {
 ########################################
 # VIM
 function viewdiffhead {
-   local -r vimdifftop_size=10000
+   local vimdifftop_size=10000
    expr $1 + 0 &> /dev/null && { vimdifftop_size=$1; shift; }
 
    local -r vimdifftop_first=$1
@@ -314,7 +314,7 @@ function viewdiffhead {
 
 
 function viewdifftail {
-   local -r vimdifftop_size=10000
+   local vimdifftop_size=10000
    expr $1 + 0 &> /dev/null && { vimdifftop_size=$1; shift; }
 
    local -r vimdifftop_first=$1
@@ -329,7 +329,7 @@ function viewdifftail {
 
 
 function vimparhead {
-   local -r vimpartop_size=10000
+   local vimpartop_size=10000
    expr $1 + 0 &> /dev/null && { vimpartop_size=$1; shift; }
 
    local -r vimpartop_first=$1
