@@ -50,7 +50,11 @@ function install_vim_plugins {
       https://github.com/VundleVim/Vundle.vim.git \
       $HOME/.vim/bundle/Vundle.vim
    vim +:PluginInstall +:qa
+}
 
+
+
+function install_tmux_plugins {
    git \
       clone \
       https://github.com/tmux-plugins/tpm \
@@ -400,6 +404,7 @@ function plot_tools {
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
    install_configs
    install_vim_plugins
+   install_tmux_plugins
    extend_bashrc
    install_python_tools
    install_go_tools
