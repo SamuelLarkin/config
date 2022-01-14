@@ -33,7 +33,7 @@ function install_configs {
    )
 
    for config in ${configs[@]}; do
-      ln -fns config/$config  $HOME/.$config
+      ln -fns ~/config/$config  ~/.$config
    done
 
    mkdir -p ~/.config/htop
