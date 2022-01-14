@@ -39,6 +39,8 @@ function install_configs {
    mkdir -p ~/.config/htop
    ln -fns ~/config/htoprc ~/.config/htop/
 
+   ln -fns ~/config/flake8 ~/.config/flake8
+
    mkdir -p ~/.cargo
    ln -fns ~/config/cargo.config.toml ~/.cargo/config.toml
 }
