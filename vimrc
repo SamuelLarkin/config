@@ -512,8 +512,8 @@ endfunction
    " https://github.com/junegunn/fzf
    Plugin 'junegunn/fzf'
 
-   "" Make your Vim/Neovim as smart as VSCode.
-   "" https://github.com/neoclide/coc.nvim
+   " Make your Vim/Neovim as smart as VSCode.
+   " https://github.com/neoclide/coc.nvim
    "Plugin 'neoclide/coc.nvim'
 
    " Asynchronous Lint Engine
