@@ -166,6 +166,9 @@
 [pretty]
    ej = tformat:%C(red bold)%ad%Creset %C(yellow)%h %Cgreen%an%C(magenta)%d %Creset%s
 
+[pull]
+   rebase = True
+
 [push]
    default = simple
 
