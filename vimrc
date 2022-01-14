@@ -525,6 +525,13 @@ endfunction
    " https://ctrlpvim.github.io/ctrlp.vim/
    Plugin 'ctrlpvim/ctrlp.vim'
 
+   " A Vim plugin which shows a git diff in the sign column. It shows which
+   " lines have been added, modified, or removed. You can also preview, stage,
+   " and undo individual hunks; and stage partial hunks. The plugin also
+   " provides a hunk text object.
+   " https://github.com/airblade/vim-gitgutter
+   Plugin 'airblade/vim-gitgutter'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
