@@ -518,6 +518,11 @@ endfunction
    " https://github.com/dense-analysis/ale
    Plugin 'dense-analysis/ale'
 
+   " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+   " https://github.com/ctrlpvim/ctrlp.vim
+   " https://ctrlpvim.github.io/ctrlp.vim/
+   Plugin 'ctrlpvim/ctrlp.vim'
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
