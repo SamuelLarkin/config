@@ -138,48 +138,48 @@ function install_rust_tools {
    # is a rewrite of GNU ls with lot of added features like colors, icons,
    # tree-view, more formatting options etc. The project is heavily inspired by
    # the super colorls project.
-   cargo install lsd
+   cargo install --root ~/.local lsd
 
    # [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
    # highlighting and Git integration
-   cargo install bat
+   cargo install --root ~/.local bat
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line
    # benchmarking tool
-   cargo install hyperfine
+   cargo install --root ~/.local hyperfine
 
    # [exa - Documentation](https://the.exa.website/): modern replacement for ls
    # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls
-   cargo install exa
+   cargo install --root ~/.local exa
 
    # [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal
    # graphical metrics for your *nix system written in Rust
-   cargo install --git https://github.com/bvaisvil/zenith
+   cargo install --root ~/.local --git https://github.com/bvaisvil/zenith
 
    # [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like
    # du but more intuitive
-   cargo install --git https://github.com/bootandy/dust
+   cargo install --root ~/.local --git https://github.com/bootandy/dust
 
    # [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
    # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom)
    #cargo install --git https://github.com/cjbassi/ytop
-   cargo install ytop
+   cargo install --root ~/.local ytop
 
    # [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust
-   cargo install procs
+   cargo install --root ~/.local procs
 
    # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
-   cargo install fd-find
+   cargo install --root ~/.local fd-find
 
    # [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
    # a line-oriented search tool that recursively searches the current
    # directory for a regex pattern
-   cargo install ripgrep
+   cargo install --root ~/.local ripgrep
 
    # [RnR - GitHub](https://github.com/ismaelgv/rnr):
    # RnR is a command-line tool to securely rename multiple files and
    # directories that supports regular expressions.
-   cargo install rnr
+   cargo install --root ~/.local rnr
 }
 
 
