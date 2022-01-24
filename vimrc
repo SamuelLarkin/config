@@ -1,3 +1,5 @@
+" vim:nowrap:
+
 " [Vim Error: E474: Invalid argument: listchars=tab:»·,trail:·](https://stackoverflow.com/a/18321539)
 " {
    scriptencoding utf-8
