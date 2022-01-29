@@ -1,3 +1,4 @@
+# vim:nowrap:
 #####################################
 # Fonts
 # [Nerd Fonts](https://www.nerdfonts.com)
@@ -70,17 +71,17 @@ function install_python_tools {
    # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
    pip3 install --user bpytop
 
-   # [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
-   # [glances - WebSite](https://nicolargo.github.io/glances): An eye on your system
+   # [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system.
+   # [glances - WebSite](https://nicolargo.github.io/glances): An eye on your system.
    pip3 install --user --upgrade glances
 
-   # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility
+   # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility.
    pip3 install --user --upgrade tabulate
 
-   # [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar
+   # [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar.
    pip3 install --user --upgrade tqdm
 
-   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis
+   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
    pip3 install --user --upgrade data_hacks
 
    # [tmuxp - GitHub](https://github.com/tmux-python/tmuxp) tmuxp, tmux session manager.
@@ -90,11 +91,11 @@ function install_python_tools {
 
 
 function install_go_tools {
-   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software
+   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
    # wget 'https://golang.org/dl/go1.17.3.linux-amd64.tar.gz'
    # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
 
-   # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose
+   # [fzf - GitHub](https://github.com/junegunn/fzf): fzf is a general-purpose.
    # command-line fuzzy finder
    go install github.com/junegunn/fzf@latest \
    && mv ~/go/bin/fzf ~/.local/bin/
@@ -105,23 +106,23 @@ function install_go_tools {
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple
-   # terminal UI for git commands, written in Go with the gocui library
+   # terminal UI for git commands, written in Go with the gocui library.
    go install github.com/jesseduffield/lazygit@latest \
    && mv ~/go/bin/lazygit ~/.local/bin/
 
    # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A
    # simple terminal UI for both docker and docker-compose, written in Go with
-   # the gocui library
+   # the gocui library.
    go install github.com/jesseduffield/lazydocker@latest \
    && mv ~/go/bin/lazydocker ~/.local/bin/
 
    # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu): Pretty fast
-   # disk usage analyzer written in Go
+   # disk usage analyzer written in Go.
    go install github.com/dundee/gdu/v5/cmd/gdu@latest \
    && mv ~/go/bin/gdu ~/.local/bin/
 
    # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility
-   # (Linux, BSD, macOS & Windows))
+   # (Linux, BSD, macOS & Windows)).
    go install github.com/muesli/duf@latest \
    && mv ~/go/bin/duf ~/.local/bin/
 
@@ -141,7 +142,7 @@ function install_go_tools {
 
 
 function install_rust_tools {
-   # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software
+   # [Rust](https://www.rust-lang.org/): A language empowering everyone to build reliable and efficient software.
    # rust: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
    # [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project
@@ -151,39 +152,39 @@ function install_rust_tools {
    cargo install --root ~/.local lsd
 
    # [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
-   # highlighting and Git integration
+   # highlighting and Git integration.
    cargo install --root ~/.local bat
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line
-   # benchmarking tool
+   # benchmarking tool.
    cargo install --root ~/.local hyperfine
 
-   # [exa - Documentation](https://the.exa.website/): modern replacement for ls
-   # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls
+   # [exa - Documentation](https://the.exa.website/): modern replacement for ls.
+   # [exa - GitHub](https://github.com/ogham/exa): modern replacement for ls.
    cargo install --root ~/.local exa
 
    # [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal
-   # graphical metrics for your *nix system written in Rust
+   # graphical metrics for your *nix system written in Rust.
    cargo install --root ~/.local --git https://github.com/bvaisvil/zenith
 
    # [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like
-   # du but more intuitive
+   # du but more intuitive.
    cargo install --root ~/.local --git https://github.com/bootandy/dust
 
    # [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
-   # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom)
+   # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom).
    #cargo install --git https://github.com/cjbassi/ytop
    cargo install --root ~/.local ytop
 
-   # [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust
+   # [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust.
    cargo install --root ~/.local procs
 
-   # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
+   # [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem.
    cargo install --root ~/.local fd-find
 
    # [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
    # a line-oriented search tool that recursively searches the current
-   # directory for a regex pattern
+   # directory for a regex pattern.
    cargo install --root ~/.local ripgrep
 
    # [RnR - GitHub](https://github.com/ismaelgv/rnr):
@@ -194,13 +195,13 @@ function install_rust_tools {
 
 
 function install_bash_tools {
-   # [z - GitHub](https://github.com/rupa/z): jump around
+   # [z - GitHub](https://github.com/rupa/z): jump around.
    mkdir -p ~/.bash_completion.d
    wget -O ~/.bash_completion.d/z.sh 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
 
    # [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that
    # seamlessly adds fuzzy search to tab completion of z, lets you easy to jump
-   # around among your historical directories
+   # around among your historical directories.
    mkdir -p ~/.bash_completion.d
    curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o ~/.bash_completion.d/"#1"
    curl "https://raw.githubusercontent.com/changyuheng/fz/master/{fz.sh}" -o ~/.bash_completion.d/z"#1"
@@ -209,7 +210,7 @@ function install_bash_tools {
 
 
 function install_perl_tools {
-   # [rename - Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
+   # [rename - Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL).
    cpan install File::Rename
 }
 
@@ -219,7 +220,7 @@ function install_compiled_tools {
    # tmux
 
    # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform
-   # interactive process viewer
+   # interactive process viewer.
    which --skip-alias htop \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -233,7 +234,7 @@ function install_compiled_tools {
       rm -fr htop-3.1.1
    )
 
-   # [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
+   # [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git.
    which --skip-alias tig \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -253,7 +254,7 @@ function install_compiled_tools {
    )
 
    # [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
-   # for executing jobs in parallel using one or more computers
+   # for executing jobs in parallel using one or more computers.
    which --skip-alias parallel \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -266,8 +267,8 @@ function install_compiled_tools {
       rm -fr parallel-20211022
    )
 
-   # [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor
-   # [jq](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor
+   # [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor.
+   # [jq](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor.
    which --skip-alias jq \
    || (
       wget -O "$HOME/.local/bin/jq" 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64' \
@@ -283,7 +284,7 @@ function install_compiled_tools {
    #   make -j $(nproc) LDFLAGS=-all-static
    #)
 
-   # [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage
+   # [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage.
    which --skip-alias ncdu \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -298,8 +299,8 @@ function install_compiled_tools {
 
    # [FishShell](https://fishshell.com/): Finally, a command line shell for the
    # 90s fish is a smart and user-friendly command line shell for Linux, macOS,
-   # and the rest of the family
-   # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
+   # and the rest of the family.
+   # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell.
    which --skip-alias fish \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -312,7 +313,7 @@ function install_compiled_tools {
       cd ../.. && rm -fr fish-3.3.1
    )
 
-   # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
+   # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows)).
    which --skip-alias duf \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -324,7 +325,7 @@ function install_compiled_tools {
    )
 
    # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything
-   # in everything... ultra fast
+   # in everything... ultra fast.
    which --skip-alias ugrep \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -336,8 +337,8 @@ function install_compiled_tools {
       cd .. && rm -fr ugrep-3.3.10
    )
 
-   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
-   # NOTE: probably already install by `cargo install hyperfine`
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
+   # NOTE: probably already install by `cargo install hyperfine`.
    which --skip-alias hyperfine \
    || (
       mkdir -p ~/tmp && cd ~/tmp
@@ -348,7 +349,7 @@ function install_compiled_tools {
       rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
 
-   # [vifm – Vim-like file manager](https://github.com/vifm/vifm)
+   # [vifm – Vim-like file manager](https://github.com/vifm/vifm).
    which --skip-alias vifm \
    || (
       wget -O vifm.tar.gz 'https://github.com/vifm/vifm/archive/refs/tags/v0.12.tar.gz'
@@ -374,11 +375,11 @@ function install_cli_tools_optional {
 
 
 function plot_tools {
-   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis
+   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
    pip3 install --user --upgrade data_hacks
 
    # [Termgraph - GitHub](https://github.com/mkaz/termgraph) A command-line tool that draws basic graphs in the terminal, written in Python.
-   # [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/)
+   # [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/).
    pip3 install --user --upgrade termgraph
 
    # [termeter - GitHub](https://github.com/atsaki/termeter) Visualize data in the terminal.
@@ -402,7 +403,7 @@ function plot_tools {
    # [termplotlib - GitHub](https://github.com/nschloe/termplotlib) termplotlib is a Python library for all your terminal plotting needs. It aims to work like matplotlib.
    #pip3 install --user --upgrade termplotlib
 
-   # [bashplotlib - GitHub](https://github.com/glamp/bashplotlib) plotting in the terminal
+   # [bashplotlib - GitHub](https://github.com/glamp/bashplotlib) plotting in the terminal.
    #pip3 install --user --upgrade bashplotlib
 
    # [smag - show me a graph! - GitHub](https://github.com/aantn/smag) Easily create graphs from cli commands and view them in the terminal. Like the watch command but with a graph of the output.
