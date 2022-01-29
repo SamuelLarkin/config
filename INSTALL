@@ -82,6 +82,9 @@ function install_python_tools {
 
    # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis
    pip3 install --user --upgrade data_hacks
+
+   # [tmuxp - GitHub](https://github.com/tmux-python/tmuxp) tmuxp, tmux session manager.
+   pip3 install --user --upgrade tmuxp
 }
 
 
