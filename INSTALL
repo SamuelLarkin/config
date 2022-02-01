@@ -139,6 +139,11 @@ function install_go_tools {
    #go install github.com/mikefarah/yq@latest \
    go get github.com/mikefarah/yq/v4 \
    && mv ~/go/bin/yq ~/.local/bin/
+
+   # [Glow - GitHub](https://github.com/charmbracelet/glow)
+   # Render markdown on the CLI, with pizzazz!
+   go install github.com/charmbracelet/glow@latest \
+   && mv ~/go/bin/glow ~/.local/bin/
 }
 
 
