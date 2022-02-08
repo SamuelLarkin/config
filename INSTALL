@@ -90,6 +90,13 @@ function install_python_tools {
 
    # [tldr-pages - GitHub](https://github.com/tldr-pages/tldr): The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
    pip3 install --user --upgrade tldr
+
+   # [Rich CLI - GitHub](https://github.com/Textualize/rich-cli):
+   # Rich-cli is a command line toolbox for fancy output in the terminal, built
+   # with Rich.  Use the rich command to highlight a variety of file types in
+   # the terminal, with specialized rendering for Markdown and JSON files.
+   # Additionally you can markup and format text from the command line.
+   pip3 install --user --upgrade rich-cli
 }
 
 
