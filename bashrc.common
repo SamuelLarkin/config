@@ -44,6 +44,7 @@ shopt -s histappend
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=10000
 export HISTSIZE=100000
+export HISTTIMEFORMAT="%F %T "
 
 umask 0007
 
