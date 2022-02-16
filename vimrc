@@ -627,6 +627,15 @@ endfunction
       nmap f <Plug>Sneak_s
       nmap F <Plug>Sneak_S
    " }
+
+   " Using `ugrep` with CtrlP {
+      if executable('ugrep')
+         set runtimepath^=~/.vim/bundle/ctrlp.vim
+         let g:ctrlp_match_window='bottom,order:ttb'
+         "let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files -3'
+         let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files'
+      endif
+   " }
 " }
 
 
@@ -647,6 +656,14 @@ endfunction
 " Quick Code Snippets
 " {
    abbr _pudb_ from pudb import set_trace; set_trace()
+" }
+
+
+" [Using ugrep within Vim](https://github.com/Genivia/ugrep#using-ugrep-within-vim) {
+   if executable('ugrep')
+      set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
+      set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
+   endif
 " }
 
 
