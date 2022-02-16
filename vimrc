@@ -532,6 +532,24 @@ endfunction
    " https://github.com/airblade/vim-gitgutter
    Plugin 'airblade/vim-gitgutter'
 
+   " TypeScript & React
+   "{
+      " [Modern TypeScript and React Development in Vim](https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
+
+      " [vim-jsx-typescript](https://github.com/peitalin/vim-jsx-typescript)
+      " Syntax highlighting and indentation for JSX in Typescript
+      " (typescriptreact filetypes).
+      " vim-jsx-typescript works with the built-in typescript syntax
+      " highlighter and indentation engine for recent versions of Vim/Neovim.
+      Plugin 'peitalin/vim-jsx-typescript'
+
+      Plugin 'pangloss/vim-javascript'
+      Plugin 'leafgarland/typescript-vim'
+      Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+      Plugin 'jparise/vim-graphql'
+   "}
+
+
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
    filetype plugin indent on    " required
@@ -556,6 +574,22 @@ endfunction
       set t_Co=256
       "colorscheme asu1dark
       colorscheme desertink
+
+      " [Xterm256 color names for console Vim](https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim)
+      " dark red
+      hi tsxTagName ctermfg=52
+      hi tsxComponentName ctermfg=52
+      hi tsxCloseComponentName ctermfg=52
+
+      " orange
+      hi tsxCloseString ctermfg=214
+      hi tsxCloseTag ctermfg=214
+      hi tsxCloseTagName ctermfg=214
+      hi tsxAttributeBraces ctermfg=214
+      hi tsxEqual ctermfg=214
+
+      " yellow
+      hi tsxAttrib ctermfg=190
    " }
 " }
 
@@ -598,4 +632,13 @@ endfunction
 " Quick Code Snippets
 " {
    abbr _pudb_ from pudb import set_trace; set_trace()
+" }
+
+
+" {
+   " I prefer to enable this when I enter a JavaScript or TypeScript buffer,
+   " and disable it when I leave
+   autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+   autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+   autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 " }
