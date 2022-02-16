@@ -367,7 +367,7 @@ endfunction
 
 """"""""""""""""""""""""""""""""""""""""
 " For Vundle
-" https://github.com/VundleVim/Vundle.vim#about
+" [Vundle](https://github.com/VundleVim/Vundle.vim)
 " http://www.nerdyweekly.com/posts/modern-vim-plugin-management-pathogen-vs-vundle/
 " http://manhnt.github.io/vim/2016/06/25/vundle-beginner.html
 " List of many vim plugins:
@@ -393,10 +393,10 @@ endfunction
    " The following are examples of different formats supported.
    " Keep Plugin commands between vundle#begin/end.
 
-   " l9 is a Vim-script library, which provides some utility functions and
+   " [l9](http://vim-scripts.org/vim/scripts.html)
+   " is a Vim-script library, which provides some utility functions and
    " commands.
    " for programming in Vim.
-   " plugin from http://vim-scripts.org/vim/scripts.html
    Plugin 'L9'
 
    " BufExplorer
@@ -404,132 +404,149 @@ endfunction
    Plugin 'bufexplorer.zip'
 
    " VCSVimDiff
+   " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
+   " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
+   " git, bzr, and hg within VIM, including committing changes and performing
+   " diffs using the vimdiff system.
    "Bundle 'vim-scripts/vcscommand.vim'
    "Plugin 'http://repo.or.cz/r/vcscommand.git'
    Plugin 'vcscommand.vim'
 
-   " plugin on GitHub repo
+   " [vim-fugitive](https://github.com/tpope/vim-fugitive)
+   " Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git
+   " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
+   " That's why it's called Fugitive.
    Plugin 'tpope/vim-fugitive'
 
-   " Display in the statusline class, function & method the cursor is in.
-   " https://github.com/mgedmin/pythonhelper.vim
-   Plugin 'mgedmin/pythonhelper.vim'
+   " Python
+   "{
+      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
+      " Display in the statusline class, function & method the cursor is in.
+      Plugin 'mgedmin/pythonhelper.vim'
 
-   " Pythonsense
-   " Pythonsense is a Vim plugin that provides text objects and motions for
-   " Python classes, methods, functions, and doc strings.
-   " https://github.com/jeetsukumaran/vim-pythonsense/blob/master/README.md
-   Bundle 'jeetsukumaran/vim-pythonsense'
+      " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
+      " Pythonsense is a Vim plugin that provides text objects and motions for
+      " Python classes, methods, functions, and doc strings.
+      Bundle 'jeetsukumaran/vim-pythonsense'
 
-   " Autocompletion for Python
-   " https://github.com/davidhalter/jedi-vim
-   " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-   Plugin 'davidhalter/jedi-vim'
+      " [jedi-vim](https://github.com/davidhalter/jedi-vim)
+      " awesome Python autocompletion with VIM
+      " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+      Plugin 'davidhalter/jedi-vim'
 
-   " vim-flake8
-   " https://github.com/nvie/vim-flake8.git
-   Plugin 'nvie/vim-flake8'
+      " [vim-flake8](https://github.com/nvie/vim-flake8.git)
+      " is a Vim plugin that runs the currently open file through Flake8, a
+      " static syntax and style checker for Python source code. It supersedes
+      " both vim-pyflakes and vim-pep8.
+      Plugin 'nvie/vim-flake8'
 
+      " [semshi](https://github.com/numirias/semshi)
+      " Semantic Highlighting for Python in Neovim
+      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+      "Plugin 'numirias/semshi'
+   "}
+
+   " [sparkup](https://github.com/rstacruz/sparkup)
    " A parser for a condensed HTML format
-   " https://github.com/rstacruz/sparkup
-   " The sparkup vim script is in a subdirectory of this repo called vim.
    " Pass the path to set the runtimepath properly.
    Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
-   " Tagbar: Awesome source code [tag]browsing
+   " [Tagbar](https://github.com/majutsushi/tagbar)
+   " Awesome source code [tag]browsing
    " Displays a file/class explorer using :TagbarOpen
-   " https://github.com/majutsushi/tagbar
    Bundle 'majutsushi/tagbar'
 
+   " [tabular](https://github.com/godlygeek/tabular)
    " Vim script for text filtering and alignment
-   " https://github.com/godlygeek/tabular
    " howoto: `:'<,'>Tabularize /=`
    Bundle 'godlygeek/tabular'
 
+   " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
    " XPath search plugin for Vim
-   " https://github.com/actionshrimp/vim-xpath
    Bundle 'actionshrimp/vim-xpath'
 
+   " [vim-json](https://github.com/elzr/vim-json)
    " A better JSON for Vim: distinct highlighting of keywords vs values,
    " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-   " https://github.com/elzr/vim-json
    Bundle 'elzr/vim-json'
 
+   " [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
    " One colorscheme pack to rule them all!
-   " https://github.com/flazz/vim-colorschemes
    Plugin 'flazz/vim-colorschemes'
 
+   " [diffconflicts](https://github.com/whiteinge/diffconflicts)
    " This converts a file containing conflict markers into a two-way diff.
-   " https://github.com/whiteinge/diffconflicts
    " git config --global merge.tool diffconflicts
    " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
    " git config --global mergetool.diffconflicts.trustExitCode true
    " git config --global mergetool.keepBackup false
-   "
    Bundle 'whiteinge/diffconflicts'
 
+   " [vim-surround](https://github.com/tpope/vim-surround)
    " Surround.vim is all about `surroundings`: parentheses, brackets, quotes,
    " XML tags, and more. The plugin provides mappings to easily delete, change
    " and add such surroundings in pairs.
-   " https://github.com/tpope/vim-surround
    "Bundle 'tpope/vim-surround'
 
    """""""""""""""""""""""""""""""""""
    " FANCY VIM PLUGINS
    " https://danyspin97.org/blog/fancy-vim-plugins/
 
-   " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
-   " fast, powerful configuration.
-   " https://github.com/luochen1990/rainbow
-   Plugin 'luochen1990/rainbow'
+   " Highlighting
+   "{
+      " [rainbow](https://github.com/luochen1990/rainbow)
+      " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
+      " fast, powerful configuration.
+      Plugin 'luochen1990/rainbow'
 
-   " illuminate.vim - Vim plugin for selectively illuminating other uses of
-   " the current word under the cursor
-   " https://github.com/RRethy/vim-illuminate
-   Plugin 'RRethy/vim-illuminate'
+      " [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+      " illuminate.vim - Vim plugin for selectively illuminating other uses of
+      " the current word under the cursor
+      Plugin 'RRethy/vim-illuminate'
 
-   " it pulses every time you scroll the search results by pressing n/N.
-   Plugin 'inside/vim-search-pulse'
+      " [vim-search-pulse](https://github.com/inside/vim-search-pulse)
+      " easily locate the cursor after a search.
+      " it pulses every time you scroll the search results by pressing n/N.
+      Plugin 'inside/vim-search-pulse'
+   "}
 
+   " [vim-sneak](https://github.com/justinmk/vim-sneak)
    " The missing motion for Vim.
-   " https://github.com/justinmk/vim-sneak
    Plugin 'justinmk/vim-sneak'
 
-   " Semantic Highlighting for Python in Neovim
-   " https://github.com/numirias/semshi
-   "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-   "Plugin 'numirias/semshi'
-
-   " Vim configuration for Rust
-   " https://github.com/rust-lang/rust.vim
-   Plugin 'rust-lang/rust.vim'
+   " Rust
+   "{
+      " [rust](https://github.com/rust-lang/rust.vim)
+      " Vim configuration for Rust
+      Plugin 'rust-lang/rust.vim'
+   "}
 
 
    """""""""""""""""""""""""""""""""""""
    " Under testing, waiting for approval.
 
+   " [fzf](https://github.com/junegunn/fzf)
    " fzf is a general-purpose command-line fuzzy finder
-   " https://github.com/junegunn/fzf
    Plugin 'junegunn/fzf'
 
+   " [coc](https://github.com/neoclide/coc.nvim)
    " Make your Vim/Neovim as smart as VSCode.
-   " https://github.com/neoclide/coc.nvim
    "Plugin 'neoclide/coc.nvim'
 
+   " [ale](https://github.com/dense-analysis/ale)
    " Asynchronous Lint Engine
-   " https://github.com/dense-analysis/ale
    Plugin 'dense-analysis/ale'
 
+   " [CTRL-P](https://github.com/ctrlpvim/ctrlp.vim)
    " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-   " https://github.com/ctrlpvim/ctrlp.vim
    " https://ctrlpvim.github.io/ctrlp.vim/
    Plugin 'ctrlpvim/ctrlp.vim'
 
+   " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
    " A Vim plugin which shows a git diff in the sign column. It shows which
    " lines have been added, modified, or removed. You can also preview, stage,
    " and undo individual hunks; and stage partial hunks. The plugin also
    " provides a hunk text object.
-   " https://github.com/airblade/vim-gitgutter
    Plugin 'airblade/vim-gitgutter'
 
    " TypeScript & React
@@ -599,15 +616,13 @@ endfunction
    let g:rainbow_active = 1
    let g:Illuminate_delay = 250
    let g:vim_search_pulse_duration = 200
- 
-   " ALE
-   " {
+
+   " ALE {
       " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
       let g:airline#extensions#ale#enabled = 1
    " }
 
-   " Sneak
-   " {
+   " Sneak {
       let g:sneak#label = 1
       nmap f <Plug>Sneak_s
       nmap F <Plug>Sneak_S
