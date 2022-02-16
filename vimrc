@@ -636,6 +636,7 @@ endfunction
 
 
 " {
+   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
    " I prefer to enable this when I enter a JavaScript or TypeScript buffer,
    " and disable it when I leave
    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
