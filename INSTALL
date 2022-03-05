@@ -70,33 +70,41 @@ function install_tmux_plugins {
 
 function install_python_tools {
    # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
-   pip3 install --user bpytop
+   python3 -m pip install --user bpytop
 
-   # [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system.
-   # [glances - WebSite](https://nicolargo.github.io/glances): An eye on your system.
-   pip3 install --user --upgrade glances
+   # [glances - GitHub](https://github.com/nicolargo/glances)
+   # [glances - WebSite](https://nicolargo.github.io/glances):
+   # An eye on your system.
+   python3 -m pip install --user --upgrade glances
 
-   # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility.
-   pip3 install --user --upgrade tabulate
+   # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
+   # Pretty-print tabular data in Python, a library and a command-line utility.
+   python3 -m pip install --user --upgrade tabulate
 
-   # [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar.
-   pip3 install --user --upgrade tqdm
+   # [tqdm - GitHub](https://github.com/tqdm/tqdm):
+   # Progress Bar.
+   python3 -m pip install --user --upgrade tqdm
 
-   # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
-   pip3 install --user --upgrade data_hacks
+   # [histogram.py - GitHub](https://github.com/bitly/data_hacks):
+   # Command line utilities for data analysis.
+   python3 -m pip install --user --upgrade data_hacks
 
-   # [tmuxp - GitHub](https://github.com/tmux-python/tmuxp) tmuxp, tmux session manager.
-   pip3 install --user --upgrade tmuxp
+   # [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
+   # tmuxp, tmux session manager.
+   python3 -m pip install --user --upgrade tmuxp
 
-   # [tldr-pages - GitHub](https://github.com/tldr-pages/tldr): The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
-   pip3 install --user --upgrade tldr
+   # [tldr-pages - GitHub](https://github.com/tldr-pages/tldr):
+   # The tldr-pages project is a collection of community-maintained help pages
+   # for command-line tools, that aims to be a simpler, more approachable
+   # complement to traditional man pages.
+   python3 -m pip install --user --upgrade tldr
 
    # [Rich CLI - GitHub](https://github.com/Textualize/rich-cli):
    # Rich-cli is a command line toolbox for fancy output in the terminal, built
    # with Rich.  Use the rich command to highlight a variety of file types in
    # the terminal, with specialized rendering for Markdown and JSON files.
    # Additionally you can markup and format text from the command line.
-   pip3 install --user --upgrade rich-cli
+   python3 -m pip install --user --upgrade rich-cli
 
    # [xq - GitHub](https://github.com/jeffbr13/xq):
    # Apply XPath expressions to XML, like jq does for JSONPath and JSON.
@@ -404,11 +412,11 @@ function install_cli_tools_optional {
 
 function plot_tools {
    # [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
-   pip3 install --user --upgrade data_hacks
+   python3 -m pip install --user --upgrade data_hacks
 
    # [Termgraph - GitHub](https://github.com/mkaz/termgraph) A command-line tool that draws basic graphs in the terminal, written in Python.
    # [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/).
-   pip3 install --user --upgrade termgraph
+   python3 -m pip install --user --upgrade termgraph
 
    # [termeter - GitHub](https://github.com/atsaki/termeter) Visualize data in the terminal.
    go install github.com/atsaki/termeter/cmd/termeter@latest \
@@ -419,30 +427,30 @@ function plot_tools {
    && mv ~/go/bin/asciigraph ~/.local/bin
 
    # [pysparkline - GitHub](https://github.com/RedKrieg/pysparklines) Takes series data via stdin, command line, or API and prints a sparkline representation.
-   #pip3 install --user --upgrade pysparklines
+   #python3 -m pip install --user --upgrade pysparklines
 
    # [plotext - GitHub](https://github.com/piccolomo/plotext) plots directly on terminal, it has no dependencies and the syntax is very similar to matplotlib. It also provide a simple command line tool.
    # Doesn't seem to have a CLI.
-   #pip3 install --user --upgrade plotext
+   #python3 -m pip install --user --upgrade plotext
 
    # [ttyplot - GitHub](https://github.com/tenox7/ttyplot) a realtime plotting utility for text mode consoles and terminals with data input from stdin / pipe.
    # Needs to be compiled
 
    # [termplotlib - GitHub](https://github.com/nschloe/termplotlib) termplotlib is a Python library for all your terminal plotting needs. It aims to work like matplotlib.
-   #pip3 install --user --upgrade termplotlib
+   #python3 -m pip install --user --upgrade termplotlib
 
    # [bashplotlib - GitHub](https://github.com/glamp/bashplotlib) plotting in the terminal.
-   #pip3 install --user --upgrade bashplotlib
+   #python3 -m pip install --user --upgrade bashplotlib
 
    # [smag - show me a graph! - GitHub](https://github.com/aantn/smag) Easily create graphs from cli commands and view them in the terminal. Like the watch command but with a graph of the output.
    #cargo install --git https://github.com/aantn/smag
 
    # [Pipe Plot - GitHub](https://github.com/MyGodIsHe/pipeplot) pipeplot draws an interactive graph in a terminal based on data from pipe.
-   #pip3 install --user --upgrade pipeplot
+   #python3 -m pip install --user --upgrade pipeplot
 
    # [Plotille - GitHub](https://github.com/tammoippen/plotille) Plot, scatter plots and histograms in the terminal using braille dots, with (almost) no dependancies. Plot with color or make complex figures - similar to a very small sibling to matplotlib. Or use the canvas to plot dots and lines yourself.
    # Library Only?
-   #pip3 install --user --upgrade plotille
+   #python3 -m pip install --user --upgrade plotille
 
    # [feedgnuplot - GitHub](https://github.com/dkogan/feedgnuplot) This is a flexible, command-line-oriented frontend to Gnuplot.
    #git clone https://github.com/dkogan/feedgnuplot.git
