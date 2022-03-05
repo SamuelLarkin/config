@@ -101,6 +101,10 @@ function install_python_tools {
    # [xq - GitHub](https://github.com/jeffbr13/xq):
    # Apply XPath expressions to XML, like jq does for JSONPath and JSON.
    python3 -m pip install --user --upgrade xq
+
+   # [hq - GitHub](https://github.com/rbwinslow/hq):
+   # Powerful HTML slicing and dicing at the command line.
+   python3 -m pip install --user --upgrade hq
 }
 
 
