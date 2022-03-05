@@ -105,6 +105,10 @@ function install_python_tools {
    # [hq - GitHub](https://github.com/rbwinslow/hq):
    # Powerful HTML slicing and dicing at the command line.
    python3 -m pip install --user --upgrade hq
+
+   # [yq - GitHub](https://github.com/kislyuk/yq):
+   # yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
+   python3 -m pip install --user --upgrade yq
 }
 
 
