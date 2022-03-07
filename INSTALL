@@ -235,6 +235,10 @@ function install_rust_tools {
    # RnR is a command-line tool to securely rename multiple files and
    # directories that supports regular expressions.
    cargo install --root ~/.local rnr
+
+   # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
+   #
+   cargo install --root ~/.local diskonaut
 }
 
 
