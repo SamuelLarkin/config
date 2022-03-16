@@ -64,6 +64,13 @@ This repository contains my personal configuration files when I want to setup a 
 
 
 
+# Links
+* [jq - manual](https://stedolan.github.io/jq/manual/v1.5/)
+* [jq - cookbook](https://github.com/stedolan/jq/wiki/Cookbook)
+* [jq-hopkok jq utility library - GitHub](https://github.com/joelpurra/jq-hopkok): Checkout how they handle `parallel` with `jq`.
+
+
+
 # Useful Commands
 
 Count the number of entries/sentence pairs that have the `.unparsable` key.
