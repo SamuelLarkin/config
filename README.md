@@ -47,6 +47,10 @@ This repository contains my personal configuration files when I want to setup a 
 * [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
 * [direnv](https://direnv.net/): Unclutter your .profile
 * [autoenv - GitHub](https://github.com/kennethreitz/autoenv): Directory-based environments
+* [jaq - GitHub](https://github.com/01mf02/jaq): jaq is a clone of the JSON data processing tool jq. jaq aims to support a large subset of jq's syntax and operations.
+* [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
+* [jql - GitHub](https://github.com/yamafaktory/jql): A JSON Query Language CLI tool built with Rust.
+
 
 
 ### Vim Plugins
