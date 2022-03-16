@@ -396,6 +396,7 @@ function install_compiled_tools {
    # [vifm – Vim-like file manager](https://github.com/vifm/vifm).
    which --skip-alias vifm \
    || (
+      mkdir -p ~/tmp && cd ~/tmp
       wget -O vifm.tar.gz 'https://github.com/vifm/vifm/archive/refs/tags/v0.12.tar.gz'
       tar xf vifm.tar.gz
       cd vifm-0.12/
