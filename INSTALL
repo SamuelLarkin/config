@@ -403,6 +403,19 @@ function install_compiled_tools {
       ./configure --prefix=$HOME/.local
       make -j $(nproc) install
    )
+
+   # [pv - GitHub](https://github.com/a-j-wood/pv):
+   # a terminal-based tool for monitoring the progress of data through a
+   # pipeline.
+   which --skip-alias pv \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget http://www.ivarch.com/programs/sources/pv-1.6.20.tar.bz2
+      tar xf pv-1.6.20.tar.bz2
+      cd pv-1.6.20/
+      ./configure --prefix=$HOME/.local
+      \make -j $(nproc) install
+   )
 }
 
 
