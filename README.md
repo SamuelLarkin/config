@@ -61,3 +61,13 @@ This repository contains my personal configuration files when I want to setup a 
 * [anyjump - GitHub](https://github.com/pechorin/any-jump.vim): Vim code inspection plugin for finding definitions _and_ pick and references/usages.
 * [ctrlsf.vim - GitHub](https://github.com/dyng/ctrlsf.vim): An ack/ag/pt/rg powered code search and view tool, takes advantage of Vim 8's power to support asynchronous searching, and lets you edit file in-place with Edit Mode.
 * [ALE - GitHub](https://github.com/dense-analysis/ale): Asynchronous Lint Engine.
+
+
+
+# Useful Commands
+
+Count the number of entries/sentence pairs that have the `.unparsable` key.
+```bash
+pv Huge.jsonl \
+| jq --null-input '[ inputs | select(.unparsable)] | reduce .[] as $item (0; . + 1)'
+```
