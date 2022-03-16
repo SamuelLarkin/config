@@ -175,6 +175,13 @@ function install_go_tools {
    # Render markdown on the CLI, with pizzazz!
    go install github.com/charmbracelet/glow@latest \
    && mv ~/go/bin/glow ~/.local/bin/
+
+   # [gojq - GitHub](Pure Go implementation of jq)
+   # Pure Go implementation of jq.
+   # This is an implementation of jq command written in Go language. You can
+   # also embed gojq as a library to your Go products.
+   go install github.com/itchyny/gojq/cmd/gojq@latest \
+   && mv ~/go/bin/gojq ~/.local/bin/
 }
 
 
