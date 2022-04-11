@@ -569,8 +569,10 @@ endfunction
       Plugin 'leafgarland/typescript-vim'
       Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
       Plugin 'jparise/vim-graphql'
+ 
+      " set filetypes as typescriptreact
+      autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
    "}
-
 
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
