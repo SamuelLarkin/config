@@ -658,7 +658,6 @@ endfunction
    abbr _pudb_ from pudb import set_trace; set_trace()
 " }
 
-
 " [Using ugrep within Vim](https://github.com/Genivia/ugrep#using-ugrep-within-vim) {
    if executable('ugrep')
       set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
@@ -674,4 +673,10 @@ endfunction
    autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
    autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
    autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" }
+
+" Disable Bell
+" {
+   set visualbell
+   set t_vb=
 " }
