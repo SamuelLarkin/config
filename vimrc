@@ -408,7 +408,7 @@ endfunction
    " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
    " git, bzr, and hg within VIM, including committing changes and performing
    " diffs using the vimdiff system.
-   "Bundle 'vim-scripts/vcscommand.vim'
+   "Plugin 'vim-scripts/vcscommand.vim'
    "Plugin 'http://repo.or.cz/r/vcscommand.git'
    Plugin 'vcscommand.vim'
 
@@ -427,7 +427,7 @@ endfunction
       " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
       " Pythonsense is a Vim plugin that provides text objects and motions for
       " Python classes, methods, functions, and doc strings.
-      Bundle 'jeetsukumaran/vim-pythonsense'
+      Plugin 'jeetsukumaran/vim-pythonsense'
 
       " [jedi-vim](https://github.com/davidhalter/jedi-vim)
       " awesome Python autocompletion with VIM
@@ -454,21 +454,24 @@ endfunction
    " [Tagbar](https://github.com/majutsushi/tagbar)
    " Awesome source code [tag]browsing
    " Displays a file/class explorer using :TagbarOpen
-   Bundle 'majutsushi/tagbar'
+   " https://github.com/majutsushi/tagbar
+   Plugin 'majutsushi/tagbar'
 
    " [tabular](https://github.com/godlygeek/tabular)
    " Vim script for text filtering and alignment
    " howoto: `:'<,'>Tabularize /=`
-   Bundle 'godlygeek/tabular'
+   Plugin 'godlygeek/tabular'
 
    " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
    " XPath search plugin for Vim
-   Bundle 'actionshrimp/vim-xpath'
+   " https://github.com/actionshrimp/vim-xpath
+   Plugin 'actionshrimp/vim-xpath'
 
    " [vim-json](https://github.com/elzr/vim-json)
    " A better JSON for Vim: distinct highlighting of keywords vs values,
    " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-   Bundle 'elzr/vim-json'
+   " https://github.com/elzr/vim-json
+   Plugin 'elzr/vim-json'
 
    " [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
    " One colorscheme pack to rule them all!
@@ -480,13 +483,15 @@ endfunction
    " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
    " git config --global mergetool.diffconflicts.trustExitCode true
    " git config --global mergetool.keepBackup false
-   Bundle 'whiteinge/diffconflicts'
+   "
+   Plugin 'whiteinge/diffconflicts'
 
    " [vim-surround](https://github.com/tpope/vim-surround)
    " Surround.vim is all about `surroundings`: parentheses, brackets, quotes,
    " XML tags, and more. The plugin provides mappings to easily delete, change
    " and add such surroundings in pairs.
-   "Bundle 'tpope/vim-surround'
+   " https://github.com/tpope/vim-surround
+   "Plugin 'tpope/vim-surround'
 
    """""""""""""""""""""""""""""""""""
    " FANCY VIM PLUGINS
