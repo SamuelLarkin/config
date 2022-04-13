@@ -185,6 +185,12 @@ function install_go_tools {
    # also embed gojq as a library to your Go products.
    go install github.com/itchyny/gojq/cmd/gojq@latest \
    && mv ~/go/bin/gojq ~/.local/bin/
+
+   # [Miller - GitHub](https://github.com/johnkerl/miller):
+   # Miller is like awk, sed, cut, join, and sort for data formats such as CSV,
+   # TSV, JSON, JSON Lines, and positionally-indexed.
+   #go install github.com/johnkerl/miller@latest \
+   #&& mv ~/go/bin/mlr ~/.local/bin/
 }
 
 
