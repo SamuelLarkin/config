@@ -285,6 +285,11 @@ function install_rust_tools {
    # standalone binary.
    # [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
    cargo install --root ~/.local jless
+
+   # [xsv - GitHub](https://github.com/BurntSushi/xsv):
+   # xsv is a command line program for indexing, slicing, analyzing, splitting
+   # and joining CSV files. Commands should be simple, fast and composable.
+   cargo install --root ~/.local xsv
 }
 
 
