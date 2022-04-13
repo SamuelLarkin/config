@@ -258,6 +258,13 @@ function install_rust_tools {
    # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
    # windirstat like for the CLI.
    cargo install --root ~/.local diskonaut
+
+   # [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
+   # zoxide is a smarter cd command, inspired by z and autojump.
+   # It remembers which directories you use most frequently, so you can "jump"
+   # to them in just a few keystrokes.  zoxide works on all major shells.
+   cargo install --root ~/.local zoxide
+   #`eval "$(zoxide init bash)"`
 }
 
 
