@@ -272,6 +272,11 @@ function install_rust_tools {
    # characters, ASCII whitespace characters, other ASCII characters and
    # non-ASCII).
    cargo install --root ~/.local hexyl
+
+   # [difftastic - GitHub](https://github.com/Wilfred/difftastic):
+   # Difftastic is an experimental diff tool that compares files based on their
+   # syntax.
+   #cargo install --root ~/.local difftastic
 }
 
 
