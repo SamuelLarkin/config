@@ -256,7 +256,7 @@ function install_rust_tools {
    #cargo install --root ~/.local histo
 
    # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
-   #
+   # windirstat like for the CLI.
    cargo install --root ~/.local diskonaut
 }
 
