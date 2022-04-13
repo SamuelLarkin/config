@@ -245,6 +245,11 @@ function install_rust_tools {
    # directories that supports regular expressions.
    cargo install --root ~/.local rnr
 
+   # [runiq - GitHub](https://github.com/whitfin/runiq):
+   # This project offers an efficient way (in both time and space) to filter
+   # duplicate entries (lines) from texual input.
+   #cargo install --root ~/.local runiq
+
    # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
    #
    cargo install --root ~/.local diskonaut
