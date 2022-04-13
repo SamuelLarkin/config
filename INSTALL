@@ -265,6 +265,13 @@ function install_rust_tools {
    # to them in just a few keystrokes.  zoxide works on all major shells.
    cargo install --root ~/.local zoxide
    #`eval "$(zoxide init bash)"`
+
+   # [hexyl - GitHub](https://github.com/sharkdp/hexyl):
+   # is a simple hex viewer for the terminal. It uses a colored output to
+   # distinguish different categories of bytes (NULL bytes, printable ASCII
+   # characters, ASCII whitespace characters, other ASCII characters and
+   # non-ASCII).
+   cargo install --root ~/.local hexyl
 }
 
 
