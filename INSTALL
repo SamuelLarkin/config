@@ -250,6 +250,11 @@ function install_rust_tools {
    # duplicate entries (lines) from texual input.
    #cargo install --root ~/.local runiq
 
+   # [histo - GitHub](https://github.com/fitzgen/histo)
+   # Histograms with a configurable number of buckets, and a terminal-friendly
+   # Display.
+   #cargo install --root ~/.local histo
+
    # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
    #
    cargo install --root ~/.local diskonaut
