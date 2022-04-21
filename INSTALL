@@ -234,10 +234,10 @@ function install_rust_tools {
    # du but more intuitive.
    cargo install --root ~/.local --git https://github.com/bootandy/dust
 
-   # [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
+   # [bottom - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
    # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom).
-   #cargo install --git https://github.com/cjbassi/ytop
-   cargo install --root ~/.local ytop
+   #cargo install --git https://github.com/ClementTsang/bottom
+   cargo install --root ~/.local bottom
 
    # [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust.
    cargo install --root ~/.local procs
