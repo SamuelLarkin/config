@@ -556,6 +556,21 @@ function install_other_shells {
 
 
 
+function install_profiler {
+   # [6 stellar libraries for profiling Python code](https://www.infoworld.com/article/3600993/6-stellar-libraries-for-profiling-python-code.html)
+
+   # [py-spy](https://github.com/benfred/py-spy)
+   # py-spy: Sampling profiler for Python programs
+   # py-spy top -- python myprogram.py
+   python3 -m pip install --user --upgrade py-spy
+
+   # [Pyinstrument](https://github.com/joerick/pyinstrument)
+   # Pyinstrument is a Python profiler.
+   python3 -m pip install --user --upgrade pyinstrument
+}
+
+
+
 # On trixie, do:
 # module load StdEnv/2020
 # module load rust/1.53.0
