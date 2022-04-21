@@ -78,3 +78,8 @@ Count the number of entries/sentence pairs that have the `.unparsable` key.
 pv Huge.jsonl \
 | jq --null-input '[ inputs | select(.unparsable)] | reduce .[] as $item (0; . + 1)'
 ```
+
+Compare two json/jsonl files
+```bash
+vimdiff <(jq --sort-keys . file1.json) <(jq --sort-keys . file2.json)
+```
