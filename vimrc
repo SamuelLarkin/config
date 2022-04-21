@@ -256,10 +256,6 @@
 " }
 
 
-" Do not expand tabs when editing a Makefile.
-autocmd BufRead,BufNewFile Makefile set noexpandtab
-
-
 " AL_DIFF="al-diff.py -m '<PORTAGE_DOCUMENT_END>'" AL1=$3 AL2=$4 vimdiff +"set diffexpr=DiffAligment()" +"set diffopt=filler,context:0" $1 $2
 function DiffAligment()
    let diff = "al-diff.py"
@@ -674,6 +670,9 @@ endfunction
 
 
 " {
+   " Do not expand tabs when editing a Makefile.
+   autocmd BufRead,BufNewFile Makefile set noexpandtab
+
    autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
    " I prefer to enable this when I enter a JavaScript or TypeScript buffer,
    " and disable it when I leave
