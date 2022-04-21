@@ -53,6 +53,16 @@ function install_configs {
 
 
 function install_vim_plugins {
+   mkdir -p ~/.bash_completion.d \
+   && wget \
+      -O ~/.bash_completion.d/slurm_completion.sh \
+      'https://raw.githubusercontent.com/damienfrancois/slurm-helper/master/slurm_completion.sh'
+
+   mkdir -p ~/.vim/after/syntax/sh/ \
+   && wget \
+      -O ~/.vim/after/syntax/sh/slurm.vim \
+      'https://raw.githubusercontent.com/SchedMD/slurm/master/contribs/slurm_completion_help/slurm.vim'
+
    git \
       clone \
       https://github.com/VundleVim/Vundle.vim.git \
