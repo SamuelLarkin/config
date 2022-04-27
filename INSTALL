@@ -323,6 +323,11 @@ function install_rust_tools {
    # [diff]
    #     colorMoved = default
    cargo install --root ~/.local --git https://github.com/dandavison/delta
+
+   # [vivid - GitHub](https://github.com/sharkdp/vivid):
+   # vivid is a generator for the LS_COLORS environment variable that controls
+   # the colorized output of ls, tree, fd, bfs, dust and many other tools.
+   cargo install --root ~/.local vivid
 }
 
 
