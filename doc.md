@@ -15,3 +15,24 @@ Other notable shell config files:
 
 `/etc/bash_profile` (fallback `/etc/profile`) is read before the user's .profile for system-wide configuration, and likewise `/etc/bashrc` in subshells (no fallback for this one).
 Many systems including Ubuntu also use an `/etc/profile.d` directory containing shell scriptlets, which are `.` (`source`)-ed from `/etc/profile`; the fragments here are per-shell, with `*.sh` applying to all Bourne/POSIX compatible shells and other extensions applying to that particular shell.
+
+# Bash Colors
+[Script to display all terminal colors](https://askubuntu.com/a/1044802)
+```bash
+msgcat --color=test
+```
+
+# Putty Colors
+[Putty shows prompt with no color, but Linux SSH can](https://superuser.com/a/1502895)
+In Putty, change Settings -> Connection > Data > Terminal-type string to: `xterm-256color`.
+["Emulate" 256 colors in PuTTY terminal](https://superuser.com/a/436928)
+1. Configure Putty
+
+In Settings > Windows > Colours there is a check box for "Allow terminal to use xterm 256-colour mode".
+2. Let the app know
+
+You'll probably have to change Settings -> Connection > Data > Terminal-type string to: `xterm-256color`
+
+if your server has a terminfo entry for `putty-256color`, typically in `/usr/share/terminfo/p/putty-256color`, you can set `Putty`'s Terminal-Type to `putty-256color` instead.
+
+The main thing here is to make the server use an available `Terminfo` entry that most closely matches the way `Putty` is configured.
