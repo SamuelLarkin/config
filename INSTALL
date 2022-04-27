@@ -300,6 +300,10 @@ function install_rust_tools {
    # xsv is a command line program for indexing, slicing, analyzing, splitting
    # and joining CSV files. Commands should be simple, fast and composable.
    cargo install --root ~/.local xsv
+
+   # [Navi - GitHub](https://github.com/denisidoro/navi):
+   # An interactive cheatsheet tool for the command-line.
+   cargo install --root ~/.local --git https://github.com/denisidoro/navi
 }
 
 
