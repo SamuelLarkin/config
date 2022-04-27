@@ -304,6 +304,25 @@ function install_rust_tools {
    # [Navi - GitHub](https://github.com/denisidoro/navi):
    # An interactive cheatsheet tool for the command-line.
    cargo install --root ~/.local --git https://github.com/denisidoro/navi
+
+   # [delta - GitHub](https://github.com/dandavison/delta):
+   # A syntax-highlighting pager for git, diff, and grep output
+   # ~/.gitconfig
+   # [core]
+   #     pager = delta
+   # 
+   # [interactive]
+   #     diffFilter = delta --color-only
+   # 
+   # [delta]
+   #     navigate = true  # use n and N to move between diff sections
+   # 
+   # [merge]
+   #     conflictstyle = diff3
+   # 
+   # [diff]
+   #     colorMoved = default
+   cargo install --root ~/.local --git https://github.com/dandavison/delta
 }
 
 
