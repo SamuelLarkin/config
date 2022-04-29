@@ -140,6 +140,8 @@ function install_go_tools {
    # wget 'https://golang.org/dl/go1.17.3.linux-amd64.tar.gz'
    # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
 
+   mkdir -p ~/.local/bin
+
    # [fzf - GitHub](https://github.com/junegunn/fzf):
    # fzf is a general-purpose.  command-line fuzzy finder
    go install github.com/junegunn/fzf@latest \
