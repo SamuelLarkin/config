@@ -8,7 +8,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [bpytop - GitHub](https://github.com/aristocratos/bpytop)
 * [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like du but more intuitive.
-* [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows))
+* [duf - GitHub](https://github.com/muesli/duf): Disk Usage/Free Utility (Linux, BSD, macOS & Windows)
 * [exa - Documentation](https://the.exa.website/): modern replacement for ls
 * [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
