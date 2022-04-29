@@ -211,6 +211,17 @@ function install_rust_tools {
    # [Rust](https://www.rust-lang.org/):
    # A language empowering everyone to build reliable and efficient software.
    # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   #cargo install \
+   #   --root ~/.local \
+   #   lsd bat hyperfine exa bottom procs fd-find ripgrep rnr histo diskonaut zoxide hexyl difftastic jless xsv vivid
+
+   #cargo install \
+   #   --root ~/.local \
+   #   --git https://github.com/dandavison/delta
+
+   #cargo install \
+   #   --root ~/.local \
+   #   --git https://github.com/bvaisvil/zenith
 
    # [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd):
    # This project is a rewrite of GNU ls with lot of added features like
