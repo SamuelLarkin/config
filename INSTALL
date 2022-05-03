@@ -204,6 +204,12 @@ function install_go_tools {
    # TSV, JSON, JSON Lines, and positionally-indexed.
    #go install github.com/johnkerl/miller@latest \
    #&& mv ~/go/bin/mlr ~/.local/bin/
+
+   # [lf - GitHub](https://github.com/gokcehan/lf):
+   # lf (as in "list files") is a terminal file manager written in Go with a
+   # heavy inspiration from ranger file manager.
+   CGO_ENABLED=0  ~/tmp/software/go-1.18.1/bin/go install -ldflags="-s -w" github.com/gokcehan/lf@latest \
+   && mv ~/go/bin/lf ~/.local/bin/
 }
 
 
