@@ -14,6 +14,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [Diskonaut - GitHub](https://github.com/imsnif/diskonaut): windirstat like for the CLI.
 * [duf - GitHub](https://github.com/muesli/duf): Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
 * [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust): Like du but more intuitive.
+* [Erdtree - GitHub](https://github.com/solidiquis/erdtree): A bLazInGlY fAsT, simplified version of the ancient tree command which displays a colorful depth indented listing of files with their memory sizes adjacent.
 * [exa - Documentation](https://the.exa.website/): modern replacement for ls
 * [F2 - GitHub](https://github.com/ayoisaiah/f2): F2 is a cross-platform command-line tool for batch renaming files and directories quickly and safely. Written in Go!
 * [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
@@ -39,6 +40,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [Miller - GitHub](https://github.com/johnkerl/miller): Miller is like awk, sed, cut, join, and sort for data formats such as CSV, TSV, JSON, JSON Lines, and positionally-indexed.
 * [Navi - GitHub](https://github.com/denisidoro/navi): An interactive cheatsheet tool for the command-line.
 * [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage
+* [oxker - GitHub](https://github.com/mrjackwills/oxker): A simple tui to view & control docker containers.
 * [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool for executing jobs in parallel using one or more computers
 * [procs - GitHub](https://github.com/dalance/procs): is a replacement for ps written in Rust
 * [pv - GitHub](https://github.com/a-j-wood/pv): a terminal-based tool for monitoring the progress of data through a pipeline.
@@ -52,6 +54,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility.
 * [termeter - GitHub](https://github.com/atsaki/termeter): Visualize data in the terminal.
 * [Termgraph - GitHub](https://github.com/mkaz/termgraph): A command-line tool that draws basic graphs in the terminal, written in Python. [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/).
+* [termscp - GitHub](https://github.com/veeso/termscp): A feature rich terminal UI file transfer and explorer with support for SCP/SFTP/FTP/S3.
 * [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
 * [tldr-pages - GitHub](https://github.com/tldr-pages/tldr): The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
 * [tmuxp - GitHub](https://github.com/tmux-python/tmuxp): tmuxp, tmux session manager.
@@ -96,13 +99,18 @@ This repository contains my personal configuration files when I want to setup a 
 
 ### CLI Tools
 
-* [gitui - GitHub](https://github.com/extrawurst/gitui): GitUI provides you with the comfort of a git GUI but right in your terminal.  Not as great as lazygit.
-* [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
-* [direnv](https://direnv.net/): Unclutter your .profile
+* [artem - GitHub](https://github.com/FineFindus/artem): artem is a small cli program written in rust to easily convert images to ascii art.
+* [atuin - GitHub](https://github.com/ellie/atuin): Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands. Additionally, it provides optional and fully encrypted synchronisation of your history between machines, via an Atuin server.
 * [autoenv - GitHub](https://github.com/kennethreitz/autoenv): Directory-based environments
+* [Desed - GitHub](https://github.com/SoptikHa2/desed): Demystify and debug your sed scripts, from comfort of your terminal.
+* [direnv](https://direnv.net/): Unclutter your .profile
+* [fx - GitHub](https://github.com/antonmedv/fx): Terminal JSON viewer
+* [gitui - GitHub](https://github.com/extrawurst/gitui): GitUI provides you with the comfort of a git GUI but right in your terminal.  Not as great as lazygit.
+* [hoard - GitHub](https://github.com/Hyde46/hoard): command organizer tool to hoard all your precious commands.
 * [jaq - GitHub](https://github.com/01mf02/jaq): jaq is a clone of the JSON data processing tool jq. jaq aims to support a large subset of jq's syntax and operations.
-* [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
 * [jql - GitHub](https://github.com/yamafaktory/jql): A JSON Query Language CLI tool built with Rust.
+* [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
+* [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
 
 
 
@@ -122,10 +130,12 @@ This repository contains my personal configuration files when I want to setup a 
 * [jq - cookbook](https://github.com/stedolan/jq/wiki/Cookbook)
 * [jq-hopkok jq utility library - GitHub](https://github.com/joelpurra/jq-hopkok): Checkout how they handle `parallel` with `jq`.
 * [6 stellar libraries for profiling Python code](https://www.infoworld.com/article/3600993/6-stellar-libraries-for-profiling-python-code.html)
-* [Nerd Fonts](https://www.nerdfonts.com)
-* [Programming Fonts](https://www.programmingfonts.org)
-* [Command Line](https://www.reddit.com/r/commandline/)
+* [Nerd Fonts](https://www.nerdfonts.com): Nerd Fonts patches developer targeted fonts with a high number of glyphs (icons). Specifically to add a high number of extra glyphs from popular ‘iconic fonts’ such as Font Awesome, Devicons, Octicons, and others.
+* [Programming Fonts](https://www.programmingfonts.org): Test drive all the programming fonts!
+* [Command Line - Reddit](https://www.reddit.com/r/commandline/): This is for anything regarding the command line, in any operating system. All questions (including dumb ones), tips, and links to interesting programs/console applications you've found or made yourself are welcome. Linux / BSD / OSX / Windows CLI and TUI apps or questions or comments, we're happy to take them all!
+* [Vin - Reddit](https://www.reddit.com/r/vim/): For Vim enthusiasts and anyone interested in Vim.
 * [A list of new(ish) command line tools](https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/)
+* [tui-rs - GitHub](https://github.com/fdehau/tui-rs): Build terminal user interfaces and dashboards using Rust.
 
 
 
