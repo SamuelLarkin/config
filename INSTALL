@@ -354,6 +354,12 @@ function install_rust_tools {
    # vivid is a generator for the LS_COLORS environment variable that controls
    # the colorized output of ls, tree, fd, bfs, dust and many other tools.
    cargo install --root ~/.local vivid
+
+   # [Erdtree - GitHub](https://github.com/solidiquis/erdtree):
+   # A bLazInGlY fAsT, simplified version of the ancient tree command which
+   # displays a colorful depth indented listing of files with their memory
+   # sizes adjacent.
+   cargo install --root ~/.local --git https://github.com/solidiquis/erdtree
 }
 
 
