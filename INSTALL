@@ -360,6 +360,10 @@ function install_rust_tools {
    # displays a colorful depth indented listing of files with their memory
    # sizes adjacent.
    cargo install --root ~/.local --git https://github.com/solidiquis/erdtree
+
+   # [oxker - GitHub](https://github.com/mrjackwills/oxker):
+   # A simple tui to view & control docker containers.
+   cargo install --root ~/.local --git https://github.com/mrjackwills/oxker
 }
 
 
