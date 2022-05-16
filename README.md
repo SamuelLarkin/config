@@ -151,3 +151,8 @@ Compare two json/jsonl files
 ```bash
 vimdiff <(jq --sort-keys . file1.json) <(jq --sort-keys . file2.json)
 ```
+
+[wttr.in - GitHub](https://github.com/chubin/wttr.in): The right way to check the weather
+Get the weather:
+* `curl wttr.in/CityName`
+* `curl v2d.wttr.in/CityName`
