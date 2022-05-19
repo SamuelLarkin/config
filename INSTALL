@@ -30,6 +30,7 @@ function install_configs {
      gdbinit
      gitconfig
      gitignore_global
+     gotz.config.json
      inputrc
      screenrc
      tmux.conf
@@ -210,6 +211,12 @@ function install_go_tools {
    # heavy inspiration from ranger file manager.
    CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest \
    && mv ~/go/bin/lf ~/.local/bin/
+
+   # [gotz - GitGub](https://github.com/merschformann/gotz):
+   # gotz - a simple CLI timezone info tool.
+   go install github.com/merschformann/gotz@latest \
+   && mv ~/go/bin/gotz ~/.local/bin/
+   ln -fns ~/config/gotz.config.json ~/.gotz.config.json
 }
 
 
