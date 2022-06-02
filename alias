@@ -28,48 +28,48 @@ alias sjobResources='scontrol show jobid -dd'
 alias fixTerminal='stty rows 45 columns 190'
 
 
-alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
-alias gpustat='gpustat --show-cmd --show-user --show-pid'
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
 #alias rf="readlink -f"
+#alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
 #alias vimD='vim +":VCSVimDiff"'
-alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
+#alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
+alias curljson="curl -H 'Content-type: application/json'"
 alias df="df -h"
 alias disown='disown -h'
 alias du="du -h"
 alias egrep="LC_ALL=C egrep --colour"
 alias gitk='gitk --all'
+alias gpustat='gpustat --show-cmd --show-user --show-pid'
 alias grep="grep --colour"
-alias htop='htop -u `whoami`'
+alias htop='htop -u $(whoami)'
 alias iconvuu="iconv -f utf-8 -t utf-8 --unicode-subst='[[[Ux%x]]]' --byte-subst='[[[%x]]]'"
 alias jobs='jobs -l'
 alias kwanalyze='kwcheck run -y -l -F detailed'
+alias ll='ls -l'
+alias ls='ls --color'
 alias lsclean='\ls -l --ignore=*.bz2 --ignore=*.gz --color=auto'
+alias lsd='lsd -l'
 alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff -y \1 \2 | less /"'
+alias parallel='parallel --progress  --eta'
+alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
+alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
 alias qstatl='qstattree larkins | less'
 alias qstatw='qstatdir | egrep home | sort | uniq -c'  # By listing where my jobs are running, it's easier to figure out what projects I'm working on.
 alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
-#alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
+alias tiga='tig --all'
 alias viewdiff='vimdiff -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
 alias wc="wc -l"
+alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
 alias xargs="xargs --no-run-if-empty"
-alias zcat='zcat --force'
-alias tiga='tig --all'
-alias parallel='parallel --progress  --eta'
-alias curljson="curl -H 'Content-type: application/json'"
 alias xquery1="~/mybin/xidel --output-format=xml --xquery"
-alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
 alias xquery='java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query'
-alias ls='ls --color'
-alias ll='ls -l'
-alias lsd='lsd -l'
+alias zcat='zcat --force'
 
-#alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
 
 export TIME="\ncmd: %C\nreal: %e\nuser: %U\nsys: %S\n"
 
