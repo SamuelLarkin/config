@@ -23,6 +23,7 @@ alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,F
 #scontrol update jobid=$(echo {15882..15893} | tr ' ' ',') dependency=afterok:15754:15756:15757:15758:15765:15766:15767:15740:15743
 #scontrol show job 2642   #Find out where a job will run
 #sreport user top start=2020-06-01 end=2020-06-30 -t percent
+#sacct -l -j JOBID   # Get stats about a job that has finished.
 alias sresources='sinfo -o "%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd'
 alias fixTerminal='stty rows 45 columns 190'
