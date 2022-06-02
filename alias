@@ -41,6 +41,7 @@ alias disown='disown -h'
 alias du="du -h"
 alias egrep="LC_ALL=C egrep --colour"
 alias gitk='gitk --all'
+alias glow='glow -p'   # Always page when reading markdown.
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 alias grep="grep --colour"
 alias htop='htop -u $(whoami)'
