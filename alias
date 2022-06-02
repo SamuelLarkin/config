@@ -231,7 +231,8 @@ function MAKE {
 ########################################
 # DIFF
 function diffdir {
-   diff -wPqr --exclude=\*.gz --exclude=\*.deps\* --exclude=\*.o $1 $2 | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
+   diff -wPqr --exclude=\*.gz --exclude=\*.deps\* --exclude=\*.o $1 $2 \
+   | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
 }
 
 
