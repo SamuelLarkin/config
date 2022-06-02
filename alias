@@ -381,6 +381,8 @@ function wc_stats {
 
 
 
+########################################
+# JQ / json
 function jqdiff {
    local -r lhs=${1:?You must provide a left hand side file}
    local -r rhs=${2:?You must provide a right hand side file}
