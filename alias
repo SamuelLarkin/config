@@ -160,20 +160,6 @@ function rf {
 
 
 
-#alias workbench="psub -N I.workbench.bk -4 -nodes blz5 -noscript -e /dev/null -o /dev/null 'sleep $(( 10 * 365 * 24 * 60 * 60 ))'"
-function workbench {
-   if [[ -n "$@" ]]; then 
-      jobs | grep -q . && echo "You may have some background process running" >&2
-      #\ssh -A -X -t blz$@ "cd $PWD; bash -l"
-      \ssh -X -t blz$@ "cd $PWD; bash -l"
-   else 
-      echo "Creating a workbench" >&2
-      psub -N I.workbench.bk -4 -nodes blz46 -noscript -e /dev/null -o /dev/null 'sleep $(( 10 * 365 * 24 * 60 * 60 ))'
-   fi
-}
-
-
-
 function setup_fix_SSH_agent {
    #export | egrep -e "SSH_AUTH_SOCK" -e "SSH_CLIENT" -e "SSH_CONNECTION" > ~/.ssh/fixSSH
    export | egrep -e "SSH_AUTH_SOCK" -e "DISPLAY" > ~/.ssh/fixSSH
