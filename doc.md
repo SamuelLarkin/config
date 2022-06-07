@@ -23,8 +23,10 @@ msgcat --color=test
 ```
 
 # Putty Colors
+We need to use `putty-256color` instead of `xterm-256color` or else the `Home` key is not working.
+
 [Putty shows prompt with no color, but Linux SSH can](https://superuser.com/a/1502895)
-In Putty, change Settings -> Connection > Data > Terminal-type string to: `xterm-256color`.
+In Putty, change Settings -> Connection > Data > Terminal-type string to: `putty-256color`.
 ["Emulate" 256 colors in PuTTY terminal](https://superuser.com/a/436928)
 1. Configure Putty
 
@@ -39,3 +41,11 @@ The main thing here is to make the server use an available `Terminfo` entry that
 
 ## 24bit
 * [Getting 24-bit color working in terminals](https://pisquare.osisoft.com/s/Blog-Detail/a8r1I000000GvXBQA0/console-things-getting-24bit-color-working-in-terminals)
+
+
+# LSCOLORS Schemes
+```basg
+for theme in $(vivid themes); do     echo "Theme: $theme";     LS_COLORS=$(vivid generate $theme);     ls;     echo; done
+vivid generate one-light
+LSCOLORS=$(vivid generate one-light)
+```
