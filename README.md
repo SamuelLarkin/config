@@ -158,3 +158,9 @@ vimdiff <(jq --sort-keys . file1.json) <(jq --sort-keys . file2.json)
 Get the weather:
 * `curl wttr.in/CityName`
 * `curl v2d.wttr.in/CityName`
+
+
+Get some stats about a job that is ran on `Slurm`.
+```bash
+sacct -l -j jobid
+```
