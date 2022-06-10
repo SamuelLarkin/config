@@ -291,7 +291,7 @@ function install_rust_tools {
    # [runiq - GitHub](https://github.com/whitfin/runiq):
    # This project offers an efficient way (in both time and space) to filter
    # duplicate entries (lines) from texual input.
-   #cargo install --root ~/.local runiq
+   cargo install --root ~/.local runiq
 
    # [histo - GitHub](https://github.com/fitzgen/histo)
    # Histograms with a configurable number of buckets, and a terminal-friendly
