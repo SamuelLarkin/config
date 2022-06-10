@@ -376,6 +376,11 @@ function install_rust_tools {
    # A feature rich terminal UI file transfer and explorer with support for
    # SCP/SFTP/FTP/S3.
    cargo install --root ~/.local termscp
+
+   # [zellij](https://github.com/zellij-org/zellij):
+   # A terminal workspace with batteries included.
+   #module load rust/1.59.0
+   cargo install --root ~/.local zellij
 }
 
 

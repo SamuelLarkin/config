@@ -71,6 +71,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [yq - gitHub](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON and XML processor. yq uses jq like syntax but works with yaml files as well as json and xml.
 * [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
 * [z - GitHub](https://github.com/rupa/z): jump around
+* [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included.
 * [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your Xnix system written in Rust.
 * [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
 
