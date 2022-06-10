@@ -377,6 +377,9 @@ function install_rust_tools {
    # SCP/SFTP/FTP/S3.
    cargo install --root ~/.local termscp
 
+   #module load rust/1.59.0
+   cargo install --root ~/.local --git https://github.com/SamuelLarkin/reservoir_sampling_rs
+
    # [zellij](https://github.com/zellij-org/zellij):
    # A terminal workspace with batteries included.
    #module load rust/1.59.0
