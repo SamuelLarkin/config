@@ -49,3 +49,11 @@ for theme in $(vivid themes); do     echo "Theme: $theme";     LS_COLORS=$(vivid
 vivid generate one-light
 LSCOLORS=$(vivid generate one-light)
 ```
+
+
+# Tips-and-Tricks
+## Sort
+Sort according to a set of columns:
+```bash
+zcat FILE.gz | awk -F'\t' '!_[$4,$5]++'
+```
