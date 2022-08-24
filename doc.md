@@ -57,3 +57,13 @@ Sort according to a set of columns:
 ```bash
 zcat FILE.gz | awk -F'\t' '!_[$4,$5]++'
 ```
+
+## Filtering
+Filtering tsv files based on a subset of columns.
+Provided by Marc.
+```bash
+# Filter-in
+awk -F'\t' 'NR==FNR{a[$4,$5];next} ($4,$5) in a'    uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_indev.tsv
+# Filter-out
+awk -F'\t' 'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_notindev.tsv
+```
