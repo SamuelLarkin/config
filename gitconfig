@@ -111,7 +111,7 @@
    #git graphviz HEAD~100..HEAD~60 | dotty /dev/stdin
 
    # To see the changes in a branch since it was forked from another branch, or since the last merge with the origin branch.
-   forkdiff = !bash -c 'git diff $(git merge-base "$1" "$2") "$2" "${@: 3}" ' -
+   difffork = !bash -c 'git diff $(git merge-base "$1" "$2") "$2" "${@: 3}" ' -
    #git forkdiff <forked from branch> <forked branch> [git-diff-options]
 
    # Undoing any change in the current branch.
