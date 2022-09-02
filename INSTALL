@@ -233,6 +233,9 @@ function install_rust_tools {
    # [Rust](https://www.rust-lang.org/):
    # A language empowering everyone to build reliable and efficient software.
    # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   # NOTE to install a specific version from git use `--tag X`
+   # cargo install --root ~/.local --git https://github.com/bvaisvil/zenith  --tag 0.12.0
+
    #cargo install \
    #   --root ~/.local \
    #   lsd bat hyperfine exa bottom procs fd-find ripgrep rnr histo diskonaut zoxide hexyl difftastic jless xsv vivid
