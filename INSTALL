@@ -216,7 +216,7 @@ function install_go_tools {
    CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest \
    && mv ~/go/bin/lf ~/.local/bin/
 
-   # [gotz - GitGub](https://github.com/merschformann/gotz):
+   # [gotz - GitHub](https://github.com/merschformann/gotz):
    # gotz - a simple CLI timezone info tool.
    go install github.com/merschformann/gotz@latest \
    && mv ~/go/bin/gotz ~/.local/bin/
