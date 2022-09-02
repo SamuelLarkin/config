@@ -394,6 +394,10 @@ function install_rust_tools {
    #module load rust/1.59.0
    cargo install --root ~/.local zellij
 
+   # [htmlq - GitHub](https://github.com/mgdm/htmlq)
+   # Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
+   cargo install --root ~/.local htmlq
+
    # [fu - GitHub](https://github.com/pierrechevalier83/find_unicode)
    # Find Unicode characters the easy way: from the command line.
    cargo install --root ~/.local find_unicode
