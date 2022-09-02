@@ -17,6 +17,8 @@
    unstage = reset HEAD --
    wd      = diff --color-words # word diff
    cp      = cherry-pick -x # Always add from which commit we cherry-picked
+   # [Git Checkout Recent Branch with Search & Preview](https://www.youtube.com/watch?v=lZehYwOfJAs)
+   change-branch   = "!f(){ git branch --sort=-committerdate | fzf --header \"Checkout Recent Branch\" --preview \"git diff --color=always {1} | delta\"  | xargs git checkout; }; f"
 
    # grep in all version
    #  git grep <regexp> $(git rev-list --all)
