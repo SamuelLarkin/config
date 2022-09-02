@@ -7,7 +7,7 @@
 # git push bakcup
 [alias]
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
-   ign     = ls-files --exclude-standard --ignored --others  # Show files ignorEd by git
+   ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
    lg      = log --all --color --decorate --graph --oneline  # Shows a compact colored graph of all branches with tags.
    logf    = log --color --decorate --follow  # Make sure log follows history even if file as been renamed.
    log-branch-hierarchy = log --all --graph --decorate --oneline --simplify-by-decoration
