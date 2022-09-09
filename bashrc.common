@@ -46,6 +46,8 @@ export HISTFILESIZE=10000
 export HISTSIZE=100000
 export HISTTIMEFORMAT="%F %T "
 
+export DOCKER_BUILDKIT=1
+
 umask 0007
 
 
