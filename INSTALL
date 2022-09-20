@@ -225,7 +225,7 @@ function install_go_tools {
    # [jid - GitHub](https://github.com/simeji/jid)
    # json incremental digger.
    go install github.com/simeji/jid/cmd/jid@latest \
-   && mv ~/go/bin/jid ~/.local/bin/jid
+   && mv ~/go/bin/jid ~/.local/bin/
 }
 
 
