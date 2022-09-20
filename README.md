@@ -165,3 +165,17 @@ Get some stats about a job that is ran on `Slurm`.
 ```bash
 sacct -l -j jobid
 ```
+
+Example of connecting to a GPU running job on GPSC5.
+```bash
+srun \
+  --jobid 4139955 \
+  --gres=gpu:0 \
+  --nodes 1 \
+  --ntasks 1 \
+  --mem-per-cpu=0 \
+  --pty \
+  --nodelist ib12gpu-001 \
+  --oversubscribe \
+  /bin/bash -l
+```
