@@ -231,6 +231,11 @@ function install_go_tools {
    # A TUI playground to experiment with jq.
    go install github.com/noahgorstein/jqp@latest \
    && mv ~/go/bin/jqp ~/.local/bin/
+
+   # [up - GitHub](https://github.com/akavel/up)
+   # Ultimate Plumber is a tool for writing Linux pipes with instant live preview.
+   go install github.com/akavel/up@latest \
+   && cp ~/go/bin/up ~/.local/bin/
 }
 
 
