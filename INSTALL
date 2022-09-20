@@ -226,6 +226,11 @@ function install_go_tools {
    # json incremental digger.
    go install github.com/simeji/jid/cmd/jid@latest \
    && mv ~/go/bin/jid ~/.local/bin/
+
+   # [jqp - GitHub](https://github.com/noahgorstein/jqp)
+   # A TUI playground to experiment with jq.
+   go install github.com/noahgorstein/jqp@latest \
+   && mv ~/go/bin/jqp ~/.local/bin/
 }
 
 
