@@ -399,13 +399,13 @@ endfunction
    "Plugin 'jlanzarotta/bufexplorer'
    Plugin 'bufexplorer.zip'
 
-   " VCSVimDiff
    " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
    " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
    " git, bzr, and hg within VIM, including committing changes and performing
    " diffs using the vimdiff system.
    "Plugin 'vim-scripts/vcscommand.vim'
    "Plugin 'http://repo.or.cz/r/vcscommand.git'
+   " :VCSVimDiff
    Plugin 'vcscommand.vim'
 
    " [vim-fugitive](https://github.com/tpope/vim-fugitive)
@@ -413,39 +413,6 @@ endfunction
    " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
    " That's why it's called Fugitive.
    Plugin 'tpope/vim-fugitive'
-
-   " Python
-   "{
-      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
-      " Display in the statusline class, function & method the cursor is in.
-      Plugin 'mgedmin/pythonhelper.vim'
-
-      " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
-      " Pythonsense is a Vim plugin that provides text objects and motions for
-      " Python classes, methods, functions, and doc strings.
-      Plugin 'jeetsukumaran/vim-pythonsense'
-
-      " [jedi-vim](https://github.com/davidhalter/jedi-vim)
-      " awesome Python autocompletion with VIM
-      " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-      Plugin 'davidhalter/jedi-vim'
-
-      " [vim-flake8](https://github.com/nvie/vim-flake8.git)
-      " is a Vim plugin that runs the currently open file through Flake8, a
-      " static syntax and style checker for Python source code. It supersedes
-      " both vim-pyflakes and vim-pep8.
-      Plugin 'nvie/vim-flake8'
-
-      " [semshi](https://github.com/numirias/semshi)
-      " Semantic Highlighting for Python in Neovim
-      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-      "Plugin 'numirias/semshi'
-   "}
-
-   " [sparkup](https://github.com/rstacruz/sparkup)
-   " A parser for a condensed HTML format
-   " Pass the path to set the runtimepath properly.
-   Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
    " [Tagbar](https://github.com/majutsushi/tagbar)
    " Awesome source code [tag]browsing
@@ -489,6 +456,10 @@ endfunction
    " https://github.com/tpope/vim-surround
    "Plugin 'tpope/vim-surround'
 
+   " [vim-sneak](https://github.com/justinmk/vim-sneak)
+   " The missing motion for Vim.
+   Plugin 'justinmk/vim-sneak'
+
    """""""""""""""""""""""""""""""""""
    " FANCY VIM PLUGINS
    " https://danyspin97.org/blog/fancy-vim-plugins/
@@ -511,15 +482,47 @@ endfunction
       Plugin 'inside/vim-search-pulse'
    "}
 
-   " [vim-sneak](https://github.com/justinmk/vim-sneak)
-   " The missing motion for Vim.
-   Plugin 'justinmk/vim-sneak'
+   " Python
+   "{
+      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
+      " Display in the statusline class, function & method the cursor is in.
+      Plugin 'mgedmin/pythonhelper.vim'
+
+      " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
+      " Pythonsense is a Vim plugin that provides text objects and motions for
+      " Python classes, methods, functions, and doc strings.
+      Plugin 'jeetsukumaran/vim-pythonsense'
+
+      " [jedi-vim](https://github.com/davidhalter/jedi-vim)
+      " awesome Python autocompletion with VIM
+      " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+      Plugin 'davidhalter/jedi-vim'
+
+      " [vim-flake8](https://github.com/nvie/vim-flake8.git)
+      " is a Vim plugin that runs the currently open file through Flake8, a
+      " static syntax and style checker for Python source code. It supersedes
+      " both vim-pyflakes and vim-pep8.
+      Plugin 'nvie/vim-flake8'
+
+      " [semshi](https://github.com/numirias/semshi)
+      " Semantic Highlighting for Python in Neovim
+      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+      "Plugin 'numirias/semshi'
+   "}
 
    " Rust
    "{
       " [rust](https://github.com/rust-lang/rust.vim)
       " Vim configuration for Rust
       Plugin 'rust-lang/rust.vim'
+   "}
+
+   " HTML
+   "{
+      " [sparkup](https://github.com/rstacruz/sparkup)
+      " A parser for a condensed HTML format
+      " Pass the path to set the runtimepath properly.
+      Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
    "}
 
 
