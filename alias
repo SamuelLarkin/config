@@ -391,7 +391,8 @@ function wc_stats {
 # JQ / json
 function jqdiff {
    local -r lhs=${1:?You must provide a left hand side file}
-   local -r rhs=${2:?You must provide a right hand side file}
+   local rhs=${2:?You must provide a right hand side file}
 
+   [[ -d $rhs ]] && rhs="$rhs/$(basename $lhs)"
    vimdiff <(jq --sort-keys . $lhs) <(jq --sort-keys . $rhs)
 }
