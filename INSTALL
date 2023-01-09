@@ -454,6 +454,15 @@ function install_bash_tools {
    mkdir -p ~/.bash_completion.d
    curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o ~/.bash_completion.d/"#1"
    curl "https://raw.githubusercontent.com/changyuheng/fz/master/{fz.sh}" -o ~/.bash_completion.d/z"#1"
+
+   # [bashdb - SourceForge](https://bashdb.sourceforge.net/)
+   # The Bash Debugger Project is a source-code debugger for bash that follows
+   # the gdb command syntax.
+   wget 'https://sourceforge.net/projects/bashdb/files/bashdb/5.0-1.1.2/bashdb-5.0-1.1.2.tar.bz2/download'  -O bashdb-5.0-1.1.2.tar.bz2
+   tar xf bashdb-5.0-1.1.2.tar.bz2
+   cd bashdb-5.0-1.1.2/
+   ./configure --prefix=$HOME/.local
+   make install
 }
 
 
