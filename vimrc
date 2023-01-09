@@ -553,6 +553,10 @@ endfunction
    " provides a hunk text object.
    Plugin 'airblade/vim-gitgutter'
 
+   " [nim](https://github.com/zah/nim.vim)
+   " Nim language plugin for vim.
+   Plugin 'zah/nim.vim'
+
    " TypeScript & React
    "{
       " [Modern TypeScript and React Development in Vim](https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
