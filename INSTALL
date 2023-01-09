@@ -429,6 +429,10 @@ function install_rust_tools {
    # [fu - GitHub](https://github.com/pierrechevalier83/find_unicode)
    # Find Unicode characters the easy way: from the command line.
    cargo install --root ~/.local find_unicode
+
+   # [gitui - GitHub](https://github.com/extrawurst/gitui)
+   # Blazing 💥 fast terminal-ui for git written in rust 🦀.
+   cargo install --root ~/.local gitui
 }
 
 
