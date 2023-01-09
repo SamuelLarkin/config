@@ -139,6 +139,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [Vin - Reddit](https://www.reddit.com/r/vim/): For Vim enthusiasts and anyone interested in Vim.
 * [A list of new(ish) command line tools](https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/)
 * [tui-rs - GitHub](https://github.com/fdehau/tui-rs): Build terminal user interfaces and dashboards using Rust.
+* [Awesome TUIs](https://github.com/rothgar/awesome-tuis) List of projects that provide terminal user interfaces.
 
 
 
