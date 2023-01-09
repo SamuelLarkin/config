@@ -669,6 +669,9 @@ endfunction
 " }
 
 " [Using ugrep within Vim](https://github.com/Genivia/ugrep#using-ugrep-within-vim) {
+   " :grep PATTERN [PATH]
+   " :grep PATTERN %
+   " :copen
    if executable('ugrep')
       set grepprg=ugrep\ -RInk\ -j\ -u\ --tabs=1\ --ignore-files
       set grepformat=%f:%l:%c:%m,%f+%l+%c+%m,%-G%f\\\|%l\\\|%c\\\|%m
