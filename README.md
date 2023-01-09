@@ -185,3 +185,10 @@ srun \
   --oversubscribe \
   /bin/bash -l
 ```
+
+## BASH debugging
+* [Bash debugging - Youtube](https://www.youtube.com/watch?v=9pbpevjuwmI)
+* `PS4` `export PS4='${BASH_SOURCE}:${LINENO}: ${FUNCNAME[0]}() - [${SHLVL},${BASH_SUBSHELL},$?] '`
+* `bash -x`
+* `bashdb`
+* `shellcheck`
