@@ -156,6 +156,7 @@ function install_go_tools {
    wget -O ~/.bash_completion.d/fzf.key-bindings.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash'
    mkdir -p ~/.config/fish/functions
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
+   wget -O ~/.local/bin/fzf-tmux 'https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux' && chmod u+x ~/.local/bin/fzf-tmux
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
    # A simple terminal UI for git commands, written in Go with the gocui
