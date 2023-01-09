@@ -422,6 +422,10 @@ function install_rust_tools {
    # Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
    cargo install --root ~/.local htmlq
 
+   # [broot - GitHub](https://github.com/Canop/broot)
+   # A new way to see and navigate directory trees : https://dystroy.org/broot
+   cargo install --root ~/.local broot
+
    # [fu - GitHub](https://github.com/pierrechevalier83/find_unicode)
    # Find Unicode characters the easy way: from the command line.
    cargo install --root ~/.local find_unicode
