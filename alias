@@ -321,16 +321,16 @@ function viewdifftail {
 
 
 function vimparhead {
-   local vimpartop_size=10000
-   expr $1 + 0 &> /dev/null && { vimpartop_size=$1; shift; }
+   local size=10000
+   expr $1 + 0 &> /dev/null && { size=$1; shift; }
 
-   local -r vimpartop_first=$1
-   local vimpartop_cmd=""
+   local -r first=$1
+   local cmd=""
    for f in $@; do
-      [[ -d "$f" ]] && f="$f/`basename $vimpartop_first`"
-      vimpartop_cmd+=" <(zcat --force $f | head -$vimpartop_size)"
+      [[ -d "$f" ]] && f="$f/$(basename $first)"
+      cmd+=" <(zcat --force $f | head -$size)"
    done
-   [[ -n "$vimpartop_cmd" ]] && eval "vimpar $vimpartop_cmd"
+   [[ -n "$cmd" ]] && eval "vimpar $cmd"
 }
 
 
