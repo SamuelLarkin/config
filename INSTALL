@@ -236,6 +236,11 @@ function install_go_tools {
    # Ultimate Plumber is a tool for writing Linux pipes with instant live preview.
    go install github.com/akavel/up@latest \
    && cp ~/go/bin/up ~/.local/bin/
+
+   # [grv - GitHub](https://github.com/rgburke/grv)
+   # GRV is a terminal interface for viewing git repositories.
+   wget -O ~/.local/bin/grv https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64 \
+   && chmod +x ~/.local/bin/grv
 }
 
 
