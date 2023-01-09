@@ -291,16 +291,16 @@ function diffdircode {
 ########################################
 # VIM
 function viewdiffhead {
-   local vimdifftop_size=10000
-   expr $1 + 0 &> /dev/null && { vimdifftop_size=$1; shift; }
+   local size=10000
+   expr $1 + 0 &> /dev/null && { size=$1; shift; }
 
-   local -r vimdifftop_first=$1
-   local vimdifftop_cmd=""
+   local -r first=$1
+   local cmd=""
    for f in $@; do
-      [[ -d "$f" ]] && f="$f/`basename $vimdifftop_first`"
-      vimdifftop_cmd+=" <(zcat --force $f | head -$vimdifftop_size)"
+      [[ -d "$f" ]] && f="$f/$(basename $first)"
+      cmd+=" <(zcat --force $f | head -$size)"
    done
-   [[ -n "$vimdifftop_cmd" ]] && eval "vimdiff -R $vimdifftop_cmd"
+   [[ -n "$cmd" ]] && eval "vimdiff -R $cmd"
 }
 
 
