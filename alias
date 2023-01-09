@@ -336,7 +336,7 @@ function vimparhead {
 
 
 # for .gc.ca compare french vs english and align the documents.
-alias vimdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
+alias viewdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
 
 # for .gc.ca compare to alignments.
 #function vimdiffal {
@@ -345,7 +345,7 @@ alias vimdiffpa='vimdiff -R +"set diffexpr=DiffPa()"'
 
 
 
-function vimdiffpa2 {
+function viewdiffpa2 {
    vimdiff -R +"set diffexpr=DiffPa2()" +"set diffopt=filler,context:1" $@
 }
 
