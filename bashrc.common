@@ -42,8 +42,8 @@ export PORTAGE_NO_ETAGS=1
 # Never lose a bash history because you are working with multiple windows.
 shopt -s histappend
 export HISTCONTROL=ignoredups
-export HISTFILESIZE=10000
-export HISTSIZE=100000
+export HISTFILESIZE=100000   # HISTFILESIZE variable controls the maximum number of lines that we can write back to the history file on disk.
+export HISTSIZE=100000   # HISTSIZE variable is the maximum number of lines of history that we can store in memory.
 export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
