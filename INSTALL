@@ -621,6 +621,17 @@ function install_compiled_tools {
       ./configure --prefix=$HOME/.local
       \make -j $(nproc) install
    )
+
+   # [neovim - gitHub](https://github.com/neovim/neovim/wiki/Installing-Neovim#install-from-source)
+   # Vim-fork focused on extensibility and usability.
+   which --skip-alias neovim \
+   || (
+      mkdir -p ~/git && cd ~/git
+      git clone --branch v0.8.2 https://github.com/neovim/neovim.git
+      cd neovim/
+      \make CMAKE_BUILD_TYPE=Release
+      \make install CMAKE_INSTALL_PREFIX=~/.local
+   )
 }
 
 
