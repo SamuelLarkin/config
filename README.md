@@ -161,6 +161,11 @@ Get the weather:
 * `curl wttr.in/CityName`
 * `curl v2d.wttr.in/CityName`
 
+Find the full name of a username
+```bash
+lslogins | fzf
+```
+
 
 Get some stats about a job that is ran on `Slurm`.
 ```bash
