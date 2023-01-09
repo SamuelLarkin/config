@@ -241,6 +241,11 @@ function install_go_tools {
    # GRV is a terminal interface for viewing git repositories.
    wget -O ~/.local/bin/grv https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64 \
    && chmod +x ~/.local/bin/grv
+
+   # [archiver - GitHub](https://github.com/mholt/archiver)
+   # Easily create & extract archives, and compress & decompress files of various formats.
+   go install github.com/mholt/archiver/v3/cmd/arc@latest \
+   && mv ~/go/bin/arc ~/.local/bin/
 }
 
 
