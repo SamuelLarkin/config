@@ -192,3 +192,16 @@ srun \
 * `bash -x`
 * `bashdb`
 * `shellcheck`
+
+
+# Notes
+## `tmux`
+### Rename a pane
+```
+set -g pane-border-status top
+set -g pane-border-format " [ ###P #T ] "
+```
+```
+CTRL+b + :
+select-pane -T "title"
+```
