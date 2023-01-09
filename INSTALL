@@ -433,6 +433,12 @@ function install_rust_tools {
    # [gitui - GitHub](https://github.com/extrawurst/gitui)
    # Blazing 💥 fast terminal-ui for git written in rust 🦀.
    cargo install --root ~/.local gitui
+
+   # [ouch - GitHub](https://github.com/ouch-org/ouch)
+   # Painless compression and decompression for your terminal.
+   # module load rust
+   # module load gcc/11.3.0
+   cargo install --root ~/.local ouch
 }
 
 
