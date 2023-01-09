@@ -14,6 +14,7 @@
 #   -n
 
 
+
 # Slurm
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
 alias squeue='squeue --sort=ti --format="%.8i %60j %.8u %.2t %.10M %.6D %16R %18V %k"'
@@ -180,7 +181,7 @@ function archive {
 
 function fixAgent {
    echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK" >&2
-   export SSH_AUTH_SOCK=`find /tmp -name 'agent*' -user larkins 2> /dev/null | shuf | tail -1`
+   export SSH_AUTH_SOCK=$(find /tmp -name 'agent*' -user larkins 2> /dev/null | shuf | tail -1)
 }
 
 
@@ -212,13 +213,13 @@ alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+
 
 #alias makefast0='makefast CF+=-O0'
 #function makefast {
-#   clear; ssh ${COMPILE_NODE_SSH:-blz108} ". /home/portage/SETUP.bash; . ~/.alias; export MAKE_CF_PARAMS=\"$MAKE_CF_PARAMS\"; make -C `pwd` $@"
+#   clear; ssh ${COMPILE_NODE_SSH:-blz108} ". /home/portage/SETUP.bash; . ~/.alias; export MAKE_CF_PARAMS=\"$MAKE_CF_PARAMS\"; make -C $(pwd) $@"
 #}
 
 
 
 # Evan's makeg function, with some tweaks.
-MAKEG_CPUS=$((`grep processor /proc/cpuinfo | wc -l` + 2))
+MAKEG_CPUS=$(($(grep processor /proc/cpuinfo | wc -l) + 2))
 function MAKE {
    set -o pipefail
    echo cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@
