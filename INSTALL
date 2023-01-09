@@ -443,13 +443,14 @@ function install_rust_tools {
 
 
 function install_bash_tools {
-   # [z - GitHub](https://github.com/rupa/z): jump around.
+   # [z - GitHub](https://github.com/rupa/z)
+   # Jump around.
    mkdir -p ~/.bash_completion.d
    wget -O ~/.bash_completion.d/z.sh 'https://raw.githubusercontent.com/rupa/z/master/z.sh'
 
-   # [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that
-   # seamlessly adds fuzzy search to tab completion of z, lets you easy to jump
-   # around among your historical directories.
+   # [fz - GitHub](https://github.com/changyuheng/fz)
+   # A shell plugin that seamlessly adds fuzzy search to tab completion of z,
+   # lets you easy to jump around among your historical directories.
    mkdir -p ~/.bash_completion.d
    curl "https://raw.githubusercontent.com/rupa/z/master/{z.sh}" -o ~/.bash_completion.d/"#1"
    curl "https://raw.githubusercontent.com/changyuheng/fz/master/{fz.sh}" -o ~/.bash_completion.d/z"#1"
