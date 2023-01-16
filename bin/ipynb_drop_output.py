@@ -65,21 +65,6 @@ in the notebook's metadata, and works for IPython v3.0.
 import sys
 import json
 
-nb = sys.stdin.read()
-
-json_in = json.loads(nb)
-nb_metadata = json_in["metadata"]
-suppress_output = False
-if "git" in nb_metadata:
-    if "suppress_outputs" in nb_metadata["git"] and nb_metadata["git"]["suppress_outputs"]:
-        suppress_output = True
-if not suppress_output:
-    sys.stdout.write(nb)
-    exit() 
-
-
-ipy_version = int(json_in["nbformat"])-1 # nbformat is 1 more than actual version.
-
 def strip_output_from_cell(cell):
     if "outputs" in cell:
         cell["outputs"] = []
@@ -87,12 +72,54 @@ def strip_output_from_cell(cell):
         del cell["prompt_number"]
 
 
-if ipy_version == 2:
-    for sheet in json_in["worksheets"]:
-        for cell in sheet["cells"]:
-            strip_output_from_cell(cell)
-else:
-    for cell in json_in["cells"]:
-        strip_output_from_cell(cell)
+def strip_image_from_output(cell):
+    """
+    """
+    if cell.get("cell_type", None) == "code":
+        for output in cell.get("outputs", []):
+            data = output.get("data", None)
+            if data is not None:
+                if "image/png" in data:
+                    del data["image/png"]
 
-json.dump(json_in, sys.stdout, sort_keys=True, indent=1, separators=(",",": "))
+    return cell
+
+
+
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        with open(sys.argv[1], mode="r", encoding="UTF-8") as fin:
+            nb = fin.read()
+    else:
+        nb = sys.stdin.read()
+
+    json_in = json.loads(nb)
+    ipy_version = int(json_in["nbformat"])-1 # nbformat is 1 more than actual version.
+
+
+    if ipy_version == 2:
+        pass
+    else:
+        for cell in json_in["cells"]:
+            strip_image_from_output(cell)
+
+
+    nb_metadata = json_in["metadata"]
+    if "git" in nb_metadata:
+        if "suppress_outputs" in nb_metadata["git"] and nb_metadata["git"]["suppress_outputs"]:
+            if ipy_version == 2:
+                for sheet in json_in["worksheets"]:
+                    for cell in sheet["cells"]:
+                        strip_output_from_cell(cell)
+            else:
+                for cell in json_in["cells"]:
+                    strip_output_from_cell(cell)
+
+    json.dump(json_in,
+              sys.stdout,
+              sort_keys=True,
+              indent=1,
+              ensure_ascii=False,
+              separators=(",",": "))

@@ -161,7 +161,7 @@
    required = true
 
 [filter "clean_ipynb"]
-   clean = ~/config/bin/ipynb_drop_output.py
+   clean = ipynb_drop_output.py
    smudge = cat
 
 [log]
