@@ -208,3 +208,7 @@ set -g pane-border-format " [ ###P #T ] "
 CTRL+b + :
 select-pane -T "title"
 ```
+
+## `tmux-fzf`
+* List of bindings
+    * <kbd>prefix</kbd> <kbd>F</kbd>  To launch tmux-fzf, press `prefix` + `F` (Shift+F).
