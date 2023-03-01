@@ -443,6 +443,12 @@ function install_rust_tools {
    # module load rust
    # module load gcc/11.3.0
    cargo install --root ~/.local ouch
+
+   # [skim - GitHub](https://github.com/lotabout/skim#installation)
+   # Fuzzy Finder in rust!
+   # A la `fzf`.
+   # module load rust
+   cargo install --root ~/.local skim
 }
 
 
