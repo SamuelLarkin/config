@@ -172,6 +172,7 @@ lslogins | fzf
 ```
 
 
+## SLURM
 Get some stats about a job that is ran on `Slurm`.
 ```bash
 sacct -l -j jobid
