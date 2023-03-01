@@ -263,6 +263,7 @@ function diffdircode {
       --ignore-matching-lines='LOG_' \
       --ignore-matching-lines='NRC-CNRC' \
       --ignore-matching-lines='Institute' \
+      --exclude=.git \
       --exclude=\*.{gz,depend,a,so,o} \
       --exclude=\*CVS\* \
       --exclude=\*.deps\* \
