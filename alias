@@ -267,6 +267,7 @@ function diffdircode {
       --exclude=\*tags \
       --exclude=\*.cvsignore \
       --exclude=.#\* \
+      --exclude=\*.pyc \
       $1 $2 \
    | sed "s/Files \(.*\) and \(.*\) differ/$__diff \1 \2/" \
    | sed "s/^\(Only in\)/\t\1/" \
