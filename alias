@@ -28,6 +28,7 @@ alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,F
 #scontrol update jobid=<job_id> TimeLimit=<new_timelimit>
 #sreport user top start=2020-06-01 end=2020-06-30 -t percent
 #sacct -l -j JOBID   # Get stats about a job that has finished.
+#scontrol show nodes   # to see what the nodes really offer.
 alias sresources='sinfo -o "%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd'
 alias fixTerminal='stty rows 45 columns 190'
