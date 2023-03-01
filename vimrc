@@ -1,5 +1,292 @@
 " vim:nowrap:
 
+""""""""""""""""""""""""""""""""""""""""
+" For Vundle
+" [Vundle](https://github.com/VundleVim/Vundle.vim)
+" http://www.nerdyweekly.com/posts/modern-vim-plugin-management-pathogen-vs-vundle/
+" http://manhnt.github.io/vim/2016/06/25/vundle-beginner.html
+" List of many vim plugins:
+"   https://github.com/vim-scripts?tab=repositories
+" [Awesome Vim plugins from across the Universe](https://vimawesome.com/)
+" INSTALLATION:
+"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"   :PluginInstall
+"   :PluginSearch vcscommand
+"{
+   set nocompatible              " be iMproved, required
+   filetype off                  " required
+
+   " set the runtime path to include Vundle and initialize
+   set rtp+=~/.vim/bundle/Vundle.vim
+   call vundle#begin()
+   " alternatively, pass a path where Vundle should install plugins
+   "call vundle#begin('~/some/path/here')
+
+   " let Vundle manage Vundle, required
+   Plugin 'VundleVim/Vundle.vim'
+
+   " The following are examples of different formats supported.
+   " Keep Plugin commands between vundle#begin/end.
+
+   " [l9](http://vim-scripts.org/vim/scripts.html)
+   " is a Vim-script library, which provides some utility functions and
+   " commands.
+   " for programming in Vim.
+   Plugin 'L9'
+
+   " BufExplorer
+   "Plugin 'jlanzarotta/bufexplorer'
+   Plugin 'bufexplorer.zip'
+
+   " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
+   " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
+   " git, bzr, and hg within VIM, including committing changes and performing
+   " diffs using the vimdiff system.
+   "Plugin 'vim-scripts/vcscommand.vim'
+   "Plugin 'http://repo.or.cz/r/vcscommand.git'
+   " :VCSVimDiff
+   Plugin 'vcscommand.vim'
+
+   " [vim-fugitive](https://github.com/tpope/vim-fugitive)
+   " Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git
+   " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
+   " That's why it's called Fugitive.
+   Plugin 'tpope/vim-fugitive'
+
+   " [Tagbar](https://github.com/majutsushi/tagbar)
+   " Awesome source code [tag]browsing
+   " Displays a file/class explorer using :TagbarOpen
+   " https://github.com/majutsushi/tagbar
+   Plugin 'majutsushi/tagbar'
+
+   " [tabular](https://github.com/godlygeek/tabular)
+   " Vim script for text filtering and alignment
+   " howoto: `:'<,'>Tabularize /=`
+   Plugin 'godlygeek/tabular'
+
+   " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
+   " XPath search plugin for Vim
+   " https://github.com/actionshrimp/vim-xpath
+   Plugin 'actionshrimp/vim-xpath'
+
+   " [vim-json](https://github.com/elzr/vim-json)
+   " A better JSON for Vim: distinct highlighting of keywords vs values,
+   " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+   " https://github.com/elzr/vim-json
+   Plugin 'elzr/vim-json'
+
+   " [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
+   " One colorscheme pack to rule them all!
+   Plugin 'flazz/vim-colorschemes'
+
+   " [diffconflicts](https://github.com/whiteinge/diffconflicts)
+   " This converts a file containing conflict markers into a two-way diff.
+   " git config --global merge.tool diffconflicts
+   " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
+   " git config --global mergetool.diffconflicts.trustExitCode true
+   " git config --global mergetool.keepBackup false
+   "
+   Plugin 'whiteinge/diffconflicts'
+
+   " [vim-surround](https://github.com/tpope/vim-surround)
+   " Surround.vim is all about `surroundings`: parentheses, brackets, quotes,
+   " XML tags, and more. The plugin provides mappings to easily delete, change
+   " and add such surroundings in pairs.
+   " https://github.com/tpope/vim-surround
+   "Plugin 'tpope/vim-surround'
+
+   " [vim-sneak](https://github.com/justinmk/vim-sneak)
+   " The missing motion for Vim.
+   Plugin 'justinmk/vim-sneak'
+
+   """""""""""""""""""""""""""""""""""
+   " FANCY VIM PLUGINS
+   " https://danyspin97.org/blog/fancy-vim-plugins/
+
+   " Highlighting
+   "{
+      " [rainbow](https://github.com/luochen1990/rainbow)
+      " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
+      " fast, powerful configuration.
+      Plugin 'luochen1990/rainbow'
+
+      " [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+      " illuminate.vim - Vim plugin for selectively illuminating other uses of
+      " the current word under the cursor
+      Plugin 'RRethy/vim-illuminate'
+
+      " [vim-search-pulse](https://github.com/inside/vim-search-pulse)
+      " easily locate the cursor after a search.
+      " it pulses every time you scroll the search results by pressing n/N.
+      Plugin 'inside/vim-search-pulse'
+   "}
+
+   " Python
+   "{
+      " Deprecated and replaced by taghelper.
+      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
+      " Display in the statusline class, function & method the cursor is in.
+      "Plugin 'mgedmin/pythonhelper.vim'
+
+      " [taghelper](https://github.com/mgedmin/taghelper.vim)
+      " vim plugin that shows the current function/tag in the statusline.
+      Plugin 'mgedmin/taghelper.vim'
+
+      " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
+      " Pythonsense is a Vim plugin that provides text objects and motions for
+      " Python classes, methods, functions, and doc strings.
+      Plugin 'jeetsukumaran/vim-pythonsense'
+
+      " [jedi-vim](https://github.com/davidhalter/jedi-vim)
+      " awesome Python autocompletion with VIM
+      " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
+      Plugin 'davidhalter/jedi-vim'
+
+      " [vim-flake8](https://github.com/nvie/vim-flake8.git)
+      " is a Vim plugin that runs the currently open file through Flake8, a
+      " static syntax and style checker for Python source code. It supersedes
+      " both vim-pyflakes and vim-pep8.
+      Plugin 'nvie/vim-flake8'
+
+      " [semshi](https://github.com/numirias/semshi)
+      " Semantic Highlighting for Python in Neovim
+      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+      "Plugin 'numirias/semshi'
+   "}
+
+   " Rust
+   "{
+      " [rust](https://github.com/rust-lang/rust.vim)
+      " Vim configuration for Rust
+      Plugin 'rust-lang/rust.vim'
+   "}
+
+   " HTML
+   "{
+      " [sparkup](https://github.com/rstacruz/sparkup)
+      " A parser for a condensed HTML format
+      " Pass the path to set the runtimepath properly.
+      Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+   "}
+
+
+   """""""""""""""""""""""""""""""""""""
+   " Under testing, waiting for approval.
+
+   " [fzf](https://github.com/junegunn/fzf)
+   " fzf is a general-purpose command-line fuzzy finder
+   Plugin 'junegunn/fzf'
+
+   " [coc](https://github.com/neoclide/coc.nvim)
+   " Make your Vim/Neovim as smart as VSCode.
+   "Plugin 'neoclide/coc.nvim'
+
+   " [ale](https://github.com/dense-analysis/ale)
+   " Asynchronous Lint Engine
+   Plugin 'dense-analysis/ale'
+
+   " [CTRL-P](https://github.com/ctrlpvim/ctrlp.vim)
+   " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+   " https://ctrlpvim.github.io/ctrlp.vim/
+   Plugin 'ctrlpvim/ctrlp.vim'
+
+   " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+   " A Vim plugin which shows a git diff in the sign column. It shows which
+   " lines have been added, modified, or removed. You can also preview, stage,
+   " and undo individual hunks; and stage partial hunks. The plugin also
+   " provides a hunk text object.
+   Plugin 'airblade/vim-gitgutter'
+
+   " [nim](https://github.com/zah/nim.vim)
+   " Nim language plugin for vim.
+   Plugin 'zah/nim.vim'
+
+   " TypeScript & React
+   "{
+      " [Modern TypeScript and React Development in Vim](https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
+
+      " [vim-jsx-typescript](https://github.com/peitalin/vim-jsx-typescript)
+      " Syntax highlighting and indentation for JSX in Typescript
+      " (typescriptreact filetypes).
+      " vim-jsx-typescript works with the built-in typescript syntax
+      " highlighter and indentation engine for recent versions of Vim/Neovim.
+      Plugin 'peitalin/vim-jsx-typescript'
+
+      Plugin 'pangloss/vim-javascript'
+      Plugin 'leafgarland/typescript-vim'
+      Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
+      Plugin 'jparise/vim-graphql'
+ 
+      " set filetypes as typescriptreact
+      autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+   "}
+
+   " All of your Plugins must be added before the following line
+   call vundle#end()            " required
+   filetype plugin indent on    " required
+   " To ignore plugin indent changes, instead use:
+   "filetype plugin on
+   "
+   " Brief help
+   " :PluginList       - lists configured plugins
+   " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+   " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+   " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+   "
+   " see :h vundle for more details or wiki for FAQ
+   " Put your non-Plugin stuff after this line
+"}
+
+
+" Vundle
+" {
+   let g:rainbow_active = 1
+   let g:Illuminate_delay = 250
+   let g:vim_search_pulse_duration = 200
+
+   " Tagbar
+   "{
+     let g:tagbar_ctags_bin="$HOME/.local/bin/ctags"
+   "}
+ 
+   " ALE {
+      " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
+      let g:airline#extensions#ale#enabled = 1
+   " }
+
+   " Sneak {
+      let g:sneak#label = 1
+      nmap f <Plug>Sneak_s
+      nmap F <Plug>Sneak_S
+   " }
+
+   " Using `ugrep` with CtrlP {
+      if executable('ugrep')
+         set runtimepath^=~/.vim/bundle/ctrlp.vim
+         let g:ctrlp_match_window='bottom,order:ttb'
+         "let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files -3'
+         let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files'
+      endif
+   " }
+ 
+   " Buffer Explorer {
+      let g:bufExplorerSortBy='mru'
+   " }
+" }
+
+
+" {
+  " from nvim :h vim_diff.txt
+  " neovim remaps Y to y$ which I hate.
+  if has('nvim')
+    unmap Y
+  endif
+  " [Nuking most of my .vimrc and just using LunarVim](https://fnune.com/2021/11/20/nuking-most-of-my-vimrc-and-just-using-lunarvim/)
+  " Disable ex mode
+  nnoremap Q <nop>
+" }
+
+
 " [Vim Error: E474: Invalid argument: listchars=tab:»·,trail:·](https://stackoverflow.com/a/18321539)
 " {
    scriptencoding utf-8
@@ -48,6 +335,13 @@
    set scrolloff=2
    set laststatus=2 " Always display the status bar with filename and modification [+]
    set showmatch " show matching brackets
+
+   " Command Mode auto completion {}
+     " [Is there a version of Vim or plugin with a Command Mode auto completion?](https://vi.stackexchange.com/a/11424)
+     set wildmenu
+     set wildmode=longest,list,full
+   " }
+ 
    "set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P " Change the statusline to also show unicode value of a character.
    "set statusline=%<%f%h%m%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%r%=%b\ 0x%B\ \ %l,%c%V\ %P " Change the statusline to also show unicode value of a character.
    if has("statusline")
@@ -83,7 +377,10 @@
    set statusline+=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}  " Adds [file's encoding(BOMB)?]
    set statusline+=%r   " Readonly flag, text is "[RO]".
    set statusline+=%{fugitive#statusline()}   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
-   set statusline+=%{TagInStatusLine()}   " from https://github.com/mgedmin/pythonhelper.vim
+   if !has('nvim')
+      "set statusline+=%{TagInStatusLine()}   " from https://github.com/mgedmin/pythonhelper.vim
+      set statusline+=%{taghelper#curtag()}
+   endif
    set statusline+=%=   " Separation point between left and right aligned items.  No width fields allowed.
    set statusline+=%b   " Value of byte under cursor.
    set statusline+=\ 0x%B   " Value of byte under cursor in hexadecimal.
@@ -194,13 +491,6 @@
    set expandtab
    set autoindent
    set diffopt=filler,iwhite " Diffopt for gvim 7
-" }
-
-
-" Plugin Settings {
-   " Buffer Explorer {
-      let g:bufExplorerSortBy='mru'
-   " }
 " }
 
 
@@ -361,239 +651,6 @@ endfunction
 " http://www.vi-improved.org/vimrc.php
 
 
-""""""""""""""""""""""""""""""""""""""""
-" For Vundle
-" [Vundle](https://github.com/VundleVim/Vundle.vim)
-" http://www.nerdyweekly.com/posts/modern-vim-plugin-management-pathogen-vs-vundle/
-" http://manhnt.github.io/vim/2016/06/25/vundle-beginner.html
-" List of many vim plugins:
-"   https://github.com/vim-scripts?tab=repositories
-" [Awesome Vim plugins from across the Universe](https://vimawesome.com/)
-" INSTALLATION:
-"   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"   :PluginInstall
-"   :PluginSearch vcscommand
-"{
-   set nocompatible              " be iMproved, required
-   filetype off                  " required
-
-   " set the runtime path to include Vundle and initialize
-   set rtp+=~/.vim/bundle/Vundle.vim
-   call vundle#begin()
-   " alternatively, pass a path where Vundle should install plugins
-   "call vundle#begin('~/some/path/here')
-
-   " let Vundle manage Vundle, required
-   Plugin 'VundleVim/Vundle.vim'
-
-   " The following are examples of different formats supported.
-   " Keep Plugin commands between vundle#begin/end.
-
-   " [l9](http://vim-scripts.org/vim/scripts.html)
-   " is a Vim-script library, which provides some utility functions and
-   " commands.
-   " for programming in Vim.
-   Plugin 'L9'
-
-   " BufExplorer
-   "Plugin 'jlanzarotta/bufexplorer'
-   Plugin 'bufexplorer.zip'
-
-   " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
-   " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
-   " git, bzr, and hg within VIM, including committing changes and performing
-   " diffs using the vimdiff system.
-   "Plugin 'vim-scripts/vcscommand.vim'
-   "Plugin 'http://repo.or.cz/r/vcscommand.git'
-   " :VCSVimDiff
-   Plugin 'vcscommand.vim'
-
-   " [vim-fugitive](https://github.com/tpope/vim-fugitive)
-   " Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git
-   " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
-   " That's why it's called Fugitive.
-   Plugin 'tpope/vim-fugitive'
-
-   " [Tagbar](https://github.com/majutsushi/tagbar)
-   " Awesome source code [tag]browsing
-   " Displays a file/class explorer using :TagbarOpen
-   " https://github.com/majutsushi/tagbar
-   Plugin 'majutsushi/tagbar'
-
-   " [tabular](https://github.com/godlygeek/tabular)
-   " Vim script for text filtering and alignment
-   " howoto: `:'<,'>Tabularize /=`
-   Plugin 'godlygeek/tabular'
-
-   " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
-   " XPath search plugin for Vim
-   " https://github.com/actionshrimp/vim-xpath
-   Plugin 'actionshrimp/vim-xpath'
-
-   " [vim-json](https://github.com/elzr/vim-json)
-   " A better JSON for Vim: distinct highlighting of keywords vs values,
-   " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-   " https://github.com/elzr/vim-json
-   Plugin 'elzr/vim-json'
-
-   " [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
-   " One colorscheme pack to rule them all!
-   Plugin 'flazz/vim-colorschemes'
-
-   " [diffconflicts](https://github.com/whiteinge/diffconflicts)
-   " This converts a file containing conflict markers into a two-way diff.
-   " git config --global merge.tool diffconflicts
-   " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
-   " git config --global mergetool.diffconflicts.trustExitCode true
-   " git config --global mergetool.keepBackup false
-   "
-   Plugin 'whiteinge/diffconflicts'
-
-   " [vim-surround](https://github.com/tpope/vim-surround)
-   " Surround.vim is all about `surroundings`: parentheses, brackets, quotes,
-   " XML tags, and more. The plugin provides mappings to easily delete, change
-   " and add such surroundings in pairs.
-   " https://github.com/tpope/vim-surround
-   "Plugin 'tpope/vim-surround'
-
-   " [vim-sneak](https://github.com/justinmk/vim-sneak)
-   " The missing motion for Vim.
-   Plugin 'justinmk/vim-sneak'
-
-   """""""""""""""""""""""""""""""""""
-   " FANCY VIM PLUGINS
-   " https://danyspin97.org/blog/fancy-vim-plugins/
-
-   " Highlighting
-   "{
-      " [rainbow](https://github.com/luochen1990/rainbow)
-      " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
-      " fast, powerful configuration.
-      Plugin 'luochen1990/rainbow'
-
-      " [vim-illuminate](https://github.com/RRethy/vim-illuminate)
-      " illuminate.vim - Vim plugin for selectively illuminating other uses of
-      " the current word under the cursor
-      Plugin 'RRethy/vim-illuminate'
-
-      " [vim-search-pulse](https://github.com/inside/vim-search-pulse)
-      " easily locate the cursor after a search.
-      " it pulses every time you scroll the search results by pressing n/N.
-      Plugin 'inside/vim-search-pulse'
-   "}
-
-   " Python
-   "{
-      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
-      " Display in the statusline class, function & method the cursor is in.
-      Plugin 'mgedmin/pythonhelper.vim'
-
-      " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
-      " Pythonsense is a Vim plugin that provides text objects and motions for
-      " Python classes, methods, functions, and doc strings.
-      Plugin 'jeetsukumaran/vim-pythonsense'
-
-      " [jedi-vim](https://github.com/davidhalter/jedi-vim)
-      " awesome Python autocompletion with VIM
-      " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-      Plugin 'davidhalter/jedi-vim'
-
-      " [vim-flake8](https://github.com/nvie/vim-flake8.git)
-      " is a Vim plugin that runs the currently open file through Flake8, a
-      " static syntax and style checker for Python source code. It supersedes
-      " both vim-pyflakes and vim-pep8.
-      Plugin 'nvie/vim-flake8'
-
-      " [semshi](https://github.com/numirias/semshi)
-      " Semantic Highlighting for Python in Neovim
-      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-      "Plugin 'numirias/semshi'
-   "}
-
-   " Rust
-   "{
-      " [rust](https://github.com/rust-lang/rust.vim)
-      " Vim configuration for Rust
-      Plugin 'rust-lang/rust.vim'
-   "}
-
-   " HTML
-   "{
-      " [sparkup](https://github.com/rstacruz/sparkup)
-      " A parser for a condensed HTML format
-      " Pass the path to set the runtimepath properly.
-      Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-   "}
-
-
-   """""""""""""""""""""""""""""""""""""
-   " Under testing, waiting for approval.
-
-   " [fzf](https://github.com/junegunn/fzf)
-   " fzf is a general-purpose command-line fuzzy finder
-   Plugin 'junegunn/fzf'
-
-   " [coc](https://github.com/neoclide/coc.nvim)
-   " Make your Vim/Neovim as smart as VSCode.
-   "Plugin 'neoclide/coc.nvim'
-
-   " [ale](https://github.com/dense-analysis/ale)
-   " Asynchronous Lint Engine
-   Plugin 'dense-analysis/ale'
-
-   " [CTRL-P](https://github.com/ctrlpvim/ctrlp.vim)
-   " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-   " https://ctrlpvim.github.io/ctrlp.vim/
-   Plugin 'ctrlpvim/ctrlp.vim'
-
-   " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-   " A Vim plugin which shows a git diff in the sign column. It shows which
-   " lines have been added, modified, or removed. You can also preview, stage,
-   " and undo individual hunks; and stage partial hunks. The plugin also
-   " provides a hunk text object.
-   Plugin 'airblade/vim-gitgutter'
-
-   " [nim](https://github.com/zah/nim.vim)
-   " Nim language plugin for vim.
-   Plugin 'zah/nim.vim'
-
-   " TypeScript & React
-   "{
-      " [Modern TypeScript and React Development in Vim](https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
-
-      " [vim-jsx-typescript](https://github.com/peitalin/vim-jsx-typescript)
-      " Syntax highlighting and indentation for JSX in Typescript
-      " (typescriptreact filetypes).
-      " vim-jsx-typescript works with the built-in typescript syntax
-      " highlighter and indentation engine for recent versions of Vim/Neovim.
-      Plugin 'peitalin/vim-jsx-typescript'
-
-      Plugin 'pangloss/vim-javascript'
-      Plugin 'leafgarland/typescript-vim'
-      Plugin 'styled-components/vim-styled-components', { 'branch': 'main' }
-      Plugin 'jparise/vim-graphql'
- 
-      " set filetypes as typescriptreact
-      autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-   "}
-
-   " All of your Plugins must be added before the following line
-   call vundle#end()            " required
-   filetype plugin indent on    " required
-   " To ignore plugin indent changes, instead use:
-   "filetype plugin on
-   "
-   " Brief help
-   " :PluginList       - lists configured plugins
-   " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-   " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-   " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-   "
-   " see :h vundle for more details or wiki for FAQ
-   " Put your non-Plugin stuff after this line
-"}
-
-
 " Vim UI {
    " http://vim.wikia.com/wiki/Switch_color_schemes
    " Colors {
@@ -619,40 +676,6 @@ endfunction
       hi tsxAttrib ctermfg=190
    " }
 " }
-
-
-" Vundle
-" {
-   let g:rainbow_active = 1
-   let g:Illuminate_delay = 250
-   let g:vim_search_pulse_duration = 200
-
-   " Tagbar
-   "{
-     let g:tagbar_ctags_bin="$HOME/.local/bin/ctags"
-   "}
- 
-   " ALE {
-      " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
-      let g:airline#extensions#ale#enabled = 1
-   " }
-
-   " Sneak {
-      let g:sneak#label = 1
-      nmap f <Plug>Sneak_s
-      nmap F <Plug>Sneak_S
-   " }
-
-   " Using `ugrep` with CtrlP {
-      if executable('ugrep')
-         set runtimepath^=~/.vim/bundle/ctrlp.vim
-         let g:ctrlp_match_window='bottom,order:ttb'
-         "let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files -3'
-         let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files'
-      endif
-   " }
-" }
-
 
 
 "" Python specifics
