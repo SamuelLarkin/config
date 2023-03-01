@@ -18,6 +18,7 @@
 # Slurm
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
 alias squeue='squeue --sort=ti --format="%.8i %60j %.8u %.2t %.10M %.6D %16R %18V %k"'
+alias squeueme='squeue --user $USER'
 alias squeue_dependencies='squeue --format="%.8i %80j %.8u %.2t %.10M %.6D %16R %18V %k %E"'
 alias squeue_where="squeue --format $'%i\t %.2t %Z'"
 alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,FAIL'
