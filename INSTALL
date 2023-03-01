@@ -578,7 +578,7 @@ function install_compiled_tools {
       git clone https://github.com/muesli/duf.git
       cd duf
       go build
-      install --mode=u=rx duf $HOME/.local/bin
+      install --mode=u=rx duf $HOME/.local/bin/
       cd .. && rm -fr duf
    )
 
@@ -602,7 +602,7 @@ function install_compiled_tools {
       mkdir -p ~/tmp && cd ~/tmp
       wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
       tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
-      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin
+      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin/
       # TODO what to do with the autocomplete files?
       rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
@@ -682,11 +682,11 @@ function plot_tools {
 
    # [termeter - GitHub](https://github.com/atsaki/termeter): Visualize data in the terminal.
    go install github.com/atsaki/termeter/cmd/termeter@latest \
-   && mv ~/go/bin/termeter ~/.local/bin
+   && mv ~/go/bin/termeter ~/.local/bin/
 
    # [asciigraph - GitHub](https://github.com/guptarohit/asciigraph): Go package to make lightweight ASCII line graphs ╭┈╯.
    go install github.com/guptarohit/asciigraph/cmd/asciigraph@latest \
-   && mv ~/go/bin/asciigraph ~/.local/bin
+   && mv ~/go/bin/asciigraph ~/.local/bin/
 
    # [pysparkline - GitHub](https://github.com/RedKrieg/pysparklines): Takes series data via stdin, command line, or API and prints a sparkline representation.
    #python3 -m pip install --user --upgrade pysparklines
