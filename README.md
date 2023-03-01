@@ -26,7 +26,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
 * [Glow - GitHub](https://github.com/charmbracelet/glow): Render markdown on the CLI, with pizzazz!
 * [gojq - GitHub](https://github.com/itchyny/gojq): Pure Go implementation of jq.  This is an implementation of jq command written in Go language. You can also embed gojq as a library to your Go products.
-* [gotz - GitGub](https://github.com/merschformann/gotz): gotz - a simple CLI timezone info tool.
+* [gotz - GitHub](https://github.com/merschformann/gotz): gotz - a simple CLI timezone info tool.
 * [hexyl - GitHub](https://github.com/sharkdp/hexyl): is a simple hex viewer for the terminal. It uses a colored output to distinguish different categories of bytes (NULL bytes, printable ASCII characters, ASCII whitespace characters, other ASCII characters and non-ASCII).
 * [histo - GitHub](https://github.com/fitzgen/histo): Histograms with a configurable number of buckets, and a terminal-friendly Display.
 * [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
