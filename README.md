@@ -22,6 +22,8 @@ This repository contains my personal configuration files when I want to setup a 
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
 * [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
+* [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh): bash and zsh key bindings for Git objects, powered by fzf.
+* [fzf-tmux - GitHub](https://github.com/junegunn/fzf#fzf-tmux-script): Starts fzf in a tmux pane.
 * [gdu - go DiskUsage - GitHub](https://github.com/dundee/gdu): Pretty fast disk usage analyzer written in Go.
 * [glances - GitHub](https://github.com/nicolargo/glances): An eye on your system
 * [Glow - GitHub](https://github.com/charmbracelet/glow): Render markdown on the CLI, with pizzazz!
@@ -59,6 +61,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [termscp - GitHub](https://github.com/veeso/termscp): A feature rich terminal UI file transfer and explorer with support for SCP/SFTP/FTP/S3.
 * [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
 * [tldr-pages - GitHub](https://github.com/tldr-pages/tldr): The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional man pages.
+* [tmux-fzf - GitHub](https://github.com/sainnhe/tmux-fzf): Use fzf to manage your tmux work environment!
 * [tmuxp - GitHub](https://github.com/tmux-python/tmuxp): tmuxp, tmux session manager.
 * [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar.
 * [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast.
