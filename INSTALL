@@ -49,6 +49,9 @@ function install_configs {
 
    mkdir -p ~/.cargo
    ln -fns ~/config/cargo.config.toml ~/.cargo/config.toml
+
+   mkdir -p ~/.local/bin
+   cp ~/config/bin/ipynb_drop_output.py ~/.local/bin/
 }
 
 
