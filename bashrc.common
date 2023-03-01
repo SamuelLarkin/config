@@ -61,4 +61,5 @@ shopt -s globstar
 shopt -s direxpand
 
 
-[[ $- == *i* ]] && bind '"\C-g": forward-search-history'
+# Disabled since we prefer fzf's CTRL+R
+#[[ $- == *i* ]] && bind '"\C-g": forward-search-history'
