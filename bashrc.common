@@ -49,6 +49,8 @@ export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
 
+export FZF_TMUX_OPTS='-p80%,60%'
+
 umask 0007
 
 
