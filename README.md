@@ -241,3 +241,12 @@ select-pane -T "title"
     * <kbd>TAB</kbd> or <kbd>SHIFT-TAB</kbd> to select multiple objects
     * <kbd>CTRL-/</kbd> to change preview window layout
     * <kbd>CTRL-O</kbd> to open the object in the web browser (in GitHub URL scheme)
+
+
+## `lvim`
+Find commands `:WhichKey`.
+This opens a popup and if you type the shortcut key you get submenus.
+
+`<leader>sT` where `<leader>` is `space` opens a popup to do fuzzy finding across files.
+
+`<leader>f` find a file.
