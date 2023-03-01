@@ -154,6 +154,7 @@ function install_go_tools {
    mkdir -p ~/.bash_completion.d
    wget -O ~/.bash_completion.d/fzf.completion.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash'
    wget -O ~/.bash_completion.d/fzf.key-bindings.bash 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash'
+   wget -O ~/.bash_completion.d/fzf-git.sh 'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/fzf-git.sh'
    mkdir -p ~/.config/fish/functions
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
    wget -O ~/.local/bin/fzf-tmux 'https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux' && chmod u+x ~/.local/bin/fzf-tmux
