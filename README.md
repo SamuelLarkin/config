@@ -117,6 +117,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [jql - GitHub](https://github.com/yamafaktory/jql): A JSON Query Language CLI tool built with Rust.
 * [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
 * [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
+* [bfs - GitHub](https://github.com/tavianator/bfs) A breadth-first version of the UNIX find command.
 
 
 
