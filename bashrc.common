@@ -49,7 +49,7 @@ export HISTTIMEFORMAT="%F %T "
 
 export DOCKER_BUILDKIT=1
 
-export FZF_TMUX_OPTS='-p80%,60%'
+{ man tmux | grep display-popup; } &> /dev/null && export FZF_TMUX_OPTS='-p80%,60%'
 
 umask 0007
 
