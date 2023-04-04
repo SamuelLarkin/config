@@ -145,6 +145,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [tui-rs - GitHub](https://github.com/fdehau/tui-rs): Build terminal user interfaces and dashboards using Rust.
 * [Awesome TUIs](https://github.com/rothgar/awesome-tuis) List of projects that provide terminal user interfaces.
 * [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 
 
