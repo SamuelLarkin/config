@@ -70,7 +70,8 @@ function install_vim_plugins {
    git \
       clone \
       https://github.com/VundleVim/Vundle.vim.git \
-      $HOME/.vim/bundle/Vundle.vim
+      $HOME/.vim/bundle/Vundle.vim \
+   || ( cd $HOME/.vim/bundle/Vundle.vim && git pull; )
    vim +:PluginInstall +:qa
 }
 
@@ -80,7 +81,8 @@ function install_tmux_plugins {
    git \
       clone \
       https://github.com/tmux-plugins/tpm \
-      $HOME/.tmux/plugins/tpm
+      $HOME/.tmux/plugins/tpm \
+   || ( cd $HOME/.tmux/plugins/tpm && git pull; )
 }
 
 
