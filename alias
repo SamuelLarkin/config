@@ -271,6 +271,7 @@ function diffdircode {
       --exclude=\*.cvsignore \
       --exclude=.#\* \
       --exclude=\*.pyc \
+      --exclude=\*__pycache__\* \
       $1 $2 \
    | sed "s/Files \(.*\) and \(.*\) differ/$__diff \1 \2/" \
    | sed "s/^\(Only in\)/\t\1/" \
