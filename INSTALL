@@ -147,7 +147,7 @@ function install_python_tools {
 
 function install_go_tools {
    # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
-   # wget 'https://go.dev/dl/go1.18.2.linux-amd64.tar.gz'
+   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
    # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
 
    mkdir -p ~/.local/bin
