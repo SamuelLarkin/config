@@ -33,9 +33,15 @@ alias sresources='sinfo -o "%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd'
 alias fixTerminal='stty rows 45 columns 190'
 
+# GPSC5
+# ssh to a node
+# srun --jobid=4139869 --pty bash -l
+# srun --jobid 362985  --gres=gpu:8 -N 1 --ntasks 1 --mem-per-cpu=0 --pty -w ib14gpu-001 -s /bin/bash -l
+
 
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
+
 #alias rf="readlink -f"
 #alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
 #alias vimD='vim +":VCSVimDiff"'
