@@ -270,6 +270,7 @@ function diffdircode {
       --ignore-matching-lines='NRC-CNRC' \
       --ignore-matching-lines='Institute' \
       --exclude=.git \
+      --exclude=.mypy_cache \
       --exclude=\*.{gz,depend,a,so,o} \
       --exclude=\*CVS\* \
       --exclude=\*.deps\* \
