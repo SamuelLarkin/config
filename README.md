@@ -262,3 +262,22 @@ This opens a popup and if you type the shortcut key you get submenus.
 ```bash
 srun --jobid=JOBID --pty bash -l
 ```
+
+
+# GNU parallel a la Spark
+```bash
+function desubtokenize {}
+export -f desubtokenize
+
+function tokenize_corpus {}
+export -f tokenize_corpus
+
+zcat --force train.gz \
+| parallel \
+  --spreadstdin \
+  --recend '\n' \
+  --env desubtokenize \
+  --env tokenize_corpus \
+  "desubtokenize | tokenize_corpus $lang" \
+> train.tok.gz
+```
