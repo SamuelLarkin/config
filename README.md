@@ -173,10 +173,17 @@ lslogins | fzf
 ```
 
 
-## SLURM
+# SLURM
 Get some stats about a job that is ran on `Slurm`.
 ```bash
 sacct -l -j jobid
+```
+
+## SSH to a Worker Node
+
+This is an example command to connect to a worker node on GPSC5
+```bash
+srun --jobid=JOBID --pty bash -l
 ```
 
 Example of connecting to a GPU running job on GPSC5.
@@ -257,12 +264,6 @@ This opens a popup and if you type the shortcut key you get submenus.
 `<leader>sT` where `<leader>` is `space` opens a popup to do fuzzy finding across files.
 
 `<leader>f` find a file.
-
-# SSH to a GPSC5 Worker Node
-```bash
-srun --jobid=JOBID --pty bash -l
-```
-
 
 # GNU parallel a la Spark
 ```bash
