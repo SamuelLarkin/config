@@ -486,6 +486,15 @@ function install_perl_tools {
 
 
 
+function install_gh {
+   # [Install from Source](https://github.com/cli/cli/blob/trunk/docs/source.md)
+   git clone https://github.com/cli/cli.git gh-cli
+   cd gh-cli
+   make install prefix=/home/larkins/.local
+}
+
+
+
 function install_compiled_tools {
    # tmux
 
