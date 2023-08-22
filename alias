@@ -281,6 +281,7 @@ function diffdircode {
       --ignore-matching-lines='LOG_' \
       --ignore-matching-lines='NRC-CNRC' \
       --ignore-matching-lines='Institute' \
+      --exclude=.\*.swp \
       --exclude=.git \
       --exclude=.mypy_cache \
       --exclude=\*.{gz,depend,a,so,o} \
