@@ -20,6 +20,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [F2 - GitHub](https://github.com/ayoisaiah/f2): F2 is a cross-platform command-line tool for batch renaming files and directories quickly and safely. Written in Go!
 * [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
+* [forgit - GitHub](https://github.com/wfxr/forgit): A utility tool powered by fzf for using git interactively.
 * [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
 * [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh): bash and zsh key bindings for Git objects, powered by fzf.

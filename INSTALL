@@ -480,6 +480,10 @@ function install_bash_tools {
    cd bashdb-5.0-1.1.2/
    ./configure --prefix=$HOME/.local
    make install
+
+   # [forgit - GitHub](https://github.com/wfxr/forgit):
+   # A utility tool powered by fzf for using git interactively.
+   wget -O ~/.local/bin/git-forgit 'https://raw.githubusercontent.com/wfxr/forgit/master/bin/git-forgit'
 }
 
 
