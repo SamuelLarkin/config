@@ -67,3 +67,19 @@ awk -F'\t' 'NR==FNR{a[$4,$5];next} ($4,$5) in a'    uniq.DEVTEST_2022_${BIFILTER
 # Filter-out
 awk -F'\t' 'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_notindev.tsv
 ```
+
+## JSONL
+Compare two jsonl files that are not in the same order.
+This implies that we need to sort the files on some `key`.
+To a trick a la `Schwartian transform` where we prepend the sort `key`, sort on that `key` and the remove the `key`.
+```sh
+jqdiff \
+  <(zcat train.jsonl.gz \
+    | jq --compact-output --raw-output '[.id, .|@text] | @tsv' \
+    | sort -k1,1 \
+    | cut -f2,2) \
+  <(zcat source/train.jsonl.gz \
+    | jq --compact-output --raw-output '[.id, .|@text] | @tsv' \
+    | sort -k1,1 \
+    | cut -f 2,2)
+```
