@@ -18,7 +18,7 @@ Many systems including Ubuntu also use an `/etc/profile.d` directory containing 
 
 # Bash Colors
 [Script to display all terminal colors](https://askubuntu.com/a/1044802)
-```bash
+```sh
 msgcat --color=test
 ```
 
@@ -44,7 +44,7 @@ The main thing here is to make the server use an available `Terminfo` entry that
 
 
 # LSCOLORS Schemes
-```basg
+```sh
 for theme in $(vivid themes); do     echo "Theme: $theme";     LS_COLORS=$(vivid generate $theme);     ls;     echo; done
 vivid generate one-light
 LSCOLORS=$(vivid generate one-light)
@@ -54,16 +54,18 @@ LSCOLORS=$(vivid generate one-light)
 # Tips-and-Tricks
 ## Sort
 Sort according to a set of columns:
-```bash
+```sh
 zcat FILE.gz | awk -F'\t' '!_[$4,$5]++'
 ```
 
 ## Filtering
 Filtering tsv files based on a subset of columns.
 Provided by Marc.
-```bash
+```sh
 # Filter-in
 awk -F'\t' 'NR==FNR{a[$4,$5];next} ($4,$5) in a'    uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_indev.tsv
+```
+```sh
 # Filter-out
 awk -F'\t' 'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_notindev.tsv
 ```
