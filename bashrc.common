@@ -78,6 +78,9 @@ shopt -s globstar
 # STOP FUCKING ESCAPING when tab
 shopt -s direxpand
 
+# Enable zoxide
+which zoxide &> /dev/null && eval "$(zoxide init bash)"
+
 
 # Disabled since we prefer fzf's CTRL+R
 #[[ $- == *i* ]] && bind '"\C-g": forward-search-history'
