@@ -5,7 +5,34 @@ This repository contains my personal configuration files when I want to setup a 
 
 
 ## CLI Tools
+### Favorites
+* [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
+* [delta - GitHub](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output
+* [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
+* [fzf-tmux - GitHub](https://github.com/junegunn/fzf#fzf-tmux-script): Starts fzf in a tmux pane.
+* [gdu - go DiskUsage - GitHub](https://github.com/dundee/gdu): Pretty fast disk usage analyzer written in Go.
+* [Glow - GitHub](https://github.com/charmbracelet/glow): Render markdown on the CLI, with pizzazz!
+* [hexyl - GitHub](https://github.com/sharkdp/hexyl): is a simple hex viewer for the terminal. It uses a colored output to distinguish different categories of bytes (NULL bytes, printable ASCII characters, ASCII whitespace characters, other ASCII characters and non-ASCII).
+* [histo - GitHub](https://github.com/fitzgen/histo): Histograms with a configurable number of buckets, and a terminal-friendly Display.
+* [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
+* [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform interactive process viewer
+* [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
+* [jless - GitHub](https://github.com/PaulJuliusMartinez/jless): jless is a command-line JSON viewer. Use it as a replacement for whatever combination of less, jq, cat and your editor you currently use for viewing JSON files. It is written in Rust and can be installed as a single standalone binary.  [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
+* [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor
+* [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple terminal UI for git commands, written in Go with the gocui library.
+* [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd): This project is a rewrite of GNU ls with lot of added features like colors, icons, tree-view, more formatting options etc. The project is heavily inspired by the super colorls project.
+* [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage
+* [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool for executing jobs in parallel using one or more computers
+* [rename - Cpan File::Rename](https://metacpan.org/dist/File-Rename/view/rename.PL)
+* [tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility.
+* [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git
+* [tmux-fzf - GitHub](https://github.com/sainnhe/tmux-fzf): Use fzf to manage your tmux work environment!
+* [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar.
+* [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast.
+* [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
 
+
+### All
 * [asciigraph - GitHub](https://github.com/guptarohit/asciigraph): Go package to make lightweight ASCII line graphs ╭┈╯.
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [bottom - GitHub](https://github.com/ClementTsang/bottom): Another TUI based system monitor, this time in Rust
