@@ -283,3 +283,10 @@ zcat --force train.gz \
   "desubtokenize | tokenize_corpus $lang" \
 > train.tok.gz
 ```
+
+
+# GPSCC
+Start a sleeper job
+```sh
+psub -N sleeper -Q nrc_ict 'sleep 3600'
+```
