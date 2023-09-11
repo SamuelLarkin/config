@@ -72,7 +72,7 @@ function install_vim_plugins {
       https://github.com/VundleVim/Vundle.vim.git \
       $HOME/.vim/bundle/Vundle.vim \
    || ( cd $HOME/.vim/bundle/Vundle.vim && git pull; )
-   vim +:PluginInstall +:qa
+   vim +:PluginInstall +:PluginUpdate +:qa
 }
 
 
