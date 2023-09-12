@@ -617,13 +617,14 @@ function install_compiled_tools {
    # in everything... ultra fast.
    which --skip-alias ugrep \
    || (
+      version=4.0.5
       mkdir -p ~/tmp && cd ~/tmp
-      wget -O ugrep-3.3.10.tar.gz https://github.com/Genivia/ugrep/archive/refs/tags/v3.3.10.tar.gz
-      tar xf ugrep-3.3.10.tar.gz
-      cd ugrep-3.3.10
+      wget -O ugrep-$version.tar.gz https://github.com/Genivia/ugrep/archive/refs/tags/v$version.tar.gz
+      tar xf ugrep-$version.tar.gz
+      cd ugrep-$version
       ./configure --prefix $HOME/.local --without-zstd
       \make -j $(nproc) install
-      cd .. && rm -fr ugrep-3.3.10
+      cd .. && rm -fr ugrep-$version
    )
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
