@@ -688,6 +688,18 @@ function install_compiled_tools {
      cd helix
      cargo install  --root ~/.local  --path helix-term
    )
+
+   # [jo - GitHub](https://github.com/jpmens/jo)
+   # JSON output from a shell.
+   (
+      wget 'https://github.com/jpmens/jo/releases/download/1.9/jo-1.9.tar.gz'
+      tar xf jo-1.9.tar.gz
+      cd jo-1.9
+      autoreconf -i
+      ./configure
+      make check
+      make DESTDIR=~/.local install
+   )
 }
 
 

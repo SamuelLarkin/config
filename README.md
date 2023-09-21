@@ -64,6 +64,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform interactive process viewer
 * [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool
 * [jless - GitHub](https://github.com/PaulJuliusMartinez/jless): jless is a command-line JSON viewer. Use it as a replacement for whatever combination of less, jq, cat and your editor you currently use for viewing JSON files. It is written in Rust and can be installed as a single standalone binary.  [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
+* [jo - GitHub](https://github.com/jpmens/jo): JSON output from a shell.
 * [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor
 * [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker): A simple terminal UI for both docker and docker-compose, written in Go with the gocui library.
 * [lazygit - GitHub](https://github.com/jesseduffield/lazygit): A simple terminal UI for git commands, written in Go with the gocui library.
