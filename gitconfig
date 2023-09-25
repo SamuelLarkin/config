@@ -192,8 +192,8 @@
    default = simple
 
 [tig]
-   commit-order   = topo         # Order commits topologically
-   line-graphics  = utf-8
+   commit-order  = topo         # Order commits topologically
+   line-graphics = utf-8
 
 [tig "color"]
    date = yellow black
@@ -222,3 +222,5 @@
 
 [diff]
     colorMoved = default
+[fetch]
+    prune = true   # Always prune on git fetch
