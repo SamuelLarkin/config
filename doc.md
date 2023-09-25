@@ -85,3 +85,10 @@ jqdiff \
     | sort -k1,1 \
     | cut -f 2,2)
 ```
+
+
+# git
+[How to remove a remote branch ref from local (gh-pages)](https://stackoverflow.com/a/64618529)
+```sh
+git update-ref -d refs/remotes/origin/gh-pages
+```
