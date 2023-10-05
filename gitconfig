@@ -2,6 +2,8 @@
 # What is git mergetool's command: git config --global mergetool.vimdiff3.cmd 'vim -f -d -c "wincmd J" "$MERGED" "$LOCAL" "$BASE" "$REMOTE"'
 # [How to remove a remote branch ref from local (gh-pages)](https://stackoverflow.com/a/64618529)
 #    `git update-ref -d refs/remotes/origin/gh-pages`
+# How to recursively diff all submodules.
+# git diff --submodule=diff
 
 # How to create a backup
 # git init --bare ws:~/git_backups/cst.git
