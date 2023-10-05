@@ -6,7 +6,7 @@
 # How to create a backup
 # git init --bare ws:~/git_backups/cst.git
 # git remote add --mirror=push backup ws:~/git_backups/cst.git
-# git push bakcup
+# git push backup
 [alias]
    ejlog   = log --color --format=ej --graph  # Eric denser than dense log output.
    ign     = ls-files --exclude-standard --ignored --others  # Show files ignored by git
