@@ -505,6 +505,29 @@ function install_gh {
 
 
 
+function install_tig {
+   local -r config_dir=~/.config/tig
+
+   mkdir -p ~/tmp && cd ~/tmp
+   wget 'https://github.com/jonas/tig/releases/download/tig-2.5.8/tig-2.5.8.tar.gz'
+   tar xf tig-2.5.8.tar.gz
+   cd tig-2.5.8 \
+   && {
+      ./autogen.sh
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      mkdir -p ~/.bash_completion.d/
+      cp contrib/tig-completion.bash ~/.bash_completion.d/
+      mkdir -p $config_dir
+      cp contrib/chocolate.theme.tigrc $config_dir
+      cd ..
+      rm -fr tig-2.5.8
+      curl -o $config_dir/"#1" "https://raw.githubusercontent.com/h3xx/tig-colors-neonwolf/main/{tig-colors-neonwolf-256.tigrc}"
+   }
+}
+
+
+
 function install_compiled_tools {
    # tmux
 
@@ -524,23 +547,7 @@ function install_compiled_tools {
    )
 
    # [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git.
-   which --skip-alias tig \
-   || (
-      mkdir -p ~/tmp && cd ~/tmp
-      wget 'https://github.com/jonas/tig/archive/refs/tags/tig-2.5.4.tar.gz'
-      tar xf tig-2.5.4.tar.gz
-      cd tig-tig-2.5.4/
-      ./autogen.sh
-      ./configure --prefix $HOME/.local
-      make -j $(nproc) install
-      mkdir -p ~/.bash_completion.d/
-      cp contrib/tig-completion.bash ~/.bash_completion.d/
-      mkdir -p /.config/tig
-      cp contrib/chocolate.theme.tigrc ~/.config/tig
-      cd ..
-      rm -fr tig-tig-2.5.4
-      curl -o ~/.config/tig/"#1" "https://raw.githubusercontent.com/h3xx/tig-colors-neonwolf/main/{tig-colors-neonwolf-256.tigrc}"
-   )
+   which --skip-alias tig || install_tig
 
    # [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
    # for executing jobs in parallel using one or more computers.
