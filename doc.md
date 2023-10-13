@@ -71,6 +71,7 @@ awk -F'\t' 'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' uniq.DEVTEST_2022_${BIFILTER
 ```
 
 ## JSONL
+### Compare
 Compare two jsonl files that are not in the same order.
 This implies that we need to sort the files on some `key`.
 To a trick a la `Schwartian transform` where we prepend the sort `key`, sort on that `key` and the remove the `key`.
@@ -86,6 +87,23 @@ jqdiff \
     | cut -f 2,2)
 ```
 
+### Parallel Processing
+```sh
+function process {
+   cat
+}
+export -f process
+
+zcat input.gz \
+    | time \parallel \
+       --keep-order \
+       --spreadstdin \
+       --recend='\n' \
+       --env=process \
+       'process' \
+| gzip \
+> output.gz
+```
 
 # git
 [How to remove a remote branch ref from local (gh-pages)](https://stackoverflow.com/a/64618529)
