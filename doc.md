@@ -105,8 +105,14 @@ zcat input.gz \
 > output.gz
 ```
 
-# git
+## git
 [How to remove a remote branch ref from local (gh-pages)](https://stackoverflow.com/a/64618529)
 ```sh
 git update-ref -d refs/remotes/origin/gh-pages
+```
+
+
+## Broken Symlinks
+```sh
+find . -type l ! -exec test -e {} \; -print
 ```
