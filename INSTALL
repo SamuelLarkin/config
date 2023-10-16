@@ -168,6 +168,18 @@ function install_fzf {
    mkdir -p ~/.config/fish/functions
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
    wget -O ~/.local/bin/fzf-tmux 'https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux' && chmod u+x ~/.local/bin/fzf-tmux
+}
+
+
+
+function install_go_tools {
+   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
+   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
+
+   mkdir -p ~/.local/bin
+
+   install_fzf
 
    # [forgit - GitHub](https://github.com/wfxr/forgit):
    # A utility tool powered by fzf for using git interactively.
