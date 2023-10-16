@@ -78,6 +78,11 @@ function install_vim_plugins {
 
 
 function install_tmux_plugins {
+   mkdir -p ~/.bash_completion.d \
+   && wget \
+      -O ~/.bash_completion.d/tmux.sh \
+      'https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux'
+
    git \
       clone \
       https://github.com/tmux-plugins/tpm \
