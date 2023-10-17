@@ -45,7 +45,12 @@ The main thing here is to make the server use an available `Terminfo` entry that
 
 # LSCOLORS Schemes
 ```sh
-for theme in $(vivid themes); do     echo "Theme: $theme";     LS_COLORS=$(vivid generate $theme);     ls;     echo; done
+for theme in $(vivid themes); do
+  echo "Theme: $theme";
+  LS_COLORS=$(vivid generate $theme);
+  ls;
+  echo;
+done
 vivid generate one-light
 LSCOLORS=$(vivid generate one-light)
 ```
@@ -63,11 +68,21 @@ Filtering tsv files based on a subset of columns.
 Provided by Marc.
 ```sh
 # Filter-in
-awk -F'\t' 'NR==FNR{a[$4,$5];next} ($4,$5) in a'    uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_indev.tsv
+awk \
+  -F'\t' \
+  'NR==FNR{a[$4,$5];next} ($4,$5) in a' \
+  uniq.DEVTEST_2022_${BIFILTER}.tsv \
+  uniq.TRAIN_2021-2016_${BIFILTER}.tsv \
+> TRAIN_indev.tsv
 ```
 ```sh
 # Filter-out
-awk -F'\t' 'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' uniq.DEVTEST_2022_${BIFILTER}.tsv uniq.TRAIN_2021-2016_${BIFILTER}.tsv > TRAIN_notindev.tsv
+awk \
+  -F'\t' \
+  'NR==FNR{a[$4,$5];next} !(($4,$5) in a)' \
+  uniq.DEVTEST_2022_${BIFILTER}.tsv \
+  uniq.TRAIN_2021-2016_${BIFILTER}.tsv \
+> TRAIN_notindev.tsv
 ```
 
 ## JSONL
