@@ -479,6 +479,22 @@ function install_rust_tools {
 }
 
 
+
+function install_bashdb {
+   # [bashdb - SourceForge](https://bashdb.sourceforge.net/)
+   # The Bash Debugger Project is a source-code debugger for bash that follows
+   # the gdb command syntax.
+   mkdir -p ~/tmp && cd ~/tmp
+   wget -O bashdb-5.0-1.1.2.tar.bz2 'https://sourceforge.net/projects/bashdb/files/bashdb/5.0-1.1.2/bashdb-5.0-1.1.2.tar.bz2/download'
+   tar xf bashdb-5.0-1.1.2.tar.bz2
+   cd bashdb-5.0-1.1.2/
+   ./configure --prefix=$HOME/.local
+   make install
+   rm -fr bashdb-5.0-1.1.2/
+}
+
+
+
 function install_bash_tools {
    # [z - GitHub](https://github.com/rupa/z)
    # Jump around.
@@ -495,11 +511,7 @@ function install_bash_tools {
    # [bashdb - SourceForge](https://bashdb.sourceforge.net/)
    # The Bash Debugger Project is a source-code debugger for bash that follows
    # the gdb command syntax.
-   wget -O bashdb-5.0-1.1.2.tar.bz2 'https://sourceforge.net/projects/bashdb/files/bashdb/5.0-1.1.2/bashdb-5.0-1.1.2.tar.bz2/download'
-   tar xf bashdb-5.0-1.1.2.tar.bz2
-   cd bashdb-5.0-1.1.2/
-   ./configure --prefix=$HOME/.local
-   make install
+   install_bashdb
 }
 
 
