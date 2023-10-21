@@ -145,11 +145,7 @@ function install_python_tools {
 
 
 
-function install_go_tools {
-   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
-   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
-   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
-
+function install_fzf {
    mkdir -p ~/.local/bin
 
    # [fzf - GitHub](https://github.com/junegunn/fzf):
@@ -163,6 +159,24 @@ function install_go_tools {
    mkdir -p ~/.config/fish/functions
    wget -O ~/.config/fish/functions/fzf_key_bindings.fish 'https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.fish'
    wget -O ~/.local/bin/fzf-tmux 'https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux' && chmod u+x ~/.local/bin/fzf-tmux
+
+   # [forgit - GitHub](https://github.com/wfxr/forgit):
+   # A utility tool powered by fzf for using git interactively.
+   wget -O ~/.local/bin/git-forgit 'https://raw.githubusercontent.com/wfxr/forgit/master/bin/git-forgit'
+}
+
+
+
+function install_go_tools {
+   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
+   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
+
+   mkdir -p ~/.local/bin
+
+   # [fzf - GitHub](https://github.com/junegunn/fzf):
+   # fzf is a general-purpose.  command-line fuzzy finder
+   install_fzf
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
    # A simple terminal UI for git commands, written in Go with the gocui
@@ -486,10 +500,6 @@ function install_bash_tools {
    cd bashdb-5.0-1.1.2/
    ./configure --prefix=$HOME/.local
    make install
-
-   # [forgit - GitHub](https://github.com/wfxr/forgit):
-   # A utility tool powered by fzf for using git interactively.
-   wget -O ~/.local/bin/git-forgit 'https://raw.githubusercontent.com/wfxr/forgit/master/bin/git-forgit'
 }
 
 
