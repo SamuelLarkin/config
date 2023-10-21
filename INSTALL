@@ -88,14 +88,6 @@ function install_tmux_plugins {
 
 
 function install_python_tools {
-   # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
-   python3 -m pip install --user bpytop
-
-   # [glances - GitHub](https://github.com/nicolargo/glances)
-   # [glances - WebSite](https://nicolargo.github.io/glances):
-   # An eye on your system.
-   python3 -m pip install --user --upgrade glances
-
    # [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
    # Pretty-print tabular data in Python, a library and a command-line utility.
    python3 -m pip install --user --upgrade tabulate
@@ -108,6 +100,14 @@ function install_python_tools {
    # Command line utilities for data analysis.
    #python3 -m pip install --user --upgrade data_hacks   # Only works with python2
    python3 -m pip install --user --upgrade data_hacks3
+
+   # [bpytop - GitHub](https://github.com/aristocratos/bpytop)
+   python3 -m pip install --user bpytop
+
+   # [glances - GitHub](https://github.com/nicolargo/glances)
+   # [glances - WebSite](https://nicolargo.github.io/glances):
+   # An eye on your system.
+   python3 -m pip install --user --upgrade glances
 
    # [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
    # tmuxp, tmux session manager.
@@ -138,6 +138,10 @@ function install_python_tools {
    # yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
    python3 -m pip install --user --upgrade yq
 
+   # [scroll - GitHub](https://github.com/redraw/scroll)
+   # scroll stdout!
+   python3 -m pip install --user --upgrade scroll-term
+
    # [hapless - GitHub](https://github.com/bmwant/hapless)
    # Simplest way of running and tracking processes in the background.
    python3 -m pip install --user --upgrade hapless
@@ -167,15 +171,9 @@ function install_fzf {
 
 
 
-function install_go_tools {
-   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
-   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
-   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
-
+function install_go_essential {
    mkdir -p ~/.local/bin
 
-   # [fzf - GitHub](https://github.com/junegunn/fzf):
-   # fzf is a general-purpose.  command-line fuzzy finder
    install_fzf
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
@@ -184,16 +182,38 @@ function install_go_tools {
    go install github.com/jesseduffield/lazygit@latest \
    && mv ~/go/bin/lazygit ~/.local/bin/
 
+   # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu):
+   # Pretty fast disk usage analyzer written in Go.
+   go install github.com/dundee/gdu/v5/cmd/gdu@latest \
+   && mv ~/go/bin/gdu ~/.local/bin/
+
+   # [Glow - GitHub](https://github.com/charmbracelet/glow):
+   # Render markdown on the CLI, with pizzazz!
+   go install github.com/charmbracelet/glow@latest \
+   && mv ~/go/bin/glow ~/.local/bin/
+}
+
+
+
+function install_go_extras {
+   mkdir -p ~/.local/bin
+
+   # [Miller - GitHub](https://github.com/johnkerl/miller):
+   # Miller is like awk, sed, cut, join, and sort for data formats such as CSV,
+   # TSV, JSON, JSON Lines, and positionally-indexed.
+   #go install github.com/johnkerl/miller@latest \
+   #&& mv ~/go/bin/mlr ~/.local/bin/
+
+   # [archiver - GitHub](https://github.com/mholt/archiver)
+   # Easily create & extract archives, and compress & decompress files of various formats.
+   go install github.com/mholt/archiver/v3/cmd/arc@latest \
+   && mv ~/go/bin/arc ~/.local/bin/
+
    # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker):
    # A simple terminal UI for both docker and docker-compose, written in Go
    # with the gocui library.
    go install github.com/jesseduffield/lazydocker@latest \
    && mv ~/go/bin/lazydocker ~/.local/bin/
-
-   # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu):
-   # Pretty fast disk usage analyzer written in Go.
-   go install github.com/dundee/gdu/v5/cmd/gdu@latest \
-   && mv ~/go/bin/gdu ~/.local/bin/
 
    # [duf - GitHub](https://github.com/muesli/duf):
    # Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
@@ -213,23 +233,12 @@ function install_go_tools {
    go get github.com/mikefarah/yq/v4 \
    && mv ~/go/bin/yq ~/.local/bin/
 
-   # [Glow - GitHub](https://github.com/charmbracelet/glow):
-   # Render markdown on the CLI, with pizzazz!
-   go install github.com/charmbracelet/glow@latest \
-   && mv ~/go/bin/glow ~/.local/bin/
-
    # [gojq - GitHub](Pure Go implementation of jq):
    # Pure Go implementation of jq.
    # This is an implementation of jq command written in Go language. You can
    # also embed gojq as a library to your Go products.
    go install github.com/itchyny/gojq/cmd/gojq@latest \
    && mv ~/go/bin/gojq ~/.local/bin/
-
-   # [Miller - GitHub](https://github.com/johnkerl/miller):
-   # Miller is like awk, sed, cut, join, and sort for data formats such as CSV,
-   # TSV, JSON, JSON Lines, and positionally-indexed.
-   #go install github.com/johnkerl/miller@latest \
-   #&& mv ~/go/bin/mlr ~/.local/bin/
 
    # [lf - GitHub](https://github.com/gokcehan/lf):
    # lf (as in "list files") is a terminal file manager written in Go with a
@@ -262,33 +271,27 @@ function install_go_tools {
    # GRV is a terminal interface for viewing git repositories.
    wget -O ~/.local/bin/grv https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64 \
    && chmod +x ~/.local/bin/grv
-
-   # [archiver - GitHub](https://github.com/mholt/archiver)
-   # Easily create & extract archives, and compress & decompress files of various formats.
-   go install github.com/mholt/archiver/v3/cmd/arc@latest \
-   && mv ~/go/bin/arc ~/.local/bin/
 }
 
 
-function install_rust_tools {
-   # [Rust](https://www.rust-lang.org/):
-   # A language empowering everyone to build reliable and efficient software.
-   # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-   # NOTE to install a specific version from git use `--tag X`
-   # cargo install --root ~/.local --git https://github.com/bvaisvil/zenith  --tag 0.12.0
 
-   #cargo install \
-   #   --root ~/.local \
-   #   lsd bat hyperfine exa bottom procs fd-find ripgrep rnr histo diskonaut zoxide hexyl difftastic jless xsv vivid
+function install_go_tools {
+   # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+   # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
+   # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
 
-   #cargo install \
-   #   --root ~/.local \
-   #   --git https://github.com/dandavison/delta
+   mkdir -p ~/.local/bin
 
-   #cargo install \
-   #   --root ~/.local \
-   #   --git https://github.com/bvaisvil/zenith
+   # [fzf - GitHub](https://github.com/junegunn/fzf):
+   # fzf is a general-purpose.  command-line fuzzy finder
+   install_fzf
+   install_go_essential
+   install_go_extras
+}
 
+
+
+function install_rust_essential {
    # [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd):
    # This project is a rewrite of GNU ls with lot of added features like
    # colors, icons, tree-view, more formatting options etc. The project is
@@ -299,10 +302,74 @@ function install_rust_tools {
    # A cat(1) clone with syntax highlighting and Git integration.
    cargo install --root ~/.local bat
 
+   # [delta - GitHub](https://github.com/dandavison/delta):
+   # A syntax-highlighting pager for git, diff, and grep output
+   # ~/.gitconfig
+   # [core]
+   #     pager = delta
+   # 
+   # [interactive]
+   #     diffFilter = delta --color-only
+   # 
+   # [delta]
+   #     navigate = true  # use n and N to move between diff sections
+   # 
+   # [merge]
+   #     conflictstyle = diff3
+   # 
+   # [diff]
+   #     colorMoved = default
+   cargo install --root ~/.local --git https://github.com/dandavison/delta
+
+   # NOTE we manually move the compile binary because we want to make sure it
+   # is different than the other variants of reservoir_sampling.
+   # NOTE that we move the binary because it will conflict with the one in ~/.cargo/bin.
+   ##module load rust/1.59.0
+   #module load rust
+   #cargo install --root ~/.local --git https://github.com/SamuelLarkin/reservoir_sampling_rs
+   cargo install --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
+   && mv ~/.cargo/bin/reservoir_sampling_rs ~/.local/bin/reservoir_sampling_rs
+
+   # [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
+   # jless is a command-line JSON viewer. Use it as a replacement for whatever
+   # combination of less, jq, cat and your editor you currently use for viewing
+   # JSON files. It is written in Rust and can be installed as a single
+   # standalone binary.
+   # [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
+   cargo install --root ~/.local jless
+
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
    # A command-line benchmarking tool.
    cargo install --root ~/.local hyperfine
 
+   # [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
+   # zoxide is a smarter cd command, inspired by z and autojump.
+   # It remembers which directories you use most frequently, so you can "jump"
+   # to them in just a few keystrokes.  zoxide works on all major shells.
+   cargo install --root ~/.local zoxide
+   #`eval "$(zoxide init bash)"`
+
+   # [hexyl - GitHub](https://github.com/sharkdp/hexyl):
+   # is a simple hex viewer for the terminal. It uses a colored output to
+   # distinguish different categories of bytes (NULL bytes, printable ASCII
+   # characters, ASCII whitespace characters, other ASCII characters and
+   # non-ASCII).
+   cargo install --root ~/.local hexyl
+
+   # [difftastic - GitHub](https://github.com/Wilfred/difftastic):
+   # Difftastic is an experimental diff tool that compares files based on their
+   # syntax.
+   cargo install --root ~/.local difftastic
+
+   # [stybulate - GitHub](https://github.com/guigui64/stybulate)
+   # Tabulate with Style
+   # module load rust
+   cargo install --root ~/.local stybulate --features=cli
+}
+
+
+
+function install_rust_extras {
    # [exa - Documentation](https://the.exa.website/):
    # modern replacement for ls.
    # [exa - GitHub](https://github.com/ogham/exa):
@@ -355,33 +422,6 @@ function install_rust_tools {
    # windirstat like for the CLI.
    cargo install --root ~/.local diskonaut
 
-   # [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
-   # zoxide is a smarter cd command, inspired by z and autojump.
-   # It remembers which directories you use most frequently, so you can "jump"
-   # to them in just a few keystrokes.  zoxide works on all major shells.
-   cargo install --root ~/.local zoxide
-   #`eval "$(zoxide init bash)"`
-
-   # [hexyl - GitHub](https://github.com/sharkdp/hexyl):
-   # is a simple hex viewer for the terminal. It uses a colored output to
-   # distinguish different categories of bytes (NULL bytes, printable ASCII
-   # characters, ASCII whitespace characters, other ASCII characters and
-   # non-ASCII).
-   cargo install --root ~/.local hexyl
-
-   # [difftastic - GitHub](https://github.com/Wilfred/difftastic):
-   # Difftastic is an experimental diff tool that compares files based on their
-   # syntax.
-   cargo install --root ~/.local difftastic
-
-   # [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
-   # jless is a command-line JSON viewer. Use it as a replacement for whatever
-   # combination of less, jq, cat and your editor you currently use for viewing
-   # JSON files. It is written in Rust and can be installed as a single
-   # standalone binary.
-   # [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
-   cargo install --root ~/.local jless
-
    # [xsv - GitHub](https://github.com/BurntSushi/xsv):
    # xsv is a command line program for indexing, slicing, analyzing, splitting
    # and joining CSV files. Commands should be simple, fast and composable.
@@ -390,25 +430,6 @@ function install_rust_tools {
    # [Navi - GitHub](https://github.com/denisidoro/navi):
    # An interactive cheatsheet tool for the command-line.
    cargo install --root ~/.local --git https://github.com/denisidoro/navi
-
-   # [delta - GitHub](https://github.com/dandavison/delta):
-   # A syntax-highlighting pager for git, diff, and grep output
-   # ~/.gitconfig
-   # [core]
-   #     pager = delta
-   # 
-   # [interactive]
-   #     diffFilter = delta --color-only
-   # 
-   # [delta]
-   #     navigate = true  # use n and N to move between diff sections
-   # 
-   # [merge]
-   #     conflictstyle = diff3
-   # 
-   # [diff]
-   #     colorMoved = default
-   cargo install --root ~/.local --git https://github.com/dandavison/delta
 
    # [vivid - GitHub](https://github.com/sharkdp/vivid):
    # vivid is a generator for the LS_COLORS environment variable that controls
@@ -429,15 +450,6 @@ function install_rust_tools {
    # A feature rich terminal UI file transfer and explorer with support for
    # SCP/SFTP/FTP/S3.
    cargo install --root ~/.local termscp
-
-   # NOTE we manually move the compile binary because we want to make sure it
-   # is different than the other variants of reservoir_sampling.
-   # NOTE that we move the binary because it will conflict with the one in ~/.cargo/bin.
-   ##module load rust/1.59.0
-   #module load rust
-   #cargo install --root ~/.local --git https://github.com/SamuelLarkin/reservoir_sampling_rs
-   cargo install --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
-   && mv ~/.cargo/bin/reservoir_sampling_rs ~/.local/bin/reservoir_sampling_rs
 
    # [zellij](https://github.com/zellij-org/zellij):
    # A terminal workspace with batteries included.
@@ -471,11 +483,34 @@ function install_rust_tools {
    # A la `fzf`.
    # module load rust
    cargo install --root ~/.local skim
+}
 
-   # [stybulate - GitHub](https://github.com/guigui64/stybulate)
-   # Tabulate with Style
-   # module load rust
-   cargo install --root ~/.local stybulate --features=cli
+
+
+function install_rust_tools {
+   # [Rust](https://www.rust-lang.org/):
+   # A language empowering everyone to build reliable and efficient software.
+   # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   # NOTE to install a specific version from git use `--tag X`
+   # cargo install --root ~/.local --git https://github.com/bvaisvil/zenith  --tag 0.12.0
+
+   #cargo install \
+   #   --root ~/.local \
+   #   lsd bat hyperfine exa bottom procs fd-find ripgrep rnr histo diskonaut zoxide hexyl difftastic jless xsv vivid
+
+   #cargo install \
+   #   --root ~/.local \
+   #   --git https://github.com/dandavison/delta
+
+   #cargo install \
+   #   --root ~/.local \
+   #   --git https://github.com/bvaisvil/zenith
+
+   install_rust_essential
+   install_rust_extras
+
+   #####################################
+   # UNDER TESTING
 }
 
 
@@ -555,40 +590,9 @@ function install_tig {
 
 
 
-function install_compiled_tools {
-   # tmux
-
-   # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform
-   # interactive process viewer.
-   which --skip-alias htop \
-   || (
-      mkdir -p ~/tmp && cd ~/tmp
-      wget -O 'htop-3.1.1.tar.gz' 'https://github.com/htop-dev/htop/archive/refs/tags/3.1.1.tar.gz'
-      tar xf htop-3.1.1.tar.gz
-      cd htop-3.1.1
-      ./autogen.sh
-      ./configure --prefix $HOME/.local
-      make -j $(nproc) install
-      cd ..
-      rm -fr htop-3.1.1
-   )
-
+function install_compiled_essential {
    # [tig - GitHub](https:://github.com/jonas/tig): text-mode interface for Git.
    which --skip-alias tig || install_tig
-
-   # [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
-   # for executing jobs in parallel using one or more computers.
-   which --skip-alias parallel \
-   || (
-      mkdir -p ~/tmp && cd ~/tmp
-      wget 'https://ftp.gnu.org/gnu/parallel/parallel-20211022.tar.bz2'
-      tar xf parallel-20211022.tar.bz2
-      cd parallel-20211022
-      ./configure --prefix $HOME/.local
-      make -j $(nproc) install
-      cd ..
-      rm -fr parallel-20211022
-   )
 
    # [jq](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor.
    # [jq](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor.
@@ -607,6 +611,66 @@ function install_compiled_tools {
    #   make -j $(nproc) LDFLAGS=-all-static
    #)
 
+   # [htop - GitHub](https://github.com/htop-dev/htop): is a cross-platform
+   # interactive process viewer.
+   which --skip-alias htop \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget -O 'htop-3.1.1.tar.gz' 'https://github.com/htop-dev/htop/archive/refs/tags/3.1.1.tar.gz'
+      tar xf htop-3.1.1.tar.gz
+      cd htop-3.1.1
+      ./autogen.sh
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr htop-3.1.1
+   )
+
+   # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything
+   # in everything... ultra fast.
+   which --skip-alias ugrep \
+   || (
+      version=4.0.5
+      mkdir -p ~/tmp && cd ~/tmp
+      wget -O ugrep-$version.tar.gz https://github.com/Genivia/ugrep/archive/refs/tags/v$version.tar.gz
+      tar xf ugrep-$version.tar.gz
+      cd ugrep-$version
+      ./configure --prefix $HOME/.local --without-zstd
+      \make -j $(nproc) install
+      cd .. && rm -fr ugrep-$version
+   )
+
+   # [parallel - GNU parallel](https://www.gnu.org/software/parallel/): is a shell tool
+   # for executing jobs in parallel using one or more computers.
+   which --skip-alias parallel \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget 'https://ftp.gnu.org/gnu/parallel/parallel-20211022.tar.bz2'
+      tar xf parallel-20211022.tar.bz2
+      cd parallel-20211022
+      ./configure --prefix $HOME/.local
+      make -j $(nproc) install
+      cd ..
+      rm -fr parallel-20211022
+   )
+
+   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
+   # NOTE: probably already install by `cargo install hyperfine`.
+   which --skip-alias hyperfine \
+   || (
+      mkdir -p ~/tmp && cd ~/tmp
+      wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
+      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin/
+      # TODO what to do with the autocomplete files?
+      rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
+   )
+
+}
+
+
+
+function install_compiled_extras {
    # [ncdu](https://dev.yorhel.nl/ncdu): NCurses Disk Usage.
    which --skip-alias ncdu \
    || (
@@ -619,6 +683,18 @@ function install_compiled_tools {
       cd ..
       rm -fr ncdu-1.16
    )
+}
+
+
+
+function install_compiled_tools {
+   # tmux
+
+   install_compiled_essential
+   install_compiled_extras
+
+   #####################################
+   # UNDER TESTING
 
    # [FishShell](https://fishshell.com/): Finally, a command line shell for the
    # 90s fish is a smart and user-friendly command line shell for Linux, macOS,
@@ -645,32 +721,6 @@ function install_compiled_tools {
       go build
       install --mode=u=rx duf $HOME/.local/bin/
       cd .. && rm -fr duf
-   )
-
-   # [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything
-   # in everything... ultra fast.
-   which --skip-alias ugrep \
-   || (
-      version=4.0.5
-      mkdir -p ~/tmp && cd ~/tmp
-      wget -O ugrep-$version.tar.gz https://github.com/Genivia/ugrep/archive/refs/tags/v$version.tar.gz
-      tar xf ugrep-$version.tar.gz
-      cd ugrep-$version
-      ./configure --prefix $HOME/.local --without-zstd
-      \make -j $(nproc) install
-      cd .. && rm -fr ugrep-$version
-   )
-
-   # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
-   # NOTE: probably already install by `cargo install hyperfine`.
-   which --skip-alias hyperfine \
-   || (
-      mkdir -p ~/tmp && cd ~/tmp
-      wget https://github.com/sharkdp/hyperfine/releases/download/v1.12.0/hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
-      tar xf hyperfine-v1.12.0-x86_64-unknown-linux-musl.tar.gz
-      cp hyperfine-v1.12.0-x86_64-unknown-linux-musl/hyperfine ~/.local/bin/
-      # TODO what to do with the autocomplete files?
-      rm -fr hyperfine-v1.12.0-x86_64-unknown-linux-musl
    )
 
    # [vifm – Vim-like file manager](https://github.com/vifm/vifm).
