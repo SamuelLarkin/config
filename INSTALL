@@ -457,6 +457,11 @@ function install_rust_tools {
    # A la `fzf`.
    # module load rust
    cargo install --root ~/.local skim
+
+   # [stybulate - GitHub](https://github.com/guigui64/stybulate)
+   # Tabulate with Style
+   # module load rust
+   cargo install --root ~/.local stybulate --features=cli
 }
 
 
