@@ -644,14 +644,15 @@ function install_compiled_essential {
    # for executing jobs in parallel using one or more computers.
    which --skip-alias parallel \
    || (
+      readonly version=20231022
       mkdir -p ~/tmp && cd ~/tmp
-      wget 'https://ftp.gnu.org/gnu/parallel/parallel-20211022.tar.bz2'
-      tar xf parallel-20211022.tar.bz2
-      cd parallel-20211022
+      wget "https://ftp.gnu.org/gnu/parallel/parallel-$version.tar.bz2"
+      tar xf parallel-$version.tar.bz2
+      cd parallel-$version
       ./configure --prefix $HOME/.local
       make -j $(nproc) install
       cd ..
-      rm -fr parallel-20211022
+      rm -fr parallel-$version
    )
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
