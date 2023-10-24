@@ -53,7 +53,10 @@ export DOCKER_BUILDKIT=1
 export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
 
 # FZF
-man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
+# Moved to tmux.conf
+#man tmux | grep --quiet display-popup && export FZF_TMUX_OPTS='-p80%,60%'
+#export TMUX_FZF_OPTIONS="-p -w 80% -h 60% -m"
+
 # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#ccc8c8,bg:#2f1642,hl:#5f87af --color=fg+:#d0d0d0,bg+:#71339e,hl+:#5fd7ff --color=info:#afaf87,prompt:#d7005f,pointer:#af5fff --color=marker:#87ff00,spinner:#af5fff,header:#87afaf'
 # [Key bindings for command-line](https://github.com/junegunn/fzf#key-bindings-for-command-line)
@@ -69,7 +72,6 @@ export FZF_CTRL_T_OPTS="
    --preview 'bat -n --color=always {}'
    --color header:italic
    --header 'Press CTRL-/ to preview'"
-export TMUX_FZF_OPTIONS="-p -w 80% -h 60% -m"
 
 
 umask 0007
