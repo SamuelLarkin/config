@@ -65,33 +65,33 @@ alias fixTerminal='stty rows 45 columns 190'
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
 
-#alias rf="readlink -f"
+#alias rf="readlink --canonicalize"
 #alias tmux="LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH tmux"
 #alias vimD='vim +":VCSVimDiff"'
 #alias xmlviewdiff="vimdiff -R +':silent 1,\$ !xmllint --format --recover - 2>/dev/null'"
-alias curljson="curl -H 'Content-type: application/json'"
-alias df="df -h"
+alias curljson="curl --header 'Content-type: application/json'"
+alias df="df --human-readable"
 alias disown='disown -h'
-alias du="du -h"
+alias du="du --human-readable"
 alias egrep="LC_ALL=C egrep --colour"
 alias gitk='gitk --all'
-alias glow='glow -p'   # Always page when reading markdown.
+alias glow='glow --pager'   # Always page when reading markdown.
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 alias grep="grep --colour"
-alias htop='htop -u $(whoami)'
-alias iconvuu="iconv -f utf-8 -t utf-8 --unicode-subst='[[[Ux%x]]]' --byte-subst='[[[%x]]]'"
+alias htop='htop --user=$(whoami)'
+alias iconvuu="iconv --from-code=utf-8 --to-code=utf-8 --unicode-subst='[[[Ux%x]]]' --byte-subst='[[[%x]]]'"
 alias jobs='jobs -l'
 alias kwanalyze='kwcheck run -y -l -F detailed'
 alias ll='ls -l'
 alias ls='ls --color'
 alias lsclean='\ls -l --ignore=*.bz2 --ignore=*.gz --color=auto'
-alias lsd='lsd -l'
-alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff -y \1 \2 | less /"'
+alias lsd='lsd --long'
+alias makeComparable='sed "s/Files \(.*\) and \(.*\) differ/diff --side-by-side \1 \2 | less /"'
 alias parallel='parallel --progress  --eta'
 alias prettyjson="perl -e '\$/=undef; \$a=<STDIN>; use JSON; print JSON->new->pretty->utf8->encode(decode_json(\$a));'"
 alias python_theano='THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python'
 alias qstatl='qstattree larkins | less'
-alias qstatw='qstatdir | egrep home | sort | uniq -c'  # By listing where my jobs are running, it's easier to figure out what projects I'm working on.
+alias qstatw='qstatdir | egrep home | sort | uniq --count'  # By listing where my jobs are running, it's easier to figure out what projects I'm working on.
 alias rsync='time rsync --progress --exclude=.\*.swp --stats'
 alias ssh="ssh -A -X"
 alias sshFix="source ~/.ssh/fixSSH"
@@ -99,10 +99,10 @@ alias tiga='tig --all'
 alias viewdiff='vimdiff -R'
 alias viewpar='vim -R -O +":windo :set scrollbind nowrap"'
 alias vimpar='vim -O +":windo :set scrollbind nowrap"'
-alias wc="wc -l"
+alias wc='wc --lines'
 alias wdiff="wdiff --avoid-wraps  --start-delete=$'\033[30;41m'  --end-delete=$'\033[0m'  --start-insert=$'\033[30;42m'  --end-insert=$'\033[0m'"
-alias xargs="xargs --no-run-if-empty"
-alias xquery1="~/mybin/xidel --output-format=xml --xquery"
+alias xargs='xargs --no-run-if-empty'
+alias xquery1='~/mybin/xidel --output-format=xml --xquery'
 alias xquery='java -cp ${SAXON_HOME}/saxon9.jar net.sf.saxon.Query'
 alias zcat='zcat --force'
 
@@ -197,15 +197,15 @@ function rf {
 
 
 function setup_fix_SSH_agent {
-   #export | egrep -e "SSH_AUTH_SOCK" -e "SSH_CLIENT" -e "SSH_CONNECTION" > ~/.ssh/fixSSH
-   export | egrep -e "SSH_AUTH_SOCK" -e "DISPLAY" > ~/.ssh/fixSSH
+   #export | egrep --regexp="SSH_AUTH_SOCK" --regexp="SSH_CLIENT" --regexp="SSH_CONNECTION" > ~/.ssh/fixSSH
+   export | egrep --regexp='SSH_AUTH_SOCK' --regexp='DISPLAY' > ~/.ssh/fixSSH
    #echo "type sshFix to fix the ssh-agent"
 }
 
 
 
 function archive {
-   tar zcvf $1.tgz $1 && rm -rf $1
+   tar zcvf $1.tgz $1 && rm --force --recursive $1
 }
 
 
@@ -218,7 +218,7 @@ function fixAgent {
 
 
 function get_character_set {
-   zcat -f $1 | grep --color=never -o . | get_voc -s
+   zcat --force $1 | grep --color=never --only-matching . | get_voc -s
 }
 
 
@@ -232,7 +232,7 @@ alias make0="clear && \make -j 5 CF+=\'-g -DNO_EDUMP -ggdb -O0\'"
 alias makeProfiler="clear && make -j 5 CF+=-ggdb EXTRA_LIBS=-lprofiler"
 alias pmake="psub -4 make -j 10 CF+=-g"
 # Not complete but show how we could use graphviz to visualize make's dependencies.
-alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+-]/_/g; s/([^ ]+):([^\|]*)(\|.*)?/{ \$2 } -> \$1;/' | egrep -v '%|{ *}'"
+alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+-]/_/g; s/([^ ]+):([^\|]*)(\|.*)?/{ \$2 } -> \$1;/' | egrep --invert-match '%|{ *}'"
 
 
 
@@ -250,7 +250,7 @@ alias make2graphviz="\make -Bn -prd | egrep '^[^ ]+:' | perl -ple 's/[\.\\\\\/\+
 
 
 # Evan's makeg function, with some tweaks.
-MAKEG_CPUS=$(($(grep processor /proc/cpuinfo | wc -l) + 2))
+MAKEG_CPUS=$(($(grep processor /proc/cpuinfo | wc --lines) + 2))
 function MAKE {
    set -o pipefail
    echo cmake ${MAKE_CF_PARAMS:-CF+='-g -DNO_EDUMP -ggdb'} -j $MAKEG_CPUS $@
@@ -267,7 +267,16 @@ function MAKE {
 ########################################
 # DIFF
 function diffdir {
-   diff -wPqr --exclude=\*.gz --exclude=\*.deps\* --exclude=\*.o $1 $2 \
+   diff \
+      --brief \
+      --exclude=\*.deps\* \
+      --exclude=\*.gz \
+      --exclude=\*.o \
+      --ignore-all-space
+      --recursive \
+      -P \
+      $1 \
+      $2 \
    | sed "s/Files \(.*\) and \(.*\) differ/vimdiff \1 \2/"
 }
 
@@ -283,7 +292,8 @@ function diffdircode {
       local __excludes="--exclude-from=.diff.exclude" 
    fi
    diff \
-      -qr \
+      --brief \
+      --recursive \
       $__excludes \
       --ignore-blank-lines \
       --ignore-matching-lines='$Id:' \
@@ -303,7 +313,8 @@ function diffdircode {
       --exclude=.#\* \
       --exclude=\*.pyc \
       --exclude=\*__pycache__\* \
-      $1 $2 \
+      $1 \
+      $2 \
    | sed "s/Files \(.*\) and \(.*\) differ/$__diff \1 \2/" \
    | sed "s/^\(Only in\)/\t\1/" \
    | perl -nle '
@@ -349,7 +360,7 @@ function viewdifftail {
    local cmd=""
    for f in $@; do
       [[ -d "$f" ]] && f="$f/$(basename $first)"
-      cmd+=" <(zcat --force $f | tail -n $size)"
+      cmd+=" <(zcat --force $f | tail --lines=$size)"
    done
    [[ -n "$cmd" ]] && eval " vimdiff -R $cmd"
 }
