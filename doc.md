@@ -131,3 +131,37 @@ git update-ref -d refs/remotes/origin/gh-pages
 ```sh
 find . -type l ! -exec test -e {} \; -print
 ```
+
+
+## SLURM
+```sbatch
+#!/bin/bash
+
+#SBATCH --job-name=train
+#SBATCH --partition=gpu_a100
+#SBATCH --account=nrc_ict__gpu_a100
+
+#SBATCH --time=2880
+
+##IMPORTANT: `#SBATCH --ntasks-per-node=2`  MUST match  `#SBATCH --gres=gpu:2`
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --gres=gpu:2
+
+#SBATCH --output=./A100x2.o%j
+#SBATCH --error=./A100x2.e%j
+#SBATCH --open-mode=append
+#SBATCH --mail-user==tes001
+#SBATCH --mail-type=NONE
+
+#SBATCH --signal=B:15@30
+
+
+ulimit -v unlimited
+
+cd /home/tes001/DT/tes001/
+source ./SETUP_PT2.source
+cd /home/tes001/DT/tes001/LJSpeech-1.1/PT2
+
+srun everyvoice train text-to-spec --devices 2 --nodes 1 config/everyvoice-text-to-spec.yaml
+```
