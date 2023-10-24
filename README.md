@@ -111,7 +111,7 @@ This repository contains my personal configuration files when I want to setup a 
 
 ### `delta`
 `~/.gitconfig`
-```bash
+```sh
 [core]
     pager = delta
 
@@ -181,13 +181,13 @@ This repository contains my personal configuration files when I want to setup a 
 # Useful Commands
 
 Count the number of entries/sentence pairs that have the `.unparsable` key.
-```bash
+```sh
 pv Huge.jsonl \
 | jq --null-input '[ inputs | select(.unparsable)] | reduce .[] as $item (0; . + 1)'
 ```
 
 Compare two json/jsonl files
-```bash
+```sh
 vimdiff <(jq --sort-keys . file1.json) <(jq --sort-keys . file2.json)
 ```
 
@@ -197,26 +197,26 @@ Get the weather:
 * `curl v2d.wttr.in/CityName`
 
 Find the full name of a username
-```bash
+```sh
 lslogins | fzf
 ```
 
 
 # SLURM
 Get some stats about a job that is ran on `Slurm`.
-```bash
+```sh
 sacct -l -j jobid
 ```
 
 ## SSH to a Worker Node
 
 This is an example command to connect to a worker node on GPSC5
-```bash
+```sh
 srun --jobid=JOBID --pty bash -l
 ```
 
 Example of connecting to a GPU running job on GPSC5.
-```bash
+```sh
 srun \
   --jobid 4139955 \
   --gres=gpu:0 \
@@ -295,7 +295,7 @@ This opens a popup and if you type the shortcut key you get submenus.
 `<leader>f` find a file.
 
 # GNU parallel a la Spark
-```bash
+```sh
 function desubtokenize {}
 export -f desubtokenize
 
