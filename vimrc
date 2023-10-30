@@ -188,7 +188,7 @@
    " [CTRL-P](https://github.com/ctrlpvim/ctrlp.vim)
    " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
    " https://ctrlpvim.github.io/ctrlp.vim/
-   Plugin 'ctrlpvim/ctrlp.vim'
+   "Plugin 'ctrlpvim/ctrlp.vim'
 
    " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
    " A Vim plugin which shows a git diff in the sign column. It shows which
