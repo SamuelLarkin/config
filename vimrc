@@ -49,12 +49,6 @@
    " howoto: `:'<,'>Tabularize /=`
    Plugin 'godlygeek/tabular'
 
-   " [vim-json](https://github.com/elzr/vim-json)
-   " A better JSON for Vim: distinct highlighting of keywords vs values,
-   " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
-   " https://github.com/elzr/vim-json
-   Plugin 'elzr/vim-json'
-
    " [vim-colorschemes](https://github.com/flazz/vim-colorschemes)
    " One colorscheme pack to rule them all!
    Plugin 'flazz/vim-colorschemes'
@@ -165,6 +159,15 @@
       " Vim configuration for Rust
       Plugin 'rust-lang/rust.vim'
    "}
+
+   " JSON
+   " {
+      " [vim-json](https://github.com/elzr/vim-json)
+      " A better JSON for Vim: distinct highlighting of keywords vs values,
+      " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+      " https://github.com/elzr/vim-json
+      Plugin 'elzr/vim-json'
+   " }
 
    " XPath
    " {
