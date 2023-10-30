@@ -546,6 +546,9 @@
    nmap <leader>tn :TagbarJumpNext<CR>
    nmap <leader>tp :TagbarJumpPrev<CR>
 
+   " VCSCommand
+   nmap <leader>vv  <Plug>VCSVimDiff
+
    " Tab related convinient shortcuts
    map <C-t><up> :tabr<cr>
    map <C-t>k :tabr<cr>
