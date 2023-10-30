@@ -190,7 +190,8 @@
 
    " [fzf](https://github.com/junegunn/fzf)
    " fzf is a general-purpose command-line fuzzy finder
-   Plugin 'junegunn/fzf'
+   Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+   Plugin 'junegunn/fzf.vim'
 
    " [coc](https://github.com/neoclide/coc.nvim)
    " Make your Vim/Neovim as smart as VSCode.
@@ -520,6 +521,25 @@
    map <F6> :bufdo %!xmllint --format --recover --encode UTF-8 -<CR>
    nnoremap <special> <F7> :call DiffText(@a, @b, g:diffed_buffers)<CR>
    nnoremap <special> <F8> :call WipeOutDiffs(g:diffed_buffers)<CR>
+
+   " fzf.vim
+   noremap <Space> <Nop>
+   map <Space> <Leader>
+   nmap <leader><tab> <plug>(fzf-maps-n)
+   " Fzf.vim Files => all files under current directory
+   nmap <leader>ff :Files<CR>
+   " Fzf.vim GFiles => git ls-files only
+   nmap <leader>fg :GFiles<CR>
+   " Fzf.vim GFiles? => git diff -name-only
+   nmap <leader>fh :GFiles?<CR>
+   " Fzf.vim Buffers => vim opened buffers
+   nmap <leader>fb :Buffers<CR>
+   " Fzf.vim Changes => Changelist across all open buffers
+   nmap <leader>fc :Changes<CR>
+   " Fzf.vim Marks => Marks
+   nmap <leader>fm :Marks<CR>
+   " Fzf.vim Jumps => Jumps
+   nmap <leader>fj :Jumps<CR>
 
    " Tab related convinient shortcuts
    map <C-t><up> :tabr<cr>
