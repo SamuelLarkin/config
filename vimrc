@@ -49,11 +49,6 @@
    " howoto: `:'<,'>Tabularize /=`
    Plugin 'godlygeek/tabular'
 
-   " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
-   " XPath search plugin for Vim
-   " https://github.com/actionshrimp/vim-xpath
-   Plugin 'actionshrimp/vim-xpath'
-
    " [vim-json](https://github.com/elzr/vim-json)
    " A better JSON for Vim: distinct highlighting of keywords vs values,
    " JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
@@ -170,6 +165,14 @@
       " Vim configuration for Rust
       Plugin 'rust-lang/rust.vim'
    "}
+
+   " XPath
+   " {
+      " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
+      " XPath search plugin for Vim
+      " https://github.com/actionshrimp/vim-xpath
+      Plugin 'actionshrimp/vim-xpath'
+   " }
 
    " HTML
    "{
