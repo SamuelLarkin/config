@@ -541,6 +541,11 @@
    " Fzf.vim Jumps => Jumps
    nmap <leader>fj :Jumps<CR>
 
+   " Tagbar
+   nmap <leader>tt :TagbarToggle<CR>
+   nmap <leader>tn :TagbarJumpNext<CR>
+   nmap <leader>tp :TagbarJumpPrev<CR>
+
    " Tab related convinient shortcuts
    map <C-t><up> :tabr<cr>
    map <C-t>k :tabr<cr>
