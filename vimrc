@@ -521,6 +521,7 @@
    map <F6> :bufdo %!xmllint --format --recover --encode UTF-8 -<CR>
    nnoremap <special> <F7> :call DiffText(@a, @b, g:diffed_buffers)<CR>
    nnoremap <special> <F8> :call WipeOutDiffs(g:diffed_buffers)<CR>
+   nnoremap <silent> <F9> :TlistToggle<CR>
 
    " fzf.vim
    noremap <Space> <Nop>
@@ -559,8 +560,6 @@
    map <C-t><right> :tabn<cr>
    map <C-t>l :tabn<cr>
    map <C-t>t :tabs<cr>
-
-   nnoremap <silent> <F8> :TlistToggle<CR>
 
    " Remap search key to always center serach.
    nnoremap n nzz
