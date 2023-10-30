@@ -38,21 +38,6 @@
    "Plugin 'jlanzarotta/bufexplorer'
    Plugin 'bufexplorer.zip'
 
-   " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
-   " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
-   " git, bzr, and hg within VIM, including committing changes and performing
-   " diffs using the vimdiff system.
-   "Plugin 'vim-scripts/vcscommand.vim'
-   "Plugin 'http://repo.or.cz/r/vcscommand.git'
-   " :VCSVimDiff
-   Plugin 'vcscommand.vim'
-
-   " [vim-fugitive](https://github.com/tpope/vim-fugitive)
-   " Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git
-   " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
-   " That's why it's called Fugitive.
-   Plugin 'tpope/vim-fugitive'
-
    " [Tagbar](https://github.com/majutsushi/tagbar)
    " Awesome source code [tag]browsing
    " Displays a file/class explorer using :TagbarOpen
@@ -120,6 +105,31 @@
       " it pulses every time you scroll the search results by pressing n/N.
       Plugin 'inside/vim-search-pulse'
    "}
+
+   " GIT
+   " {
+      " [vcscommand](https://github.com/vim-scripts/vcscommand.vim)
+      " VIM 7 plugin useful for manipulating files controlled by CVS, SVN, SVK,
+      " git, bzr, and hg within VIM, including committing changes and performing
+      " diffs using the vimdiff system.
+      "Plugin 'vim-scripts/vcscommand.vim'
+      "Plugin 'http://repo.or.cz/r/vcscommand.git'
+      " :VCSVimDiff
+      Plugin 'vcscommand.vim'
+
+      " [vim-fugitive](https://github.com/tpope/vim-fugitive)
+      " Fugitive is the premier Vim plugin for Git. Or maybe it's the premier Git
+      " plugin for Vim? Either way, it's `so awesome, it should be illegal`.
+      " That's why it's called Fugitive.
+      Plugin 'tpope/vim-fugitive'
+
+      " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+      " A Vim plugin which shows a git diff in the sign column. It shows which
+      " lines have been added, modified, or removed. You can also preview, stage,
+      " and undo individual hunks; and stage partial hunks. The plugin also
+      " provides a hunk text object.
+      Plugin 'airblade/vim-gitgutter'
+   " }
 
    " Python
    "{
@@ -189,13 +199,6 @@
    " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
    " https://ctrlpvim.github.io/ctrlp.vim/
    "Plugin 'ctrlpvim/ctrlp.vim'
-
-   " [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-   " A Vim plugin which shows a git diff in the sign column. It shows which
-   " lines have been added, modified, or removed. You can also preview, stage,
-   " and undo individual hunks; and stage partial hunks. The plugin also
-   " provides a hunk text object.
-   Plugin 'airblade/vim-gitgutter'
 
    " [nim](https://github.com/zah/nim.vim)
    " Nim language plugin for vim.
