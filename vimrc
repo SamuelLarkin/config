@@ -550,9 +550,9 @@
 
 
 " Easy Headers {
-   abbr hashHeader # @file# @brief## @author Samuel Larkin## Traitement multilingue de textes / Multilingual Text Processing# Centre de recherche en technologies numériques / Digital Technologies Research Centre# Conseil national de recherches Canada / National Research Council Canada# Copyright 2022, Sa Majeste la Reine du Chef du Canada# Copyright 2022, Her Majesty in Right of Canada
+   abbr hashHeader # @file# @brief## @author Samuel Larkin## Traitement multilingue de textes / Multilingual Text Processing# Centre de recherche en technologies numériques / Digital Technologies Research Centre# Conseil national de recherches Canada / National Research Council Canada# Copyright 2023, Sa Majeste la Reine du Chef du Canada# Copyright 2023, Her Majesty in Right of Canada
 
-   abbr cHeader /** * @author Samuel Larkin * @file prog.cc * @brief Briefly describe your program here. * * * Traitement multilingue de textes / Multilingual Text Processing * Centre de recherche en technologies numériques / Digital Technologies Research Centre * Conseil national de recherches Canada / National Research Council Canada * Copyright 2022, Sa Majeste la Reine du Chef du Canada * Copyright 2022, Her Majesty in Right of Canada*/
+   abbr cHeader /** * @author Samuel Larkin * @file prog.cc * @brief Briefly describe your program here. * * * Traitement multilingue de textes / Multilingual Text Processing * Centre de recherche en technologies numériques / Digital Technologies Research Centre * Conseil national de recherches Canada / National Research Council Canada * Copyright 2023, Sa Majeste la Reine du Chef du Canada * Copyright 2023, Her Majesty in Right of Canada*/
 
    abbr makeHeader #!/usr/bin/make -f# vim:noet:ts=3:nowrap:filetype=make-include Makefile.params.DEFAULT_GOAL := all.PHONY: allall:.PHONY: cleanclean:
 " }
