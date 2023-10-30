@@ -206,9 +206,12 @@
    " https://ctrlpvim.github.io/ctrlp.vim/
    "Plugin 'ctrlpvim/ctrlp.vim'
 
-   " [nim](https://github.com/zah/nim.vim)
-   " Nim language plugin for vim.
-   Plugin 'zah/nim.vim'
+   " Nim
+   " {
+      " [nim](https://github.com/zah/nim.vim)
+      " Nim language plugin for vim.
+      Plugin 'zah/nim.vim'
+   " }
 
    " TypeScript & React
    "{
