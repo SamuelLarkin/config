@@ -59,7 +59,6 @@
    " git config --global mergetool.diffconflicts.cmd 'vim -c DiffConflicts `$MERGED` `$BASE` `$LOCAL` `$REMOTE`'
    " git config --global mergetool.diffconflicts.trustExitCode true
    " git config --global mergetool.keepBackup false
-   "
    Plugin 'whiteinge/diffconflicts'
 
    " [vim-surround](https://github.com/tpope/vim-surround)
