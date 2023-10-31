@@ -36,6 +36,7 @@ chezmoi init --apply github:SamuelLarkin/dotfiles.git
 
 ## CLI Tools
 ### Favorites
+These are my most used CLIs.
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [delta - GitHub](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
@@ -125,7 +126,8 @@ chezmoi init --apply github:SamuelLarkin/dotfiles.git
 * [tqdm - GitHub](https://github.com/tqdm/tqdm): Progress Bar.
 * [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast.
 * [vifm - GitHub](https://github.com/vifm/vifm): Vim-like file manager
-* [vivid - GitHub](https://github.com/sharkdp/vivid): vivid is a generator for the LS_COLORS environment variable that controls the colorized output of ls, tree, fd, bfs, dust and many other tools.
+* [vivid - GitHub](https://github.com/sharkdp/vivid): vivid is a generator for the `LS_COLORS` environment variable that controls the colorized output of ls, tree, fd, bfs, dust and many other tools.
+* [xonsh](https://xon.sh/): XONSH is a Python-powered shell
 * [xq - GitHub](https://github.com/jeffbr13/xq): Apply XPath expressions to XML, like jq does for JSONPath and JSON.
 * [xsv - GitHub](https://github.com/BurntSushi/xsv): xsv is a command line program for indexing, slicing, analyzing, splitting and joining CSV files. Commands should be simple, fast and composable.
 * [yq in python - GitHub](https://github.com/kislyuk/yq): yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
