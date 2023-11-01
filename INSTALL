@@ -296,11 +296,11 @@ function install_rust_essential {
    # This project is a rewrite of GNU ls with lot of added features like
    # colors, icons, tree-view, more formatting options etc. The project is
    # heavily inspired by the super colorls project.
-   cargo install --root ~/.local lsd
+   cargo install --force --root ~/.local lsd
 
    # [bat - GitHub](https://github.com/sharkdp/bat):
    # A cat(1) clone with syntax highlighting and Git integration.
-   cargo install --root ~/.local bat
+   cargo install --force --root ~/.local bat
 
    # [delta - GitHub](https://github.com/dandavison/delta):
    # A syntax-highlighting pager for git, diff, and grep output
@@ -319,15 +319,15 @@ function install_rust_essential {
    # 
    # [diff]
    #     colorMoved = default
-   cargo install --root ~/.local --git https://github.com/dandavison/delta
+   cargo install --force --root ~/.local --git https://github.com/dandavison/delta
 
    # NOTE we manually move the compile binary because we want to make sure it
    # is different than the other variants of reservoir_sampling.
    # NOTE that we move the binary because it will conflict with the one in ~/.cargo/bin.
    ##module load rust/1.59.0
    #module load rust
-   #cargo install --root ~/.local --git https://github.com/SamuelLarkin/reservoir_sampling_rs
-   cargo install --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
+   #cargo install --force --root ~/.local --git https://github.com/SamuelLarkin/reservoir_sampling_rs
+   cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
    && mv ~/.cargo/bin/reservoir_sampling_rs ~/.local/bin/reservoir_sampling_rs
 
    # [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
@@ -336,17 +336,17 @@ function install_rust_essential {
    # JSON files. It is written in Rust and can be installed as a single
    # standalone binary.
    # [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
-   cargo install --root ~/.local jless
+   cargo install --force --root ~/.local jless
 
    # [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
    # A command-line benchmarking tool.
-   cargo install --root ~/.local hyperfine
+   cargo install --force --root ~/.local hyperfine
 
    # [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
    # zoxide is a smarter cd command, inspired by z and autojump.
    # It remembers which directories you use most frequently, so you can "jump"
    # to them in just a few keystrokes.  zoxide works on all major shells.
-   cargo install --root ~/.local zoxide
+   cargo install --force --root ~/.local zoxide
    #`eval "$(zoxide init bash)"`
 
    # [hexyl - GitHub](https://github.com/sharkdp/hexyl):
@@ -354,135 +354,135 @@ function install_rust_essential {
    # distinguish different categories of bytes (NULL bytes, printable ASCII
    # characters, ASCII whitespace characters, other ASCII characters and
    # non-ASCII).
-   cargo install --root ~/.local hexyl
+   cargo install --force --root ~/.local hexyl
 
    # [difftastic - GitHub](https://github.com/Wilfred/difftastic):
    # Difftastic is an experimental diff tool that compares files based on their
    # syntax.
-   cargo install --root ~/.local difftastic
+   cargo install --force --root ~/.local difftastic
 
    # [stybulate - GitHub](https://github.com/guigui64/stybulate)
    # Tabulate with Style
    # module load rust
-   cargo install --root ~/.local stybulate --features=cli
+   cargo install --force --root ~/.local stybulate --features=cli
 }
 
 
 
 function install_rust_extras {
+   # [fd - GitHub](https://github.com/sharkdp/fd):
+   # is a program to find entries in your filesystem.
+   cargo install --force --root ~/.local fd-find
+
    # [exa - Documentation](https://the.exa.website/):
    # modern replacement for ls.
    # [exa - GitHub](https://github.com/ogham/exa):
    # modern replacement for ls.
-   cargo install --root ~/.local exa
+   cargo install --force --root ~/.local exa
 
    # [zenith - GitHub](https://github.com/bvaisvil/zenith):
    # In terminal graphical metrics for your *nix system written in Rust.
-   cargo install --root ~/.local --git https://github.com/bvaisvil/zenith
+   cargo install --force --root ~/.local --git https://github.com/bvaisvil/zenith
 
    # [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust):
    # Like du but more intuitive.
-   cargo install --root ~/.local --git https://github.com/bootandy/dust
+   cargo install --force --root ~/.local --git https://github.com/bootandy/dust
 
    # [bottom - GitHub](https://github.com/cjbassi/ytop):
    # Another TUI based system monitor, this time in Rust
    # NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom).
-   #cargo install --git https://github.com/ClementTsang/bottom
-   cargo install --root ~/.local bottom
+   #cargo install --force --git https://github.com/ClementTsang/bottom
+   cargo install --force --root ~/.local bottom
 
    # [procs - GitHub](https://github.com/dalance/procs):
    # is a replacement for ps written in Rust.
-   cargo install --root ~/.local procs
-
-   # [fd - GitHub](https://github.com/sharkdp/fd):
-   # is a program to find entries in your filesystem.
-   cargo install --root ~/.local fd-find
+   cargo install --force --root ~/.local procs
 
    # [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is
    # a line-oriented search tool that recursively searches the current
    # directory for a regex pattern.
-   cargo install --root ~/.local ripgrep
+   cargo install --force --root ~/.local ripgrep
 
    # [RnR - GitHub](https://github.com/ismaelgv/rnr):
    # RnR is a command-line tool to securely rename multiple files and
    # directories that supports regular expressions.
-   cargo install --root ~/.local rnr
+   cargo install --force --root ~/.local rnr
 
    # [runiq - GitHub](https://github.com/whitfin/runiq):
    # This project offers an efficient way (in both time and space) to filter
    # duplicate entries (lines) from texual input.
-   cargo install --root ~/.local runiq
+   cargo install --force --root ~/.local runiq
 
    # [histo - GitHub](https://github.com/fitzgen/histo)
    # Histograms with a configurable number of buckets, and a terminal-friendly
    # Display.
-   cargo install --root ~/.local histo
+   cargo install --force --root ~/.local histo
 
    # [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
    # windirstat like for the CLI.
-   cargo install --root ~/.local diskonaut
+   cargo install --force --root ~/.local diskonaut
 
    # [xsv - GitHub](https://github.com/BurntSushi/xsv):
    # xsv is a command line program for indexing, slicing, analyzing, splitting
    # and joining CSV files. Commands should be simple, fast and composable.
-   cargo install --root ~/.local xsv
+   cargo install --force --root ~/.local xsv
 
    # [Navi - GitHub](https://github.com/denisidoro/navi):
    # An interactive cheatsheet tool for the command-line.
-   cargo install --root ~/.local --git https://github.com/denisidoro/navi
+   cargo install --force --root ~/.local --git https://github.com/denisidoro/navi
 
    # [vivid - GitHub](https://github.com/sharkdp/vivid):
    # vivid is a generator for the LS_COLORS environment variable that controls
    # the colorized output of ls, tree, fd, bfs, dust and many other tools.
-   cargo install --root ~/.local vivid
+   cargo install --force --root ~/.local vivid
 
    # [Erdtree - GitHub](https://github.com/solidiquis/erdtree):
    # A bLazInGlY fAsT, simplified version of the ancient tree command which
    # displays a colorful depth indented listing of files with their memory
    # sizes adjacent.
-   cargo install --root ~/.local --git https://github.com/solidiquis/erdtree
+   cargo install --force --root ~/.local --git https://github.com/solidiquis/erdtree
 
    # [oxker - GitHub](https://github.com/mrjackwills/oxker):
    # A simple tui to view & control docker containers.
-   cargo install --root ~/.local --git https://github.com/mrjackwills/oxker
+   cargo install --force --root ~/.local --git https://github.com/mrjackwills/oxker
 
    # [termscp - GitHub](https://github.com/veeso/termscp):
    # A feature rich terminal UI file transfer and explorer with support for
    # SCP/SFTP/FTP/S3.
-   cargo install --root ~/.local termscp
+   cargo install --force --root ~/.local termscp
 
    # [zellij](https://github.com/zellij-org/zellij):
    # A terminal workspace with batteries included.
    #module load rust/1.59.0
-   cargo install --root ~/.local zellij
+   cargo install --force --root ~/.local zellij
 
    # [htmlq - GitHub](https://github.com/mgdm/htmlq)
    # Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
-   cargo install --root ~/.local htmlq
+   cargo install --force --root ~/.local htmlq
 
    # [broot - GitHub](https://github.com/Canop/broot)
    # A new way to see and navigate directory trees : https://dystroy.org/broot
-   cargo install --root ~/.local broot
+   cargo install --force --root ~/.local broot
 
    # [fu - GitHub](https://github.com/pierrechevalier83/find_unicode)
    # Find Unicode characters the easy way: from the command line.
-   cargo install --root ~/.local find_unicode
+   cargo install --force --root ~/.local find_unicode
 
    # [gitui - GitHub](https://github.com/extrawurst/gitui)
    # Blazing 💥 fast terminal-ui for git written in rust 🦀.
-   cargo install --root ~/.local gitui
+   cargo install --force --root ~/.local gitui
 
    # [ouch - GitHub](https://github.com/ouch-org/ouch)
    # Painless compression and decompression for your terminal.
    # module load rust
    # module load gcc/11.3.0
-   cargo install --root ~/.local ouch
+   cargo install --force --root ~/.local ouch
 
    # [skim - GitHub](https://github.com/lotabout/skim#installation)
    # Fuzzy Finder in rust!
    # A la `fzf`.
    # module load rust
-   cargo install --root ~/.local skim
+   cargo install --force --root ~/.local skim
 }
 
 
@@ -492,17 +492,20 @@ function install_rust_tools {
    # A language empowering everyone to build reliable and efficient software.
    # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
    # NOTE to install a specific version from git use `--tag X`
-   # cargo install --root ~/.local --git https://github.com/bvaisvil/zenith  --tag 0.12.0
+   # cargo install --force --root ~/.local --git https://github.com/bvaisvil/zenith  --tag 0.12.0
 
    #cargo install \
+   #   --force \
    #   --root ~/.local \
    #   lsd bat hyperfine exa bottom procs fd-find ripgrep rnr histo diskonaut zoxide hexyl difftastic jless xsv vivid
 
    #cargo install \
+   #   --force \
    #   --root ~/.local \
    #   --git https://github.com/dandavison/delta
 
    #cargo install \
+   #   --force \
    #   --root ~/.local \
    #   --git https://github.com/bvaisvil/zenith
 
@@ -771,7 +774,7 @@ function install_compiled_tools {
      mkdir -p ~/git && cd ~/git
      git clone https://github.com/helix-editor/helix
      cd helix
-     cargo install  --root ~/.local  --path helix-term
+     cargo install --force --root ~/.local  --path helix-term
    )
 
    # [jo - GitHub](https://github.com/jpmens/jo)
@@ -834,7 +837,7 @@ function plot_tools {
    #python3 -m pip install --user --upgrade bashplotlib
 
    # [smag - show me a graph! - GitHub](https://github.com/aantn/smag): Easily create graphs from cli commands and view them in the terminal. Like the watch command but with a graph of the output.
-   #cargo install --git https://github.com/aantn/smag
+   #cargo install --force --git https://github.com/aantn/smag
 
    # [Pipe Plot - GitHub](https://github.com/MyGodIsHe/pipeplot): pipeplot draws an interactive graph in a terminal based on data from pipe.
    #python3 -m pip install --user --upgrade pipeplot
