@@ -48,7 +48,6 @@ This repository contains my personal configuration files when I want to setup a 
 * [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
 * [forgit - GitHub](https://github.com/wfxr/forgit): A utility tool powered by fzf for using git interactively.
-* [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
 * [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh): bash and zsh key bindings for Git objects, powered by fzf.
 * [fzf-tmux - GitHub](https://github.com/junegunn/fzf#fzf-tmux-script): Starts fzf in a tmux pane.
@@ -102,10 +101,15 @@ This repository contains my personal configuration files when I want to setup a 
 * [yq - GitHub](https://github.com/kislyuk/yq): yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
 * [yq - gitHub](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON and XML processor. yq uses jq like syntax but works with yaml files as well as json and xml.
 * [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
-* [z - GitHub](https://github.com/rupa/z): jump around
 * [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included.
 * [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your Xnix system written in Rust.
 * [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
+
+
+
+### Dropped
+* [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
+* [z - GitHub](https://github.com/rupa/z): jump around
 
 
 
