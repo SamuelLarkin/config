@@ -416,6 +416,30 @@
    set statusline+=%{&paste?'=':'\ '}
    set statusline+=%{&wrap?'<':'>'}
 
+   " http://vim.wikia.com/wiki/Switch_color_schemes
+   " Colors {
+      :highlight Comment ctermfg=6 ctermbg=black
+      set t_Co=256
+      "colorscheme asu1dark
+      colorscheme desertink
+
+      " [Xterm256 color names for console Vim](https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim)
+      " dark red
+      hi tsxTagName ctermfg=52
+      hi tsxComponentName ctermfg=52
+      hi tsxCloseComponentName ctermfg=52
+
+      " orange
+      hi tsxCloseString ctermfg=214
+      hi tsxCloseTag ctermfg=214
+      hi tsxCloseTagName ctermfg=214
+      hi tsxAttributeBraces ctermfg=214
+      hi tsxEqual ctermfg=214
+
+      " yellow
+      hi tsxAttrib ctermfg=190
+   " }
+
 "	" Colors {
 "		:highlight Comment ctermfg=6 ctermbg=black
 "		set t_Co=256
@@ -696,33 +720,6 @@ endfunction
       endfor
       call remove(a:diffed_buffers, 0, -1)
    endfunction
-" }
-
-
-" Vim UI {
-   " http://vim.wikia.com/wiki/Switch_color_schemes
-   " Colors {
-      :highlight Comment ctermfg=6 ctermbg=black
-      set t_Co=256
-      "colorscheme asu1dark
-      colorscheme desertink
-
-      " [Xterm256 color names for console Vim](https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim)
-      " dark red
-      hi tsxTagName ctermfg=52
-      hi tsxComponentName ctermfg=52
-      hi tsxCloseComponentName ctermfg=52
-
-      " orange
-      hi tsxCloseString ctermfg=214
-      hi tsxCloseTag ctermfg=214
-      hi tsxCloseTagName ctermfg=214
-      hi tsxAttributeBraces ctermfg=214
-      hi tsxEqual ctermfg=214
-
-      " yellow
-      hi tsxAttrib ctermfg=190
-   " }
 " }
 
 
