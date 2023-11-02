@@ -1,6 +1,10 @@
 " vim:nowrap:
 
+" Bookmarks
+" http://www.vi-improved.org/vimrc.php
 " [vim's filetype](https://raw.githubusercontent.com/vim/vim/master/runtime/filetype.vim)
+
+
 
 """"""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -693,10 +697,6 @@ endfunction
       call remove(a:diffed_buffers, 0, -1)
    endfunction
 " }
-
-
-" Bookmarks
-" http://www.vi-improved.org/vimrc.php
 
 
 " Vim UI {
