@@ -845,6 +845,22 @@ function install_compiled_tools {
       \make -j $(nproc)
       \make -j $(nproc) install
    )
+
+   # [Node.js](https://nodejs.org/en)
+   # Node.js® is an open-source, cross-platform JavaScript runtime environment.
+   which --skip-alias npm \
+   (
+      version="v21.1.0"
+      mkdir -p ~/tmp && cd ~/tmp
+      wget "https://nodejs.org/dist/$version/node-$version.tar.gz"
+      tar xf node-$version.tar.gz
+      cd node-$version/
+      ./configure --prefix=$HOME/.local
+      \make -j $(nproc)
+      \make -j $(nproc) install
+      cd ..
+      rm -fr node-$version
+   )
 }
 
 
