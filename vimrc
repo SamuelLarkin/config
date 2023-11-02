@@ -168,6 +168,13 @@
       Plugin 'elzr/vim-json'
    " }
 
+   " JQ
+   "{
+      " [jq.vim](https://github.com/vito-c/jq.vim)
+      " Syntax highlighting for jq files in vim/neovim
+      Plugin 'vito-c/jq.vim'
+   "}
+
    " XPath
    " {
       " [vim-xpath](https://github.com/actionshrimp/vim-xpath)
