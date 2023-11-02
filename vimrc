@@ -281,6 +281,10 @@
    " ALE {
       " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
       let g:airline#extensions#ale#enabled = 1
+
+      " [Using black and isort with Vim](https://codeinthehole.com/tips/using-black-and-isort-with-vim/)
+      let b:ale_fixers = ['black', 'isort']
+      let b:ale_fix_on_save = 1
    " }
 
    " Sneak {
