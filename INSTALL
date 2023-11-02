@@ -17,7 +17,7 @@ function extend_bashrc {
 [[ -e ~/.alias ]] && . ~/.alias || true
 [[ -e ~/.bashrc.common ]] && . ~/.bashrc.common || true
 [[ -e ~/.bashrc.specific ]] && . ~/.bashrc.specific || true
-[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do source \$f; done || true
+[[ -d ~/.bash_completion.d ]] && for f in ~/.bash_completion.d/*; do [[ -f "\$f" ]] && source \$f; done || true
 EOL
 }
 
