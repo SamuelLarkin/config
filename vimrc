@@ -151,6 +151,11 @@
       " https://github.com/timothycrosley/isort
       Plugin 'fisadev/vim-isort'
 
+      " [black](https://github.com/psf/black)
+      " The uncompromising Python code formatter
+      " black.readthedocs.io/en/stable/
+      Plugin 'psf/black'
+
       " [semshi](https://github.com/numirias/semshi)
       " Semantic Highlighting for Python in Neovim
       "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
