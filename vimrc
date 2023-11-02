@@ -12,7 +12,7 @@
 "   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "   :PluginInstall
 "   :PluginSearch vcscommand
-"{
+" {
    set nocompatible              " be iMproved, required
    filetype off                  " required
 
@@ -77,7 +77,7 @@
    " https://danyspin97.org/blog/fancy-vim-plugins/
 
    " Highlighting
-   "{
+   " {
       " [rainbow](https://github.com/luochen1990/rainbow)
       " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
       " fast, powerful configuration.
@@ -92,7 +92,7 @@
       " easily locate the cursor after a search.
       " it pulses every time you scroll the search results by pressing n/N.
       Plugin 'inside/vim-search-pulse'
-   "}
+   " }
 
    " GIT
    " {
@@ -120,7 +120,7 @@
    " }
 
    " Python
-   "{
+   " {
       " Deprecated and replaced by taghelper.
       " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
       " Display in the statusline class, function & method the cursor is in.
@@ -150,14 +150,14 @@
       " Semantic Highlighting for Python in Neovim
       "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
       "Plugin 'numirias/semshi'
-   "}
+   " }
 
    " Rust
-   "{
+   " {
       " [rust](https://github.com/rust-lang/rust.vim)
       " Vim configuration for Rust
       Plugin 'rust-lang/rust.vim'
-   "}
+   " }
 
    " JSON
    " {
@@ -169,11 +169,11 @@
    " }
 
    " JQ
-   "{
+   " {
       " [jq.vim](https://github.com/vito-c/jq.vim)
       " Syntax highlighting for jq files in vim/neovim
       Plugin 'vito-c/jq.vim'
-   "}
+   " }
 
    " XPath
    " {
@@ -184,12 +184,12 @@
    " }
 
    " HTML
-   "{
+   " {
       " [sparkup](https://github.com/rstacruz/sparkup)
       " A parser for a condensed HTML format
       " Pass the path to set the runtimepath properly.
       Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-   "}
+   " }
 
 
    """""""""""""""""""""""""""""""""""""
@@ -221,7 +221,7 @@
    " }
 
    " TypeScript & React
-   "{
+   " {
       " [Modern TypeScript and React Development in Vim](https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim)
 
       " [vim-jsx-typescript](https://github.com/peitalin/vim-jsx-typescript)
@@ -238,7 +238,7 @@
  
       " set filetypes as typescriptreact
       autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-   "}
+   " }
 
    " All of your Plugins must be added before the following line
    call vundle#end()            " required
@@ -254,7 +254,7 @@
    "
    " see :h vundle for more details or wiki for FAQ
    " Put your non-Plugin stuff after this line
-"}
+" }
 
 
 " Vundle
@@ -264,9 +264,9 @@
    let g:vim_search_pulse_duration = 200
 
    " Tagbar
-   "{
+   " {
      let g:tagbar_ctags_bin="$HOME/.local/bin/ctags"
-   "}
+   " }
  
    " ALE {
       " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
@@ -663,7 +663,7 @@ endfunction
 "   endfunction
 "   setlocal foldexpr=GetPerlFold()
 "   setlocal foldmethod=expr
-"}
+" }
 
 
 " Function that allows diffying to buffer in order to diff two functions. {
@@ -689,7 +689,7 @@ endfunction
       endfor
       call remove(a:diffed_buffers, 0, -1)
    endfunction
-"}
+" }
 
 
 " Bookmarks
@@ -725,7 +725,7 @@ endfunction
 
 "" Python specifics
 "" Warning: this must be the last thing so it doesn't get overriden.
-""{
+"" {
 "au BufNewFile,BufRead *.py
 "    \ set tabstop=3 |
 "    \ set softtabstop=3 |
@@ -734,7 +734,7 @@ endfunction
 "    \ set expandtab |
 "    \ set autoindent |
 "    \ set fileformat=unix
-""}
+"" }
 
 " Quick Code Snippets
 " {
