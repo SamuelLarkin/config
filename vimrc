@@ -35,11 +35,13 @@
    " [BufExplorer](https://github.com/jlanzarotta/bufexplorer)
    " BufExplorer Plugin for Vim
    Plug 'jlanzarotta/bufexplorer'
+   let g:bufExplorerSortBy='mru'
 
    " [Tagbar](https://github.com/majutsushi/tagbar)
    " Awesome source code [tag]browsing
    " Displays a file/class explorer using :TagbarOpen
    Plug 'majutsushi/tagbar'
+   let g:tagbar_ctags_bin="$HOME/.local/bin/ctags"
 
    " [tabular](https://github.com/godlygeek/tabular)
    " Vim script for text filtering and alignment
@@ -68,6 +70,9 @@
    " [vim-sneak](https://github.com/justinmk/vim-sneak)
    " The missing motion for Vim.
    Plug 'justinmk/vim-sneak'
+   let g:sneak#label = 1
+   nmap f <Plug>Sneak_s
+   nmap F <Plug>Sneak_S
 
    """""""""""""""""""""""""""""""""""
    " FANCY VIM PLUGINS
@@ -79,16 +84,19 @@
       " Rainbow Parentheses Improved, shorter code, no level limit, smooth and
       " fast, powerful configuration.
       Plug 'luochen1990/rainbow'
+      let g:rainbow_active = 1
 
       " [vim-illuminate](https://github.com/RRethy/vim-illuminate)
       " illuminate.vim - Vim plugin for selectively illuminating other uses of
       " the current word under the cursor
       Plug 'RRethy/vim-illuminate'
+      let g:Illuminate_delay = 250
 
       " [vim-search-pulse](https://github.com/inside/vim-search-pulse)
       " easily locate the cursor after a search.
       " it pulses every time you scroll the search results by pressing n/N.
       Plug 'inside/vim-search-pulse'
+      let g:vim_search_pulse_duration = 200
    " }
 
    " GIT
@@ -118,24 +126,23 @@
 
    " Python
    " {
-      " Deprecated and replaced by taghelper.
-      " [pythonhleper](https://github.com/mgedmin/pythonhelper.vim)
-      " Display in the statusline class, function & method the cursor is in.
-      "Plug 'mgedmin/pythonhelper.vim'
-
       " [taghelper](https://github.com/mgedmin/taghelper.vim)
       " vim plugin that shows the current function/tag in the statusline.
+      " NOTE: this plugin works for c, c++, python, diff & javascript
+      " NOTE: I need to find a way to disable taghelper#curtag() in my status
+      " line.
+      "Plug 'mgedmin/taghelper.vim', { 'for': ['c', 'cpp', 'python', 'diff', 'javascript'] }
       Plug 'mgedmin/taghelper.vim'
 
       " [Pythonsense](https://github.com/jeetsukumaran/vim-pythonsense)
       " Pythonsense is a Vim plugin that provides text objects and motions for
       " Python classes, methods, functions, and doc strings.
-      Plug 'jeetsukumaran/vim-pythonsense'
+      Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
 
       " [jedi-vim](https://github.com/davidhalter/jedi-vim)
       " awesome Python autocompletion with VIM
       " git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-      Plug 'davidhalter/jedi-vim'
+      Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 
       " [vim-flake8](https://github.com/nvie/vim-flake8.git)
       " is a Vim plugin that runs the currently open file through Flake8, a
@@ -155,8 +162,8 @@
 
       " [semshi](https://github.com/numirias/semshi)
       " Semantic Highlighting for Python in Neovim
-      "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-      "Plug 'numirias/semshi'
+      "Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for': 'python' }
+      "Plug 'numirias/semshi', { 'for': 'python' }
    " }
 
    " Rust
@@ -175,10 +182,11 @@
       Plug 'elzr/vim-json', { 'for': 'json' }
    " }
 
-   " JQ
+   " JQ scripts
    " {
       " [jq.vim](https://github.com/vito-c/jq.vim)
       " Syntax highlighting for jq files in vim/neovim
+      autocmd BufNewFile,BufRead *.jq	set filetype=jq
       Plug 'vito-c/jq.vim', { 'for': 'jq' }
    " }
 
@@ -214,11 +222,22 @@
    " [ale](https://github.com/dense-analysis/ale)
    " Asynchronous Lint Engine
    Plug 'dense-analysis/ale'
+   " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
+   let g:airline#extensions#ale#enabled = 1
+   " [Using black and isort with Vim](https://codeinthehole.com/tips/using-black-and-isort-with-vim/)
+   let b:ale_fixers = ['black', 'isort']
+   let b:ale_fix_on_save = 1
 
    " [CTRL-P](https://github.com/ctrlpvim/ctrlp.vim)
    " Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
    " https://ctrlpvim.github.io/ctrlp.vim/
    "Plug 'ctrlpvim/ctrlp.vim'
+   "if executable('ugrep')
+   "   set runtimepath^=~/.vim/bundle/ctrlp.vim
+   "   let g:ctrlp_match_window='bottom,order:ttb'
+   "   "let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files -3'
+   "   let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files'
+   "endif
 
    " Nim
    " {
@@ -236,15 +255,28 @@
       " (typescriptreact filetypes).
       " vim-jsx-typescript works with the built-in typescript syntax
       " highlighter and indentation engine for recent versions of Vim/Neovim.
-      Plug 'peitalin/vim-jsx-typescript'
-
-      Plug 'pangloss/vim-javascript'
-      Plug 'leafgarland/typescript-vim'
-      Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-      Plug 'jparise/vim-graphql'
- 
       " set filetypes as typescriptreact
       autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+      Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescriptreact' }
+
+      " [vim-javascript](https://github.com/pangloss/vim-javascript)
+      " Vastly improved Javascript indentation and syntax support in Vim.
+      Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+      " [typescript-vim](https://github.com/leafgarland/typescript-vim)
+      " Typescript syntax files for Vim
+      Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+
+      " [vim-styled-components](https://github.com/styled-components/vim-styled-components)
+      " Vim bundle for http://styled-components.com based javascript files.
+      " TODO Not sure if this is for css?
+      Plug 'styled-components/vim-styled-components', { 'branch': 'main', 'for': 'css' }
+
+      " [vim-graphql](https://github.com/jparise/vim-graphql)
+      " A Vim plugin that provides GraphQL file detection, syntax
+      " highlighting, and indentation.
+      autocmd BufNewFile,BufRead *.prisma set filetype=graphql
+      Plug 'jparise/vim-graphql', { 'for': 'graphql' }
    " }
 
    " Initialize plugin system
@@ -263,47 +295,6 @@
    " PlugStatus	Check the status of plugins
    " PlugDiff	Examine changes from the previous update and the pending changes
    " PlugSnapshot[!] [output path]	Generate script for restoring the current snapshot of the plugins
-" }
-
-
-" Plugins
-" {
-   let g:rainbow_active = 1
-   let g:Illuminate_delay = 250
-   let g:vim_search_pulse_duration = 200
-
-   " Tagbar
-   " {
-     let g:tagbar_ctags_bin="$HOME/.local/bin/ctags"
-   " }
- 
-   " ALE {
-      " [How can I show errors or warnings in my statusline](https://github.com/dense-analysis/ale#5vii-how-can-i-show-errors-or-warnings-in-my-statusline)
-      let g:airline#extensions#ale#enabled = 1
-
-      " [Using black and isort with Vim](https://codeinthehole.com/tips/using-black-and-isort-with-vim/)
-      let b:ale_fixers = ['black', 'isort']
-      let b:ale_fix_on_save = 1
-   " }
-
-   " Sneak {
-      let g:sneak#label = 1
-      nmap f <Plug>Sneak_s
-      nmap F <Plug>Sneak_S
-   " }
-
-   " Using `ugrep` with CtrlP {
-      if executable('ugrep')
-         set runtimepath^=~/.vim/bundle/ctrlp.vim
-         let g:ctrlp_match_window='bottom,order:ttb'
-         "let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files -3'
-         let g:ctrlp_user_command='ugrep "" %s -Rl -I --ignore-files'
-      endif
-   " }
- 
-   " Buffer Explorer {
-      let g:bufExplorerSortBy='mru'
-   " }
 " }
 
 
@@ -410,7 +401,6 @@
    set statusline+=%r   " Readonly flag, text is "[RO]".
    set statusline+=%{fugitive#statusline()}   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
    if !has('nvim')
-      "set statusline+=%{TagInStatusLine()}   " from https://github.com/mgedmin/pythonhelper.vim
       set statusline+=%{taghelper#curtag()}
    endif
    set statusline+=%=   " Separation point between left and right aligned items.  No width fields allowed.
@@ -781,10 +771,4 @@ endfunction
 " {
    set visualbell
    set t_vb=
-" }
-
-" filetype
-" {
-   " jq scripts
-   autocmd BufNewFile,BufRead *.jq	set filetype=jq
 " }
