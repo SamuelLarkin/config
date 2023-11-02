@@ -146,6 +146,11 @@
       " both vim-pyflakes and vim-pep8.
       Plugin 'nvie/vim-flake8'
 
+      " [vim-isort](https://github.com/fisadev/vim-isort)
+      " Vim plugin to sort python imports using
+      " https://github.com/timothycrosley/isort
+      Plugin 'fisadev/vim-isort'
+
       " [semshi](https://github.com/numirias/semshi)
       " Semantic Highlighting for Python in Neovim
       "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
