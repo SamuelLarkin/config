@@ -562,9 +562,11 @@
    nnoremap <silent> <F9> :TlistToggle<CR>
 
    " fzf.vim
+   " Change <leader> from \ to space
    noremap <Space> <Nop>
    map <Space> <Leader>
    nmap <leader><tab> <plug>(fzf-maps-n)
+
    " Fzf.vim Files => all files under current directory
    nmap <leader>ff :Files<CR>
    " Fzf.vim GFiles => git ls-files only
@@ -752,6 +754,7 @@ endfunction
 " }
 
 
+" Set commands to be run for certain file types.
 " {
    " Do not expand tabs when editing a Makefile.
    autocmd BufRead,BufNewFile Makefile set noexpandtab
