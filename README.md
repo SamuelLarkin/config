@@ -147,19 +147,21 @@ This repository contains my personal configuration files when I want to setup a 
 
 ### CLI Tools
 
+* [Desed - GitHub](https://github.com/SoptikHa2/desed): Demystify and debug your sed scripts, from comfort of your terminal.
 * [artem - GitHub](https://github.com/FineFindus/artem): artem is a small cli program written in rust to easily convert images to ascii art.
 * [atuin - GitHub](https://github.com/ellie/atuin): Atuin replaces your existing shell history with a SQLite database, and records additional context for your commands. Additionally, it provides optional and fully encrypted synchronisation of your history between machines, via an Atuin server.
 * [autoenv - GitHub](https://github.com/kennethreitz/autoenv): Directory-based environments
-* [Desed - GitHub](https://github.com/SoptikHa2/desed): Demystify and debug your sed scripts, from comfort of your terminal.
+* [bfs - GitHub](https://github.com/tavianator/bfs) A breadth-first version of the UNIX find command.
 * [direnv](https://direnv.net/): Unclutter your .profile
 * [fx - GitHub](https://github.com/antonmedv/fx): Terminal JSON viewer
 * [gitui - GitHub](https://github.com/extrawurst/gitui): GitUI provides you with the comfort of a git GUI but right in your terminal.  Not as great as lazygit.
 * [hoard - GitHub](https://github.com/Hyde46/hoard): command organizer tool to hoard all your precious commands.
 * [jaq - GitHub](https://github.com/01mf02/jaq): jaq is a clone of the JSON data processing tool jq. jaq aims to support a large subset of jq's syntax and operations.
+* [joshuto - GitHub](https://github.com/kamiyaa/joshuto): ranger-like terminal file manager written in rust
 * [jql - GitHub](https://github.com/yamafaktory/jql): A JSON Query Language CLI tool built with Rust.
 * [ripgrep (rg) - GitHub](https://github.com/BurntSushi/ripgrep): ripgrep is a line-oriented search tool that recursively searches the current directory for a regex pattern
 * [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
-* [bfs - GitHub](https://github.com/tavianator/bfs) A breadth-first version of the UNIX find command.
+* [yazi - GitHub](https://github.com/sxyazi/yazi): 💥 Blazing fast terminal file manager written in Rust, based on async I/O.
 
 
 
