@@ -788,10 +788,11 @@ function install_compiled_tools {
    # Vim-fork focused on extensibility and usability.
    which --skip-alias neovim \
    || (
+      readonly version=v0.9.4
       mkdir -p ~/git && cd ~/git
-      git clone --branch v0.8.2 https://github.com/neovim/neovim.git
+      git clone --branch $version https://github.com/neovim/neovim.git
       cd neovim/
-      \make CMAKE_BUILD_TYPE=Release
+      \make CMAKE_BUILD_TYPE=RelWithDebInfo
       \make install CMAKE_INSTALL_PREFIX=~/.local
    )
 
