@@ -107,6 +107,8 @@ This repository contains my personal configuration files when I want to setup a 
 
 
 ### Shells
+* [elvish](https://elv.sh/): Elvish is an expressive programming language and a versatile interactive shell, combined into one seamless package. It runs on Linux, BSDs, macOS and Windows.
+* [elvish - GitHub](https://github.com/elves/elvish): Elvish = Expressive Programming Language + Versatile Interactive Shell
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
 * [xonsh](https://xon.sh/): XONSH is a Python-powered shell
 

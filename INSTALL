@@ -928,6 +928,11 @@ function install_other_shells {
    # [xonsh](https://xon.sh/)
    # XONSH is a Python-powered shell
    python3 -m pip install --user --upgrade 'xonsh[full]'
+
+   # [elvish - GitHub](https://github.com/elves/elvish)
+   # Elvish = Expressive Programming Language + Versatile Interactive Shell
+   go install src.elv.sh/cmd/elvish@latest \
+   && mv ~/go/bin/elvish ~/.local/bin/
 }
 
 
