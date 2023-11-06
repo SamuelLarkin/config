@@ -219,9 +219,10 @@
    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
    Plug 'junegunn/fzf.vim'
 
-   " [coc](https://github.com/neoclide/coc.nvim)
-   " Make your Vim/Neovim as smart as VSCode.
-   "Plug 'neoclide/coc.nvim'
+   " LSP
+   " {
+     source ~/config/vim.lsp
+   " }
 
    " [ale](https://github.com/dense-analysis/ale)
    " Asynchronous Lint Engine
