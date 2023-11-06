@@ -550,6 +550,10 @@ function install_rust_tools {
    # ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
    # eval "$(starship init bash)"
    cargo install --force --root ~/.local starship
+
+   # [atuin](https://github.com/atuinsh/atuin)
+   # ✨ Magical shell history.
+   cargo install --force --root ~/.local atuin
 }
 
 
