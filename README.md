@@ -169,6 +169,19 @@ This repository contains my personal configuration files when I want to setup a 
 
 
 
+### Neovim
+
+I'm debating if I should switch to Neovim or one of it's customization.
+
+* [Neovim](https://github.com/neovim/neovim): [Neovim](https://neovim.io/) is a Vim-fork focused on extensibility and usability
+* [LazyVim](https://github.com/LazyVim/LazyVim): Neovim config for the lazy [LazyVim](https://www.lazyvim.org/)
+* [Lunarvim](https://github.com/LunarVim/LunarVim): 🌙 [LunarVim](https://www.lunarvim.org/) is an IDE layer for Neovim. Completely free and community driven.
+* [AstroNvim](https://github.com/AstroNvim/AstroNvim): [AstroNvim](https://astronvim.com/) is an aesthetic and feature-rich neovim config that is extensible and easy to use with a great set of plugins.
+* [NvChad](https://github.com/NvChad/NvChad): Blazing fast Neovim config providing solid defaults and a beautiful UI, enhancing your neovim experience. [NvChad](https://nvchad.com/)
+* [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim): [CosmicNvim](https://cosmicnvim.vercel.app/) is a lightweight and opinionated Neovim config for web development, specifically designed to provide a 💫 COSMIC programming experience!
+
+
+
 # Links
 * [jq - manual](https://stedolan.github.io/jq/manual/v1.5/)
 * [jq - cookbook](https://github.com/stedolan/jq/wiki/Cookbook)
