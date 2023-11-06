@@ -933,6 +933,11 @@ function install_other_shells {
    # Elvish = Expressive Programming Language + Versatile Interactive Shell
    go install src.elv.sh/cmd/elvish@latest \
    && mv ~/go/bin/elvish ~/.local/bin/
+
+   # [nushell - GitHub](https://github.com/nushell/nushell)
+   # A new type of shell.
+   #cargo install --force --root ~/.local --git https://github.com/nushell/nushell
+   cargo install --force --root ~/.local nu
 }
 
 
