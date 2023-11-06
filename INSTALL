@@ -738,23 +738,6 @@ function install_compiled_tools {
    #####################################
    # UNDER TESTING
 
-   # [FishShell](https://fishshell.com/): Finally, a command line shell for the
-   # 90s fish is a smart and user-friendly command line shell for Linux, macOS,
-   # and the rest of the family.
-   # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell.
-   which --skip-alias fish \
-   || (
-      readonly version=3.3.1
-      mkdir -p ~/tmp && cd ~/tmp
-      wget "https://github.com/fish-shell/fish-shell/releases/download/$version/fish-$version.tar.xz"
-      tar xf fish-$version.tar.xz
-      cd fish-$version
-      mkdir -p build && cd build
-      cmake -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
-      \make -j $(nproc) insall
-      cd ../.. && rm -fr fish-$version
-   )
-
    # [duf - GitHub](https://github.com/muesli/duf: Disk Usage/Free Utility (Linux, BSD, macOS & Windows)).
    which --skip-alias duf \
    || (
@@ -920,6 +903,23 @@ function plot_tools {
 
 
 function install_other_shells {
+   # [FishShell](https://fishshell.com/): Finally, a command line shell for the
+   # 90s fish is a smart and user-friendly command line shell for Linux, macOS,
+   # and the rest of the family.
+   # [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell.
+   which --skip-alias fish \
+   || (
+      readonly version=3.3.1
+      mkdir -p ~/tmp && cd ~/tmp
+      wget "https://github.com/fish-shell/fish-shell/releases/download/$version/fish-$version.tar.xz"
+      tar xf fish-$version.tar.xz
+      cd fish-$version
+      mkdir -p build && cd build
+      cmake -DCMAKE_INSTALL_PREFIX=$HOME/.local ..
+      \make -j $(nproc) insall
+      cd ../.. && rm -fr fish-$version
+   )
+
    # [xonsh](https://xon.sh/)
    # XONSH is a Python-powered shell
    python3 -m pip install --user --upgrade 'xonsh[full]'

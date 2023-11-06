@@ -46,7 +46,6 @@ This repository contains my personal configuration files when I want to setup a 
 * [exa - Documentation](https://the.exa.website/): modern replacement for ls
 * [F2 - GitHub](https://github.com/ayoisaiah/f2): F2 is a cross-platform command-line tool for batch renaming files and directories quickly and safely. Written in Go!
 * [fd - GitHub](https://github.com/sharkdp/fd): is a program to find entries in your filesystem
-* [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
 * [forgit - GitHub](https://github.com/wfxr/forgit): A utility tool powered by fzf for using git interactively.
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
 * [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh): bash and zsh key bindings for Git objects, powered by fzf.
@@ -95,7 +94,6 @@ This repository contains my personal configuration files when I want to setup a 
 * [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast.
 * [vifm - GitHub](https://github.com/vifm/vifm): Vim-like file manager
 * [vivid - GitHub](https://github.com/sharkdp/vivid): vivid is a generator for the LS_COLORS environment variable that controls the colorized output of ls, tree, fd, bfs, dust and many other tools.
-* [xonsh](https://xon.sh/): XONSH is a Python-powered shell
 * [xq - GitHub](https://github.com/jeffbr13/xq): Apply XPath expressions to XML, like jq does for JSONPath and JSON.
 * [xsv - GitHub](https://github.com/BurntSushi/xsv): xsv is a command line program for indexing, slicing, analyzing, splitting and joining CSV files. Commands should be simple, fast and composable.
 * [yq - GitHub](https://github.com/kislyuk/yq): yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
@@ -104,6 +102,12 @@ This repository contains my personal configuration files when I want to setup a 
 * [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included.
 * [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your Xnix system written in Rust.
 * [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
+
+
+
+### Shells
+* [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
+* [xonsh](https://xon.sh/): XONSH is a Python-powered shell
 
 
 
