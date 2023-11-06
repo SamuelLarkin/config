@@ -82,6 +82,9 @@ shopt -s direxpand
 # Enable zoxide
 which zoxide &> /dev/null && eval "$(zoxide init bash)"
 
+# Enable starship prompt
+which starship &> /dev/null && eval "$(starship init bash)"
+
 
 # Disabled since we prefer fzf's CTRL+R
 #[[ $- == *i* ]] && bind '"\C-g": forward-search-history'

@@ -545,6 +545,11 @@ function install_rust_tools {
 
    #####################################
    # UNDER TESTING
+
+   # [starship - GitHub](https://github.com/starship/starship)
+   # ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+   # eval "$(starship init bash)"
+   cargo install --force --root ~/.local starship
 }
 
 

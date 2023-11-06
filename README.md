@@ -82,6 +82,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [Rich CLI - GitHub](https://github.com/Textualize/rich-cli): Rich-cli is a command line toolbox for fancy output in the terminal, built with Rich.  Use the rich command to highlight a variety of file types in the terminal, with specialized rendering for Markdown and JSON files. Additionally you can markup and format text from the command line.
 * [RnR - GitHub](https://github.com/ismaelgv/rnr): RnR is a command-line tool to securely rename multiple files and directories that supports regular expressions.
 * [runiq - GitHub](https://github.com/whitfin/runiq): This project offers an efficient way (in both time and space) to filter duplicate entries (lines) from texual input.
+* [starship - GitHub](https://github.com/starship/starship): ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 * [tabulate - GitHub](https://github.com/astanin/python-tabulate): Pretty-print tabular data in Python, a library and a command-line utility.
 * [termeter - GitHub](https://github.com/atsaki/termeter): Visualize data in the terminal.
 * [Termgraph - GitHub](https://github.com/mkaz/termgraph): A command-line tool that draws basic graphs in the terminal, written in Python. [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/).
