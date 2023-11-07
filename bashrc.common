@@ -50,7 +50,8 @@ export HISTTIMEFORMAT="%F %T "
 export DOCKER_BUILDKIT=1
 
 # [Use `bat` to display man pages](https://github.com/sharkdp/bat#man)
-which bat &> /dev/null && export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
+#which bat &> /dev/null && export MANPAGER="sh -c 'col --no-backspaces --spaces | bat --language man --plain'"
+which bat &> /dev/null && export MANPAGER="sh -c 'col -bx | bat --language man --plain'"
 
 # FZF
 # [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
