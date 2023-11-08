@@ -216,3 +216,4 @@ Vim Plugins equivalent
 * [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 * [AWESOME VIM PLUGINS from ACROSS THE UNIVERSE](https://vimawesome.com/)
 * [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
+* [The Modern JavaScript Tutorial](https://javascript.info/)
