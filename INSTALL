@@ -43,7 +43,7 @@ function install_configs {
    done
 
    mkdir -p ~/.config/htop
-   ln -fns ~/config/htoprc ~/.config/htop/
+   ln -fns ~/config/config/htop/htoprc ~/.config/htop/
 
    ln -fns ~/config/flake8 ~/.config/flake8
 
