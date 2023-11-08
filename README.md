@@ -187,6 +187,17 @@ I'm debating if I should switch to Neovim or one of it's customization.
 * [NvChad](https://github.com/NvChad/NvChad): Blazing fast Neovim config providing solid defaults and a beautiful UI, enhancing your neovim experience. [NvChad](https://nvchad.com/)
 * [CosmicNvim](https://github.com/CosmicNvim/CosmicNvim): [CosmicNvim](https://cosmicnvim.vercel.app/) is a lightweight and opinionated Neovim config for web development, specifically designed to provide a 💫 COSMIC programming experience!
 
+Vim Plugins equivalent
+
+* [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
+
+| vim | neovim |
+| ----- | ----- |
+| vimgutter | gitsigns |
+| VCSVimDiff | diffview.nvim |
+| statusbar | navic |
+| tagbar | symbols-outline, navbuddy, aerial, vista |
+
 
 
 # Links
