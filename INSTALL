@@ -56,12 +56,16 @@ function install_configs {
 
 
 
-function install_vim_plugins {
+function install_bash_completion {
    curl \
       --create-dirs \
       'https://raw.githubusercontent.com/damienfrancois/slurm-helper/master/{slurm_completion.sh}' \
       -o ~/.bash_completion.d/'#1'
+}
 
+
+
+function install_vim_plugins {
    curl \
       --create-dirs \
       'https://raw.githubusercontent.com/SchedMD/slurm/master/contribs/slurm_completion_help/{slurm.vim}' \
@@ -1007,6 +1011,7 @@ function install_git_tools {
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
    install_configs
+   install_bash_completion
    install_vim_plugins
    install_tmux_plugins
    extend_bashrc
