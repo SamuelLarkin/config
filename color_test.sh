@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# [source](https://github.com/termstandard/colors)
 # [Getting 24-bit color working in terminals](https://pisquare.osisoft.com/s/Blog-Detail/a8r1I000000GvXBQA0/console-things-getting-24bit-color-working-in-terminals)
 
 
