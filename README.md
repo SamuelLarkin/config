@@ -215,3 +215,4 @@ Vim Plugins equivalent
 * [fzf Web Color Picker](https://minsw.github.io/fzf-color-picker/)
 * [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 * [AWESOME VIM PLUGINS from ACROSS THE UNIVERSE](https://vimawesome.com/)
+* [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
