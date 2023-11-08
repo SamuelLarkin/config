@@ -1,10 +1,21 @@
 " [coc](https://github.com/neoclide/coc.nvim)
 " Make your Vim/Neovim as smart as VSCode.
 Plug 'neoclide/coc.nvim', { 'do': 'npm ci' }
+
+" [coc-json](https://github.com/neoclide/coc-json)
+" :CocInstall coc-json
 Plug 'neoclide/coc-json'
+
+" [coc-yaml](https://github.com/neoclide/coc-yaml)
+" :CocInstall coc-yaml
 Plug 'neoclide/coc-yaml'
+
+" [coc-jedi](https://github.com/neoclide/coc-yaml)
+" :CocInstall coc-jedi
 Plug 'pappasam/coc-jedi'
 
+
+" Configuration
 let g:coc_disable_startup_warning = 1
 
 " Use tab for trigger completion with characters ahead and navigate
