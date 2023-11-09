@@ -194,7 +194,7 @@ function btail {
 
 function rf {
    for f in $@; do
-      readlink -f $f
+      readlink --canonicalize $f
    done
 }
 
