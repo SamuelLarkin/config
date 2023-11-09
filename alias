@@ -1,42 +1,5 @@
 #.alias
 
-# [rsync copy over only certain types of files using include option](https://stackoverflow.com/a/11111793)
-# NOTE you MUST add --include='*/' to let rsync at least visit all directories.
-# rsync \
-#   -Parzu \
-#   -m \
-#   --include='*/' \
-#   --include='*/run_mlm.config' \
-#   --include='*/trainer.py' \
-#   --exclude='*' \
-#   xlm-roberta-large.2500.min_prob.emb xlm-roberta-large.2500.not_sorted.emb xlm-roberta-large.5000.min_prob.emb xlm-roberta-large.5000.not_sorted.emb \
-#   ../mt/ \
-#   -n
-
-# [How to use Rsync to copy only specific subdirectories (same names in several directories)](https://stackoverflow.com/questions/15687755/how-to-use-rsync-to-copy-only-specific-subdirectories-same-names-in-several-dir)
-# rsync \
-#   -F \
-#   -Parzu \
-#   gpsc5:/space/project/portage/models/WMT2023 \
-#   /gpfs/projects/DT/mtp/models/ \
-#   --include='*/' \
-#   --include='*/wmttest2023.splited' \
-#   --include='wmttest2023.splited/***' \
-#   --exclude='*' \
-#   -n
-
-# [Running a binary without a top level script in SLURM](https://stackoverflow.com/a/33402070)
-# sbatch \
-#   --time=00:20:00 \
-#   --partition=TrixieMain,JobTesting \
-#   --account=dt-mtp \
-#   --nodes=1 \
-#   --ntasks-per-node=1 \
-#   --cpus-per-task=40 \
-#   --mem=40G \
-#   --wrap='time python -m sockeye.translate --output-type json --batch-size 32 --models base_model --input corpora/validation.en --use-cpu > model/decode.output.0.00000.json'
-
-
 # Slurm
 #alias squeue='squeue --format="%.8i %.9P %.40j %.8u %.2t %.10M %.6D %R"'
 alias squeue='squeue --sort=ti --format="%.8i %30j %.8u %.2t %.10M %.6D %16R %18V %k"'
@@ -44,24 +7,10 @@ alias squeueme='squeue --user $USER'
 alias squeue_dependencies='squeueme --format="%.8i %30j %.8u %.2t %.10M %.6D %16R %18V %E %k"'
 alias squeue_where="squeueme --format $'%i\t %.2t %30j %Z'"
 alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,FAIL'
-#scontrol update jobid=540913 dependency=afterok:540912
-#scontrol update jobid=$(echo {15882..15893} | tr ' ' ',') dependency=afterok:15754:15756:15757:15758:15765:15766:15767:15740:15743
-#scontrol show job 2642   #Find out where a job will run
-#scontrol update jobid=<job_id> TimeLimit=<new_timelimit>
-#sreport user top start=2020-06-01 end=2020-06-30 -t percent
-#sacct -l -j JOBID   # Get stats about a job that has finished.
-#scontrol show nodes   # to see what the nodes really offer.
-#scontrol show reservation    # See the information of an upcoming maintenance.
 alias sresources='sinfo --format="%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd --json'
 
 alias fixTerminal='stty rows 45 columns 190'
-
-# GPSC5
-# ssh to a node
-# srun --jobid=4139869 --pty bash -l
-# srun --jobid 362985  --gres=gpu:8 -N 1 --ntasks 1 --mem-per-cpu=0 --pty -w ib14gpu-001 -s /bin/bash -l
-
 
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
