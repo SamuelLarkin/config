@@ -10,8 +10,6 @@ alias sbatch='sbatch --mail-user=Samuel.Larkin@cnrc-nrc.gc.ca  --mail-type=END,F
 alias sresources='sinfo --format="%20N %10C %10m %25f %10G"'
 alias sjobResources='scontrol show jobid -dd --json'
 
-alias fixTerminal='stty rows 45 columns 190'
-
 
 [[ -x /usr/bin/time ]] && alias time="/usr/bin/time"
 
@@ -27,6 +25,7 @@ alias df="df --human-readable"
 alias disown='disown -h'
 alias du="du --human-readable"
 alias egrep="LC_ALL=C egrep --colour"
+alias fixTerminal='stty rows 45 columns 190'
 alias gitk='gitk --all'
 alias gpustat='gpustat --show-cmd --show-user --show-pid'
 alias grep="grep --colour"
