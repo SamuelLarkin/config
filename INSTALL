@@ -226,6 +226,8 @@ function install_go_essential {
    # Render markdown on the CLI, with pizzazz!
    go install github.com/charmbracelet/glow@latest \
    && mv ~/go/bin/glow ~/.local/bin/
+   mkdir -p ~/.config/glow \
+   && ln -fns ~/config/config/glow/glow.yml ~/.config/glow/
 }
 
 
