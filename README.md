@@ -36,7 +36,7 @@ This repository contains my personal configuration files when I want to setup a 
 * [asciigraph - GitHub](https://github.com/guptarohit/asciigraph): Go package to make lightweight ASCII line graphs ╭┈╯.
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [bottom - GitHub](https://github.com/ClementTsang/bottom): Another TUI based system monitor, this time in Rust
-* [bpytop - GitHub](https://github.com/aristocratos/bpytop)
+* [bpytop - GitHub](https://github.com/aristocratos/bpytop): Linux/OSX/FreeBSD resource monitor
 * [delta - GitHub](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output
 * [difftastic - GitHub](https://github.com/Wilfred/difftastic): Difftastic is an experimental diff tool that compares files based on their syntax.
 * [Diskonaut - GitHub](https://github.com/imsnif/diskonaut): windirstat like for the CLI.
