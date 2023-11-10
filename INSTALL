@@ -211,6 +211,11 @@ function install_go_essential {
 
    install_fzf
 
+   # [chezmoi - GitHub](https://github.com/twpayne/chezmoi)
+   # Manage your dotfiles across multiple diverse machines, securely.
+   go install github.com/twpayne/chezmoi@latest \
+   && mv ~/go/bin/chezmoi ~/.local/bin/
+
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
    # A simple terminal UI for git commands, written in Go with the gocui
    # library.
