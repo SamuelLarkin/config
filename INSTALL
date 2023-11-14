@@ -861,7 +861,7 @@ function install_compiled_tools {
    # [Node.js](https://nodejs.org/en)
    # Node.js® is an open-source, cross-platform JavaScript runtime environment.
    which --skip-alias npm \
-   (
+   || (
       version="v21.1.0"
       mkdir -p ~/tmp && cd ~/tmp
       wget "https://nodejs.org/dist/$version/node-$version.tar.gz"
