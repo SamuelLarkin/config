@@ -1,3 +1,0 @@
-#source ~/.config/tig/chocolate.theme.tigrc
-#source ~/.config/tig/tig-colors-neonwolf-256.tigrc
-set diff-highlight = "delta"
