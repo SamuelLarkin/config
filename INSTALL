@@ -271,8 +271,7 @@ function install_go_extras {
    # [yq - gitHub](https://github.com/mikefarah/yq):
    # A lightweight and portable command-line YAML, JSON and XML processor. yq
    # uses jq like syntax but works with yaml files as well as json and xml.
-   #go install github.com/mikefarah/yq@latest \
-   go get github.com/mikefarah/yq/v4 \
+   go install github.com/mikefarah/yq/v4@latest  \
    && mv ~/go/bin/yq ~/.local/bin/
 
    # [gojq - GitHub](Pure Go implementation of jq):
