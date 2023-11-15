@@ -98,8 +98,8 @@ This repository contains my personal configuration files when I want to setup a 
 * [vivid - GitHub](https://github.com/sharkdp/vivid): vivid is a generator for the LS_COLORS environment variable that controls the colorized output of ls, tree, fd, bfs, dust and many other tools.
 * [xq - GitHub](https://github.com/jeffbr13/xq): Apply XPath expressions to XML, like jq does for JSONPath and JSON.
 * [xsv - GitHub](https://github.com/BurntSushi/xsv): xsv is a command line program for indexing, slicing, analyzing, splitting and joining CSV files. Commands should be simple, fast and composable.
-* [yq - GitHub](https://github.com/kislyuk/yq): yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
-* [yq - gitHub](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON and XML processor. yq uses jq like syntax but works with yaml files as well as json and xml.
+* [yq in python - GitHub](https://github.com/kislyuk/yq): yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML documents.
+* [yq in go - GitHub](https://github.com/mikefarah/yq): A lightweight and portable command-line YAML, JSON and XML processor. yq uses jq like syntax but works with yaml files as well as json and xml.
 * [ytop - GitHub](https://github.com/cjbassi/ytop): Another TUI based system monitor, this time in Rust
 * [zellij](https://github.com/zellij-org/zellij): A terminal workspace with batteries included.
 * [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your Xnix system written in Rust.
