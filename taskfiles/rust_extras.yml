@@ -1,0 +1,276 @@
+version: '3'
+
+tasks:
+  all:
+    desc: Install all rust extras
+    deps:
+      - bottom
+      - broot
+      - diskonaut
+      - dust
+      - erdtree
+      - exa
+      - fd-find
+      - find_unicode
+      - gitui
+      - histo
+      - htmlq
+      - navi
+      - ouch
+      - oxker
+      - procs
+      - ripgrep
+      - rnr
+      - runiq
+      - skim
+      - starship
+      - termscp
+      - vivid
+      - xsv
+      - zellij
+      - zenith
+
+  starship:
+    desc: >
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+    summray: >
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+      eval "$(starship init bash)"
+    cmd: cargo install --force --root ~/.local starship
+    preconditions:
+      - msg: starship is already present
+        sh: "! which starship"
+
+  fd-find:
+    desc: >
+      [fd - GitHub](https://github.com/sharkdp/fd):
+      is a program to find entries in your filesystem.
+    cmd: cargo install --force --root ~/.local fd-find
+    preconditions:
+      - msg: fd-find is already present
+        sh: "! which fd"
+
+  exa:
+    desc: >
+      [exa - Documentation](https://the.exa.website/):
+      modern replacement for ls.
+      [exa - GitHub](https://github.com/ogham/exa):
+      modern replacement for ls.
+    cmd: cargo install --force --root ~/.local exa
+    preconditions:
+      - msg: exa is already present
+        sh: "! which exa"
+
+  dust:
+    desc: >
+      [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust):
+      Like du but more intuitive.
+    cmd: cargo install --force --root ~/.local --git https://github.com/bootandy/dust
+    preconditions:
+      - msg: dust is already present
+        sh: "! which dust"
+
+  zenith:
+    desc: >
+      [zenith - GitHub](https://github.com/bvaisvil/zenith):
+      In terminal graphical metrics for your *nix system written in Rust.
+    cmd: cargo install --force --root ~/.local --git https://github.com/bvaisvil/zenith
+    preconditions:
+      - msg: zenith is already present
+        sh: "! which zenith"
+
+  bottom:
+    desc: >
+      [bottom - GitHub](https://github.com/cjbassi/ytop):
+      Another TUI based system monitor, this time in Rust
+      NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom).
+      cargo install --force --git https://github.com/ClementTsang/bottom
+    cmd: cargo install --force --root ~/.local bottom
+    preconditions:
+      - msg: bottom is already present
+        sh: "! which bottom"
+
+  procs:
+    desc: >
+      [procs - GitHub](https://github.com/dalance/procs):
+      is a replacement for ps written in Rust.
+    cmd: cargo install --force --root ~/.local procs
+    preconditions:
+      - msg: procs is already present
+        sh: "! which procs"
+
+  ripgrep:
+    desc: >
+      [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep):
+      ripgrep is a line-oriented search tool that recursively searches the
+      current directory for a regex pattern.
+    cmd: cargo install --force --root ~/.local ripgrep
+    preconditions:
+      - msg: ripgrep is already present
+        sh: "! which ripgrep"
+
+  rnr:
+    desc: >
+      [RnR - GitHub](https://github.com/ismaelgv/rnr):
+      RnR is a command-line tool to securely rename multiple files and
+      directories that supports regular expressions.
+    cmd: cargo install --force --root ~/.local rnr
+    preconditions:
+      - msg: rnr is already present
+        sh: "! which rnr"
+
+  runiq:
+    desc: >
+      [runiq - GitHub](https://github.com/whitfin/runiq):
+      This project offers an efficient way (in both time and space) to filter
+      duplicate entries (lines) from texual input.
+    cmd: cargo install --force --root ~/.local runiq
+    preconditions:
+      - msg: runiq is already present
+        sh: "! which runiq"
+
+  histo:
+    desc: >
+      [histo - GitHub](https://github.com/fitzgen/histo):
+      Histograms with a configurable number of buckets, and a terminal-friendly
+      Display.
+    cmd: cargo install --force --root ~/.local histo
+    preconditions:
+      - msg: histo is already present
+        sh: "! which histo"
+
+  diskonaut:
+    desc: >
+      [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
+      windirstat like for the CLI.
+    cmd: cargo install --force --root ~/.local diskonaut
+    preconditions:
+      - msg: diskonaut is already present
+        sh: "! which diskonaut"
+
+  xsv:
+    desc: >
+      [xsv - GitHub](https://github.com/BurntSushi/xsv):
+      xsv is a command line program for indexing, slicing, analyzing, splitting
+      and joining CSV files. Commands should be simple, fast and composable.
+    cmd: cargo install --force --root ~/.local xsv
+    preconditions:
+      - msg: xsv is already present
+        sh: "! which xsv"
+
+  navi:
+    desc: >
+      [Navi - GitHub](https://github.com/denisidoro/navi):
+      An interactive cheatsheet tool for the command-line.
+    cmd: cargo install --force --root ~/.local --git https://github.com/denisidoro/navi
+    preconditions:
+      - msg: navi is already present
+        sh: "! which navi"
+
+  vivid:
+    desc: >
+      [vivid - GitHub](https://github.com/sharkdp/vivid):
+      vivid is a generator for the LS_COLORS environment variable that controls
+      the colorized output of ls, tree, fd, bfs, dust and many other tools.
+    cmd: cargo install --force --root ~/.local vivid
+    preconditions:
+      - msg: vivid is already present
+        sh: "! which vivid"
+
+  erdtree:
+    desc: >
+      [Erdtree - GitHub](https://github.com/solidiquis/erdtree):
+      A bLazInGlY fAsT, simplified version of the ancient tree command which
+      displays a colorful depth indented listing of files with their memory
+      sizes adjacent.
+    cmd: cargo install --force --root ~/.local --git https://github.com/solidiquis/erdtree
+    preconditions:
+      - msg: erdtree is already present
+        sh: "! which erdtree"
+
+  oxker:
+    desc: >
+      [oxker - GitHub](https://github.com/mrjackwills/oxker):
+      A simple tui to view & control docker containers.
+    cmd: cargo install --force --root ~/.local --git https://github.com/mrjackwills/oxker
+    preconditions:
+      - msg: oxker is already present
+        sh: "! which oxker"
+
+  termscp:
+    desc: >
+      [termscp - GitHub](https://github.com/veeso/termscp):
+      A feature rich terminal UI file transfer and explorer with support for
+      SCP/SFTP/FTP/S3.
+    cmd: cargo install --force --root ~/.local termscp
+    preconditions:
+      - msg: termscp is already present
+        sh: "! which termscp"
+
+  zellij:
+    desc: >
+      [zellij](https://github.com/zellij-org/zellij):
+      A terminal workspace with batteries included.
+    cmd: cargo install --force --root ~/.local zellij
+    preconditions:
+      - msg: zellij is already present
+        sh: "! which zellij"
+
+  htmlq:
+    desc: >
+      [htmlq - GitHub](https://github.com/mgdm/htmlq):
+      Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
+    cmd: cargo install --force --root ~/.local htmlq
+    preconditions:
+      - msg: htmlq is already present
+        sh: "! which htmlq"
+
+  broot:
+    desc: >
+      [broot - GitHub](https://github.com/Canop/broot):
+      A new way to see and navigate directory trees : https://dystroy.org/broot
+    cmd: cargo install --force --root ~/.local broot
+    preconditions:
+      - msg: broot is already present
+        sh: "! which broot"
+
+  find_unicode:
+    desc: >
+      [fu - GitHub](https://github.com/pierrechevalier83/find_unicode):
+      Find Unicode characters the easy way: from the command line.
+    cmd: cargo install --force --root ~/.local find_unicode
+    preconditions:
+      - msg: find_unicode is already present
+        sh: "! which fu"
+
+  gitui:
+    desc: >
+      [gitui - GitHub](https://github.com/extrawurst/gitui):
+      Blazing 💥 fast terminal-ui for git written in rust 🦀.
+    cmd: cargo install --force --root ~/.local gitui
+    preconditions:
+      - msg: gitui is already present
+        sh: "! which gitui"
+
+  ouch:
+    desc: >
+      [ouch - GitHub](https://github.com/ouch-org/ouch):
+      Painless compression and decompression for your terminal.
+    cmd: cargo install --force --root ~/.local ouch
+    preconditions:
+      - msg: ouch is already present
+        sh: "! which ouch"
+
+  skim:
+    desc: >
+      [skim - GitHub](https://github.com/lotabout/skim#installation):
+      Fuzzy Finder in rust!
+      A la `fzf`.
+    cmd: cargo install --force --root ~/.local skim
+    preconditions:
+      - msg: skim is already present
+        sh: "! which sk"

@@ -1,0 +1,62 @@
+version: '3'
+
+includes:
+  go_essentials:
+    taskfile: taskfiles/go_essentials.yml
+  rust_extras:
+    taskfile: taskfiles/rust_extras.yml
+  rust_essentials:
+    taskfile: taskfiles/rust_essentials.yml
+  rust_trial:
+    taskfile: taskfiles/rust_trial.yml
+  bashdb:
+    taskfile: taskfiles/bashdb.yml
+
+tasks:
+  all:
+    deps:
+      - rust_essentials
+      - rust_extras
+
+  fzf:
+    desc: >
+      [fzf - GitHub](https://github.com/junegunn/fzf):
+      fzf is a general-purpose.  command-line fuzzy finder
+    cmd: |
+      go install github.com/junegunn/fzf@latest \
+      && mv ~/go/bin/fzf ~/.local/bin/
+
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/bin/{fzf-tmux}' \
+         -o ~/.local/bin/'#1' \
+      && chmod u+x ~/.local/bin/fzf-tmux
+
+      # [forgit - GitHub](https://github.com/wfxr/forgit):
+      # A utility tool powered by fzf for using git interactively.
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}' \
+         -o ~/.local/bin/'#1' \
+
+      # BASH completions
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{completion.bash}' \
+         -o ~/.bash_completion.d/'#1'
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.bash}' \
+         -o ~/.bash_completion.d/'#1'
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/{fzf-git.sh}' \
+         -o ~/.bash_completion.d/'#1'
+
+      curl \
+         --create-dirs \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.fish}' \
+         -o ~/.config/fish/functions/'#1'
+    preconditions:
+      - msg: fzf is already present
+        sh: "! which fzf"
