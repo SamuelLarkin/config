@@ -1,0 +1,166 @@
+version: '3'
+
+env:
+  GOBIN: "{{.HOME}}/.local/bin"
+
+tasks:
+  default:
+    deps:
+      - archiver
+      - duf
+      - f2
+      - gojq
+      - gotz
+      - grv
+      - jid
+      - jpq
+      - lazydocker
+      - lf
+      - miller
+      - up
+      - yq
+
+  miller:
+    desc: >
+      [Miller - GitHub](https://github.com/johnkerl/miller):
+      Miller is like awk, sed, cut, join, and sort for data formats such as
+      CSV, TSV, JSON, JSON Lines, and positionally-indexed.
+    cmd: go install github.com/johnkerl/miller@latest
+    generates:
+      - "{{.GOBIN}}/mlr"
+    status:
+      - which mlr
+
+  archiver:
+    desc: >
+      [archiver - GitHub](https://github.com/mholt/archiver):
+      Easily create & extract archives, and compress & decompress files of
+      various formats.
+    cmd: go install github.com/mholt/archiver/v3/cmd/arc@latest
+    generates:
+      - "{{.GOBIN}}/arc"
+    status:
+      - which arc
+
+  lazydocker:
+    desc: >
+      [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker):
+      A simple terminal UI for both docker and docker-compose, written in Go
+      with the gocui library.
+    cmd: go install github.com/jesseduffield/lazydocker@latest
+    generates:
+      - "{{.GOBIN}}/lazydocker"
+    status:
+      - which lazydocker
+
+  duf:
+    desc: >
+      [duf - GitHub](https://github.com/muesli/duf):
+      Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
+    cmd: go install github.com/muesli/duf@latest
+    generates:
+      - "{{.GOBIN}}/duf"
+    status:
+      - which duf
+
+  f2:
+    desc: >
+      [F2 - GitHub](https://github.com/ayoisaiah/f2):
+      F2 is a cross-platform command-line tool for batch renaming files and
+      directories quickly and safely. Written in Go!
+    cmd: go install github.com/ayoisaiah/f2/cmd/f2@latest
+    generates:
+      - "{{.GOBIN}}/f2"
+    status:
+      - which f2
+
+  yq:
+    desc: >
+      [yq - gitHub](https://github.com/mikefarah/yq):
+      A lightweight and portable command-line YAML, JSON and XML processor.
+      yq uses jq like syntax but works with yaml files as well as json and xml.
+    cmd: go install github.com/mikefarah/yq/v4@latest
+    generates:
+      - "{{.GOBIN}}/yq"
+    status:
+      - which yq
+
+  gojq:
+    desc: >
+      [gojq - GitHub](Pure Go implementation of jq):
+      Pure Go implementation of jq.
+      This is an implementation of jq command written in Go language. You can
+      also embed gojq as a library to your Go products.
+    cmd: go install github.com/itchyny/gojq/cmd/gojq@latest
+    generates:
+      - "{{.GOBIN}}/gojq"
+    status:
+      - which gojq
+
+  lf:
+    desc: >
+      [lf - GitHub](https://github.com/gokcehan/lf):
+      lf (as in "list files") is a terminal file manager written in Go with a
+      heavy inspiration from ranger file manager.
+    cmd: CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
+    generates:
+      - "{{.GOBIN}}/lf"
+    status:
+      - which lf
+
+  gotz:
+    desc: >
+      [gotz - GitHub](https://github.com/merschformann/gotz):
+      gotz - a simple CLI timezone info tool.
+    cmd: go install github.com/merschformann/gotz@latest
+    generates:
+      - "{{.GOBIN}}/gotz"
+    status:
+      - which gotz
+
+  jid:
+    desc: >
+      [jid - GitHub](https://github.com/simeji/jid)
+      json incremental digger.
+    cmd: go install github.com/simeji/jid/cmd/jid@latest
+    generates:
+      - "{{.GOBIN}}/jid"
+    status:
+      - which jid
+
+  jpq:
+    desc: >
+      [jqp - GitHub](https://github.com/noahgorstein/jqp)
+      A TUI playground to experiment with jq.
+    cmd: go install github.com/noahgorstein/jqp@latest
+    generates:
+      - "{{.GOBIN}}/jpq"
+    status:
+      - which jpq
+
+  up:
+    desc: >
+      [up - GitHub](https://github.com/akavel/up)
+      Ultimate Plumber is a tool for writing Linux pipes with instant live preview.
+    cmd: go install github.com/akavel/up@latest
+    generates:
+      - "{{.GOBIN}}/up"
+    status:
+      - which up
+
+  grv:
+    desc: >
+      [grv - GitHub](https://github.com/rgburke/grv)
+      GRV is a terminal interface for viewing git repositories.
+    cmd: >
+      curl \
+         --create-dirs --fail --location \
+         --output {{.GOBIN}}/grv \
+         'https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64'
+      && chmod +x {{.GOBIN}}/grv
+    generates:
+      - "{{.GOBIN}}/grv"
+    status:
+      - which grv
+
+

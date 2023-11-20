@@ -11,6 +11,8 @@ includes:
     taskfile: taskfiles/go_essentials.yml
   rust_extras:
     taskfile: taskfiles/rust_extras.yml
+  go_extras:
+    taskfile: taskfiles/go_extras.yml
   rust_essentials:
     taskfile: taskfiles/rust_essentials.yml
   rust_trial:
