@@ -15,6 +15,8 @@ includes:
     taskfile: taskfiles/bashdb.yml
   compiled_essentials:
     taskfile: taskfiles/compiled_essentials.yml
+  compiled_extras:
+    taskfile: taskfiles/compiled_extras.yml
 
 tasks:
   all:

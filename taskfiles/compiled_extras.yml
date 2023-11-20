@@ -1,0 +1,52 @@
+version: '3'
+
+env:
+  BIN_DIR: "{{.HOME}}/.local/bin" 
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - gh
+      - ncdu
+
+  gh:
+    desc: >
+      [Install from Source](https://github.com/cli/cli/blob/trunk/docs/source.md)
+    cmds:
+      - git clone https://github.com/cli/cli.git gh-cli
+      - defer: rm -fr gh-cli
+      - |
+        cd gh-cli
+        \make install prefix={{.INSTALL_DIR}}
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.BIN_DIR}}/gh"
+    status:
+      - which gh
+
+  ncdu:
+    desc: >
+      [ncdu](https://dev.yorhel.nl/ncdu):
+      NCurses Disk Usage.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output ncdu-$VERSION.tar.gz \
+          --no-check-certificate \
+          "https://dev.yorhel.nl/download/ncdu-$VERSION.tar.gz"
+      - defer: rm ncdu-$VERSION.tar.gz
+      - tar xf ncdu-$VERSION.tar.gz
+      - defer: rm -fr ncdu-$VERSION
+      - |
+        cd ncdu-$VERSION
+        ./configure --prefix="{{.INSTALL_DIR}}"
+        \make -j $(nproc) install
+    env:
+      VERSION: 1.16
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.BIN_DIR}}/ncdu"
+    status:
+      - which ncdu
