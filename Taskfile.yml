@@ -9,12 +9,12 @@ includes:
     taskfile: taskfiles/fzf.yml
   go_essentials:
     taskfile: taskfiles/go_essentials.yml
-  rust_extras:
-    taskfile: taskfiles/rust_extras.yml
   go_extras:
     taskfile: taskfiles/go_extras.yml
   rust_essentials:
     taskfile: taskfiles/rust_essentials.yml
+  rust_extras:
+    taskfile: taskfiles/rust_extras.yml
   rust_trial:
     taskfile: taskfiles/rust_trial.yml
   bashdb:
