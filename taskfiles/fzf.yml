@@ -1,0 +1,98 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  GOBIN: "{{.HOME}}/.local/bin"
+
+tasks:
+  default:
+    deps:
+      - fzf
+      - fzf-tmux
+      - forgit
+      - shell_completion
+      - fzf-git
+
+  fzf:
+    desc: >
+      [fzf - GitHub](https://github.com/junegunn/fzf):
+      fzf is a general-purpose command-line fuzzy finder.
+    cmd: go install github.com/junegunn/fzf@latest
+    generates:
+      - "{{.GOBIN}}/fzf"
+    status:
+      - which fzf
+
+  fzf-tmux:
+    desc: >
+      Install fzf's integration with tmux.
+    deps:
+      - fzf
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output {{.BIN_DIR}}/'#1' \
+          'https://raw.githubusercontent.com/junegunn/fzf/master/bin/{fzf-tmux}'
+      - chmod u+x {{.BIN_DIR}}/fzf-tmux
+    generates:
+      - "{{.BIN_DIR}}/fzf-tmux"
+    status:
+      - which fzf-tmux
+
+  forgit:
+    desc: >
+      [forgit - GitHub](https://github.com/wfxr/forgit):
+      A utility tool powered by fzf for using git interactively.
+    cmd: >
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BIN_DIR}}/'#1' \
+         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}'
+    generates:
+      - "{{.BIN_DIR}}/forgit"
+    status:
+      - which forgit
+
+  shell_completion:
+    desc: >
+      Install fzf's shell completion.
+    deps:
+      - fzf
+    cmd: |
+      # BASH completions
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{completion.bash}'
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.bash}'
+      curl \
+         --create-dirs --fail --location \
+         --output ~/.config/fish/functions/'#1' \
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.fish}'
+    generates:
+      - "{{.BASH_COMPLETION_D}}/completion.bash"
+      - "{{.BASH_COMPLETION_D}}/key-bindings.bash"
+    status:
+      - test -f {{.BASH_COMPLETION_D}}/completion.bash 
+      - test -f {{.BASH_COMPLETION_D}}/key-bindings.bash
+
+  fzf-git:
+    desc: >
+      [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh):
+      bash and zsh key bindings for Git objects, powered by fzf
+    deps:
+      - fzf
+    cmd: |
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/{fzf-git.sh}'
+    generates:
+      - "{{.BASH_COMPLETION_D}}/fzf-git.sh"
+    status:
+      - test -f {{.BASH_COMPLETION_D}}/fzf-git.sh
