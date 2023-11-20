@@ -1,0 +1,29 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+
+tasks:
+  default:
+    deps:
+      - shell_completion
+      - tpm
+
+  shell_completion:
+    desc: >
+      Install tmux shell completion
+    cmd: |
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}/'#1' \
+         'https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/{tmux}'
+
+  tpm:
+    desc: >
+      Install tmux's plugin system.
+    cmd: |
+      git \
+         clone \
+         https://github.com/tmux-plugins/tpm \
+         {{.HOME}}/.tmux/plugins/tpm \
+      || ( cd {{.HOME}}/.tmux/plugins/tpm && git pull; )
