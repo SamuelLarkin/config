@@ -13,6 +13,8 @@ includes:
     taskfile: taskfiles/rust_trial.yml
   bashdb:
     taskfile: taskfiles/bashdb.yml
+  compiled_essentials:
+    taskfile: taskfiles/compiled_essentials.yml
 
 tasks:
   all:

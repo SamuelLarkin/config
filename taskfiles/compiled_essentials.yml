@@ -1,0 +1,194 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - htop
+      - hyperfine
+      - jq
+      - parallel
+      - tig
+      - ugrep
+
+  jq:
+    desc: >
+      [jq - GitHub](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor.
+      [jq - doc](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output "{{.BIN_DIR}}/jq" \
+          "https://github.com/jqlang/jq/releases/download/jq-$VERSION/jq-linux-amd64"
+      - chmod u+x "{{.BIN_DIR}}/jq"
+    env:
+      VERSION: 1.7
+    generates:
+      - "{{.BIN_DIR}}/jq"
+    status:
+      - which jq
+
+  jq_build:
+    desc: >
+      [jq - GitHub](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor.
+      [jq - doc](https://github.com/stedolan/jq): jq is a lightweight and flexible command-line JSON processor.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output jq-$VERSION.tar.gz \
+          "https://github.com/jqlang/jq/releases/download/jq-$VERSION/jq-$VERSION.tar.gz"
+      - defer: rm jq-$VERSION.tar.gz
+      - tar xf jq-$VERSION.tar.gz
+      - defer: rm -fr jq-$VERSION
+      - |
+        cd jq-$VERSION
+        autoreconf -fi
+        ./configure --with-oniguruma=builtin --prefix="{{.INSTALL_DIR}}"
+        \make -j $(nproc) LDFLAGS=-all-static
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.7
+    generates:
+      - "{{.BIN_DIR}}/jq"
+    status:
+      - which jq
+
+  tig:
+    desc: >
+      Install tig
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output tig-$VERSION.tar.gz \
+          "https://github.com/jonas/tig/releases/download/tig-$VERSION/tig-$VERSION.tar.gz"
+      - defer: rm tig-$VERSION.tar.gz
+      - tar xf tig-$VERSION.tar.gz
+      - defer: rm -fr tig-$VERSION
+      - |
+        cd tig-$VERSION
+        ./autogen.sh
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+        mkdir -p {{.BASH_COMPLETION_D}}
+        cp contrib/tig-completion.bash {{.BASH_COMPLETION_D}}
+        mkdir -p $CONFIG_DIR
+        cp contrib/chocolate.theme.tigrc $CONFIG_DIR
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output $CONFIG_DIR/"#1" \
+          'https://raw.githubusercontent.com/h3xx/tig-colors-neonwolf/main/{tig-colors-neonwolf-256.tigrc}'
+    dir: "{{.HOME}}/tmp"
+    env:
+      CONFIG_DIR: "{{.HOME}}/.config/tig"
+      VERSION: 2.5.8
+    generates:
+      - "{{.BIN_DIR}}/bin/tig"
+    status:
+      - which tig
+
+  htop:
+    desc: >
+      [htop - GitHub](https://github.com/htop-dev/htop):
+      is a cross-platform interactive process viewer.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output "htop-$VERSION.tar.xz" \
+          "https://github.com/htop-dev/htop/releases/download/$VERSION/htop-$VERSION.tar.xz"
+      - defer: rm htop-$VERSION.tar.xz
+      - tar xf htop-$VERSION.tar.xz
+      - defer: rm -fr htop-$VERSION
+      - |
+        cd htop-$VERSION
+        ./autogen.sh
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: $HOME/tmp
+    env:
+      VERSION: 3.2.2
+    generates:
+      - "{{.BIN_DIR}}/htop"
+    status:
+      - which htop
+
+  ugrep:
+    desc: >
+      [ug/ugrep - GitHub](https://github.com/Genivia/ugrep):
+      Search for anything in everything... ultra fast.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output "ugrep-$VERSION.tar.gz" \
+          "https://github.com/Genivia/ugrep/archive/refs/tags/v$VERSION.tar.gz"
+      - tar xf ugrep-$VERSION.tar.gz
+      - defer: rm -fr ugrep-$VERSION
+      - |
+        cd ugrep-$VERSION
+        ./configure --prefix="{{.INSTALL_DIR}}" --without-zstd
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 4.0.5
+    generates:
+      - "{{.BIN_DIR}}/ugrep"
+    status:
+      - which ugrep
+
+  parallel:
+    desc: >
+      [parallel - GNU parallel](https://www.gnu.org/software/parallel/):
+      is a shell tool for executing jobs in parallel using one or more computers.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output parallel-$VERSION.tar.bz2 \
+          "https://ftp.gnu.org/gnu/parallel/parallel-$VERSION.tar.bz2"
+      - defer: rm parallel-$VERSION.tar.bz2
+      - tar xf parallel-$VERSION.tar.bz2
+      - defer: rm -fr parallel-$VERSION
+      - |
+        cd parallel-$VERSION
+        ./configure --prefix={{.INSTALL_DIR}}"
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 20231022
+    generates:
+      - "{{.BIN_DIR}}/parallel"
+    status:
+      - which parallel
+
+  hyperfine:
+    desc: >
+      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
+      A command-line benchmarking tool.
+      NOTE: probably already install by `cargo install hyperfine`.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz \
+          "https://github.com/sharkdp/hyperfine/releases/download/v$VERSION/hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz"
+      - defer: rm hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
+      - tar xf hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
+      - defer: rm -fr hyperfine-v$VERSION-x86_64-unknown-linux-musl
+      - cp hyperfine-v$VERSION-x86_64-unknown-linux-musl/hyperfine "{{.BIN_DIR}}"
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.12.0
+    generates:
+      - "{{.BIN_DIR}}/hyperfine"
+    status:
+      - which hyperfine
