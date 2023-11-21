@@ -168,8 +168,8 @@ function install_python_tools {
 function install_fzf {
    # [fzf - GitHub](https://github.com/junegunn/fzf):
    # fzf is a general-purpose.  command-line fuzzy finder
-   go install github.com/junegunn/fzf@latest \
-   && mv ~/go/bin/fzf ~/.local/bin/
+   export GOBIN=~/.local/bin
+   go install github.com/junegunn/fzf@latest
 
    curl \
       --create-dirs \
@@ -208,29 +208,26 @@ function install_fzf {
 
 function install_go_essential {
    mkdir -p ~/.local/bin
+   export GOBIN=~/.local/bin
 
    install_fzf
 
    # [chezmoi - GitHub](https://github.com/twpayne/chezmoi)
    # Manage your dotfiles across multiple diverse machines, securely.
-   go install github.com/twpayne/chezmoi@latest \
-   && mv ~/go/bin/chezmoi ~/.local/bin/
+   go install github.com/twpayne/chezmoi@latest
 
    # [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
    # A simple terminal UI for git commands, written in Go with the gocui
    # library.
-   go install github.com/jesseduffield/lazygit@latest \
-   && mv ~/go/bin/lazygit ~/.local/bin/
+   go install github.com/jesseduffield/lazygit@latest
 
    # [go DiskUsage(gdu) - GitHub](https://github.com/dundee/gdu):
    # Pretty fast disk usage analyzer written in Go.
-   go install github.com/dundee/gdu/v5/cmd/gdu@latest \
-   && mv ~/go/bin/gdu ~/.local/bin/
+   go install github.com/dundee/gdu/v5/cmd/gdu@latest
 
    # [Glow - GitHub](https://github.com/charmbracelet/glow):
    # Render markdown on the CLI, with pizzazz!
-   go install github.com/charmbracelet/glow@latest \
-   && mv ~/go/bin/glow ~/.local/bin/
+   go install github.com/charmbracelet/glow@latest
    mkdir -p ~/.config/glow \
    && ln -fns ~/config/config/glow/glow.yml ~/.config/glow/
 }
@@ -239,6 +236,7 @@ function install_go_essential {
 
 function install_go_extras {
    mkdir -p ~/.local/bin
+   export GOBIN=~/.local/bin
 
    # [Miller - GitHub](https://github.com/johnkerl/miller):
    # Miller is like awk, sed, cut, join, and sort for data formats such as CSV,
@@ -248,65 +246,54 @@ function install_go_extras {
 
    # [archiver - GitHub](https://github.com/mholt/archiver)
    # Easily create & extract archives, and compress & decompress files of various formats.
-   go install github.com/mholt/archiver/v3/cmd/arc@latest \
-   && mv ~/go/bin/arc ~/.local/bin/
+   go install github.com/mholt/archiver/v3/cmd/arc@latest
 
    # [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker):
    # A simple terminal UI for both docker and docker-compose, written in Go
    # with the gocui library.
-   go install github.com/jesseduffield/lazydocker@latest \
-   && mv ~/go/bin/lazydocker ~/.local/bin/
+   go install github.com/jesseduffield/lazydocker@latest
 
    # [duf - GitHub](https://github.com/muesli/duf):
    # Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
-   go install github.com/muesli/duf@latest \
-   && mv ~/go/bin/duf ~/.local/bin/
+   go install github.com/muesli/duf@latest
 
    # [F2 - GitHub](https://github.com/ayoisaiah/f2):
    # F2 is a cross-platform command-line tool for batch renaming files and
    # directories quickly and safely. Written in Go!
-   go install github.com/ayoisaiah/f2/cmd/f2@latest \
-   && mv ~/go/bin/f2 ~/.local/bin/
+   go install github.com/ayoisaiah/f2/cmd/f2@latest
 
    # [yq - gitHub](https://github.com/mikefarah/yq):
    # A lightweight and portable command-line YAML, JSON and XML processor. yq
    # uses jq like syntax but works with yaml files as well as json and xml.
-   go install github.com/mikefarah/yq/v4@latest  \
-   && mv ~/go/bin/yq ~/.local/bin/
+   go install github.com/mikefarah/yq/v4@latest
 
    # [gojq - GitHub](Pure Go implementation of jq):
    # Pure Go implementation of jq.
    # This is an implementation of jq command written in Go language. You can
    # also embed gojq as a library to your Go products.
-   go install github.com/itchyny/gojq/cmd/gojq@latest \
-   && mv ~/go/bin/gojq ~/.local/bin/
+   go install github.com/itchyny/gojq/cmd/gojq@latest
 
    # [lf - GitHub](https://github.com/gokcehan/lf):
    # lf (as in "list files") is a terminal file manager written in Go with a
    # heavy inspiration from ranger file manager.
-   CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest \
-   && mv ~/go/bin/lf ~/.local/bin/
+   CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 
    # [gotz - GitHub](https://github.com/merschformann/gotz):
    # gotz - a simple CLI timezone info tool.
-   go install github.com/merschformann/gotz@latest \
-   && mv ~/go/bin/gotz ~/.local/bin/
+   go install github.com/merschformann/gotz@latest
    ln -fns ~/config/gotz.config.json ~/.gotz.config.json
 
    # [jid - GitHub](https://github.com/simeji/jid)
    # json incremental digger.
-   go install github.com/simeji/jid/cmd/jid@latest \
-   && mv ~/go/bin/jid ~/.local/bin/
+   go install github.com/simeji/jid/cmd/jid@latest
 
    # [jqp - GitHub](https://github.com/noahgorstein/jqp)
    # A TUI playground to experiment with jq.
-   go install github.com/noahgorstein/jqp@latest \
-   && mv ~/go/bin/jqp ~/.local/bin/
+   go install github.com/noahgorstein/jqp@latest
 
    # [up - GitHub](https://github.com/akavel/up)
    # Ultimate Plumber is a tool for writing Linux pipes with instant live preview.
-   go install github.com/akavel/up@latest \
-   && cp ~/go/bin/up ~/.local/bin/
+   go install github.com/akavel/up@latest
 
    # [grv - GitHub](https://github.com/rgburke/grv)
    # GRV is a terminal interface for viewing git repositories.
@@ -323,6 +310,8 @@ function install_go_tools {
    # [go](https://golang.org/): Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
    # wget 'https://go.dev/dl/go1.19.3.linux-amd64.tar.gz'
    # wget 'https://go.dev/dl/go1.17.5.linux-armv6l.tar.gz'
+
+   export GOBIN=~/.local/bin
 
    # [fzf - GitHub](https://github.com/junegunn/fzf):
    # fzf is a general-purpose.  command-line fuzzy finder
