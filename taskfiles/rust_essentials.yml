@@ -25,7 +25,7 @@ tasks:
       This project is a rewrite of GNU ls with lot of added features like
       colors, icons, tree-view, more formatting options etc. The project is
       heavily inspired by the super colorls project.
-    cmd: cargo install lsd
+    cmd: cargo install --force lsd
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
     status:
@@ -35,7 +35,7 @@ tasks:
     desc: >
       [bat - GitHub](https://github.com/sharkdp/bat):
       A cat(1) clone with syntax highlighting and Git integration.
-    cmd: cargo install bat
+    cmd: cargo install --force bat
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/bat"
     status:
@@ -65,7 +65,7 @@ tasks:
 
       [diff]
           colorMoved = default
-    cmd: cargo install --git https://github.com/dandavison/delta
+    cmd: cargo install --force --git https://github.com/dandavison/delta
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
     status:
@@ -94,7 +94,7 @@ tasks:
       JSON files. It is written in Rust and can be installed as a single
       standalone binary.
       [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
-    cmd: cargo install jless
+    cmd: cargo install --force jless
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
     status:
@@ -104,7 +104,7 @@ tasks:
     desc: >
       [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
       A command-line benchmarking tool.
-    cmd: cargo install hyperfine
+    cmd: cargo install --force hyperfine
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
     status:
@@ -122,7 +122,7 @@ tasks:
       It remembers which directories you use most frequently, so you can "jump"
       to them in just a few keystrokes.  zoxide works on all major shells.
       `eval "$(zoxide init bash)"`
-    cmd: cargo install zoxide
+    cmd: cargo install --force zoxide
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/zoxide"
     status:
@@ -135,7 +135,7 @@ tasks:
       distinguish different categories of bytes (NULL bytes, printable ASCII
       characters, ASCII whitespace characters, other ASCII characters and
       non-ASCII).
-    cmd: cargo install hexyl
+    cmd: cargo install --force hexyl
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
     status:
@@ -146,7 +146,7 @@ tasks:
       [difftastic - GitHub](https://github.com/Wilfred/difftastic):
       Difftastic is an experimental diff tool that compares files based on their
       syntax.
-    cmd: cargo install difftastic
+    cmd: cargo install --force difftastic
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
     status:
@@ -156,7 +156,7 @@ tasks:
     desc: >
       [stybulate - GitHub](https://github.com/guigui64/stybulate):
       Tabulate with Style
-    cmd: cargo install stybulate --features=cli
+    cmd: cargo install --force stybulate --features=cli
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
     status:
