@@ -1,7 +1,10 @@
 version: '3'
 
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+
 tasks:
-  all:
+  default:
     desc: >
       Install all essential rust tools
     deps:
@@ -22,19 +25,21 @@ tasks:
       This project is a rewrite of GNU ls with lot of added features like
       colors, icons, tree-view, more formatting options etc. The project is
       heavily inspired by the super colorls project.
-    cmd: cargo install --force --root ~/.local lsd
-    preconditions:
-      - msg: lsd is already present
-        sh: "! which lsd"
+    cmd: cargo install lsd
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
+    status:
+      - which lsd
 
   bat:
     desc: >
       [bat - GitHub](https://github.com/sharkdp/bat):
       A cat(1) clone with syntax highlighting and Git integration.
-    cmd: cargo install --force --root ~/.local bat
-    preconditions:
-      - msg: bat is already present
-        sh: "! which bat"
+    cmd: cargo install bat
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/bat"
+    status:
+      - which bat
 
   delta:
     desc: >
@@ -60,10 +65,11 @@ tasks:
 
       [diff]
           colorMoved = default
-    cmd: cargo install --force --root ~/.local --git https://github.com/dandavison/delta
-    preconditions:
-      - msg: delta is already present
-        sh: "! which delta"
+    cmd: cargo install --git https://github.com/dandavison/delta
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
+    status:
+      - which delta
 
   # NOTE we manually move the compile binary because we want to make sure it
   # is different than the other variants of reservoir_sampling.
@@ -74,10 +80,11 @@ tasks:
       Reservoir Sampling in Rust.
     cmds:
       - cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
-      - mv ~/.cargo/bin/reservoir_sampling_rs ~/.local/bin/reservoir_sampling_rs
-    preconditions:
-      - msg: reservoir_sampling_rs is already present
-        sh: "! which reservoir_sampling_rs"
+      - mv ~/.cargo/bin/reservoir_sampling_rs {{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs"
+    status:
+      - which reservoir_sampling_rs
 
   jless:
     desc: >
@@ -87,19 +94,21 @@ tasks:
       JSON files. It is written in Rust and can be installed as a single
       standalone binary.
       [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
-    cmd: cargo install --force --root ~/.local jless
-    preconditions:
-      - msg: jless is already present
-        sh: "! which jless"
+    cmd: cargo install jless
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
+    status:
+      - which jless
 
   hyperfine:
     desc: >
       [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
       A command-line benchmarking tool.
-    cmd: cargo install --force --root ~/.local hyperfine
-    preconditions:
-      - msg: hyperfine is already present
-        sh: "! which hyperfine"
+    cmd: cargo install hyperfine
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
+    status:
+      - which hyperfine
 
   zoxide:
     desc: >
@@ -107,16 +116,17 @@ tasks:
       zoxide is a smarter cd command, inspired by z and autojump.
       It remembers which directories you use most frequently, so you can "jump"
       to them in just a few keystrokes.  zoxide works on all major shells.
-    summary: >
+    summary: |
       [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
       zoxide is a smarter cd command, inspired by z and autojump.
       It remembers which directories you use most frequently, so you can "jump"
       to them in just a few keystrokes.  zoxide works on all major shells.
       `eval "$(zoxide init bash)"`
-    cmd: cargo install --force --root ~/.local zoxide
-    preconditions:
-      - msg: zoxide is already present
-        sh: "! which zoxide"
+    cmd: cargo install zoxide
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/zoxide"
+    status:
+      - which zoxide
 
   hexyl:
     desc: >
@@ -125,26 +135,29 @@ tasks:
       distinguish different categories of bytes (NULL bytes, printable ASCII
       characters, ASCII whitespace characters, other ASCII characters and
       non-ASCII).
-    cmd: cargo install --force --root ~/.local hexyl
-    preconditions:
-      - msg: hexyl is already present
-        sh: "! which hexyl"
+    cmd: cargo install hexyl
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
+    status:
+      - which hexyl
 
   difftastic:
     desc: >
       [difftastic - GitHub](https://github.com/Wilfred/difftastic):
       Difftastic is an experimental diff tool that compares files based on their
       syntax.
-    cmd: cargo install --force --root ~/.local difftastic
-    preconditions:
-      - msg: diffstatic is already present
-        sh: "! which difft"
+    cmd: cargo install difftastic
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
+    status:
+      - which difft
 
   stybulate:
     desc: >
       [stybulate - GitHub](https://github.com/guigui64/stybulate):
       Tabulate with Style
-    cmd: cargo install --force --root ~/.local stybulate --features=cli
-    preconditions:
-      - msg: stybulate is already present
-        sh: "! which stybulate"
+    cmd: cargo install stybulate --features=cli
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
+    status:
+      - which stybulate
