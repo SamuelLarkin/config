@@ -1,0 +1,112 @@
+version: '3'
+
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+  GOBIN: "{{.HOME}}/.local"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - histogram
+      - termgraph
+      - asciigraph
+
+  histogram:
+    desc: >
+      [histogram.py - GitHub](https://github.com/bitly/data_hacks): Command line utilities for data analysis.
+    cmd: python3 -m pip install --user --upgrade data_hacks
+
+  termgraph:
+    desc: >
+      [Termgraph - GitHub](https://github.com/mkaz/termgraph):
+      A command-line tool that draws basic graphs in the terminal, written in Python.
+      [Termgraph – How To Draw basic graphs on Linux terminal - Blog](https://computingforgeeks.com/termgraph-command-line-tool-draw-graphs-in-terminal-linux/).
+    cmd: python3 -m pip install --user --upgrade termgraph
+
+  termeter:
+    desc: >
+      [termeter - GitHub](https://github.com/atsaki/termeter):
+      Visualize data in the terminal.
+    cmd: go install github.com/atsaki/termeter/cmd/termeter@latest
+
+  asciigraph:
+    desc: >
+      [asciigraph - GitHub](https://github.com/guptarohit/asciigraph):
+      Go package to make lightweight ASCII line graphs ╭┈╯.
+    cmd: go install github.com/guptarohit/asciigraph/cmd/asciigraph@latest
+
+  pysparklines:
+    desc: >
+      [pysparkline - GitHub](https://github.com/RedKrieg/pysparklines):
+      Takes series data via stdin, command line, or API and prints a sparkline representation.
+    cmd: python3 -m pip install --user --upgrade pysparklines
+
+  plotext:
+    desc: >
+      [plotext - GitHub](https://github.com/piccolomo/plotext):
+      plots directly on terminal, it has no dependencies and the syntax is very
+      similar to matplotlib. It also provide a simple command line tool.
+      Doesn't seem to have a CLI.
+    cmd: python3 -m pip install --user --upgrade plotext
+
+  ttyplot:
+    desc: >
+      [ttyplot - GitHub](https://github.com/tenox7/ttyplot):
+      a realtime plotting utility for text mode consoles and terminals with data input from stdin / pipe.
+      Needs to be compiled
+    cmd: echo "Needs to be compiled"
+
+  termplotlib:
+    desc: >
+      [termplotlib - GitHub](https://github.com/nschloe/termplotlib):
+      termplotlib is a Python library for all your terminal plotting needs. It
+      aims to work like matplotlib.
+    cmd: python3 -m pip install --user --upgrade termplotlib
+
+  bashplotlib:
+    desc: >
+      [bashplotlib - GitHub](https://github.com/glamp/bashplotlib):
+      plotting in the terminal.
+    cmd: python3 -m pip install --user --upgrade bashplotlib
+
+  smag:
+    desc: >
+      [smag - show me a graph! - GitHub](https://github.com/aantn/smag):
+      Easily create graphs from cli commands and view them in the terminal.
+      Like the watch command but with a graph of the output.
+    cmd: cargo install --force --git https://github.com/aantn/smag
+
+  pipeplot:
+    desc: >
+      [Pipe Plot - GitHub](https://github.com/MyGodIsHe/pipeplot):
+      pipeplot draws an interactive graph in a terminal based on data from
+      pipe.
+    cmd: python3 -m pip install --user --upgrade pipeplot
+
+  plotille:
+    desc: >
+      [Plotille - GitHub](https://github.com/tammoippen/plotille):
+      Plot, scatter plots and histograms in the terminal using braille dots,
+      with (almost) no dependancies. Plot with color or make complex figures -
+      similar to a very small sibling to matplotlib. Or use the canvas to plot
+      dots and lines yourself.
+      Library Only?
+    cmd: python3 -m pip install --user --upgrade plotille
+
+  feedgnuplot:
+    desc: >
+      [feedgnuplot - GitHub](https://github.com/dkogan/feedgnuplot):
+      This is a flexible, command-line-oriented frontend to Gnuplot.
+    cmds:
+      - git clone https://github.com/dkogan/feedgnuplot.git
+      - defer: rm -fr feedgnuplot
+      - |
+        cd feedgnuplot
+        perl Makefile.PL prefix={{.INSTALL_DIR}}
+        \make install
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.INSTALL_DIR}}/bin/feedgnuplot"
+    status:
+      - which feedgnuplot
