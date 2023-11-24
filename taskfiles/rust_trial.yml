@@ -6,14 +6,31 @@ env:
 tasks:
   default:
     deps:
+      - atuin
       - bandwhich
       - grex
-      - atuin
+      - helix
+
+  helix:
+    desc: >
+      [Helix](https://helix-editor.com/)
+      [Helix - GitHub](https://github.com/helix-editor/helix)
+      A post-modern text editor.
+    cmds:
+      - git clone https://github.com/helix-editor/helix
+      - defer: rm -fr helix
+      - |
+        cd helix
+        cargo install --force --path helix-term
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
+    status:
+      - which helix
 
   bandwhich:
     desc: >
       WARNING Needs sudo
-
       [bandwhich - GitHub](https://github.com/imsnif/bandwhich):
       Terminal bandwidth utilization tool.
     cmd: cargo install --force bandwhich
