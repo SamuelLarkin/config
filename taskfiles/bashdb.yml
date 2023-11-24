@@ -1,6 +1,13 @@
 version: '3'
 
+env:
+  INSTALL_DIR: "{{.HOME}}/.local"
+
 tasks:
+  default:
+    deps:
+      - bashdb
+
   bashdb:
     desc: >
       [bashdb - SourceForge](https://bashdb.sourceforge.net/):
@@ -9,12 +16,20 @@ tasks:
     dir: $HOME/tmp
     cmds:
       - |
-        wget -O bashdb-5.0-1.1.2.tar.bz2 'https://sourceforge.net/projects/bashdb/files/bashdb/5.0-1.1.2/bashdb-5.0-1.1.2.tar.bz2/download'
-        tar xf bashdb-5.0-1.1.2.tar.bz2
-        cd bashdb-5.0-1.1.2/
-        ./configure --prefix=$HOME/.local
+        curl \
+          --create-dirs --fail --location \
+          --output bashdb-$VERSION.tar.bz2 \
+          "https://sourceforge.net/projects/bashdb/files/bashdb/$VERSION/bashdb-$VERSION.tar.bz2/download"
+      - defer: rm bashdb-$VERSION.tar.bz2
+      - tar xf bashdb-$VERSION.tar.bz2
+      - defer: rm -fr bashdb-$VERSION/
+      - |
+        cd bashdb-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
         \make install
-        rm -fr bashdb-5.0-1.1.2/
-    preconditions:
-      - msg: bashdb is already present
-        sh: "! which bashdb"
+    env:
+      VERSION: 5.0-1.1.2
+    generates:
+      - "{{.INSTALL_DIR}}/bin/bashdb"
+    status:
+      - which bashdb
