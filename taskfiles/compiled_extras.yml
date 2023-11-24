@@ -1,7 +1,6 @@
 version: '3'
 
 env:
-  BIN_DIR: "{{.HOME}}/.local/bin" 
   INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
@@ -21,7 +20,7 @@ tasks:
         \make install prefix={{.INSTALL_DIR}}
     dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.BIN_DIR}}/gh"
+      - "{{.INSTALL_DIR}}/bin/gh"
     status:
       - which gh
 
@@ -47,6 +46,6 @@ tasks:
       VERSION: 1.16
     dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.BIN_DIR}}/ncdu"
+      - "{{.INSTALL_DIR}}/bin/ncdu"
     status:
       - which ncdu
