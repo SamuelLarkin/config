@@ -2,31 +2,86 @@
 version: '3'
 
 includes:
-  vim:
-    taskfile: taskfiles/vim.yml
-  tmux:
-    taskfile: taskfiles/tmux.yml
-  fzf:
-    taskfile: taskfiles/fzf.yml
-  go_essentials:
-    taskfile: taskfiles/go_essentials.yml
-  go_extras:
-    taskfile: taskfiles/go_extras.yml
-  rust_essentials:
-    taskfile: taskfiles/rust_essentials.yml
-  rust_extras:
-    taskfile: taskfiles/rust_extras.yml
-  rust_trial:
-    taskfile: taskfiles/rust_trial.yml
-  bashdb:
-    taskfile: taskfiles/bashdb.yml
-  compiled_essentials:
-    taskfile: taskfiles/compiled_essentials.yml
-  compiled_extras:
-    taskfile: taskfiles/compiled_extras.yml
+  bashdb: taskfiles/bashdb.yml
+  compiled_essentials: taskfiles/compiled_essentials.yml
+  compiled_extras: taskfiles/compiled_extras.yml
+  compiled_trial: taskfiles/compiled_trial.yml
+  fzf: taskfiles/fzf.yml
+  git: taskfiles/git.yml
+  go_essentials: taskfiles/go_essentials.yml
+  go_extras: taskfiles/go_extras.yml
+  other_shell: taskfiles/other_shell.yml
+  perl: taskfiles/perl.yml
+  plot_tools: taskfiles/plot_tools.yml
+  python: taskfiles/python.yml
+  python_profiler: taskfiles/python_profiler.yml
+  rust_essentials: taskfiles/rust_essentials.yml
+  rust_extras: taskfiles/rust_extras.yml
+  rust_trial: taskfiles/rust_trial.yml
+  slurm: taskfiles/slurm.yml
+  tmux: taskfiles/tmux.yml
+  vim: taskfiles/vim.yml
 
 tasks:
   default:
     deps:
+      - essentials
+
+  essentials:
+    deps:
+      - compiled_essentials
+      - fzf
+      - git
+      - go_essentials
+      - rust_essentials
+      - slurm
+      - tmux
+      - vim
+
+  compiled_essentials:
+    deps:
+      - rust_essentials
+      - go_essentials
+    cmds:
+      - task: compiled_essentials:default
+
+  compiled_extras:
+    deps:
       - rust_essentials
       - rust_extras
+      - go_essentials
+      - go_extras
+    cmds:
+      - task: compiled_extras:default
+
+  compiled_trial:
+    deps:
+      - rust_essentials
+      - rust_extras
+      - rust_trial
+      - go_essentials
+      - go_extras
+    cmds:
+      - task: compiled_trial:default
+
+  extras:
+    deps:
+      - rust_extras
+      - go_extras
+
+  trial:
+    deps:
+      - rust_trial
+
+  others:
+    deps:
+      - bashdb
+      - compiled_essentials
+      - compiled_extras
+      - compiled_trial
+      - other_shell
+      - perl
+      - plot_tools
+      - python
+      - python_profiler
+      - rust_trial

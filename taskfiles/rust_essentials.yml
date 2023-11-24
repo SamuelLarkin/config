@@ -16,6 +16,7 @@ tasks:
       - jless
       - lsd
       - reservoir_sampling
+      - starship
       - stybulate
       - zoxide
 
@@ -99,6 +100,22 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
     status:
       - which jless
+
+  starship:
+    desc: >
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+    summary: |
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+      eval "$(starship init bash)"
+    cmd: cargo install --force starship
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/starship"
+    status:
+      - which starship
 
   hyperfine:
     desc: >

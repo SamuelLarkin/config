@@ -8,11 +8,11 @@ env:
 tasks:
   default:
     deps:
-      - fzf
-      - fzf-tmux
       - forgit
-      - shell_completion
+      - fzf
       - fzf-git
+      - fzf-tmux
+      - shell_completion
 
   fzf:
     desc: >
