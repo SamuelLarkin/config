@@ -1,0 +1,18 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+
+tasks:
+  default:
+    deps:
+      - slurm_completion
+
+  slurm_completion:
+    desc: >
+      SLURM's bash shell completion.
+    cmd: |
+      curl \
+        --create-dirs --fail --location \
+        --output {{.BASH_COMPLETION_D}}/'#1' \
+        'https://raw.githubusercontent.com/damienfrancois/slurm-helper/master/{slurm_completion.sh}'
