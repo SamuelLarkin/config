@@ -4,6 +4,31 @@
 This repository contains my personal configuration files when I want to setup a Linux environment.
 
 
+## Minimal Manual Action to Get Started
+
+At a minimum, we need to manually install Task which will allow us to install the rest of the software stack.
+
+### Task
+[Go Task - Documentation](https://taskfile.dev/): Task is a task runner / build tool that aims to be simpler and easier to use than, for example, GNU Make.
+[Go Task - GitHub](https://github.com/go-task/task): A task runner / simpler Make alternative written in Go.
+
+```sh
+env GOBIN=$HOME/.local/bin go install github.com/go-task/task/v3/cmd/task@latest
+```
+
+### ChezMoi
+[ChezMoi - Documentation](https://www.chezmoi.io/)
+[ChezMoi - GitHub](https://github.com/twpayne/chezmoi): Manage your dotfiles across multiple diverse machines, securely.
+
+```sh
+env GOBIN=$HOME/.local/bin go install github.com/twpayne/chezmoi@latest
+```
+or
+```sh
+task -t taskfiles/go_essentials.yml chezmoi
+```
+
+
 ## CLI Tools
 ### Favorites
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
