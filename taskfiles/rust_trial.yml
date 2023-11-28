@@ -11,22 +11,15 @@ tasks:
       - grex
       - helix
 
-  helix:
+  atuin:
     desc: >
-      [Helix](https://helix-editor.com/)
-      [Helix - GitHub](https://github.com/helix-editor/helix)
-      A post-modern text editor.
-    cmds:
-      - git clone https://github.com/helix-editor/helix
-      - defer: rm -fr helix
-      - |
-        cd helix
-        cargo install --force --path helix-term
-    dir: "{{.HOME}}/tmp"
+      [atuin](https://github.com/atuinsh/atuin):
+      ✨ Magical shell history.
+    cmd: cargo install --force atuin
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
+      - "{{.CARGO_INSTALL_ROOT}}/bin/atuin"
     status:
-      - which helix
+      - which atuin
 
   bandwhich:
     desc: >
@@ -51,12 +44,19 @@ tasks:
     status:
       - which grex
 
-  atuin:
+  helix:
     desc: >
-      [atuin](https://github.com/atuinsh/atuin):
-      ✨ Magical shell history.
-    cmd: cargo install --force atuin
+      [Helix](https://helix-editor.com/)
+      [Helix - GitHub](https://github.com/helix-editor/helix)
+      A post-modern text editor.
+    cmds:
+      - git clone https://github.com/helix-editor/helix
+      - defer: rm -fr helix
+      - |
+        cd helix
+        cargo install --force --path helix-term
+    dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/atuin"
+      - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
     status:
-      - which atuin
+      - which helix

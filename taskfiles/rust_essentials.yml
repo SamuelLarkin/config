@@ -20,18 +20,6 @@ tasks:
       - stybulate
       - zoxide
 
-  lsd:
-    desc: >
-      [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd):
-      This project is a rewrite of GNU ls with lot of added features like
-      colors, icons, tree-view, more formatting options etc. The project is
-      heavily inspired by the super colorls project.
-    cmd: cargo install --force lsd
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
-    status:
-      - which lsd
-
   bat:
     desc: >
       [bat - GitHub](https://github.com/sharkdp/bat):
@@ -49,6 +37,66 @@ tasks:
     summary: >
       [delta - GitHub](https://github.com/dandavison/delta):
       A syntax-highlighting pager for git, diff, and grep output
+
+  difftastic:
+    desc: >
+      [difftastic - GitHub](https://github.com/Wilfred/difftastic):
+      Difftastic is an experimental diff tool that compares files based on their
+      syntax.
+    cmd: cargo install --force difftastic
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
+    status:
+      - which difft
+
+  hexyl:
+    desc: >
+      [hexyl - GitHub](https://github.com/sharkdp/hexyl):
+      is a simple hex viewer for the terminal. It uses a colored output to
+      distinguish different categories of bytes (NULL bytes, printable ASCII
+      characters, ASCII whitespace characters, other ASCII characters and
+      non-ASCII).
+    cmd: cargo install --force hexyl
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
+    status:
+      - which hexyl
+
+  hyperfine:
+    desc: >
+      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
+      A command-line benchmarking tool.
+    cmd: cargo install --force hyperfine
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
+    status:
+      - which hyperfine
+
+  jless:
+    desc: >
+      [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
+      jless is a command-line JSON viewer. Use it as a replacement for whatever
+      combination of less, jq, cat and your editor you currently use for viewing
+      JSON files. It is written in Rust and can be installed as a single
+      standalone binary.
+      [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
+    cmd: cargo install --force jless
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
+    status:
+      - which jless
+
+  lsd:
+    desc: >
+      [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd):
+      This project is a rewrite of GNU ls with lot of added features like
+      colors, icons, tree-view, more formatting options etc. The project is
+      heavily inspired by the super colorls project.
+    cmd: cargo install --force lsd
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
+    status:
+      - which lsd
 
       ~/.gitconfig
 
@@ -87,20 +135,6 @@ tasks:
     status:
       - which reservoir_sampling_rs
 
-  jless:
-    desc: >
-      [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
-      jless is a command-line JSON viewer. Use it as a replacement for whatever
-      combination of less, jq, cat and your editor you currently use for viewing
-      JSON files. It is written in Rust and can be installed as a single
-      standalone binary.
-      [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
-    cmd: cargo install --force jless
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
-    status:
-      - which jless
-
   starship:
     desc: >
       [starship - GitHub](https://github.com/starship/starship):
@@ -117,15 +151,15 @@ tasks:
     status:
       - which starship
 
-  hyperfine:
+  stybulate:
     desc: >
-      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
-      A command-line benchmarking tool.
-    cmd: cargo install --force hyperfine
+      [stybulate - GitHub](https://github.com/guigui64/stybulate):
+      Tabulate with Style
+    cmd: cargo install --force stybulate --features=cli
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
+      - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
     status:
-      - which hyperfine
+      - which stybulate
 
   zoxide:
     desc: >
@@ -144,37 +178,3 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/zoxide"
     status:
       - which zoxide
-
-  hexyl:
-    desc: >
-      [hexyl - GitHub](https://github.com/sharkdp/hexyl):
-      is a simple hex viewer for the terminal. It uses a colored output to
-      distinguish different categories of bytes (NULL bytes, printable ASCII
-      characters, ASCII whitespace characters, other ASCII characters and
-      non-ASCII).
-    cmd: cargo install --force hexyl
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
-    status:
-      - which hexyl
-
-  difftastic:
-    desc: >
-      [difftastic - GitHub](https://github.com/Wilfred/difftastic):
-      Difftastic is an experimental diff tool that compares files based on their
-      syntax.
-    cmd: cargo install --force difftastic
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
-    status:
-      - which difft
-
-  stybulate:
-    desc: >
-      [stybulate - GitHub](https://github.com/guigui64/stybulate):
-      Tabulate with Style
-    cmd: cargo install --force stybulate --features=cli
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
-    status:
-      - which stybulate

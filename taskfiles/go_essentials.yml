@@ -15,22 +15,12 @@ tasks:
     desc: >
       [chezmoi - GitHub](https://github.com/twpayne/chezmoi):
       Manage your dotfiles across multiple diverse machines, securely.
+      [ChezMoi - Documentation](https://www.chezmoi.io/)
     cmd: go install github.com/twpayne/chezmoi@latest
     generates:
       - "{{.GOBIN}}/chezmoi"
     status:
       - which chezmoi
-
-  lazygit:
-    desc: >
-      [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
-      A simple terminal UI for git commands, written in Go with the gocui
-      library.
-    cmd: go install github.com/jesseduffield/lazygit@latest
-    generates:
-      - "{{.GOBIN}}/lazygit"
-    status:
-      - which lazygit
 
   gdu:
     desc: >
@@ -51,3 +41,14 @@ tasks:
       - "{{.GOBIN}}/glow"
     status:
       - which glow
+
+  lazygit:
+    desc: >
+      [lazygit - GitHub](https://github.com/jesseduffield/lazygit):
+      A simple terminal UI for git commands, written in Go with the gocui
+      library.
+    cmd: go install github.com/jesseduffield/lazygit@latest
+    generates:
+      - "{{.GOBIN}}/lazygit"
+    status:
+      - which lazygit
