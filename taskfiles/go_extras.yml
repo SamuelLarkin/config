@@ -7,6 +7,7 @@ tasks:
   default:
     deps:
       - archiver
+      - direnv
       - duf
       - f2
       - gojq
@@ -20,17 +21,6 @@ tasks:
       - up
       - yq
 
-  miller:
-    desc: >
-      [Miller - GitHub](https://github.com/johnkerl/miller):
-      Miller is like awk, sed, cut, join, and sort for data formats such as
-      CSV, TSV, JSON, JSON Lines, and positionally-indexed.
-    cmd: go install github.com/johnkerl/miller@latest
-    generates:
-      - "{{.GOBIN}}/mlr"
-    status:
-      - which mlr
-
   archiver:
     desc: >
       [archiver - GitHub](https://github.com/mholt/archiver):
@@ -42,16 +32,17 @@ tasks:
     status:
       - which arc
 
-  lazydocker:
+  direnv:
     desc: >
-      [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker):
-      A simple terminal UI for both docker and docker-compose, written in Go
-      with the gocui library.
-    cmd: go install github.com/jesseduffield/lazydocker@latest
+      [direnv – Documentation](https://direnv.net/): unclutter your .profile
+      [direnv - GitHub](https://github.com/direnv/direnv)
+    summray: >
+        eval "$(direnv hook bash)"
+    cmd: go install github.com/direnv/direnv@latest
     generates:
-      - "{{.GOBIN}}/lazydocker"
+      - "{{.GOBIN}}/direnv"
     status:
-      - which lazydocker
+      - which direnv
 
   duf:
     desc: >
@@ -74,17 +65,6 @@ tasks:
     status:
       - which f2
 
-  yq:
-    desc: >
-      [yq - gitHub](https://github.com/mikefarah/yq):
-      A lightweight and portable command-line YAML, JSON and XML processor.
-      yq uses jq like syntax but works with yaml files as well as json and xml.
-    cmd: go install github.com/mikefarah/yq/v4@latest
-    generates:
-      - "{{.GOBIN}}/yq"
-    status:
-      - which yq
-
   gojq:
     desc: >
       [gojq - GitHub](Pure Go implementation of jq):
@@ -97,17 +77,6 @@ tasks:
     status:
       - which gojq
 
-  lf:
-    desc: >
-      [lf - GitHub](https://github.com/gokcehan/lf):
-      lf (as in "list files") is a terminal file manager written in Go with a
-      heavy inspiration from ranger file manager.
-    cmd: CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
-    generates:
-      - "{{.GOBIN}}/lf"
-    status:
-      - which lf
-
   gotz:
     desc: >
       [gotz - GitHub](https://github.com/merschformann/gotz):
@@ -117,6 +86,22 @@ tasks:
       - "{{.GOBIN}}/gotz"
     status:
       - which gotz
+
+  grv:
+    desc: >
+      [grv - GitHub](https://github.com/rgburke/grv)
+      GRV is a terminal interface for viewing git repositories.
+    cmds:
+      - |
+        curl \
+           --create-dirs --fail --location \
+           --output {{.GOBIN}}/grv \
+           'https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64'
+      - chmod +x {{.GOBIN}}/grv
+    generates:
+      - "{{.GOBIN}}/grv"
+    status:
+      - which grv
 
   jid:
     desc: >
@@ -138,6 +123,39 @@ tasks:
     status:
       - which jpq
 
+  lazydocker:
+    desc: >
+      [lazydocker - GitHub](https://github.com/jesseduffield/lazydocker):
+      A simple terminal UI for both docker and docker-compose, written in Go
+      with the gocui library.
+    cmd: go install github.com/jesseduffield/lazydocker@latest
+    generates:
+      - "{{.GOBIN}}/lazydocker"
+    status:
+      - which lazydocker
+
+  lf:
+    desc: >
+      [lf - GitHub](https://github.com/gokcehan/lf):
+      lf (as in "list files") is a terminal file manager written in Go with a
+      heavy inspiration from ranger file manager.
+    cmd: CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
+    generates:
+      - "{{.GOBIN}}/lf"
+    status:
+      - which lf
+
+  miller:
+    desc: >
+      [Miller - GitHub](https://github.com/johnkerl/miller):
+      Miller is like awk, sed, cut, join, and sort for data formats such as
+      CSV, TSV, JSON, JSON Lines, and positionally-indexed.
+    cmd: go install github.com/johnkerl/miller@latest
+    generates:
+      - "{{.GOBIN}}/mlr"
+    status:
+      - which mlr
+
   up:
     desc: >
       [up - GitHub](https://github.com/akavel/up)
@@ -148,19 +166,13 @@ tasks:
     status:
       - which up
 
-  grv:
+  yq:
     desc: >
-      [grv - GitHub](https://github.com/rgburke/grv)
-      GRV is a terminal interface for viewing git repositories.
-    cmd: >
-      curl \
-         --create-dirs --fail --location \
-         --output {{.GOBIN}}/grv \
-         'https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64'
-      && chmod +x {{.GOBIN}}/grv
+      [yq - gitHub](https://github.com/mikefarah/yq):
+      A lightweight and portable command-line YAML, JSON and XML processor.
+      yq uses jq like syntax but works with yaml files as well as json and xml.
+    cmd: go install github.com/mikefarah/yq/v4@latest
     generates:
-      - "{{.GOBIN}}/grv"
+      - "{{.GOBIN}}/yq"
     status:
-      - which grv
-
-
+      - which yq
