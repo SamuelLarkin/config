@@ -38,6 +38,28 @@ tasks:
       [delta - GitHub](https://github.com/dandavison/delta):
       A syntax-highlighting pager for git, diff, and grep output
 
+      ~/.gitconfig
+
+      [core]
+          pager = delta
+
+      [interactive]
+          diffFilter = delta --color-only
+
+      [delta]
+          navigate = true  # use n and N to move between diff sections
+
+      [merge]
+          conflictstyle = diff3
+
+      [diff]
+          colorMoved = default
+    cmd: cargo install --force --git https://github.com/dandavison/delta
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
+    status:
+      - which delta
+
   difftastic:
     desc: >
       [difftastic - GitHub](https://github.com/Wilfred/difftastic):
@@ -97,28 +119,6 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
     status:
       - which lsd
-
-      ~/.gitconfig
-
-      [core]
-          pager = delta
-
-      [interactive]
-          diffFilter = delta --color-only
-
-      [delta]
-          navigate = true  # use n and N to move between diff sections
-
-      [merge]
-          conflictstyle = diff3
-
-      [diff]
-          colorMoved = default
-    cmd: cargo install --force --git https://github.com/dandavison/delta
-    generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
-    status:
-      - which delta
 
   # NOTE we manually move the compile binary because we want to make sure it
   # is different than the other variants of reservoir_sampling.
