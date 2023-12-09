@@ -20,11 +20,9 @@ tasks:
       Trigger vim's Plug system to install plugins.
     deps:
       - plugin_manager
-    cmd: >
-      vim
-        +:PlugInstall
-        +:PlugUpdate
-        "+:CocInstall coc-json"
-        "+:CocInstall coc-yaml"
-        "+:CocInstall coc-jedi"
-        +:qall
+    # I can't seem to get the vim commands to work when in multiline format!
+    cmds:
+      - vim +:PlugInstall +:PlugUpdate +:qall
+      - cd {{.HOME}}/.vim/plugged/coc.nvim/ && npm ci
+      - vim "+:CocInstall coc-json" "+:CocInstall coc-yaml" "+:CocInstall coc-jedi" +:qall
+    precondition: "which npm"
