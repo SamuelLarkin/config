@@ -10,6 +10,27 @@ tasks:
     deps:
       - duf
 
+  ctags:
+    desc: >
+      [ctags](https://github.com/universal-ctags/ctags):
+      A maintained ctags implementation
+    cmds:
+      - git clone --branch=v6.0.0 https://github.com/universal-ctags/ctags.git
+      - defer: rm -fr ctags
+      - |
+        cd ctags
+        ./autogen.sh
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc)
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v6.0.0
+    generates:
+      - "{{.INSTALL_DIR}}/bin/ctags"
+    status:
+      - which ctags
+
   duf:
     desc: >
       [duf - GitHub](https://github.com/muesli/duf_:
@@ -26,89 +47,6 @@ tasks:
       - "{{.BIN_DIR}}/duf"
     status:
       - which duf
-
-  vifm:
-    desc: >
-      [vifm – Vim-like file manager](https://github.com/vifm/vifm).
-    cmds:
-      - |
-        curl \
-          --create-dirs --fail --location \
-          --output vifm.tar.gz \
-          "https://github.com/vifm/vifm/archive/refs/tags/v$VERSION.tar.gz"
-      - defer: rm vifm.tar.gz
-      - tar xf vifm.tar.gz
-      - defer: rm -fr vifm-$VERSION/
-      - |
-        cd vifm-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
-        \make -j $(nproc) install
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: 0.12
-    generates:
-      - "{{.INSTALL_DIR}}/bin/vifm"
-    status:
-      - which vifm
-
-  pv:
-    desc: >
-      [pv - GitHub](https://github.com/a-j-wood/pv):
-      a terminal-based tool for monitoring the progress of data through a
-      pipeline.
-    cmds:
-      - |
-       curl \
-         --create-dirs --fail --location \
-         --output pv-$VERSION.tar.bz2 \
-         "http://www.ivarch.com/programs/sources/pv-$VERSION.tar.bz2"
-      - defer: rm pv-$VERSION.tar.bz2
-      - tar xf pv-$VERSION.tar.bz2
-      - defer: rm -fr pv-$VERSION/
-      - |
-        cd pv-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
-        \make -j $(nproc) install
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: 1.6.20
-    generates:
-      - "{{.INSTALL_DIR}}/bin/jq"
-    status:
-      - which pv
-
-  nvim:
-    desc: >
-      [neovim - GitHub](https://github.com/neovim/neovim):
-      Vim-fork focused on extensibility and usability.
-    cmds:
-      - git clone --branch $VERSION https://github.com/neovim/neovim.git
-      - defer: rm -fr neovim
-      - |
-        cd neovim/
-        \make CMAKE_BUILD_TYPE=RelWithDebInfo
-        \make install CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: v0.9.4
-    generates:
-      - "{{.INSTALL_DIR}}/bin/jq"
-    status:
-      - which nvim
-
-  lunarvim:
-    desc: >
-      [LunarVim - GitHub](https://github.com/LunarVim/LunarVim):
-      🌙 LunarVim is an IDE layer for Neovim. Completely free and community
-      driven.
-    cmd: bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-    env:
-      LV_BRANCH: 'release-1.2/neovim-0.8'
-    generates:
-      - "{{.BIN_DIR}}/lvim"
-    status:
-      - which lvim
-
 
   jo:
     desc: >
@@ -137,26 +75,18 @@ tasks:
     status:
       - which jo
 
-  ctags:
+  lunarvim:
     desc: >
-      [ctags](https://github.com/universal-ctags/ctags):
-      A maintained ctags implementation
-    cmds:
-      - git clone --branch=v6.0.0 https://github.com/universal-ctags/ctags.git
-      - defer: rm -fr ctags
-      - |
-        cd ctags
-        ./autogen.sh
-        ./configure --prefix={{.INSTALL_DIR}}
-        \make -j $(nproc)
-        \make -j $(nproc) install
-    dir: "{{.HOME}}/tmp"
+      [LunarVim - GitHub](https://github.com/LunarVim/LunarVim):
+      🌙 LunarVim is an IDE layer for Neovim. Completely free and community
+      driven.
+    cmd: bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
     env:
-      VERSION: v6.0.0
+      LV_BRANCH: 'release-1.2/neovim-0.8'
     generates:
-      - "{{.INSTALL_DIR}}/bin/ctags"
+      - "{{.BIN_DIR}}/lvim"
     status:
-      - which ctags
+      - which lvim
 
   nodejs:
     aliases:
@@ -186,3 +116,72 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/npm"
     status:
       - which npm
+
+  nvim:
+    desc: >
+      [neovim - GitHub](https://github.com/neovim/neovim):
+      Vim-fork focused on extensibility and usability.
+    cmds:
+      - git clone --branch $VERSION https://github.com/neovim/neovim.git
+      - defer: rm -fr neovim
+      - |
+        cd neovim/
+        \make CMAKE_BUILD_TYPE=RelWithDebInfo
+        \make install CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v0.9.4
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jq"
+    status:
+      - which nvim
+
+  pv:
+    desc: >
+      [pv - GitHub](https://github.com/a-j-wood/pv):
+      a terminal-based tool for monitoring the progress of data through a
+      pipeline.
+    cmds:
+      - |
+       curl \
+         --create-dirs --fail --location \
+         --output pv-$VERSION.tar.bz2 \
+         "http://www.ivarch.com/programs/sources/pv-$VERSION.tar.bz2"
+      - defer: rm pv-$VERSION.tar.bz2
+      - tar xf pv-$VERSION.tar.bz2
+      - defer: rm -fr pv-$VERSION/
+      - |
+        cd pv-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.6.20
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jq"
+    status:
+      - which pv
+
+  vifm:
+    desc: >
+      [vifm – Vim-like file manager](https://github.com/vifm/vifm).
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output vifm.tar.gz \
+          "https://github.com/vifm/vifm/archive/refs/tags/v$VERSION.tar.gz"
+      - defer: rm vifm.tar.gz
+      - tar xf vifm.tar.gz
+      - defer: rm -fr vifm-$VERSION/
+      - |
+        cd vifm-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 0.12
+    generates:
+      - "{{.INSTALL_DIR}}/bin/vifm"
+    status:
+      - which vifm

@@ -3,34 +3,9 @@ version: '3'
 tasks:
   default:
     deps:
+      - histogram
       - tabulate
       - tqdm
-      - histogram
-
-  tabulate:
-    desc: >
-      [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
-      Pretty-print tabular data in Python, a library and a command-line utility.
-    cmd: python3 -m pip install --user --upgrade tabulate
-    status:
-      - which tabulate
-
-  tqdm:
-    desc: >
-      [tqdm - GitHub](https://github.com/tqdm/tqdm):
-      Progress Bar.
-    cmd: python3 -m pip install --user --upgrade tqdm
-    status:
-      - which tqdm
-
-  histogram:
-    desc: >
-      [histogram.py - GitHub](https://github.com/bitly/data_hacks):
-      Command line utilities for data analysis.
-    #cmd: python3 -m pip install --user --upgrade data_hacks   # Only works with python2
-    cmd: python3 -m pip install --user --upgrade data_hacks3
-    status:
-      - which histogram
 
   bpytop:
     desc: >
@@ -48,23 +23,30 @@ tasks:
     status:
       - which glances
 
-  tmuxp:
+  hapless:
     desc: >
-      [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
-      tmuxp, tmux session manager.
-    cmd: python3 -m pip install --user --upgrade tmuxp
+      [hapless - GitHub](https://github.com/bmwant/hapless)
+      Simplest way of running and tracking processes in the background.
+    cmd: python3 -m pip install --user --upgrade hapless
     status:
-      - which tmuxp
+      - which hapless
 
-  tldr:
+  histogram:
     desc: >
-      [tldr-pages - GitHub](https://github.com/tldr-pages/tldr):
-      The tldr-pages project is a collection of community-maintained help pages
-      for command-line tools, that aims to be a simpler, more approachable
-      complement to traditional man pages.
-    cmd: python3 -m pip install --user --upgrade tldr
+      [histogram.py - GitHub](https://github.com/bitly/data_hacks):
+      Command line utilities for data analysis.
+    #cmd: python3 -m pip install --user --upgrade data_hacks   # Only works with python2
+    cmd: python3 -m pip install --user --upgrade data_hacks3
     status:
-      - which tldr
+      - which histogram
+
+  hq:
+    desc: >
+      [hq - GitHub](https://github.com/rbwinslow/hq):
+      Powerful HTML slicing and dicing at the command line.
+    cmd: python3 -m pip install --user --upgrade hq
+    status:
+      - which hq
 
   rich-cli:
     desc: >
@@ -77,6 +59,48 @@ tasks:
     status:
       - which rich-cli
 
+  scroll-term:
+    desc: >
+      [scroll - GitHub](https://github.com/redraw/scroll)
+      scroll stdout!
+    cmd: python3 -m pip install --user --upgrade scroll-term
+    status:
+      - which scroll-term
+
+  tabulate:
+    desc: >
+      [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
+      Pretty-print tabular data in Python, a library and a command-line utility.
+    cmd: python3 -m pip install --user --upgrade tabulate
+    status:
+      - which tabulate
+
+  tldr:
+    desc: >
+      [tldr-pages - GitHub](https://github.com/tldr-pages/tldr):
+      The tldr-pages project is a collection of community-maintained help pages
+      for command-line tools, that aims to be a simpler, more approachable
+      complement to traditional man pages.
+    cmd: python3 -m pip install --user --upgrade tldr
+    status:
+      - which tldr
+
+  tmuxp:
+    desc: >
+      [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
+      tmuxp, tmux session manager.
+    cmd: python3 -m pip install --user --upgrade tmuxp
+    status:
+      - which tmuxp
+
+  tqdm:
+    desc: >
+      [tqdm - GitHub](https://github.com/tqdm/tqdm):
+      Progress Bar.
+    cmd: python3 -m pip install --user --upgrade tqdm
+    status:
+      - which tqdm
+
   xq:
     desc: >
       [xq - GitHub](https://github.com/jeffbr13/xq):
@@ -84,14 +108,6 @@ tasks:
     cmd: python3 -m pip install --user --upgrade xq
     status:
       - which xq
-
-  hq:
-    desc: >
-      [hq - GitHub](https://github.com/rbwinslow/hq):
-      Powerful HTML slicing and dicing at the command line.
-    cmd: python3 -m pip install --user --upgrade hq
-    status:
-      - which hq
 
   yq:
     desc: >
@@ -101,19 +117,3 @@ tasks:
     cmd: python3 -m pip install --user --upgrade yq
     status:
       - which yq
-
-  scroll-term:
-    desc: >
-      [scroll - GitHub](https://github.com/redraw/scroll)
-      scroll stdout!
-    cmd: python3 -m pip install --user --upgrade scroll-term
-    status:
-      - which scroll-term
-
-  hapless:
-    desc: >
-      [hapless - GitHub](https://github.com/bmwant/hapless)
-      Simplest way of running and tracking processes in the background.
-    cmd: python3 -m pip install --user --upgrade hapless
-    status:
-      - which hapless

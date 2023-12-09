@@ -13,6 +13,16 @@ tasks:
       - nu
       - xonsh
 
+  elvish:
+    desc: >
+      [elvish - GitHub](https://github.com/elves/elvish):
+      Elvish = Expressive Programming Language + Versatile Interactive Shell
+    cmd: go install src.elv.sh/cmd/elvish@latest
+    generates:
+      - "{{.GOBIN}}/elvish"
+    status:
+      - which elvish
+
   fish:
     desc: >
       [fish - GitHub](https://github.com/fish-shell/fish-shell/):
@@ -42,24 +52,6 @@ tasks:
     status:
       - which fish
 
-  xonsh:
-    desc: >
-      [xonsh](https://xon.sh/):
-      XONSH is a Python-powered shell
-    cmd: python3 -m pip install --user --upgrade 'xonsh[full]'
-    status:
-      - which xonsh
-
-  elvish:
-    desc: >
-      [elvish - GitHub](https://github.com/elves/elvish):
-      Elvish = Expressive Programming Language + Versatile Interactive Shell
-    cmd: go install src.elv.sh/cmd/elvish@latest
-    generates:
-      - "{{.GOBIN}}/elvish"
-    status:
-      - which elvish
-
   nu:
     desc: >
       [nushell - GitHub](https://github.com/nushell/nushell):
@@ -71,3 +63,11 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/nu"
     status:
       - which nu
+
+  xonsh:
+    desc: >
+      [xonsh](https://xon.sh/):
+      XONSH is a Python-powered shell
+    cmd: python3 -m pip install --user --upgrade 'xonsh[full]'
+    status:
+      - which xonsh
