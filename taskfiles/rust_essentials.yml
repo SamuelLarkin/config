@@ -128,7 +128,7 @@ tasks:
       [reservoir_sampling - GitHub](https://github.com/SamuelLarkin/reservoir_sampling.rs):
       Reservoir Sampling in Rust.
     cmds:
-      - cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs \
+      - cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs
       - mv ~/.cargo/bin/reservoir_sampling_rs {{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs"
