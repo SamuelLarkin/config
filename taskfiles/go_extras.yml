@@ -150,7 +150,22 @@ tasks:
       [Miller - GitHub](https://github.com/johnkerl/miller):
       Miller is like awk, sed, cut, join, and sort for data formats such as
       CSV, TSV, JSON, JSON Lines, and positionally-indexed.
-    cmd: go install github.com/johnkerl/miller@latest
+    #cmd: go install github.com/johnkerl/miller/cmd/mlr@latest
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output $TARBALL \
+          "https://github.com/johnkerl/miller/releases/download/v$VERSION/miller-$VERSION-linux-amd64.tar.gz"
+      - defer: rm $TARBALL
+      - tar xf $TARBALL
+      - defer: rm -fr miller-$VERSION-linux-amd64
+      - echo "$GOBIN"
+      - install --mode=500 -–target-directory="$GOBIN" miller-$VERSION-linux-amd64/mlr
+    dir: "{{.HOME}}/tmp"
+    env:
+      TARBALL: miller.tar.gz
+      VERSION: 6.9.0
     generates:
       - "{{.GOBIN}}/mlr"
     status:
