@@ -28,6 +28,11 @@ or
 task -t taskfiles/go_essentials.yml chezmoi
 ```
 
+Clone and Apply Chezmoi
+```sh
+chezmoi init --apply github:SamuelLarkin/dotfiles.git
+```
+
 
 ## CLI Tools
 ### Favorites
