@@ -1,0 +1,36 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+
+tasks:
+  default:
+    deps:
+      - shell_completion
+      - vim_syntax
+
+  shell_completion:
+    desc: >
+      SLURM's bash shell completion.
+    cmd: |
+      curl \
+        --create-dirs --fail --location \
+        --output {{.BASH_COMPLETION_D}}/'#1' \
+        'https://raw.githubusercontent.com/damienfrancois/slurm-helper/master/{slurm_completion.sh}'
+    preconditions:
+      - msg: This machine doesn't have SLURM
+        sh: which sbatch
+
+  vim_syntax:
+    desc: >
+      SLURM syntax highlighting.
+    cmd: >
+      curl \
+         --create-dirs --fail --location \
+         --output {{.HOME}}/.vim/after/syntax/sh/'#1' \
+         'https://raw.githubusercontent.com/SchedMD/slurm/master/contribs/slurm_completion_help/{slurm.vim}'
+    generates:
+      - "{{.HOME}}/.vim/after/syntax/sh/slurm.vim"
+    preconditions:
+      - msg: This machine doesn't have SLURM
+        sh: which sbatch

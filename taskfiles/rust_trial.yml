@@ -1,0 +1,62 @@
+version: '3'
+
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - atuin
+      - bandwhich
+      - grex
+      - helix
+
+  atuin:
+    desc: >
+      [atuin](https://github.com/atuinsh/atuin):
+      ✨ Magical shell history.
+    cmd: cargo install --force atuin
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/atuin"
+    status:
+      - which atuin
+
+  bandwhich:
+    desc: >
+      WARNING Needs sudo
+      [bandwhich - GitHub](https://github.com/imsnif/bandwhich):
+      Terminal bandwidth utilization tool.
+    cmd: cargo install --force bandwhich
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/bandwhich"
+    status:
+      - which bandwhich
+
+  grex:
+    desc: >
+      [grex - GitHub](https://github.com/pemistahl/grex):
+      command-line tool and Rust library for generating regular expressions
+      from user-provided test cases.
+      [Generate a matching regular expression from the test cases you provide](https://pemistahl.github.io/grex-js/)
+    cmd: cargo install --force grex
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/grex"
+    status:
+      - which grex
+
+  helix:
+    desc: >
+      [Helix](https://helix-editor.com/)
+      [Helix - GitHub](https://github.com/helix-editor/helix)
+      A post-modern text editor.
+    cmds:
+      - git clone https://github.com/helix-editor/helix
+      - defer: rm -fr helix
+      - |
+        cd helix
+        cargo install --force --path helix-term
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
+    status:
+      - which helix

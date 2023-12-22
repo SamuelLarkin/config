@@ -1,0 +1,287 @@
+version: '3'
+
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    desc: Install all rust extras
+    deps:
+      - bottom
+      - broot
+      - diskonaut
+      - dust
+      - erdtree
+      - exa
+      - fd-find
+      - find_unicode
+      - gitui
+      - histo
+      - htmlq
+      - navi
+      - ouch
+      - oxker
+      - procs
+      - ripgrep
+      - rnr
+      - runiq
+      - skim
+      - termscp
+      - vivid
+      - xsv
+      - zellij
+      - zenith
+
+  bottom:
+    desc: >
+      [bottom - GitHub](https://github.com/cjbassi/ytop):
+      Another TUI based system monitor, this time in Rust
+      NO LONGER MAINTAINED. For a similar program, check out [bottom](https://github.com/ClementTsang/bottom).
+      cargo install --force --git https://github.com/ClementTsang/bottom
+    cmd: cargo install --force bottom
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/bottom"
+    status:
+      - which bottom
+
+  broot:
+    desc: >
+      [broot - GitHub](https://github.com/Canop/broot):
+      A new way to see and navigate directory trees : https://dystroy.org/broot
+    cmd: cargo install --force broot
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/broot"
+    status:
+      - which broot
+
+  diskonaut:
+    desc: >
+      [Diskonaut - GitHub](https://github.com/imsnif/diskonaut):
+      windirstat like for the CLI.
+    cmd: cargo install --force diskonaut
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/diskonaut"
+    status:
+      - which diskonaut
+
+  dust:
+    desc: >
+      [dust: du + rust = dust - GitHub](https://github.com/bootandy/dust):
+      Like du but more intuitive.
+    cmd: cargo install --force --git https://github.com/bootandy/dust
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/dust"
+    status:
+      - which dust
+
+  erdtree:
+    desc: >
+      [Erdtree - GitHub](https://github.com/solidiquis/erdtree):
+      A bLazInGlY fAsT, simplified version of the ancient tree command which
+      displays a colorful depth indented listing of files with their memory
+      sizes adjacent.
+    cmd: cargo install --force --git https://github.com/solidiquis/erdtree
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/erdtree"
+    status:
+      - which erdtree
+
+  exa:
+    desc: >
+      [exa - Documentation](https://the.exa.website/):
+      modern replacement for ls.
+      [exa - GitHub](https://github.com/ogham/exa):
+      modern replacement for ls.
+    cmd: cargo install --force exa
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/exa"
+    status:
+      - which exa
+
+  fd-find:
+    desc: >
+      [fd - GitHub](https://github.com/sharkdp/fd):
+      is a program to find entries in your filesystem.
+    cmd: cargo install --force fd-find
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/fd"
+    status:
+      - which fd
+
+  find_unicode:
+    desc: >
+      [fu - GitHub](https://github.com/pierrechevalier83/find_unicode):
+      Find Unicode characters the easy way: from the command line.
+    cmd: cargo install --force find_unicode
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/fu"
+    status:
+      - which fu
+
+  gitui:
+    desc: >
+      [gitui - GitHub](https://github.com/extrawurst/gitui):
+      Blazing 💥 fast terminal-ui for git written in rust 🦀.
+    cmd: cargo install --force gitui
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/gitui"
+    status:
+      - which gitui
+
+  histo:
+    desc: >
+      [histo - GitHub](https://github.com/fitzgen/histo):
+      Histograms with a configurable number of buckets, and a terminal-friendly
+      Display.
+    cmd: cargo install --force histo
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/histo"
+    status:
+      - which histo
+
+  htmlq:
+    desc: >
+      [htmlq - GitHub](https://github.com/mgdm/htmlq):
+      Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
+    cmd: cargo install --force htmlq
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/htmlq"
+    status:
+      - which htmlq
+
+  navi:
+    desc: >
+      [Navi - GitHub](https://github.com/denisidoro/navi):
+      An interactive cheatsheet tool for the command-line.
+    cmd: cargo install --force --git https://github.com/denisidoro/navi
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/navi"
+    status:
+      - which navi
+
+  ouch:
+    desc: >
+      [ouch - GitHub](https://github.com/ouch-org/ouch):
+      Painless compression and decompression for your terminal.
+    cmd: cargo install --force ouch
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/ouch"
+    status:
+      - which ouch
+
+  oxker:
+    desc: >
+      [oxker - GitHub](https://github.com/mrjackwills/oxker):
+      A simple tui to view & control docker containers.
+    cmd: cargo install --force --git https://github.com/mrjackwills/oxker
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/oxker"
+    status:
+      - which oxker
+
+  procs:
+    desc: >
+      [procs - GitHub](https://github.com/dalance/procs):
+      is a replacement for ps written in Rust.
+    cmd: cargo install --force procs
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/procs"
+    status:
+      - which procs
+
+  ripgrep:
+    desc: >
+      [rg: ripgrep - GitHub](https://github.com/BurntSushi/ripgrep):
+      ripgrep is a line-oriented search tool that recursively searches the
+      current directory for a regex pattern.
+    cmd: cargo install --force ripgrep
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/ripgrep"
+    status:
+      - which ripgrep
+
+  rnr:
+    desc: >
+      [RnR - GitHub](https://github.com/ismaelgv/rnr):
+      RnR is a command-line tool to securely rename multiple files and
+      directories that supports regular expressions.
+    cmd: cargo install --force rnr
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/rnr"
+    status:
+      - which rnr
+
+  runiq:
+    desc: >
+      [runiq - GitHub](https://github.com/whitfin/runiq):
+      This project offers an efficient way (in both time and space) to filter
+      duplicate entries (lines) from texual input.
+    cmd: cargo install --force runiq
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/runiq"
+    status:
+      - which runiq
+
+  skim:
+    desc: >
+      [skim - GitHub](https://github.com/lotabout/skim#installation):
+      Fuzzy Finder in rust!
+      A la `fzf`.
+    cmd: cargo install --force skim
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/sk"
+    status:
+      - which sk
+
+  termscp:
+    desc: >
+      [termscp - GitHub](https://github.com/veeso/termscp):
+      A feature rich terminal UI file transfer and explorer with support for
+      SCP/SFTP/FTP/S3.
+    cmd: cargo install --force termscp
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/termscp"
+    status:
+      - which termscp
+
+  vivid:
+    desc: >
+      [vivid - GitHub](https://github.com/sharkdp/vivid):
+      vivid is a generator for the LS_COLORS environment variable that controls
+      the colorized output of ls, tree, fd, bfs, dust and many other tools.
+    cmd: cargo install --force vivid
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/vivid"
+    status:
+      - which vivid
+
+  xsv:
+    desc: >
+      [xsv - GitHub](https://github.com/BurntSushi/xsv):
+      xsv is a command line program for indexing, slicing, analyzing, splitting
+      and joining CSV files. Commands should be simple, fast and composable.
+    cmd: cargo install --force xsv
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/xsv"
+    status:
+      - which xsv
+
+  zellij:
+    desc: >
+      [zellij](https://github.com/zellij-org/zellij):
+      A terminal workspace with batteries included.
+    cmd: cargo install --force zellij
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/zellij"
+    status:
+      - which zellij
+
+  zenith:
+    desc: >
+      [zenith - GitHub](https://github.com/bvaisvil/zenith):
+      In terminal graphical metrics for your *nix system written in Rust.
+    cmd: cargo install --force --git https://github.com/bvaisvil/zenith
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/zenith"
+    status:
+      - which zenith

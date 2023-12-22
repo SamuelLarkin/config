@@ -1,0 +1,35 @@
+version: '3'
+
+env:
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - bashdb
+
+  bashdb:
+    desc: >
+      [bashdb - SourceForge](https://bashdb.sourceforge.net/):
+      The Bash Debugger Project is a source-code debugger for bash that follows
+      the gdb command syntax.
+    dir: $HOME/tmp
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output bashdb-$VERSION.tar.bz2 \
+          "https://sourceforge.net/projects/bashdb/files/bashdb/$VERSION/bashdb-$VERSION.tar.bz2/download"
+      - defer: rm bashdb-$VERSION.tar.bz2
+      - tar xf bashdb-$VERSION.tar.bz2
+      - defer: rm -fr bashdb-$VERSION/
+      - |
+        cd bashdb-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make install
+    env:
+      VERSION: 5.0-1.1.2
+    generates:
+      - "{{.INSTALL_DIR}}/bin/bashdb"
+    status:
+      - which bashdb

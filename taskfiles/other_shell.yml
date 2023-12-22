@@ -1,0 +1,73 @@
+version: '3'
+
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+  GOBIN: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - elvish
+      - fish
+      - nu
+      - xonsh
+
+  elvish:
+    desc: >
+      [elvish - GitHub](https://github.com/elves/elvish):
+      Elvish = Expressive Programming Language + Versatile Interactive Shell
+    cmd: go install src.elv.sh/cmd/elvish@latest
+    generates:
+      - "{{.GOBIN}}/elvish"
+    status:
+      - which elvish
+
+  fish:
+    desc: >
+      [fish - GitHub](https://github.com/fish-shell/fish-shell/):
+      the friendly interactive shell.
+      [FishShell](https://fishshell.com/): Finally, a command line shell for the
+      90s fish is a smart and user-friendly command line shell for Linux, macOS,
+      and the rest of the family.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output fish-$VERSION.tar.xz \
+          "https://github.com/fish-shell/fish-shell/releases/download/$version/fish-$VERSION.tar.xz"
+      - defer: rm fish-$VERSION.tar.xz
+      - tar xf fish-$version.tar.xz
+      - defer: rm -fr fish-$VERSION
+      - |
+        cd fish-$VERSION
+        mkdir -p build && cd build
+        cmake -DCMAKE_INSTALL_PREFIX={{.INSTALL_DIR}} ..
+        \make -j $(nproc) insall
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 3.3.1
+    generates:
+      - "{{.INSTALL_DIR}}/bin/fish"
+    status:
+      - which fish
+
+  nu:
+    desc: >
+      [nushell - GitHub](https://github.com/nushell/nushell):
+      A new type of shell.
+    cmds:
+      #- cargo install --force --git https://github.com/nushell/nushell
+      - cargo install --force nu
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/nu"
+    status:
+      - which nu
+
+  xonsh:
+    desc: >
+      [xonsh](https://xon.sh/):
+      XONSH is a Python-powered shell
+    cmd: python3 -m pip install --user --upgrade 'xonsh[full]'
+    status:
+      - which xonsh

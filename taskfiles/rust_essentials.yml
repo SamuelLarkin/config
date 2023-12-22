@@ -1,0 +1,180 @@
+version: '3'
+
+env:
+  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    desc: >
+      Install all essential rust tools
+    deps:
+      - bat
+      - delta
+      - difftastic
+      - hexyl
+      - hyperfine
+      - jless
+      - lsd
+      - reservoir_sampling
+      - starship
+      - stybulate
+      - zoxide
+
+  bat:
+    desc: >
+      [bat - GitHub](https://github.com/sharkdp/bat):
+      A cat(1) clone with syntax highlighting and Git integration.
+    cmd: cargo install --force bat
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/bat"
+    status:
+      - which bat
+
+  delta:
+    desc: >
+      [delta - GitHub](https://github.com/dandavison/delta):
+      A syntax-highlighting pager for git, diff, and grep output
+    summary: >
+      [delta - GitHub](https://github.com/dandavison/delta):
+      A syntax-highlighting pager for git, diff, and grep output
+
+      ~/.gitconfig
+
+      [core]
+          pager = delta
+
+      [interactive]
+          diffFilter = delta --color-only
+
+      [delta]
+          navigate = true  # use n and N to move between diff sections
+
+      [merge]
+          conflictstyle = diff3
+
+      [diff]
+          colorMoved = default
+    cmd: cargo install --force --git https://github.com/dandavison/delta
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
+    status:
+      - which delta
+
+  difftastic:
+    desc: >
+      [difftastic - GitHub](https://github.com/Wilfred/difftastic):
+      Difftastic is an experimental diff tool that compares files based on their
+      syntax.
+    cmd: cargo install --force difftastic
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
+    status:
+      - which difft
+
+  hexyl:
+    desc: >
+      [hexyl - GitHub](https://github.com/sharkdp/hexyl):
+      is a simple hex viewer for the terminal. It uses a colored output to
+      distinguish different categories of bytes (NULL bytes, printable ASCII
+      characters, ASCII whitespace characters, other ASCII characters and
+      non-ASCII).
+    cmd: cargo install --force hexyl
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
+    status:
+      - which hexyl
+
+  hyperfine:
+    desc: >
+      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
+      A command-line benchmarking tool.
+    cmd: cargo install --force hyperfine
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
+    status:
+      - which hyperfine
+
+  jless:
+    desc: >
+      [jless - GitHub](https://github.com/PaulJuliusMartinez/jless):
+      jless is a command-line JSON viewer. Use it as a replacement for whatever
+      combination of less, jq, cat and your editor you currently use for viewing
+      JSON files. It is written in Rust and can be installed as a single
+      standalone binary.
+      [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
+    cmd: cargo install --force jless
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
+    status:
+      - which jless
+
+  lsd:
+    desc: >
+      [lsd (LSDeluxe) - GitHub](https://github.com/Peltoche/lsd):
+      This project is a rewrite of GNU ls with lot of added features like
+      colors, icons, tree-view, more formatting options etc. The project is
+      heavily inspired by the super colorls project.
+    cmd: cargo install --force lsd
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
+    status:
+      - which lsd
+
+  # NOTE we manually move the compile binary because we want to make sure it
+  # is different than the other variants of reservoir_sampling.
+  # NOTE that we move the binary because it will conflict with the one in ~/.cargo/bin.
+  reservoir_sampling:
+    desc: >
+      [reservoir_sampling - GitHub](https://github.com/SamuelLarkin/reservoir_sampling.rs):
+      Reservoir Sampling in Rust.
+    cmds:
+      - cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs
+      - mv ~/.cargo/bin/reservoir_sampling_rs {{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs"
+    status:
+      - which reservoir_sampling_rs
+
+  starship:
+    desc: >
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+    summary: |
+      [starship - GitHub](https://github.com/starship/starship):
+      ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any
+      shell!
+      eval "$(starship init bash)"
+    cmd: cargo install --force starship
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/starship"
+    status:
+      - which starship
+
+  stybulate:
+    desc: >
+      [stybulate - GitHub](https://github.com/guigui64/stybulate):
+      Tabulate with Style
+    cmd: cargo install --force stybulate --features=cli
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
+    status:
+      - which stybulate
+
+  zoxide:
+    desc: >
+      [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
+      zoxide is a smarter cd command, inspired by z and autojump.
+      It remembers which directories you use most frequently, so you can "jump"
+      to them in just a few keystrokes.  zoxide works on all major shells.
+    summary: |
+      [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide):
+      zoxide is a smarter cd command, inspired by z and autojump.
+      It remembers which directories you use most frequently, so you can "jump"
+      to them in just a few keystrokes.  zoxide works on all major shells.
+      `eval "$(zoxide init bash)"`
+    cmd: cargo install --force zoxide
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/zoxide"
+    status:
+      - which zoxide

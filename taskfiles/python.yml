@@ -1,0 +1,119 @@
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - histogram
+      - tabulate
+      - tqdm
+
+  bpytop:
+    desc: >
+      [bpytop - GitHub](https://github.com/aristocratos/bpytop)
+    cmd: python3 -m pip install --user bpytop
+    status:
+      - which bpytop
+
+  glances:
+    desc: >
+      [glances - GitHub](https://github.com/nicolargo/glances)
+      [glances - WebSite](https://nicolargo.github.io/glances):
+      An eye on your system.
+    cmd: python3 -m pip install --user --upgrade glances
+    status:
+      - which glances
+
+  hapless:
+    desc: >
+      [hapless - GitHub](https://github.com/bmwant/hapless)
+      Simplest way of running and tracking processes in the background.
+    cmd: python3 -m pip install --user --upgrade hapless
+    status:
+      - which hapless
+
+  histogram:
+    desc: >
+      [histogram.py - GitHub](https://github.com/bitly/data_hacks):
+      Command line utilities for data analysis.
+    #cmd: python3 -m pip install --user --upgrade data_hacks   # Only works with python2
+    cmd: python3 -m pip install --user --upgrade data_hacks3
+    status:
+      - which histogram
+
+  hq:
+    desc: >
+      [hq - GitHub](https://github.com/rbwinslow/hq):
+      Powerful HTML slicing and dicing at the command line.
+    cmd: python3 -m pip install --user --upgrade hq
+    status:
+      - which hq
+
+  rich-cli:
+    desc: >
+      [Rich CLI - GitHub](https://github.com/Textualize/rich-cli):
+      Rich-cli is a command line toolbox for fancy output in the terminal, built
+      with Rich.  Use the rich command to highlight a variety of file types in
+      the terminal, with specialized rendering for Markdown and JSON files.
+      Additionally you can markup and format text from the command line.
+    cmd: python3 -m pip install --user --upgrade rich-cli
+    status:
+      - which rich-cli
+
+  scroll-term:
+    desc: >
+      [scroll - GitHub](https://github.com/redraw/scroll)
+      scroll stdout!
+    cmd: python3 -m pip install --user --upgrade scroll-term
+    status:
+      - which scroll-term
+
+  tabulate:
+    desc: >
+      [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
+      Pretty-print tabular data in Python, a library and a command-line utility.
+    cmd: python3 -m pip install --user --upgrade tabulate
+    status:
+      - which tabulate
+
+  tldr:
+    desc: >
+      [tldr-pages - GitHub](https://github.com/tldr-pages/tldr):
+      The tldr-pages project is a collection of community-maintained help pages
+      for command-line tools, that aims to be a simpler, more approachable
+      complement to traditional man pages.
+    cmd: python3 -m pip install --user --upgrade tldr
+    status:
+      - which tldr
+
+  tmuxp:
+    desc: >
+      [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
+      tmuxp, tmux session manager.
+    cmd: python3 -m pip install --user --upgrade tmuxp
+    status:
+      - which tmuxp
+
+  tqdm:
+    desc: >
+      [tqdm - GitHub](https://github.com/tqdm/tqdm):
+      Progress Bar.
+    cmd: python3 -m pip install --user --upgrade tqdm
+    status:
+      - which tqdm
+
+  xq:
+    desc: >
+      [xq - GitHub](https://github.com/jeffbr13/xq):
+      Apply XPath expressions to XML, like jq does for JSONPath and JSON.
+    cmd: python3 -m pip install --user --upgrade xq
+    status:
+      - which xq
+
+  yq:
+    desc: >
+      [yq - GitHub](https://github.com/kislyuk/yq):
+      yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML
+      documents.
+    cmd: python3 -m pip install --user --upgrade yq
+    status:
+      - which yq

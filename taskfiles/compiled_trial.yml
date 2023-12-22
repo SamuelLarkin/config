@@ -1,0 +1,187 @@
+version: '3'
+
+env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
+tasks:
+  default:
+    deps:
+      - duf
+
+  ctags:
+    desc: >
+      [ctags](https://github.com/universal-ctags/ctags):
+      A maintained ctags implementation
+    cmds:
+      - git clone --branch=v6.0.0 https://github.com/universal-ctags/ctags.git
+      - defer: rm -fr ctags
+      - |
+        cd ctags
+        ./autogen.sh
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc)
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v6.0.0
+    generates:
+      - "{{.INSTALL_DIR}}/bin/ctags"
+    status:
+      - which ctags
+
+  duf:
+    desc: >
+      [duf - GitHub](https://github.com/muesli/duf_:
+      Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
+    cmds:
+      - git clone https://github.com/muesli/duf.git
+      - defer: rm -fr duf
+      - |
+        cd duf
+        go build
+        install --mode=u=rx duf {{.BIN_DIR}}
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.BIN_DIR}}/duf"
+    status:
+      - which duf
+
+  jo:
+    desc: >
+      [jo - GitHub](https://github.com/jpmens/jo):
+      JSON output from a shell.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output jo-$VERSION.tar.gz \
+          "https://github.com/jpmens/jo/releases/download/$VERSION/jo-$VERSION.tar.gz"
+      - defer: rm jo-$VERSION.tar.gz
+      - tar xf jo-$VERSION.tar.gz
+      - defer: rm -fr jo-$VERSION
+      - |
+        cd jo-$VERSION
+        autoreconf -i
+        ./configure
+        \make check
+        \make DESTDIR={{.INSTALL_DIR}} install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.9
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jo"
+    status:
+      - which jo
+
+  lunarvim:
+    desc: >
+      [LunarVim - GitHub](https://github.com/LunarVim/LunarVim):
+      🌙 LunarVim is an IDE layer for Neovim. Completely free and community
+      driven.
+    cmd: bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+    env:
+      LV_BRANCH: 'release-1.2/neovim-0.8'
+    generates:
+      - "{{.BIN_DIR}}/lvim"
+    status:
+      - which lvim
+
+  nodejs:
+    aliases:
+      - npm
+    desc: >
+      [Node.js](https://nodejs.org/en):
+      Node.js® is an open-source, cross-platform JavaScript runtime
+      environment.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output node-$VERSION.tar.gz \
+          "https://nodejs.org/dist/$VERSION/node-$VERSION.tar.gz"
+      - defer: rm node-$VERSION.tar.gz
+      - tar xf node-$VERSION.tar.gz
+      - defer: rm -fr node-$VERSION/
+      - |
+        cd node-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc)
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v21.1.0
+    generates:
+      - "{{.INSTALL_DIR}}/bin/npm"
+    status:
+      - which npm
+
+  nvim:
+    desc: >
+      [neovim - GitHub](https://github.com/neovim/neovim):
+      Vim-fork focused on extensibility and usability.
+    cmds:
+      - git clone --branch $VERSION https://github.com/neovim/neovim.git
+      - defer: rm -fr neovim
+      - |
+        cd neovim/
+        \make CMAKE_BUILD_TYPE=RelWithDebInfo
+        \make install CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v0.9.4
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jq"
+    status:
+      - which nvim
+
+  pv:
+    desc: >
+      [pv - GitHub](https://github.com/a-j-wood/pv):
+      a terminal-based tool for monitoring the progress of data through a
+      pipeline.
+    cmds:
+      - |
+       curl \
+         --create-dirs --fail --location \
+         --output pv-$VERSION.tar.bz2 \
+         "http://www.ivarch.com/programs/sources/pv-$VERSION.tar.bz2"
+      - defer: rm pv-$VERSION.tar.bz2
+      - tar xf pv-$VERSION.tar.bz2
+      - defer: rm -fr pv-$VERSION/
+      - |
+        cd pv-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.6.20
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jq"
+    status:
+      - which pv
+
+  vifm:
+    desc: >
+      [vifm – Vim-like file manager](https://github.com/vifm/vifm).
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output vifm.tar.gz \
+          "https://github.com/vifm/vifm/archive/refs/tags/v$VERSION.tar.gz"
+      - defer: rm vifm.tar.gz
+      - tar xf vifm.tar.gz
+      - defer: rm -fr vifm-$VERSION/
+      - |
+        cd vifm-$VERSION/
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 0.12
+    generates:
+      - "{{.INSTALL_DIR}}/bin/vifm"
+    status:
+      - which vifm
