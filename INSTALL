@@ -24,32 +24,6 @@ EOL
 
 
 function install_configs {
-   local -ar configs=(
-     alias
-     bashrc.common
-     gdbinit
-     gitconfig
-     gitignore_global
-     gotz.config.json
-     inputrc
-     screenrc
-     tmux.conf
-     toprc
-     vimrc
-   )
-
-   for config in ${configs[@]}; do
-      ln -fns ~/config/$config  ~/.$config
-   done
-
-   mkdir -p ~/.config/htop
-   ln -fns ~/config/config/htop/htoprc ~/.config/htop/
-
-   ln -fns ~/config/flake8 ~/.config/flake8
-
-   mkdir -p ~/.cargo
-   ln -fns ~/config/cargo.config.toml ~/.cargo/config.toml
-
    mkdir -p ~/.local/bin
    cp ~/config/bin/ipynb_drop_output.py ~/.local/bin/
 }

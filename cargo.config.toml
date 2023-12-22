@@ -1,4 +1,0 @@
-# [Configuration](https://doc.rust-lang.org/cargo/reference/config.html)
-
-[term]
-color = 'always'         # whether cargo colorizes output
