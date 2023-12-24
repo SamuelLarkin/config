@@ -30,6 +30,8 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/ctags"
     status:
       - which ctags
+    preconditions:
+      - which make
 
   duf:
     desc: >
@@ -74,6 +76,8 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/jo"
     status:
       - which jo
+    preconditions:
+      - which make
 
   lunarvim:
     desc: >
@@ -116,6 +120,8 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/npm"
     status:
       - which npm
+    preconditions:
+      - which make
 
   nvim:
     desc: >
@@ -135,6 +141,8 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/jq"
     status:
       - which nvim
+    preconditions:
+      - which make
 
   pv:
     desc: >
@@ -161,6 +169,8 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/jq"
     status:
       - which pv
+    preconditions:
+      - which make
 
   vifm:
     desc: >
@@ -185,3 +195,5 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/vifm"
     status:
       - which vifm
+    preconditions:
+      - which make

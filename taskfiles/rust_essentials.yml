@@ -150,6 +150,8 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/starship"
     status:
       - which starship
+    preconditions:
+      - which cmake
 
   stybulate:
     desc: >

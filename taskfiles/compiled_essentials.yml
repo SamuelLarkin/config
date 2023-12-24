@@ -59,6 +59,8 @@ tasks:
       - "{{.BIN_DIR}}/jq"
     status:
       - which jq
+    preconditions:
+      - which make
 
   tig:
     desc: >
@@ -94,6 +96,8 @@ tasks:
       - "{{.BIN_DIR}}/bin/tig"
     status:
       - which tig
+    preconditions:
+      - which make
 
   htop:
     desc: >
@@ -120,6 +124,8 @@ tasks:
       - "{{.BIN_DIR}}/htop"
     status:
       - which htop
+    preconditions:
+      - which make
 
   ugrep:
     desc: >
@@ -144,6 +150,8 @@ tasks:
       - "{{.BIN_DIR}}/ugrep"
     status:
       - which ugrep
+    preconditions:
+      - which make
 
   parallel:
     desc: >
@@ -169,6 +177,8 @@ tasks:
       - "{{.BIN_DIR}}/parallel"
     status:
       - which parallel
+    preconditions:
+      - which make
 
   hyperfine:
     desc: >
