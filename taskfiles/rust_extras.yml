@@ -198,7 +198,7 @@ tasks:
     generates:
       - "{{.CARGO_INSTALL_ROOT}}/bin/ripgrep"
     status:
-      - which ripgrep
+      - which rg
 
   rnr:
     desc: >
