@@ -1,0 +1,19 @@
+version: '3'
+
+env:
+  GOBIN: "{{.HOME}}/.local/bin"
+
+tasks:
+  default:
+    deps:
+      - lazysql
+
+  lazysql:
+    desc: >
+      [lazysql - GitHub](https://github.com/jorgerojas26/lazysql):
+      A cross-platform TUI database management tool written in Go.
+    cmd: go install github.com/jorgerojas26/lazysql@latest
+    generates:
+      - "{{.GOBIN}}/lazysql"
+    status:
+      - which lazysql

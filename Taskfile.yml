@@ -10,6 +10,7 @@ includes:
   git: taskfiles/git.yml
   go_essentials: taskfiles/go_essentials.yml
   go_extras: taskfiles/go_extras.yml
+  go_trial: taskfiles/go_trial.yml
   other_shell: taskfiles/other_shell.yml
   perl: taskfiles/perl.yml
   plot_tools: taskfiles/plot_tools.yml
