@@ -7,6 +7,7 @@ tasks:
   default:
     deps:
       - lazysql
+      - nap
 
   lazysql:
     desc: >
@@ -17,3 +18,13 @@ tasks:
       - "{{.GOBIN}}/lazysql"
     status:
       - which lazysql
+
+  nap:
+    desc: >
+      [nap - GitHub](https://github.com/maaslalani/nap):
+      Code snippets in your terminal.
+    cmd: go install github.com/maaslalani/nap@main
+    generates:
+      - "{{.GOBIN}}/nap"
+    status:
+      - which nap
