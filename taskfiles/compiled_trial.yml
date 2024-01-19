@@ -169,6 +169,22 @@ tasks:
     preconditions:
       - which make
 
+  nvim.alternate:
+    desc: >
+      [neovim - GitHub](https://github.com/neovim/neovim):
+      Vim-fork focused on extensibility and usability.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output "{{.BIN_DIR}}/nvim" \
+          "https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage"
+      - chmod u+x "{{.BIN_DIR}}/nvim"
+    generates:
+      - "{{.BIN_DIR}}/nvim"
+    status:
+      - which nvim
+
   pv:
     desc: >
       [pv - GitHub](https://github.com/a-j-wood/pv):
