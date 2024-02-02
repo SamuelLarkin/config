@@ -14,6 +14,20 @@ tasks:
       - fzf-tmux
       - shell_completion
 
+  forgit:
+    desc: >
+      [forgit - GitHub](https://github.com/wfxr/forgit):
+      A utility tool powered by fzf for using git interactively.
+    cmd: >
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BIN_DIR}}/'#1' \
+         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}'
+    generates:
+      - "{{.BIN_DIR}}/forgit"
+    status:
+      - which forgit
+
   fzf:
     desc: >
       [fzf - GitHub](https://github.com/junegunn/fzf):
@@ -23,6 +37,22 @@ tasks:
       - "{{.GOBIN}}/fzf"
     status:
       - which fzf
+
+  fzf-git:
+    desc: >
+      [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh):
+      bash and zsh key bindings for Git objects, powered by fzf
+    deps:
+      - fzf
+    cmd: |
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/{fzf-git.sh}'
+    generates:
+      - "{{.BASH_COMPLETION_D}}/fzf-git.sh"
+    status:
+      - test -f {{.BASH_COMPLETION_D}}/fzf-git.sh
 
   fzf-tmux:
     desc: >
@@ -40,20 +70,6 @@ tasks:
       - "{{.BIN_DIR}}/fzf-tmux"
     status:
       - which fzf-tmux
-
-  forgit:
-    desc: >
-      [forgit - GitHub](https://github.com/wfxr/forgit):
-      A utility tool powered by fzf for using git interactively.
-    cmd: >
-      curl \
-         --create-dirs --fail --location \
-         --output {{.BIN_DIR}}/'#1' \
-         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}'
-    generates:
-      - "{{.BIN_DIR}}/forgit"
-    status:
-      - which forgit
 
   shell_completion:
     desc: >
@@ -78,21 +94,5 @@ tasks:
       - "{{.BASH_COMPLETION_D}}/completion.bash"
       - "{{.BASH_COMPLETION_D}}/key-bindings.bash"
     status:
-      - test -f {{.BASH_COMPLETION_D}}/completion.bash 
+      - test -f {{.BASH_COMPLETION_D}}/completion.bash
       - test -f {{.BASH_COMPLETION_D}}/key-bindings.bash
-
-  fzf-git:
-    desc: >
-      [fzf-git.sh - GitHub](https://github.com/junegunn/fzf-git.sh):
-      bash and zsh key bindings for Git objects, powered by fzf
-    deps:
-      - fzf
-    cmd: |
-      curl \
-         --create-dirs --fail --location \
-         --output {{.BASH_COMPLETION_D}}}/'#1' \
-         'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/{fzf-git.sh}'
-    generates:
-      - "{{.BASH_COMPLETION_D}}/fzf-git.sh"
-    status:
-      - test -f {{.BASH_COMPLETION_D}}/fzf-git.sh

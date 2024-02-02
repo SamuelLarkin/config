@@ -6,17 +6,8 @@ env:
 tasks:
   default:
     deps:
-      - shell_completion
       - plugin_manager
-
-  shell_completion:
-    desc: >
-      Install tmux shell completion
-    cmd: |
-      curl \
-         --create-dirs --fail --location \
-         --output {{.BASH_COMPLETION_D}}/'#1' \
-         'https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/{tmux}'
+      - shell_completion
 
   plugin_manager:
     desc: >
@@ -27,3 +18,12 @@ tasks:
          https://github.com/tmux-plugins/tpm \
          {{.HOME}}/.tmux/plugins/tpm \
       || ( cd {{.HOME}}/.tmux/plugins/tpm && git pull; )
+
+  shell_completion:
+    desc: >
+      Install tmux shell completion
+    cmd: |
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BASH_COMPLETION_D}}/'#1' \
+         'https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/{tmux}'

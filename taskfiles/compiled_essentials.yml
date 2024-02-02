@@ -16,6 +16,57 @@ tasks:
       - tig
       - ugrep
 
+  htop:
+    desc: >
+      [htop - GitHub](https://github.com/htop-dev/htop):
+      is a cross-platform interactive process viewer.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output "htop-$VERSION.tar.xz" \
+          "https://github.com/htop-dev/htop/releases/download/$VERSION/htop-$VERSION.tar.xz"
+      - defer: rm htop-$VERSION.tar.xz
+      - tar xf htop-$VERSION.tar.xz
+      - defer: rm -fr htop-$VERSION
+      - |
+        cd htop-$VERSION
+        ./autogen.sh
+        ./configure --prefix={{.INSTALL_DIR}}
+        \make -j $(nproc) install
+    dir: $HOME/tmp
+    env:
+      VERSION: 3.2.2
+    generates:
+      - "{{.BIN_DIR}}/htop"
+    status:
+      - which htop
+    preconditions:
+      - which make
+
+  hyperfine:
+    desc: >
+      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
+      A command-line benchmarking tool.
+      NOTE: probably already install by `cargo install hyperfine`.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz \
+          "https://github.com/sharkdp/hyperfine/releases/download/v$VERSION/hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz"
+      - defer: rm hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
+      - tar xf hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
+      - defer: rm -fr hyperfine-v$VERSION-x86_64-unknown-linux-musl
+      - cp hyperfine-v$VERSION-x86_64-unknown-linux-musl/hyperfine "{{.BIN_DIR}}"
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 1.12.0
+    generates:
+      - "{{.BIN_DIR}}/hyperfine"
+    status:
+      - which hyperfine
+
   jq:
     desc: >
       [jq - GitHub](https://stedolan.github.io/jq/): jq is a lightweight and flexible command-line JSON processor.
@@ -84,6 +135,33 @@ tasks:
     preconditions:
       - which make
 
+  parallel:
+    desc: >
+      [parallel - GNU parallel](https://www.gnu.org/software/parallel/):
+      is a shell tool for executing jobs in parallel using one or more computers.
+    cmds:
+      - |
+        curl \
+          --create-dirs --fail --location \
+          --output parallel-$VERSION.tar.bz2 \
+          "https://ftp.gnu.org/gnu/parallel/parallel-$VERSION.tar.bz2"
+      - defer: rm parallel-$VERSION.tar.bz2
+      - tar xf parallel-$VERSION.tar.bz2
+      - defer: rm -fr parallel-$VERSION
+      - |
+        cd parallel-$VERSION
+        ./configure --prefix={{.INSTALL_DIR}}"
+        \make -j $(nproc) install
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: 20231022
+    generates:
+      - "{{.BIN_DIR}}/parallel"
+    status:
+      - which parallel
+    preconditions:
+      - which make
+
   tig:
     desc: >
       Install tig
@@ -121,34 +199,6 @@ tasks:
     preconditions:
       - which make
 
-  htop:
-    desc: >
-      [htop - GitHub](https://github.com/htop-dev/htop):
-      is a cross-platform interactive process viewer.
-    cmds:
-      - |
-        curl \
-          --create-dirs --fail --location \
-          --output "htop-$VERSION.tar.xz" \
-          "https://github.com/htop-dev/htop/releases/download/$VERSION/htop-$VERSION.tar.xz"
-      - defer: rm htop-$VERSION.tar.xz
-      - tar xf htop-$VERSION.tar.xz
-      - defer: rm -fr htop-$VERSION
-      - |
-        cd htop-$VERSION
-        ./autogen.sh
-        ./configure --prefix={{.INSTALL_DIR}}
-        \make -j $(nproc) install
-    dir: $HOME/tmp
-    env:
-      VERSION: 3.2.2
-    generates:
-      - "{{.BIN_DIR}}/htop"
-    status:
-      - which htop
-    preconditions:
-      - which make
-
   ugrep:
     desc: >
       [ug/ugrep - GitHub](https://github.com/Genivia/ugrep):
@@ -174,53 +224,3 @@ tasks:
       - which ugrep
     preconditions:
       - which make
-
-  parallel:
-    desc: >
-      [parallel - GNU parallel](https://www.gnu.org/software/parallel/):
-      is a shell tool for executing jobs in parallel using one or more computers.
-    cmds:
-      - |
-        curl \
-          --create-dirs --fail --location \
-          --output parallel-$VERSION.tar.bz2 \
-          "https://ftp.gnu.org/gnu/parallel/parallel-$VERSION.tar.bz2"
-      - defer: rm parallel-$VERSION.tar.bz2
-      - tar xf parallel-$VERSION.tar.bz2
-      - defer: rm -fr parallel-$VERSION
-      - |
-        cd parallel-$VERSION
-        ./configure --prefix={{.INSTALL_DIR}}"
-        \make -j $(nproc) install
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: 20231022
-    generates:
-      - "{{.BIN_DIR}}/parallel"
-    status:
-      - which parallel
-    preconditions:
-      - which make
-
-  hyperfine:
-    desc: >
-      [hyperfine - GitHub](https://github.com/sharkdp/hyperfine):
-      A command-line benchmarking tool.
-      NOTE: probably already install by `cargo install hyperfine`.
-    cmds:
-      - |
-        curl \
-          --create-dirs --fail --location \
-          --output hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz \
-          "https://github.com/sharkdp/hyperfine/releases/download/v$VERSION/hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz"
-      - defer: rm hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
-      - tar xf hyperfine-v$VERSION-x86_64-unknown-linux-musl.tar.gz
-      - defer: rm -fr hyperfine-v$VERSION-x86_64-unknown-linux-musl
-      - cp hyperfine-v$VERSION-x86_64-unknown-linux-musl/hyperfine "{{.BIN_DIR}}"
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: 1.12.0
-    generates:
-      - "{{.BIN_DIR}}/hyperfine"
-    status:
-      - which hyperfine
