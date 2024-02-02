@@ -11,6 +11,7 @@ tasks:
       - htop
       - hyperfine
       - jq
+      - nvim
       - parallel
       - tig
       - ugrep
@@ -59,6 +60,27 @@ tasks:
       - "{{.BIN_DIR}}/jq"
     status:
       - which jq
+    preconditions:
+      - which make
+
+  nvim:
+    desc: >
+      [neovim - GitHub](https://github.com/neovim/neovim):
+      Vim-fork focused on extensibility and usability.
+    cmds:
+      - git clone --branch $VERSION https://github.com/neovim/neovim.git
+      - defer: rm -fr neovim
+      - |
+        cd neovim/
+        \make CMAKE_BUILD_TYPE=Release
+        \make install CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
+    dir: "{{.HOME}}/tmp"
+    env:
+      VERSION: v0.9.5
+    generates:
+      - "{{.INSTALL_DIR}}/bin/jq"
+    status:
+      - which nvim
     preconditions:
       - which make
 

@@ -123,27 +123,6 @@ tasks:
     preconditions:
       - which make
 
-  nvim:
-    desc: >
-      [neovim - GitHub](https://github.com/neovim/neovim):
-      Vim-fork focused on extensibility and usability.
-    cmds:
-      - git clone --branch $VERSION https://github.com/neovim/neovim.git
-      - defer: rm -fr neovim
-      - |
-        cd neovim/
-        \make CMAKE_BUILD_TYPE=RelWithDebInfo
-        \make install CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: v0.9.4
-    generates:
-      - "{{.INSTALL_DIR}}/bin/jq"
-    status:
-      - which nvim
-    preconditions:
-      - which make
-
   pv:
     desc: >
       [pv - GitHub](https://github.com/a-j-wood/pv):
