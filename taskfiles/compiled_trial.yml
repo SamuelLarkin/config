@@ -27,7 +27,7 @@ tasks:
     env:
       VERSION: v6.0.0
     generates:
-      - "{{.INSTALL_DIR}}/bin/ctags"
+      - "{{.BIN_DIR}}/ctags"
     status:
       - which ctags
     preconditions:
@@ -73,7 +73,7 @@ tasks:
     env:
       VERSION: 1.9
     generates:
-      - "{{.INSTALL_DIR}}/bin/jo"
+      - "{{.BIN_DIR}}/jo"
     status:
       - which jo
     preconditions:
@@ -117,7 +117,7 @@ tasks:
     env:
       VERSION: v21.1.0
     generates:
-      - "{{.INSTALL_DIR}}/bin/npm"
+      - "{{.BIN_DIR}}/npm"
     status:
       - which npm
     preconditions:
@@ -145,7 +145,7 @@ tasks:
     env:
       VERSION: 1.6.20
     generates:
-      - "{{.INSTALL_DIR}}/bin/jq"
+      - "{{.BIN_DIR}}/jq"
     status:
       - which pv
     preconditions:
@@ -171,7 +171,7 @@ tasks:
     env:
       VERSION: 0.12
     generates:
-      - "{{.INSTALL_DIR}}/bin/vifm"
+      - "{{.BIN_DIR}}/vifm"
     status:
       - which vifm
     preconditions:
