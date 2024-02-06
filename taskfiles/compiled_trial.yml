@@ -8,7 +8,14 @@ env:
 tasks:
   default:
     deps:
+      - ctags
       - duf
+      - gh
+      - jo
+      - lunarvim
+      - nodejs
+      - pv
+      - vifm
 
   ctags:
     desc: >
@@ -35,6 +42,7 @@ tasks:
 
   duf:
     desc: >
+      NOTE: use go_extras:duf
       [duf - GitHub](https://github.com/muesli/duf_:
       Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
     cmds:
@@ -49,6 +57,22 @@ tasks:
       - "{{.BIN_DIR}}/duf"
     status:
       - which duf
+
+  gh:
+    desc: >
+      [duf - GitHub](https://github.com/muesli/duf_:
+      Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
+    cmds:
+      - git clone https://github.com/cli/cli.git gh-cli
+      - defer: rm -fr gh-cli
+      - |
+        cd gh-cli
+        make install prefix={{.INSTALL_DIR}}
+    dir: "{{.HOME}}/tmp"
+    generates:
+      - "{{.BIN_DIR}}/gh"
+    status:
+      - which gh
 
   jo:
     desc: >
