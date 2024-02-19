@@ -1,0 +1,32 @@
+name: Deploy docs
+on:
+  push:
+    branches:
+      - main
+      - dev/gh_mkdocs
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+jobs:
+ docs:
+    # Create latest docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # fetch all commits/branches
+      - name: Set up Conda
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          python-version: "3.10"
+      - name: Install documentation dependencies
+        run: |
+          pip install -r docs/requirements.txt
+      - name: Setup doc deploy
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Deploy docs with mike 🚀
+        run: |
+          mkdocs build
+          mkdocs gh-deploy
