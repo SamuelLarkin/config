@@ -10,6 +10,7 @@ tasks:
       - bandwhich
       - grex
       - helix
+      - jaq
 
   atuin:
     desc: >
@@ -60,3 +61,13 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
     status:
       - which helix
+
+  jaq:
+    desc: >
+      [jaq - GitHub](https://github.com/01mf02/jaq)
+      A jq clone focussed on correctness, speed, and simplicity.
+    cmd: cargo install --force jaq
+    generates:
+      - "{{.CARGO_INSTALL_ROOT}}/bin/jaq"
+    status:
+      - which jaq
