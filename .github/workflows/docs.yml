@@ -1,12 +1,19 @@
 name: Deploy docs
+
 on:
   push:
     branches:
       - main
       - dev/gh_mkdocs
+    paths:
+      - "**.md"
+      - "mkdocs.yml"
+  workflow_dispatch:
+
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
+
 jobs:
  docs:
     # Create latest docs
@@ -18,14 +25,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-      - name: Set up Conda
-        uses: conda-incubator/setup-miniconda@v3
-        with:
-          python-version: "3.10"
-      - name: Install documentation dependencies
-        run: |
-          pip install -r docs/requirements.txt
-      - name: Deploy docs with mike 🚀
-        run: |
-          mkdocs build
-          mkdocs gh-deploy
+      - name: Deploy docs
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          REQUIREMENTS: docs/requirements.txt
