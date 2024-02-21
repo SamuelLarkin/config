@@ -38,7 +38,8 @@ tasks:
     status:
       - which ctags
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   duf:
     desc: >
@@ -57,6 +58,9 @@ tasks:
       - "{{.BIN_DIR}}/duf"
     status:
       - which duf
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   gh:
     desc: >
@@ -73,6 +77,9 @@ tasks:
       - "{{.BIN_DIR}}/gh"
     status:
       - which gh
+    preconditions:
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   jo:
     desc: >
@@ -101,7 +108,8 @@ tasks:
     status:
       - which jo
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   lunarvim:
     desc: >
@@ -146,7 +154,8 @@ tasks:
     status:
       - which npm
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   nvim:
     desc: >
@@ -167,7 +176,8 @@ tasks:
     status:
       - which nvim
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   nvim.alternate:
     desc: >
@@ -211,7 +221,8 @@ tasks:
     status:
       - which pv
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   vifm:
     desc: >
@@ -237,4 +248,5 @@ tasks:
     status:
       - which vifm
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make

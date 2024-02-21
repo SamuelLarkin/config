@@ -42,7 +42,8 @@ tasks:
     status:
       - which htop
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   hyperfine:
     desc: >
@@ -112,7 +113,8 @@ tasks:
     status:
       - which jq
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   nvim:
     desc: >
@@ -133,7 +135,8 @@ tasks:
     status:
       - which nvim
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   parallel:
     desc: >
@@ -160,7 +163,8 @@ tasks:
     status:
       - which parallel
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   tig:
     desc: >
@@ -197,7 +201,8 @@ tasks:
     status:
       - which tig
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   ugrep:
     desc: >
@@ -223,4 +228,5 @@ tasks:
     status:
       - which ugrep
     preconditions:
-      - which make
+      - msg: "make must be in your $PATH"
+        sh: which make

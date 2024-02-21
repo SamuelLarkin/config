@@ -23,6 +23,9 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/gh"
     status:
       - which gh
+    preconditions:
+      - msg: "make must be in your $PATH"
+        sh: which make
 
   ncdu:
     desc: >
@@ -49,3 +52,6 @@ tasks:
       - "{{.INSTALL_DIR}}/bin/ncdu"
     status:
       - which ncdu
+    preconditions:
+      - msg: "make must be in your $PATH"
+        sh: which make
