@@ -21,6 +21,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/atuin"
     status:
       - which atuin
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   bandwhich:
     desc: >
@@ -32,6 +35,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/bandwhich"
     status:
       - which bandwhich
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   grex:
     desc: >
@@ -44,6 +50,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/grex"
     status:
       - which grex
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   helix:
     desc: >
@@ -61,6 +70,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
     status:
       - which helix
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   jaq:
     desc: >
@@ -71,3 +83,6 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/jaq"
     status:
       - which jaq
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo

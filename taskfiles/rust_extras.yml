@@ -43,6 +43,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/bottom"
     status:
       - which bottom
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   broot:
     desc: >
@@ -53,6 +56,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/broot"
     status:
       - which broot
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   diskonaut:
     desc: >
@@ -63,6 +69,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/diskonaut"
     status:
       - which diskonaut
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   dust:
     desc: >
@@ -73,6 +82,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/dust"
     status:
       - which dust
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   erdtree:
     desc: >
@@ -85,6 +97,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/erdtree"
     status:
       - which erdtree
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   exa:
     desc: >
@@ -97,6 +112,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/exa"
     status:
       - which exa
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   fd-find:
     desc: >
@@ -107,6 +125,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/fd"
     status:
       - which fd
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   find_unicode:
     desc: >
@@ -117,6 +138,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/fu"
     status:
       - which fu
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   gitui:
     desc: >
@@ -127,6 +151,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/gitui"
     status:
       - which gitui
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   histo:
     desc: >
@@ -138,6 +165,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/histo"
     status:
       - which histo
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   htmlq:
     desc: >
@@ -148,6 +178,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/htmlq"
     status:
       - which htmlq
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   navi:
     desc: >
@@ -158,6 +191,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/navi"
     status:
       - which navi
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   ouch:
     desc: >
@@ -168,6 +204,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/ouch"
     status:
       - which ouch
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   oxker:
     desc: >
@@ -178,6 +217,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/oxker"
     status:
       - which oxker
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   procs:
     desc: >
@@ -188,6 +230,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/procs"
     status:
       - which procs
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   ripgrep:
     desc: >
@@ -199,6 +244,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/ripgrep"
     status:
       - which rg
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   rnr:
     desc: >
@@ -210,6 +258,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/rnr"
     status:
       - which rnr
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   runiq:
     desc: >
@@ -221,6 +272,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/runiq"
     status:
       - which runiq
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   skim:
     desc: >
@@ -232,6 +286,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/sk"
     status:
       - which sk
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   termscp:
     desc: >
@@ -243,6 +300,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/termscp"
     status:
       - which termscp
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   vivid:
     desc: >
@@ -254,6 +314,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/vivid"
     status:
       - which vivid
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   xsv:
     desc: >
@@ -265,6 +328,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/xsv"
     status:
       - which xsv
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   zellij:
     desc: >
@@ -275,6 +341,9 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/zellij"
     status:
       - which zellij
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
 
   zenith:
     desc: >
@@ -285,3 +354,6 @@ tasks:
       - "{{.CARGO_INSTALL_ROOT}}/bin/zenith"
     status:
       - which zenith
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
