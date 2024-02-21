@@ -6,12 +6,20 @@ env:
 tasks:
   default:
     deps:
+      - install_plugins
       - plugin_manager
       - shell_completion
 
+  install_plugins:
+    desc: >
+      Install tmux's plugins.
+    cmd: "{{.HOME}}/.tmux/plugins/tpm/bin/install_plugins"
+    deps:
+      - plugin_manager
+
   plugin_manager:
     desc: >
-      Install tmux's plugin system.
+      Install tmux's plugin manager.
     cmd: |
       git \
          clone \
@@ -21,7 +29,7 @@ tasks:
 
   shell_completion:
     desc: >
-      Install tmux shell completion
+      Install tmux shell completion.
     cmd: |
       curl \
          --create-dirs --fail --location \
