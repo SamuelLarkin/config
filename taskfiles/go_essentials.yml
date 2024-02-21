@@ -21,6 +21,9 @@ tasks:
       - "{{.GOBIN}}/chezmoi"
     status:
       - which chezmoi
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   gdu:
     desc: >
@@ -31,6 +34,9 @@ tasks:
       - "{{.GOBIN}}/gdu"
     status:
       - which gdu
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   glow:
     desc: >
@@ -41,6 +47,9 @@ tasks:
       - "{{.GOBIN}}/glow"
     status:
       - which glow
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   lazygit:
     desc: >
@@ -52,3 +61,6 @@ tasks:
       - "{{.GOBIN}}/lazygit"
     status:
       - which lazygit
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go

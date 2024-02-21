@@ -18,6 +18,9 @@ tasks:
       - "{{.GOBIN}}/lazysql"
     status:
       - which lazysql
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   nap:
     desc: >
@@ -28,3 +31,6 @@ tasks:
       - "{{.GOBIN}}/nap"
     status:
       - which nap
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
