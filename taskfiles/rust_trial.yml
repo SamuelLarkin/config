@@ -2,6 +2,7 @@ version: '3'
 
 env:
   CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+  CARGO_BIN_DIR: "{{.HOME}}/.local/bin"
 
 tasks:
   default:
@@ -18,7 +19,7 @@ tasks:
       ✨ Magical shell history.
     cmd: cargo install --force atuin
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/atuin"
+      - "{{.CARGO_BIN_DIR}}/atuin"
     status:
       - which atuin
     preconditions:
@@ -32,7 +33,7 @@ tasks:
       Terminal bandwidth utilization tool.
     cmd: cargo install --force bandwhich
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/bandwhich"
+      - "{{.CARGO_BIN_DIR}}/bandwhich"
     status:
       - which bandwhich
     preconditions:
@@ -47,7 +48,7 @@ tasks:
       [Generate a matching regular expression from the test cases you provide](https://pemistahl.github.io/grex-js/)
     cmd: cargo install --force grex
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/grex"
+      - "{{.CARGO_BIN_DIR}}/grex"
     status:
       - which grex
     preconditions:
@@ -64,12 +65,12 @@ tasks:
       - defer: rm -fr helix
       - |
         cd helix
-        cargo install --force --path helix-term
+        cargo install --force --path helix-term --locked
     dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/helix"
+      - "{{.CARGO_BIN_DIR}}/hx"
     status:
-      - which helix
+      - which hx
     preconditions:
       - msg: "cargo must be in your $PATH"
         sh: which cargo
