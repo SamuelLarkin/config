@@ -2,6 +2,7 @@ version: '3'
 
 env:
   CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+  CARGO_BIN_DIR: "{{.HOME}}/.local/bin"
 
 tasks:
   default:
@@ -26,7 +27,7 @@ tasks:
       A cat(1) clone with syntax highlighting and Git integration.
     cmd: cargo install --force bat
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/bat"
+      - "{{.CARGO_BIN_DIR}}/bat"
     status:
       - which bat
     preconditions:
@@ -59,7 +60,7 @@ tasks:
           colorMoved = default
     cmd: cargo install --force --git https://github.com/dandavison/delta
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/delta"
+      - "{{.CARGO_BIN_DIR}}/delta"
     status:
       - which delta
     preconditions:
@@ -73,7 +74,7 @@ tasks:
       syntax.
     cmd: cargo install --force difftastic
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/difft"
+      - "{{.CARGO_BIN_DIR}}/difft"
     status:
       - which difft
     preconditions:
@@ -89,7 +90,7 @@ tasks:
       non-ASCII).
     cmd: cargo install --force hexyl
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/hexyl"
+      - "{{.CARGO_BIN_DIR}}/hexyl"
     status:
       - which hexyl
     preconditions:
@@ -102,7 +103,7 @@ tasks:
       A command-line benchmarking tool.
     cmd: cargo install --force hyperfine
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/hyperfine"
+      - "{{.CARGO_BIN_DIR}}/hyperfine"
     status:
       - which hyperfine
     preconditions:
@@ -119,7 +120,7 @@ tasks:
       [jless — a command-line JSON viewer](https://jless.io/user-guide.html)
     cmd: cargo install --force jless
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/jless"
+      - "{{.CARGO_BIN_DIR}}/jless"
     status:
       - which jless
     preconditions:
@@ -134,7 +135,7 @@ tasks:
       heavily inspired by the super colorls project.
     cmd: cargo install --force lsd
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/lsd"
+      - "{{.CARGO_BIN_DIR}}/lsd"
     status:
       - which lsd
     preconditions:
@@ -150,9 +151,9 @@ tasks:
       Reservoir Sampling in Rust.
     cmds:
       - cargo install --force --git https://github.com/SamuelLarkin/reservoir_sampling_rs
-      - mv ~/.cargo/bin/reservoir_sampling_rs {{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs
+      - mv ~/.cargo/bin/reservoir_sampling_rs {{.CARGO_BIN_DIR}}/reservoir_sampling_rs
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/reservoir_sampling_rs"
+      - "{{.CARGO_BIN_DIR}}/reservoir_sampling_rs"
     status:
       - which reservoir_sampling_rs
     preconditions:
@@ -171,7 +172,7 @@ tasks:
       eval "$(starship init bash)"
     cmd: cargo install --force starship
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/starship"
+      - "{{.CARGO_BIN_DIR}}/starship"
     status:
       - which starship
     preconditions:
@@ -184,7 +185,7 @@ tasks:
       Tabulate with Style
     cmd: cargo install --force stybulate --features=cli
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/stybulate"
+      - "{{.CARGO_BIN_DIR}}/stybulate"
     status:
       - which stybulate
     preconditions:
@@ -205,7 +206,7 @@ tasks:
       `eval "$(zoxide init bash)"`
     cmd: cargo install --force zoxide
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/zoxide"
+      - "{{.CARGO_BIN_DIR}}/zoxide"
     status:
       - which zoxide
     preconditions:

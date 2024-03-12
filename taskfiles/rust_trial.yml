@@ -81,7 +81,7 @@ tasks:
       A jq clone focussed on correctness, speed, and simplicity.
     cmd: cargo install --force jaq
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/jaq"
+      - "{{.CARGO_BIN_DIR}}/jaq"
     status:
       - which jaq
     preconditions:
