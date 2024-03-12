@@ -8,6 +8,7 @@ tasks:
     deps:
       - lazysql
       - nap
+      - viddy
 
   lazysql:
     desc: >
@@ -31,6 +32,19 @@ tasks:
       - "{{.GOBIN}}/nap"
     status:
       - which nap
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
+
+  viddy:
+    desc: >
+      [viddy - GitHub](https://github.com/sachaos/viddy):
+      👀 A modern watch command. Time machine and pager etc.
+    cmd: go install github.com/sachaos/viddy@latest
+    generates:
+      - "{{.GOBIN}}/viddy"
+    status:
+      - which viddy
     preconditions:
       - msg: "Go must be in your $PATH"
         sh: which go
