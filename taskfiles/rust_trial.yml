@@ -9,6 +9,7 @@ tasks:
     deps:
       - atuin
       - bandwhich
+      - eza
       - grex
       - helix
       - jaq
@@ -36,6 +37,19 @@ tasks:
       - "{{.CARGO_BIN_DIR}}/bandwhich"
     status:
       - which bandwhich
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
+
+  eza:
+    desc: >
+      [eza - GitHub](https://github.com/extrawurst/gitui):
+      Blazing 💥 fast terminal-ui for git written in rust 🦀.
+    cmd: cargo install --force eza
+    generates:
+      - "{{.CARGO_BIN_DIR}}/eza"
+    status:
+      - which eza
     preconditions:
       - msg: "cargo must be in your $PATH"
         sh: which cargo
