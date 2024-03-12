@@ -250,3 +250,4 @@ Vim Plugins equivalent
 * [AWESOME VIM PLUGINS from ACROSS THE UNIVERSE](https://vimawesome.com/)
 * [Awesome Neovim](https://github.com/rockerBOO/awesome-neovim)
 * [The Modern JavaScript Tutorial](https://javascript.info/)
+* [Find your next tool at TerminalTrove](https://terminaltrove.com/)
