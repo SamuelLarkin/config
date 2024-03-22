@@ -17,6 +17,8 @@ tasks:
       py-spy: Sampling profiler for Python programs
       py-spy top -- python myprogram.py
     cmd: python3 -m pip install --user --upgrade py-spy
+    generates:
+      - "{{.BIN_DIR}}/py-spy"
     status:
       - which py-spy
 
@@ -25,5 +27,7 @@ tasks:
       [Pyinstrument](https://github.com/joerick/pyinstrument)
       Pyinstrument is a Python profiler.
     cmd: python3 -m pip install --user --upgrade pyinstrument
+    generates:
+      - "{{.BIN_DIR}}/pyinstrument"
     status:
       - which pyinstrument

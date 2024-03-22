@@ -15,6 +15,8 @@ tasks:
     desc: >
       [bpytop - GitHub](https://github.com/aristocratos/bpytop)
     cmd: python3 -m pip install --user bpytop
+    generates:
+      - "{{.BIN_DIR}}/bpytop"
     status:
       - which bpytop
 
@@ -24,6 +26,8 @@ tasks:
       [glances - WebSite](https://nicolargo.github.io/glances):
       An eye on your system.
     cmd: python3 -m pip install --user --upgrade glances
+    generates:
+      - "{{.BIN_DIR}}/glances"
     status:
       - which glances
 
@@ -32,6 +36,8 @@ tasks:
       [hapless - GitHub](https://github.com/bmwant/hapless)
       Simplest way of running and tracking processes in the background.
     cmd: python3 -m pip install --user --upgrade hapless
+    generates:
+      - "{{.BIN_DIR}}/hapless"
     status:
       - which hapless
 
@@ -41,6 +47,8 @@ tasks:
       Command line utilities for data analysis.
     #cmd: python3 -m pip install --user --upgrade data_hacks   # Only works with python2
     cmd: python3 -m pip install --user --upgrade data_hacks3
+    generates:
+      - "{{.BIN_DIR}}/histogram"
     status:
       - which histogram
 
@@ -49,6 +57,8 @@ tasks:
       [hq - GitHub](https://github.com/rbwinslow/hq):
       Powerful HTML slicing and dicing at the command line.
     cmd: python3 -m pip install --user --upgrade hq
+    generates:
+      - "{{.BIN_DIR}}/hq"
     status:
       - which hq
 
@@ -60,6 +70,8 @@ tasks:
       the terminal, with specialized rendering for Markdown and JSON files.
       Additionally you can markup and format text from the command line.
     cmd: python3 -m pip install --user --upgrade rich-cli
+    generates:
+      - "{{.BIN_DIR}}/rich-cli"
     status:
       - which rich-cli
 
@@ -68,6 +80,8 @@ tasks:
       [scroll - GitHub](https://github.com/redraw/scroll)
       scroll stdout!
     cmd: python3 -m pip install --user --upgrade scroll-term
+    generates:
+      - "{{.BIN_DIR}}/scroll-term"
     status:
       - which scroll-term
 
@@ -76,6 +90,8 @@ tasks:
       [tabulate - python-tabulate - GitHub](https://github.com/astanin/python-tabulate):
       Pretty-print tabular data in Python, a library and a command-line utility.
     cmd: python3 -m pip install --user --upgrade tabulate
+    generates:
+      - "{{.BIN_DIR}}/tabulate"
     status:
       - which tabulate
 
@@ -86,6 +102,8 @@ tasks:
       for command-line tools, that aims to be a simpler, more approachable
       complement to traditional man pages.
     cmd: python3 -m pip install --user --upgrade tldr
+    generates:
+      - "{{.BIN_DIR}}/tldr"
     status:
       - which tldr
 
@@ -94,6 +112,8 @@ tasks:
       [tmuxp - GitHub](https://github.com/tmux-python/tmuxp):
       tmuxp, tmux session manager.
     cmd: python3 -m pip install --user --upgrade tmuxp
+    generates:
+      - "{{.BIN_DIR}}/tmuxp"
     status:
       - which tmuxp
 
@@ -102,6 +122,8 @@ tasks:
       [tqdm - GitHub](https://github.com/tqdm/tqdm):
       Progress Bar.
     cmd: python3 -m pip install --user --upgrade tqdm
+    generates:
+      - "{{.BIN_DIR}}/tqdm"
     status:
       - which tqdm
 
@@ -110,6 +132,8 @@ tasks:
       [xq - GitHub](https://github.com/jeffbr13/xq):
       Apply XPath expressions to XML, like jq does for JSONPath and JSON.
     cmd: python3 -m pip install --user --upgrade xq
+    generates:
+      - "{{.BIN_DIR}}/xq"
     status:
       - which xq
 
@@ -119,5 +143,7 @@ tasks:
       yq: Command-line YAML/XML/TOML processor - jq wrapper for YAML, XML, TOML
       documents.
     cmd: python3 -m pip install --user --upgrade yq
+    generates:
+      - "{{.BIN_DIR}}/yq"
     status:
       - which yq

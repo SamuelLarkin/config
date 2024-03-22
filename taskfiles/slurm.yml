@@ -19,6 +19,8 @@ tasks:
         --create-dirs --fail --location \
         --output {{.BASH_COMPLETION_D}}/'#1' \
         'https://raw.githubusercontent.com/damienfrancois/slurm-helper/master/{slurm_completion.sh}'
+    generates:
+      - "{{.BASH_COMPLETION_D}}/slurm_completion.sh"
     preconditions:
       - msg: This machine doesn't have SLURM
         sh: which sbatch
