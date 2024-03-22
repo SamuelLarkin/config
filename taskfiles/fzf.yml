@@ -47,7 +47,7 @@ tasks:
     cmd: |
       curl \
          --create-dirs --fail --location \
-         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         --output {{.BASH_COMPLETION_D}}/'#1' \
          'https://raw.githubusercontent.com/junegunn/fzf-git.sh/main/{fzf-git.sh}'
     generates:
       - "{{.BASH_COMPLETION_D}}/fzf-git.sh"
@@ -80,19 +80,19 @@ tasks:
       # BASH completions
       curl \
          --create-dirs --fail --location \
-         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         --output {{.BASH_COMPLETION_D}}/fzf-'#1' \
          'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{completion.bash}'
       curl \
          --create-dirs --fail --location \
-         --output {{.BASH_COMPLETION_D}}}/'#1' \
+         --output {{.BASH_COMPLETION_D}}/fzf-'#1' \
          'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.bash}'
       curl \
          --create-dirs --fail --location \
-         --output ~/.config/fish/functions/'#1' \
+         --output ~/.config/fish/functions/fzf-'#1' \
          'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.fish}'
     generates:
-      - "{{.BASH_COMPLETION_D}}/completion.bash"
-      - "{{.BASH_COMPLETION_D}}/key-bindings.bash"
+      - "{{.BASH_COMPLETION_D}}/fzf-completion.bash"
+      - "{{.BASH_COMPLETION_D}}/fzf-key-bindings.bash"
     status:
-      - test -f {{.BASH_COMPLETION_D}}/completion.bash
-      - test -f {{.BASH_COMPLETION_D}}/key-bindings.bash
+      - test -f {{.BASH_COMPLETION_D}}/fzf-completion.bash
+      - test -f {{.BASH_COMPLETION_D}}/fzf-key-bindings.bash
