@@ -131,7 +131,7 @@ tasks:
     env:
       VERSION: v0.9.5
     generates:
-      - "{{.INSTALL_DIR}}/bin/jq"
+      - "{{.BIN_DIR}}/nvim"
     status:
       - which nvim
     preconditions:

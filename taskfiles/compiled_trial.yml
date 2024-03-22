@@ -157,28 +157,6 @@ tasks:
       - msg: "make must be in your $PATH"
         sh: which make
 
-  nvim:
-    desc: >
-      [neovim - GitHub](https://github.com/neovim/neovim):
-      Vim-fork focused on extensibility and usability.
-    cmds:
-      - git clone --branch $VERSION https://github.com/neovim/neovim.git
-      - defer: rm -fr neovim
-      - |
-        cd neovim/
-        \make CMAKE_BUILD_TYPE=RelWithDebInfo
-        \make install CMAKE_INSTALL_PREFIX={{.INSTALL_DIR}}
-    dir: "{{.HOME}}/tmp"
-    env:
-      VERSION: v0.9.4
-    generates:
-      - "{{.BIN_DIR}}/nvim"
-    status:
-      - which nvim
-    preconditions:
-      - msg: "make must be in your $PATH"
-        sh: which make
-
   nvim.alternate:
     desc: >
       [neovim - GitHub](https://github.com/neovim/neovim):
