@@ -1,6 +1,10 @@
 version: '3'
 # [6 stellar libraries for profiling Python code](https://www.infoworld.com/article/3600993/6-stellar-libraries-for-profiling-python-code.html)
 
+env:
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
 tasks:
   default:
     deps:

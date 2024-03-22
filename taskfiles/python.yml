@@ -1,5 +1,9 @@
 version: '3'
 
+env:
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
+
 tasks:
   default:
     deps:

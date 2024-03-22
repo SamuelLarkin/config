@@ -2,6 +2,8 @@ version: '3'
 
 env:
   BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:

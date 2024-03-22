@@ -1,7 +1,8 @@
 version: '3'
 
 env:
-  GOBIN: "{{.HOME}}/.local/bin"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:
@@ -28,7 +29,7 @@ tasks:
       various formats.
     cmd: go install github.com/mholt/archiver/v3/cmd/arc@latest
     generates:
-      - "{{.GOBIN}}/arc"
+      - "{{.BIN_DIR}}/arc"
     status:
       - which arc
     preconditions:
@@ -43,7 +44,7 @@ tasks:
         eval "$(direnv hook bash)"
     cmd: go install github.com/direnv/direnv@latest
     generates:
-      - "{{.GOBIN}}/direnv"
+      - "{{.BIN_DIR}}/direnv"
     status:
       - which direnv
     preconditions:
@@ -56,7 +57,7 @@ tasks:
       Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
     cmd: go install github.com/muesli/duf@latest
     generates:
-      - "{{.GOBIN}}/duf"
+      - "{{.BIN_DIR}}/duf"
     status:
       - which duf
     preconditions:
@@ -70,7 +71,7 @@ tasks:
       directories quickly and safely. Written in Go!
     cmd: go install github.com/ayoisaiah/f2/cmd/f2@latest
     generates:
-      - "{{.GOBIN}}/f2"
+      - "{{.BIN_DIR}}/f2"
     status:
       - which f2
     preconditions:
@@ -85,7 +86,7 @@ tasks:
       also embed gojq as a library to your Go products.
     cmd: go install github.com/itchyny/gojq/cmd/gojq@latest
     generates:
-      - "{{.GOBIN}}/gojq"
+      - "{{.BIN_DIR}}/gojq"
     status:
       - which gojq
     preconditions:
@@ -98,7 +99,7 @@ tasks:
       gotz - a simple CLI timezone info tool.
     cmd: go install github.com/merschformann/gotz@latest
     generates:
-      - "{{.GOBIN}}/gotz"
+      - "{{.BIN_DIR}}/gotz"
     status:
       - which gotz
     preconditions:
@@ -113,11 +114,11 @@ tasks:
       - |
         curl \
            --create-dirs --fail --location \
-           --output {{.GOBIN}}/grv \
+           --output {{.BIN_DIR}}/grv \
            'https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64'
-      - chmod +x {{.GOBIN}}/grv
+      - chmod +x {{.BIN_DIR}}/grv
     generates:
-      - "{{.GOBIN}}/grv"
+      - "{{.BIN_DIR}}/grv"
     status:
       - which grv
     preconditions:
@@ -130,7 +131,7 @@ tasks:
       json incremental digger.
     cmd: go install github.com/simeji/jid/cmd/jid@latest
     generates:
-      - "{{.GOBIN}}/jid"
+      - "{{.BIN_DIR}}/jid"
     status:
       - which jid
     preconditions:
@@ -143,7 +144,7 @@ tasks:
       A TUI playground to experiment with jq.
     cmd: go install github.com/noahgorstein/jqp@latest
     generates:
-      - "{{.GOBIN}}/jpq"
+      - "{{.BIN_DIR}}/jpq"
     status:
       - which jpq
     preconditions:
@@ -157,7 +158,7 @@ tasks:
       with the gocui library.
     cmd: go install github.com/jesseduffield/lazydocker@latest
     generates:
-      - "{{.GOBIN}}/lazydocker"
+      - "{{.BIN_DIR}}/lazydocker"
     status:
       - which lazydocker
     preconditions:
@@ -171,7 +172,7 @@ tasks:
       heavy inspiration from ranger file manager.
     cmd: CGO_ENABLED=0  go install -ldflags="-s -w" github.com/gokcehan/lf@latest
     generates:
-      - "{{.GOBIN}}/lf"
+      - "{{.BIN_DIR}}/lf"
     status:
       - which lf
     preconditions:
@@ -193,14 +194,13 @@ tasks:
       - defer: rm $TARBALL
       - tar xf $TARBALL
       - defer: rm -fr miller-$VERSION-linux-amd64
-      - echo "$GOBIN"
-      - install --mode=500 -–target-directory="$GOBIN" miller-$VERSION-linux-amd64/mlr
+      - install --mode=500 --target-directory="{{.BIN_DIR}}" miller-$VERSION-linux-amd64/mlr
     dir: "{{.HOME}}/tmp"
     env:
       TARBALL: miller.tar.gz
-      VERSION: 6.9.0
+      VERSION: 6.12.0
     generates:
-      - "{{.GOBIN}}/mlr"
+      - "{{.BIN_DIR}}/mlr"
     status:
       - which mlr
     preconditions:
@@ -213,7 +213,7 @@ tasks:
       Ultimate Plumber is a tool for writing Linux pipes with instant live preview.
     cmd: go install github.com/akavel/up@latest
     generates:
-      - "{{.GOBIN}}/up"
+      - "{{.BIN_DIR}}/up"
     status:
       - which up
     preconditions:
@@ -227,7 +227,7 @@ tasks:
       yq uses jq like syntax but works with yaml files as well as json and xml.
     cmd: go install github.com/mikefarah/yq/v4@latest
     generates:
-      - "{{.GOBIN}}/yq"
+      - "{{.BIN_DIR}}/yq"
     status:
       - which yq
     preconditions:

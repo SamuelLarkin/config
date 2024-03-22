@@ -1,6 +1,7 @@
 version: '3'
 
 env:
+  BIN_DIR: "{{.HOME}}/.local/bin"
   INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
@@ -30,6 +31,6 @@ tasks:
     env:
       VERSION: 5.0-1.1.2
     generates:
-      - "{{.INSTALL_DIR}}/bin/bashdb"
+      - "{{.BIN_DIR}}/bashdb"
     status:
       - which bashdb

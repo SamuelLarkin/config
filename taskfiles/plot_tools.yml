@@ -1,8 +1,7 @@
 version: '3'
 
 env:
-  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
-  GOBIN: "{{.HOME}}/.local"
+  BIN_DIR: "{{.HOME}}/.local/bin"
   INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
@@ -37,7 +36,7 @@ tasks:
         \make install
     dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.INSTALL_DIR}}/bin/feedgnuplot"
+      - "{{.BIN_DIR}}/feedgnuplot"
     status:
       - which feedgnuplot
 

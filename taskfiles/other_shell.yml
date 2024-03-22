@@ -1,8 +1,7 @@
 version: '3'
 
 env:
-  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
-  GOBIN: "{{.HOME}}/.local/bin"
+  BIN_DIR: "{{.HOME}}/.local/bin"
   INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
@@ -19,7 +18,7 @@ tasks:
       Elvish = Expressive Programming Language + Versatile Interactive Shell
     cmd: go install src.elv.sh/cmd/elvish@latest
     generates:
-      - "{{.GOBIN}}/elvish"
+      - "{{.BIN_DIR}}/elvish"
     status:
       - which elvish
 
@@ -48,7 +47,7 @@ tasks:
     env:
       VERSION: 3.3.1
     generates:
-      - "{{.INSTALL_DIR}}/bin/fish"
+      - "{{.BIN_DIR}}/fish"
     status:
       - which fish
 
@@ -60,7 +59,7 @@ tasks:
       #- cargo install --force --git https://github.com/nushell/nushell
       - cargo install --force nu
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/nu"
+      - "{{.BIN_DIR}}/nu"
     status:
       - which nu
 

@@ -1,7 +1,8 @@
 version: '3'
 
 env:
-  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:
@@ -40,7 +41,7 @@ tasks:
       cargo install --force --git https://github.com/ClementTsang/bottom
     cmd: cargo install --force bottom
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/bottom"
+      - "{{.BIN_DIR}}/bottom"
     status:
       - which bottom
     preconditions:
@@ -53,7 +54,7 @@ tasks:
       A new way to see and navigate directory trees : https://dystroy.org/broot
     cmd: cargo install --force broot
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/broot"
+      - "{{.BIN_DIR}}/broot"
     status:
       - which broot
     preconditions:
@@ -66,7 +67,7 @@ tasks:
       windirstat like for the CLI.
     cmd: cargo install --force diskonaut
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/diskonaut"
+      - "{{.BIN_DIR}}/diskonaut"
     status:
       - which diskonaut
     preconditions:
@@ -79,7 +80,7 @@ tasks:
       Like du but more intuitive.
     cmd: cargo install --force --git https://github.com/bootandy/dust
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/dust"
+      - "{{.BIN_DIR}}/dust"
     status:
       - which dust
     preconditions:
@@ -94,7 +95,7 @@ tasks:
       sizes adjacent.
     cmd: cargo install --force --git https://github.com/solidiquis/erdtree
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/erdtree"
+      - "{{.BIN_DIR}}/erdtree"
     status:
       - which erdtree
     preconditions:
@@ -109,7 +110,7 @@ tasks:
       modern replacement for ls.
     cmd: cargo install --force exa
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/exa"
+      - "{{.BIN_DIR}}/exa"
     status:
       - which exa
     preconditions:
@@ -122,7 +123,7 @@ tasks:
       is a program to find entries in your filesystem.
     cmd: cargo install --force fd-find
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/fd"
+      - "{{.BIN_DIR}}/fd"
     status:
       - which fd
     preconditions:
@@ -135,7 +136,7 @@ tasks:
       Find Unicode characters the easy way: from the command line.
     cmd: cargo install --force find_unicode
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/fu"
+      - "{{.BIN_DIR}}/fu"
     status:
       - which fu
     preconditions:
@@ -148,7 +149,7 @@ tasks:
       Blazing 💥 fast terminal-ui for git written in rust 🦀.
     cmd: cargo install --force gitui
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/gitui"
+      - "{{.BIN_DIR}}/gitui"
     status:
       - which gitui
     preconditions:
@@ -162,7 +163,7 @@ tasks:
       Display.
     cmd: cargo install --force histo
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/histo"
+      - "{{.BIN_DIR}}/histo"
     status:
       - which histo
     preconditions:
@@ -175,7 +176,7 @@ tasks:
       Like jq, but for HTML. Uses CSS selectors to extract bits of content from HTML files.
     cmd: cargo install --force htmlq
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/htmlq"
+      - "{{.BIN_DIR}}/htmlq"
     status:
       - which htmlq
     preconditions:
@@ -188,7 +189,7 @@ tasks:
       An interactive cheatsheet tool for the command-line.
     cmd: cargo install --force --git https://github.com/denisidoro/navi
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/navi"
+      - "{{.BIN_DIR}}/navi"
     status:
       - which navi
     preconditions:
@@ -201,7 +202,7 @@ tasks:
       Painless compression and decompression for your terminal.
     cmd: cargo install --force ouch
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/ouch"
+      - "{{.BIN_DIR}}/ouch"
     status:
       - which ouch
     preconditions:
@@ -214,7 +215,7 @@ tasks:
       A simple tui to view & control docker containers.
     cmd: cargo install --force --git https://github.com/mrjackwills/oxker
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/oxker"
+      - "{{.BIN_DIR}}/oxker"
     status:
       - which oxker
     preconditions:
@@ -227,7 +228,7 @@ tasks:
       is a replacement for ps written in Rust.
     cmd: cargo install --force procs
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/procs"
+      - "{{.BIN_DIR}}/procs"
     status:
       - which procs
     preconditions:
@@ -241,7 +242,7 @@ tasks:
       current directory for a regex pattern.
     cmd: cargo install --force ripgrep
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/ripgrep"
+      - "{{.BIN_DIR}}/ripgrep"
     status:
       - which rg
     preconditions:
@@ -255,7 +256,7 @@ tasks:
       directories that supports regular expressions.
     cmd: cargo install --force rnr
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/rnr"
+      - "{{.BIN_DIR}}/rnr"
     status:
       - which rnr
     preconditions:
@@ -269,7 +270,7 @@ tasks:
       duplicate entries (lines) from texual input.
     cmd: cargo install --force runiq
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/runiq"
+      - "{{.BIN_DIR}}/runiq"
     status:
       - which runiq
     preconditions:
@@ -283,7 +284,7 @@ tasks:
       A la `fzf`.
     cmd: cargo install --force skim
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/sk"
+      - "{{.BIN_DIR}}/sk"
     status:
       - which sk
     preconditions:
@@ -297,7 +298,7 @@ tasks:
       SCP/SFTP/FTP/S3.
     cmd: cargo install --force termscp
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/termscp"
+      - "{{.BIN_DIR}}/termscp"
     status:
       - which termscp
     preconditions:
@@ -311,7 +312,7 @@ tasks:
       the colorized output of ls, tree, fd, bfs, dust and many other tools.
     cmd: cargo install --force vivid
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/vivid"
+      - "{{.BIN_DIR}}/vivid"
     status:
       - which vivid
     preconditions:
@@ -325,7 +326,7 @@ tasks:
       and joining CSV files. Commands should be simple, fast and composable.
     cmd: cargo install --force xsv
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/xsv"
+      - "{{.BIN_DIR}}/xsv"
     status:
       - which xsv
     preconditions:
@@ -338,7 +339,7 @@ tasks:
       A terminal workspace with batteries included.
     cmd: cargo install --force zellij
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/zellij"
+      - "{{.BIN_DIR}}/zellij"
     status:
       - which zellij
     preconditions:
@@ -351,7 +352,7 @@ tasks:
       In terminal graphical metrics for your *nix system written in Rust.
     cmd: cargo install --force --git https://github.com/bvaisvil/zenith
     generates:
-      - "{{.CARGO_INSTALL_ROOT}}/bin/zenith"
+      - "{{.BIN_DIR}}/zenith"
     status:
       - which zenith
     preconditions:

@@ -1,8 +1,8 @@
 version: '3'
 
 env:
-  CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
-  CARGO_BIN_DIR: "{{.HOME}}/.local/bin"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:
@@ -21,7 +21,7 @@ tasks:
       ✨ Magical shell history.
     cmd: cargo install --force atuin
     generates:
-      - "{{.CARGO_BIN_DIR}}/atuin"
+      - "{{.BIN_DIR}}/atuin"
     status:
       - which atuin
     preconditions:
@@ -35,7 +35,7 @@ tasks:
       Terminal bandwidth utilization tool.
     cmd: cargo install --force bandwhich
     generates:
-      - "{{.CARGO_BIN_DIR}}/bandwhich"
+      - "{{.BIN_DIR}}/bandwhich"
     status:
       - which bandwhich
     preconditions:
@@ -48,7 +48,7 @@ tasks:
       Blazing 💥 fast terminal-ui for git written in rust 🦀.
     cmd: cargo install --force eza
     generates:
-      - "{{.CARGO_BIN_DIR}}/eza"
+      - "{{.BIN_DIR}}/eza"
     status:
       - which eza
     preconditions:
@@ -61,7 +61,7 @@ tasks:
       A modern, maintained replacement for ls.
     cmd: cargo install --force gitui
     generates:
-      - "{{.CARGO_BIN_DIR}}/gitui"
+      - "{{.BIN_DIR}}/gitui"
     status:
       - which gitui
     preconditions:
@@ -76,7 +76,7 @@ tasks:
       [Generate a matching regular expression from the test cases you provide](https://pemistahl.github.io/grex-js/)
     cmd: cargo install --force grex
     generates:
-      - "{{.CARGO_BIN_DIR}}/grex"
+      - "{{.BIN_DIR}}/grex"
     status:
       - which grex
     preconditions:
@@ -96,7 +96,7 @@ tasks:
         cargo install --force --path helix-term --locked
     dir: "{{.HOME}}/tmp"
     generates:
-      - "{{.CARGO_BIN_DIR}}/hx"
+      - "{{.BIN_DIR}}/hx"
     status:
       - which hx
     preconditions:
@@ -109,7 +109,7 @@ tasks:
       A jq clone focussed on correctness, speed, and simplicity.
     cmd: cargo install --force jaq
     generates:
-      - "{{.CARGO_BIN_DIR}}/jaq"
+      - "{{.BIN_DIR}}/jaq"
     status:
       - which jaq
     preconditions:

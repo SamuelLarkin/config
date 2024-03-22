@@ -1,7 +1,8 @@
 version: '3'
 
 env:
-  GOBIN: "{{.HOME}}/.local/bin"
+  BIN_DIR: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:
@@ -16,7 +17,7 @@ tasks:
       A cross-platform TUI database management tool written in Go.
     cmd: go install github.com/jorgerojas26/lazysql@latest
     generates:
-      - "{{.GOBIN}}/lazysql"
+      - "{{.BIN_DIR}}/lazysql"
     status:
       - which lazysql
     preconditions:
@@ -29,7 +30,7 @@ tasks:
       Code snippets in your terminal.
     cmd: go install github.com/maaslalani/nap@main
     generates:
-      - "{{.GOBIN}}/nap"
+      - "{{.BIN_DIR}}/nap"
     status:
       - which nap
     preconditions:
@@ -42,7 +43,7 @@ tasks:
       👀 A modern watch command. Time machine and pager etc.
     cmd: go install github.com/sachaos/viddy@latest
     generates:
-      - "{{.GOBIN}}/viddy"
+      - "{{.BIN_DIR}}/viddy"
     status:
       - which viddy
     preconditions:

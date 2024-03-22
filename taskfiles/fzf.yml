@@ -3,7 +3,7 @@ version: '3'
 env:
   BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
   BIN_DIR: "{{.HOME}}/.local/bin"
-  GOBIN: "{{.HOME}}/.local/bin"
+  INSTALL_DIR: "{{.HOME}}/.local"
 
 tasks:
   default:
@@ -34,7 +34,7 @@ tasks:
       fzf is a general-purpose command-line fuzzy finder.
     cmd: go install github.com/junegunn/fzf@latest
     generates:
-      - "{{.GOBIN}}/fzf"
+      - "{{.BIN_DIR}}/fzf"
     status:
       - which fzf
 
