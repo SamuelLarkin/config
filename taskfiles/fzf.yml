@@ -12,7 +12,7 @@ tasks:
       - fzf
       - fzf-git
       - fzf-tmux
-      - shell_completion
+      #- shell_completion  # This should now be done with eval "$(fzf --bash)"
 
   forgit:
     desc: >
@@ -96,3 +96,6 @@ tasks:
     status:
       - test -f {{.BASH_COMPLETION_D}}/fzf-completion.bash
       - test -f {{.BASH_COMPLETION_D}}/fzf-key-bindings.bash
+    precondition:
+      - sh: "! fzf --bash"
+        msg: fzf doesn't have the built-in completion and key-bindings.
