@@ -11,7 +11,6 @@ tasks:
       - atuin
       - bandwhich
       - eza
-      - gitui
       - grex
       - helix
       - jaq
@@ -52,19 +51,6 @@ tasks:
       - "{{.BIN_DIR}}/eza"
     status:
       - which eza
-    preconditions:
-      - msg: "cargo must be in your $PATH"
-        sh: which cargo
-
-  gitui:
-    desc: >
-      [gitui - GitHub](https://github.com/eza-community/eza):
-      A modern, maintained replacement for ls.
-    cmd: cargo install --force gitui
-    generates:
-      - "{{.BIN_DIR}}/gitui"
-    status:
-      - which gitui
     preconditions:
       - msg: "cargo must be in your $PATH"
         sh: which cargo
