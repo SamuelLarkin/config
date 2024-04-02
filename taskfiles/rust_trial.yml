@@ -1,6 +1,7 @@
 version: '3'
 
 env:
+  BASH_COMPLETION_D: "{{.HOME}}/.bash_completion.d"
   BIN_DIR: "{{.HOME}}/.local/bin"
   # NOTE: [Environment variable used by cargo to specify the installation directory](https://doc.rust-lang.org/cargo/commands/cargo-install.html)
   CARGO_INSTALL_ROOT: "{{.HOME}}/.local"
@@ -10,6 +11,7 @@ tasks:
     deps:
       - atuin
       - bandwhich
+      - diffsitter
       - eza
       - grex
       - helix
@@ -38,6 +40,23 @@ tasks:
       - "{{.BIN_DIR}}/bandwhich"
     status:
       - which bandwhich
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
+
+  diffsitter:
+    desc: >
+      WARNING: Couldn't get it to compile.
+      [diffsitter - GitHub](https://github.com/afnanenayet/diffsitter):
+      A tree-sitter based AST difftool to get meaningful semantic diffs.
+    cmds:
+      - cargo install diffsitter --bin diffsitter
+      - cargo install diffsitter --bin diffsitter_completions
+      - diffsitter gen-completion bash > {{.BASH_COMPLETION_D}}/diffsitter-completion.bash
+    generates:
+      - "{{.BIN_DIR}}/diffsitter"
+    status:
+      - which diffsitter
     preconditions:
       - msg: "cargo must be in your $PATH"
         sh: which cargo
