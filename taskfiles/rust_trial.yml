@@ -44,8 +44,8 @@ tasks:
 
   eza:
     desc: >
-      [eza - GitHub](https://github.com/extrawurst/gitui):
-      Blazing 💥 fast terminal-ui for git written in rust 🦀.
+      [eza - GitHub](https://github.com/eza-community/eza):
+      A modern, maintained replacement for ls.
     cmd: cargo install --force eza
     generates:
       - "{{.BIN_DIR}}/eza"
