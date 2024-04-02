@@ -1,8 +1,8 @@
 version: '3'
 
 env:
-  BIN_DIR: "{{.HOME}}/.local/bin"
-  INSTALL_DIR: "{{.HOME}}/.local"
+  # [The directory where go install and go get will place binaries after building main packages](https://www.programming-books.io/essential/go/gopath-goroot-gobin-d6da4b8481f94757bae43be1fdfa9e73#fcf0957a-4f5a-4f3e-870f-dd49aead22bd)
+  GOBIN: "{{.HOME}}/.local/bin"
 
 tasks:
   default:
@@ -17,7 +17,7 @@ tasks:
       A cross-platform TUI database management tool written in Go.
     cmd: go install github.com/jorgerojas26/lazysql@latest
     generates:
-      - "{{.BIN_DIR}}/lazysql"
+      - "{{.GOBIN}}/lazysql"
     status:
       - which lazysql
     preconditions:
@@ -30,7 +30,7 @@ tasks:
       Code snippets in your terminal.
     cmd: go install github.com/maaslalani/nap@main
     generates:
-      - "{{.BIN_DIR}}/nap"
+      - "{{.GOBIN}}/nap"
     status:
       - which nap
     preconditions:
@@ -43,7 +43,7 @@ tasks:
       👀 A modern watch command. Time machine and pager etc.
     cmd: go install github.com/sachaos/viddy@latest
     generates:
-      - "{{.BIN_DIR}}/viddy"
+      - "{{.GOBIN}}/viddy"
     status:
       - which viddy
     preconditions:

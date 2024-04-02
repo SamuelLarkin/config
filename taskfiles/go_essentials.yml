@@ -1,8 +1,8 @@
 version: '3'
 
 env:
-  BIN_DIR: "{{.HOME}}/.local/bin"
-  INSTALL_DIR: "{{.HOME}}/.local"
+  # [The directory where go install and go get will place binaries after building main packages](https://www.programming-books.io/essential/go/gopath-goroot-gobin-d6da4b8481f94757bae43be1fdfa9e73#fcf0957a-4f5a-4f3e-870f-dd49aead22bd)
+  GOBIN: "{{.HOME}}/.local/bin"
 
 tasks:
   default:
@@ -19,7 +19,7 @@ tasks:
       [ChezMoi - Documentation](https://www.chezmoi.io/)
     cmd: go install github.com/twpayne/chezmoi@latest
     generates:
-      - "{{.BIN_DIR}}/chezmoi"
+      - "{{.GOBIN}}/chezmoi"
     status:
       - which chezmoi
     preconditions:
@@ -32,7 +32,7 @@ tasks:
       Pretty fast disk usage analyzer written in Go.
     cmd: go install github.com/dundee/gdu/v5/cmd/gdu@latest
     generates:
-      - "{{.BIN_DIR}}/gdu"
+      - "{{.GOBIN}}/gdu"
     status:
       - which gdu
     preconditions:
@@ -45,7 +45,7 @@ tasks:
       Render markdown on the CLI, with pizzazz!
     cmd: go install github.com/charmbracelet/glow@latest
     generates:
-      - "{{.BIN_DIR}}/glow"
+      - "{{.GOBIN}}/glow"
     status:
       - which glow
     preconditions:
@@ -59,7 +59,7 @@ tasks:
       library.
     cmd: go install github.com/jesseduffield/lazygit@latest
     generates:
-      - "{{.BIN_DIR}}/lazygit"
+      - "{{.GOBIN}}/lazygit"
     status:
       - which lazygit
     preconditions:
