@@ -14,27 +14,11 @@ tasks:
       - fzf-tmux
       #- shell_completion  # This should now be done with eval "$(fzf --bash)"
 
-  forgit:
-    desc: >
-      [forgit - GitHub](https://github.com/wfxr/forgit):
-      A utility tool powered by fzf for using git interactively.
-    cmd: >
-      curl \
-         --create-dirs --fail --location \
-         --output {{.BIN_DIR}}/'#1' \
-         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}'
-    generates:
-      - "{{.BIN_DIR}}/forgit"
-    status:
-      - which forgit
-
   fzf:
     desc: >
       [fzf - GitHub](https://github.com/junegunn/fzf):
       fzf is a general-purpose command-line fuzzy finder.
     cmd: go install github.com/junegunn/fzf@latest
-    generates:
-      - "{{.BIN_DIR}}/fzf"
     status:
       - which fzf
 
@@ -54,9 +38,23 @@ tasks:
     status:
       - test -f {{.BASH_COMPLETION_D}}/fzf-git.sh
 
+  forgit:
+    desc: >
+      [forgit - GitHub](https://github.com/wfxr/forgit):
+      A utility tool powered by fzf for using git interactively.
+    cmd: >
+      curl \
+         --create-dirs --fail --location \
+         --output {{.BIN_DIR}}/'#1' \
+         'https://raw.githubusercontent.com/wfxr/forgit/master/bin/{git-forgit}'
+    generates:
+      - "{{.BIN_DIR}}/forgit"
+    status:
+      - which forgit
+
   fzf-tmux:
     desc: >
-      Install fzf's integration with tmux.
+      Install not's integration with tmux.
     deps:
       - fzf
     cmds:
@@ -72,20 +70,20 @@ tasks:
       - which fzf-tmux
 
   shell_completion:
-    desc: >
-      Install fzf's shell completion.
     deps:
       - fzf
+    desc: >
+      Install fzf's shell completion.
     cmd: |
       # BASH completions
       curl \
          --create-dirs --fail --location \
          --output {{.BASH_COMPLETION_D}}/fzf-'#1' \
-         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{completion.bash}'
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.bash}'
       curl \
          --create-dirs --fail --location \
          --output {{.BASH_COMPLETION_D}}/fzf-'#1' \
-         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{key-bindings.bash}'
+         'https://raw.githubusercontent.com/junegunn/fzf/master/shell/{completion.bash}'
       curl \
          --create-dirs --fail --location \
          --output ~/.config/fish/functions/fzf-'#1' \
