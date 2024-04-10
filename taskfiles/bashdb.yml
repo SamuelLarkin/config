@@ -26,7 +26,7 @@ tasks:
       - defer: rm -fr bashdb-$VERSION/
       - |
         cd bashdb-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make install
     env:
       VERSION: 5.0-1.1.2

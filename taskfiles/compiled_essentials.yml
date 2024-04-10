@@ -32,7 +32,7 @@ tasks:
       - |
         cd htop-$VERSION
         ./autogen.sh
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc) install
     dir: $HOME/tmp
     env:
@@ -153,7 +153,7 @@ tasks:
       - defer: rm -fr parallel-$VERSION
       - |
         cd parallel-$VERSION
-        ./configure --prefix={{.INSTALL_DIR}}"
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc) install
     dir: "{{.HOME}}/tmp"
     env:
@@ -181,7 +181,7 @@ tasks:
       - |
         cd tig-$VERSION
         ./autogen.sh
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc) install
         mkdir -p {{.BASH_COMPLETION_D}}
         cp contrib/tig-completion.bash {{.BASH_COMPLETION_D}}

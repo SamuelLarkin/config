@@ -27,7 +27,7 @@ tasks:
       - |
         cd ctags
         ./autogen.sh
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc)
         \make -j $(nproc) install
     dir: "{{.HOME}}/tmp"
@@ -99,7 +99,7 @@ tasks:
         autoreconf -i
         ./configure
         \make check
-        \make DESTDIR={{.INSTALL_DIR}} install
+        \make DESTDIR="{{.INSTALL_DIR}}" install
     dir: "{{.HOME}}/tmp"
     env:
       VERSION: 1.9
@@ -142,7 +142,7 @@ tasks:
       - defer: rm -fr node-$VERSION/
       - |
         cd node-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc)
         \make -j $(nproc) install
     dir: "{{.HOME}}/tmp"
@@ -189,7 +189,7 @@ tasks:
       - defer: rm -fr pv-$VERSION/
       - |
         cd pv-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc) install
     dir: "{{.HOME}}/tmp"
     env:
@@ -216,7 +216,7 @@ tasks:
       - defer: rm -fr vifm-$VERSION/
       - |
         cd vifm-$VERSION/
-        ./configure --prefix={{.INSTALL_DIR}}
+        ./configure --prefix="{{.INSTALL_DIR}}"
         \make -j $(nproc) install
     dir: "{{.HOME}}/tmp"
     env:
