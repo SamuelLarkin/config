@@ -16,6 +16,7 @@ tasks:
       - grex
       - helix
       - jaq
+      - jf
 
   atuin:
     desc: >
@@ -118,6 +119,19 @@ tasks:
       - "{{.BIN_DIR}}/jaq"
     status:
       - which jaq
+    preconditions:
+      - msg: "cargo must be in your $PATH"
+        sh: which cargo
+
+  jf:
+    desc: >
+      [jf - GitHub](https://github.com/sayanarijit/jf)
+      jf %q "JSON Formatted".
+    cmd: cargo install --force jf
+    generates:
+      - "{{.BIN_DIR}}/jf"
+    status:
+      - which jf
     preconditions:
       - msg: "cargo must be in your $PATH"
         sh: which cargo
