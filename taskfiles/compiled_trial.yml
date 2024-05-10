@@ -64,8 +64,8 @@ tasks:
 
   gh:
     desc: >
-      [duf - GitHub](https://github.com/muesli/duf_:
-      Disk Usage/Free Utility (Linux, BSD, macOS & Windows).
+      [gh - GitHub](https://github.com/cli/cli):
+      GitHub’s official command line tool.
     cmds:
       - git clone https://github.com/cli/cli.git gh-cli
       - defer: rm -fr gh-cli
