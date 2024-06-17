@@ -7,9 +7,24 @@ env:
 tasks:
   default:
     deps:
+      - fx
       - lazysql
       - nap
       - viddy
+
+  fx:
+    desc: >
+      [fx - GitHub](https://github.com/antonmedv/fx?tab=readme-ov-file):
+      Terminal JSON viewer & processor.
+      [fx - Documentation](https://fx.wtf)
+    cmd: go install github.com/antonmedv/fx@latest
+    generates:
+      - "{{.GOBIN}}/fx"
+    status:
+      - which fx
+    preconditions:
+      - msg: "Go must be in your $PATH"
+        sh: which go
 
   lazysql:
     desc: >
