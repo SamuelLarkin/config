@@ -86,3 +86,7 @@ tasks:
       - python
       - python_profiler
       - rust_trial
+
+  nvim:
+    cmds:
+      - task: compiled_essentials:nvim
