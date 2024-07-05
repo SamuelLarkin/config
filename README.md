@@ -3,12 +3,22 @@
 
 This repository contains my personal configuration files when I want to setup a Linux environment.
 
-
 ## Minimal Manual Action to Get Started
 
 At a minimum, we need to manually install Task which will allow us to install the rest of the software stack.
 
+### Rust and go
+
+You may have to install [Rust](https://www.rust-lang.org/tools/install) and [Go](https://go.dev/dl/) first.
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+{ mkdir -p ~/opt && cd ~/opt && wget 'https://go.dev/dl/go1.22.5.linux-amd64.tar.gz' -O - | tar zx && mv go go-1.22.5; }
+```
+
 ### Task
+
 [Go Task - Documentation](https://taskfile.dev/): Task is a task runner / build tool that aims to be simpler and easier to use than, for example, GNU Make.
 [Go Task - GitHub](https://github.com/go-task/task): A task runner / simpler Make alternative written in Go.
 
@@ -17,26 +27,32 @@ env GOBIN=$HOME/.local/bin go install github.com/go-task/task/v3/cmd/task@latest
 ```
 
 ### ChezMoi
+
 [ChezMoi - Documentation](https://www.chezmoi.io/)
 [ChezMoi - GitHub](https://github.com/twpayne/chezmoi): Manage your dotfiles across multiple diverse machines, securely.
 
 ```sh
 env GOBIN=$HOME/.local/bin go install github.com/twpayne/chezmoi@latest
 ```
+
 or
+
 ```sh
 task -t taskfiles/go_essentials.yml chezmoi
 ```
 
 Clone and Apply Chezmoi
+
 ```sh
 chezmoi init --apply github:SamuelLarkin/dotfiles.git
 ```
 
-
 ## CLI Tools
+
 ### Favorites
+
 These are my most used CLIs.
+
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [delta - GitHub](https://github.com/dandavison/delta): A syntax-highlighting pager for git, diff, and grep output
 * [fzf - GitHub](https://github.com/junegunn/fzf.git): fzf is a general-purpose command-line fuzzy finder.  Also available, a vim plugin for fzf.
@@ -62,8 +78,8 @@ These are my most used CLIs.
 * [ug/ugrep - GitHub](https://github.com/Genivia/ugrep): Search for anything in everything... ultra fast.
 * [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
 
-
 ### All
+
 * [asciigraph - GitHub](https://github.com/guptarohit/asciigraph): Go package to make lightweight ASCII line graphs ╭┈╯.
 * [bat - GitHub](https://github.com/sharkdp/bat): A cat(1) clone with syntax
 * [bottom - GitHub](https://github.com/ClementTsang/bottom): Another TUI based system monitor, this time in Rust
@@ -137,9 +153,8 @@ These are my most used CLIs.
 * [zenith - GitHub](https://github.com/bvaisvil/zenith): In terminal graphical metrics for your Xnix system written in Rust.
 * [zoxide - GitHub](https://github.com/ajeetdsouza/zoxide): zoxide is a smarter cd command, inspired by z and autojump.  It remembers which directories you use most frequently, so you can "jump" to them in just a few keystrokes.  zoxide works on all major shells.  `eval "$(zoxide init bash)"`
 
-
-
 ### Shells
+
 * [elvish](https://elv.sh/): Elvish is an expressive programming language and a versatile interactive shell, combined into one seamless package. It runs on Linux, BSDs, macOS and Windows.
 * [elvish - GitHub](https://github.com/elves/elvish): Elvish = Expressive Programming Language + Versatile Interactive Shell
 * [fish - GitHub](https://github.com/fish-shell/fish-shell/): the friendly interactive shell
@@ -147,16 +162,15 @@ These are my most used CLIs.
 * [nushell - GitHub](https://github.com/nushell/nushell): A new type of shell.
 * [xonsh](https://xon.sh/): XONSH is a Python-powered shell
 
-
-
 ### Dropped
+
 * [fz - GitHub](https://github.com/changyuheng/fz): A shell plugin that seamlessly adds fuzzy search to tab completion of z, lets you easy to jump around among your historical directories
 * [z - GitHub](https://github.com/rupa/z): jump around
 
-
-
 ### `delta`
+
 `~/.gitconfig`
+
 ```sh
 [core]
     pager = delta
@@ -173,8 +187,6 @@ These are my most used CLIs.
 [diff]
     colorMoved = default
 ```
-
-
 
 ## Things to Try
 
@@ -196,8 +208,6 @@ These are my most used CLIs.
 * [xq - GitHub](https://github.com/MiSawa/xq): JQ reimplemented purely in Rust.
 * [yazi - GitHub](https://github.com/sxyazi/yazi): 💥 Blazing fast terminal file manager written in Rust, based on async I/O.
 
-
-
 ### Vim Plugins
 
 * [Jeremy Kahn - Youtube](https://www.youtube.com/watch?v=x8uleL9j5lY): Vim Plugins and Tricks That Give Me Super Powers.
@@ -206,8 +216,6 @@ These are my most used CLIs.
 * [anyjump - GitHub](https://github.com/pechorin/any-jump.vim): Vim code inspection plugin for finding definitions _and_ pick and references/usages.
 * [ctrlsf.vim - GitHub](https://github.com/dyng/ctrlsf.vim): An ack/ag/pt/rg powered code search and view tool, takes advantage of Vim 8's power to support asynchronous searching, and lets you edit file in-place with Edit Mode.
 * [ALE - GitHub](https://github.com/dense-analysis/ale): Asynchronous Lint Engine.
-
-
 
 ### Neovim
 
@@ -231,9 +239,8 @@ Vim Plugins equivalent
 | statusbar | navic |
 | tagbar | symbols-outline, navbuddy, aerial, vista |
 
-
-
 # Links
+
 * [jq - manual](https://stedolan.github.io/jq/manual/v1.5/)
 * [jq - cookbook](https://github.com/stedolan/jq/wiki/Cookbook)
 * [jq-hopkok jq utility library - GitHub](https://github.com/joelpurra/jq-hopkok): Checkout how they handle `parallel` with `jq`.
