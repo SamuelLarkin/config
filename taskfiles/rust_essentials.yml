@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 env:
   BIN_DIR: "{{.HOME}}/.local/bin"
@@ -134,7 +134,7 @@ tasks:
       This project is a rewrite of GNU ls with lot of added features like
       colors, icons, tree-view, more formatting options etc. The project is
       heavily inspired by the super colorls project.
-    cmd: cargo install --force lsd
+    cmd: cargo install --force --locked lsd
     generates:
       - "{{.BIN_DIR}}/lsd"
     status:
